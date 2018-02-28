@@ -1,0 +1,47 @@
+# Authentication and Access Control for AWS CodeCommit<a name="auth-and-access-control"></a>
+
+Access to AWS CodeCommit requires credentials\. Those credentials must have permissions to access AWS resources, such as AWS CodeCommit repositories, and your IAM user, which you use to manage your Git credentials or the SSH public key that you use for making Git connections\. The following sections provide details on how you can use [AWS Identity and Access Management \(IAM\)](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) and AWS CodeCommit to help secure access to your resources:
+
++ [Authentication](#authentication)
+
++ [Access Control](#access-control)
+
+## Authentication<a name="authentication"></a>
+
+Because AWS CodeCommit repositories are Git\-based and support the basic functionality of Git, including Git credentials, we recommend that you use an IAM user when working with AWS CodeCommit\. You can access AWS CodeCommit with other identity types, but the other identity types are subject to limitations, as described below\.
+
+Identity types:
+
++ **IAM user** – An [IAM user](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html) is simply an identity within your AWS account that has specific custom permissions\. For example, an IAM user can have permissions to create and manage Git credentials for accessing AWS CodeCommit repositories\. **This is the recommended user type for working with AWS CodeCommit\.** You can use an IAM user name and password to sign in to secure AWS webpages like the [AWS Management Console](https://console.aws.amazon.com/), [AWS Discussion Forums](https://forums.aws.amazon.com/), or the [AWS Support Center](https://console.aws.amazon.com/support/home#/)\. 
+
+  You can generate Git credentials or associate SSH public keys with your IAM user\. These are the easiest ways to set up Git to work with your AWS CodeCommit repositories\. With Git credentials, you generate a static user name and password in IAM\. You then use these credentials for HTTPS connections with Git and any third\-party tool that supports Git user name and password authentication\. With SSH connections, you create public and private key files on your local machine that Git and AWS CodeCommit use for SSH authentication\. You associate the public key with your IAM user, and you store the private key on your local machine\.
+
+  In addition, you can generate [access keys](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) for each user\. Use access keys when you access AWS services programmatically, either through [one of the AWS SDKs](https://aws.amazon.com/tools/) or by using the [AWS Command Line Interface \(AWS CLI\)](https://aws.amazon.com/cli/)\. The SDK and CLI tools use the access keys to cryptographically sign your requests\. If you don’t use the AWS tools, you must sign the requests yourself\. AWS CodeCommit supports *Signature Version 4*, a protocol for authenticating inbound API requests\. For more information about authenticating requests, see [Signature Version 4 Signing Process](http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) in the *AWS General Reference*\.
+
++ **AWS account root user** – When you sign up for AWS, you provide an email address and password that is associated with your AWS account\. These are your *root credentials*, and they provide complete access to all of your AWS resources\. Certain AWS CodeCommit features are not available for root account users\. In addition, the only way to use Git with your root account is to configure the AWS credential helper, which is included with the AWS CLI\. You cannot use Git credentials or SSH public\-private key pairs with your root account user\. For these reasons, we do not recommend using your root account user when interacting with AWS CodeCommit\.
+**Important**  
+For security reasons, we recommend that you use the root credentials only to create an *administrator user*, which is an *IAM user* with full permissions to your AWS account\. Then, you can use this administrator user to create other IAM users and roles with limited permissions\. For more information, see [IAM Best Practices](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users) and [Creating an Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*\.
+
++ **IAM role** – Like an IAM user, an [IAM role](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) is an IAM identity that you can create in your account to grant specific permissions\. It is similar to an IAM user, but it is not associated with a specific person\. Unlike an IAM user identity, you cannot use Git credentials or SSH keys with this identity type\. However, an *IAM role *enables you to obtain temporary access keys that you can use to access AWS services and resources\. IAM roles with temporary credentials are useful in the following situations:
+
+  + **Federated user access** – Instead of creating an IAM user, you can use preexisting user identities from AWS Directory Service, your enterprise user directory, or a web identity provider\. These are known as *federated users*\. AWS assigns a role to a federated user when access is requested through an [identity provider](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html)\. For more information about federated users, see [Federated Users and Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html#intro-access-roles) in the *IAM User Guide*\.
+**Note**  
+ You cannot use Git credentials or SSH public\-private key pairs with federated users\. In addition, user preferences are not available for federated users\.
+
+  + **Cross\-account access** – You can use an IAM role in your account to grant another AWS account permissions to access your account’s resources\. For an example, see [Tutorial: Delegate Access Across AWS Accounts Using IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html) in the *IAM User Guide*\.
+
+  + **AWS service access** – You can use an IAM role in your account to grant an AWS service permissions to access your account’s resources\. For example, you can create a role that allows AWS Lambda to access an AWS CodeCommit repository on your behalf\. For more information, see [Creating a Role to Delegate Permissions to an AWS Service](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*\.
+
+  + **Applications running on Amazon EC2** – Instead of storing access keys within an EC2 instance for use by applications running on the instance and for making AWS API requests, you can use an IAM role to manage temporary credentials for these applications\. To assign an AWS role to an EC2 instance and make it available to all of its applications, you can create an instance profile that is attached to the instance\. An *instance profile* contains the role and enables programs running on the EC2 instance to get temporary credentials\. For more information, see [Using Roles for Applications on Amazon EC2](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) in the *IAM User Guide*\.
+
+## Access Control<a name="access-control"></a>
+
+You can have valid credentials to authenticate your requests, but unless you have permissions you cannot create or access AWS CodeCommit resources\. For example, you must have permissions to view repositories, push code, create and manage Git credentials, and so on\.
+
+The following sections describe how to manage permissions for AWS CodeCommit\. We recommend that you read the overview first\.
+
++ [Overview of Managing Access Permissions to Your AWS CodeCommit Resources](auth-and-access-control-iam-access-control-identity-based.md)
+
++ [Using Identity\-Based Policies \(IAM Policies\) for AWS CodeCommit](auth-and-access-control-iam-identity-based-access-control.md)
+
++ [AWS CodeCommit Permissions Reference](auth-and-access-control-permissions-reference.md)
