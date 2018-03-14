@@ -21,7 +21,7 @@ The following information might help you troubleshoot common issues when using t
 1. Find your Git configuration file\. You can use the git option `--show-origin` to find out the config file where Mac OS X Keychain credential helper is defined:
 
    ```
-   $ git config -l —show-origin
+   $ git config -l --show-origin
    ```
    
 1. Find a file with option `helper = osxkeychain` and edit it.
