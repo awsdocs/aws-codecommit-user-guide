@@ -11,5 +11,5 @@ Alternatively, you can review the information about [migrating to Git](http://gi
 
 
 + [Migrate a Git Repository to AWS CodeCommit](how-to-migrate-repository-existing.md)
-+ [Migrate Local or Unversioned Content to AWS CodeCommit](how-to-migrate-repository-local.md)
-+ [Migrate a Repository Incrementally](how-to-push-large-repositories.md)
++ [Migrate Content to AWS CodeCommit](how-to-migrate-repository-local.md)
++ [Migrate a Repository in Increments](how-to-push-large-repositories.md)

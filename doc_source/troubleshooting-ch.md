@@ -18,15 +18,21 @@ The following information might help you troubleshoot common issues when using t
 
  The default version of Git released on OS X and macOS uses the Keychain Access utility to save generated credentials\. For security reasons, the password generated for access to your AWS CodeCommit repository is temporary, so the credentials stored in the keychain will stop working after about 15 minutes\. If you are only accessing Git with AWS CodeCommit, try the following:
 
-1. Using Terminal, determine where Git is installed on the local machine:
+1. In Terminal, run the git config command to find the Git configuration file where the Keychain Access utility is defined:
 
    ```
-   $ which git
-   
-   /usr/local/git/bin/git
+   $ git config -l --show-origin
    ```
 
-1. Find your Git configuration file\. You can use the Finder utility or you can use the find command with superuser permissions \(for example, $ sudo find \~ \-name "\.gitconfig"\)\. Edit the Git config file:
+   In the output from this command, find a line that contains the following option:
+
+   ```
+   helper = osxkeychain
+   ```
+
+   The file listed at the beginning of this line is the Git configuration file you must edit\.
+
+1. To edit the Git configuration file, use a plain\-text editor or run the following command:
 
    ```
    $ nano /usr/local/git/etc/gitconfig
@@ -38,7 +44,14 @@ The following information might help you troubleshoot common issues when using t
    # helper = osxkeychain
    ```
 
-If, however, you are accessing other repositories with Git, you can configure the Keychain Access utility so that it does not supply credentials for your AWS CodeCommit repositories\. To configure the Keychain Access utility:
+   Alternatively, if you want to continue to use the Keychain Access utility to cache credentials for other Git repositories, modify the header instead of commenting out the line\. For example, to allow cached credentials for GitHub, you could modify the header as follows:
+
+   ```
+   [credential "https://github.com"]
+      helper = osxkeychain
+   ```
+
+If you are accessing other repositories with Git, you can configure the Keychain Access utility so that it does not supply credentials for your AWS CodeCommit repositories\. To configure the Keychain Access utility:
 
 1. Open the Keychain Access utility\. \(You can use Finder to locate it\.\)
 
