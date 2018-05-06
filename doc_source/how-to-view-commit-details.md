@@ -1,9 +1,7 @@
 # View Commit Details in AWS CodeCommit<a name="how-to-view-commit-details"></a>
 
 You can use the AWS CodeCommit console to browse the history of commits in a repository\. This can help you identify changes made in a repository, including:
-
 + When and by whom the changes were made\.
-
 + When specific commits were merged into a particular branch\.
 
 Viewing the history of commits for a branch might also help you understand the difference between branches\. If you use tagging, you can also quickly view the commit that was labeled with a specific tag and the parents of that tagged commit\. At the command line, you can use Git to view details about the commits in a local repo or an AWS CodeCommit repository\. 
@@ -15,7 +13,7 @@ You can use the AWS CodeCommit console to browse the history of commits to a rep
 **Note**  
 Using the git rebase command to rebase a repository changes the history of a repository, which might cause commits to appear out of order\. For more information, see [Git Branching\-Rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) or your Git documentation\.
 
-
+**Topics**
 + [Browse the Commit History of a Repository](#how-to-view-commit-details-console-history)
 + [View a Graph of the Commit History of a Repository](#how-to-view-commit-details-console-visualizer)
 
@@ -35,17 +33,11 @@ You can browse the commit history for a specific branch or tag of the repository
 1. To view the difference between a commit and its parent, and to see any comments on the changes, choose the abbreviated commit ID\. For more information, see [Compare a Commit to Its Parent](how-to-compare-commits.md#how-to-compare-commits-parent) and [Comment on a Commit](how-to-commit-comment.md)\. To view the difference between a commit and any other commit specifier, including a branch, tag, or commit ID, see [Compare Any Two Commit Specifiers](how-to-compare-commits.md#how-to-compare-commits-compare)\.
 
 1. Do one or more of the following:
-
    + To view the date and time a change was made, hover over the days or months ago description\.
-
    + To view the email associated with the author, hover over the user name\.
-
    + To view the full commit ID, copy and then paste it into a text editor or other location\. To copy it, choose the copy icon\.
-
    + To view the code as it was at the time of a commit, choose the code icon \(**< / >**\) for the commit\. The contents of the repository as they were at the time of that commit is displayed in the **Code** view\. The view selector button displays the abbreviated commit ID instead of a branch or tag\.
-
    + If the full commit subject is too long to fit in the initial view, choose the arrow next to the message\. The commit message box expands to display up to 5,000 characters of the subject and message\.
-
    + To collapse the list of commits for a particular date, choose the arrow next to that date\.
 
 ### View a Graph of the Commit History of a Repository<a name="how-to-view-commit-details-console-visualizer"></a>
@@ -74,15 +66,10 @@ By pasting a full commit ID into the search box to render the graph from that co
 ![\[A detail view of a commit point\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-simple1-detail.png)![\[A detail view of a commit point\]](http://docs.aws.amazon.com/codecommit/latest/userguide/)
 
    The detail view shows: 
-
    + The date of the commit\.
-
    + The name of the author\.
-
    + The subject and contents of the commit message \(up to 200 characters\)\.
-
    + The full commit ID\.
-
    + The commit IDs of any parents of the commit\.
 
    If the commit is a merge made by any method other than fast\-forward, multiple parent IDs are displayed\. To copy a commit ID, choose the copy icon next to that ID\.
@@ -93,19 +80,14 @@ By pasting a full commit ID into the search box to render the graph from that co
 ## Use the AWS CLI to View Commit Details<a name="how-to-view-commit-details-cli"></a>
 
 Git lets you view details about commits\. You can also use the AWS CLI to view details about the commits in a local repo or in an AWS CodeCommit repository, by running the following commands:
-
 + [aws codecommit get\-commit](#how-to-view-commit-details-cli-commit), to view information about a commit\.
-
 + [aws codecommit get\-differences](#how-to-view-commit-details-cli-differences), to view information about changes for a commit specifier \(branch, tag, HEAD, or other fully qualified references, such as commit IDs\)\.
-
 + [aws codecommit get\-blob](#how-to-view-commit-details-cli-blob), to view the base64\-encoded content of an individual Git blob object in a repository\.
 
 ### To view information about a commit<a name="how-to-view-commit-details-cli-commit"></a>
 
 1. Run the aws codecommit get\-commit command, specifying:
-
    + The AWS CodeCommit repository's name \(with the `--repository-name` option\)\.
-
    + The full commit ID\. 
 
    For example, to view information about a commit with the ID `317f8570EXAMPLE` in an AWS CodeCommit repository named `MyDemoRepo`:
@@ -115,15 +97,10 @@ Git lets you view details about commits\. You can also use the AWS CLI to view d
    ```
 
 1. If successful, the output of this command includes the following:
-
    + Information about the author of the commit \(as configured in Git\), including the date in time stamp format and the coordinated universal time \(UTC\) offset\.
-
    + Information about the committer \(as configured in Git\) including the date in time stamp format and the UTC offset\.
-
    + The ID of the Git tree where the commit exists\.
-
    + The commit ID of the parent commit\.
-
    + The commit message\.
 
    Here is some example output, based on the preceding example command:
@@ -154,9 +131,7 @@ Git lets you view details about commits\. You can also use the AWS CLI to view d
 ### To view information about the changes for a commit specifier<a name="how-to-view-commit-details-cli-differences"></a>
 
 1. Run the aws codecommit get\-differences command, specifying:
-
    + The name of the AWS CodeCommit repository \(with the `--repository-name` option\)\.
-
    + The commit specifiers you want to get information about\. Only `--after-commit-specifier` is required\. If you do not specify `--before-commit-specifier`, all files current as of the `--after-commit-specifier` will be shown\. 
 
    For example, to view information about the differences between commits with the IDs `317f8570EXAMPLE` and `4c925148EXAMPLE` in an AWS CodeCommit repository named `MyDemoRepo`:
@@ -166,11 +141,8 @@ Git lets you view details about commits\. You can also use the AWS CLI to view d
    ```
 
 1. If successful, the output of this command includes the following:
-
    + A list of differences, including the change type \(A for added, D for deleted, or M for modified\)\.
-
    + The mode of the file change type\.
-
    + The ID of the Git blob object that contains the change\.
 
    Here is some example output, based on the preceding example command:
@@ -198,9 +170,7 @@ Git lets you view details about commits\. You can also use the AWS CLI to view d
 ### To view information about a Git blob object<a name="how-to-view-commit-details-cli-blob"></a>
 
 1. Run the aws codecommit get\-blob command, specifying:
-
    + The name of the AWS CodeCommit repository \(with the `--repository-name` option\)\.
-
    + The ID of the Git blob \(with the `--blob-id `option\)\. 
 
    For example, to view information about a Git blob with the ID of `2eb4af3bEXAMPLE` in an AWS CodeCommit repository named `MyDemoRepo`:
@@ -210,7 +180,6 @@ Git lets you view details about commits\. You can also use the AWS CLI to view d
    ```
 
 1. If successful, the output of this command includes the following:
-
    + The base64\-encoded content of the blob, usually a file\.
 
    For example, the output of the previous command might be similar to the following:

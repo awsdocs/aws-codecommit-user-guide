@@ -10,7 +10,7 @@ Assigning permissions to the IAM user\.
 Setting up credential management for HTTPS or SSH connections on the local machine you use for this tutorial\.
 Configuring the AWS CLI if you want to use the command line or terminal for all operations, including creating the repository\.
 
-
+**Topics**
 + [Step 1: Create an AWS CodeCommit Repository](#getting-started-cc-create-repo)
 + [Step 2: Add Files to Your Repository](#getting-started-cc-add)
 + [Step 3: Browse the Contents of Your Repository](#getting-started-cc-browse)
@@ -51,11 +51,8 @@ When the repository opens, you see information about connecting to it from your 
 ## Step 2: Add Files to Your Repository<a name="getting-started-cc-add"></a>
 
 You can add files to your repository in the following ways:
-
 + Creating a file directly from the AWS CodeCommit console\.
-
 + Uploading a file from your local computer using the AWS CodeCommit console\.
-
 + Using a Git client to clone the repository to your local computer, and then adding, committing, and pushing files to the AWS CodeCommit repository\.
 
 The simplest way to get started is to add a file from the AWS CodeCommit console\.
@@ -149,9 +146,7 @@ You can create pull requests directly from the **Pull requests** view\.
 ![\[Replying to a comment on a pull request\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-reply-activity.png)
 
 1. When you are satisfied that all the code changes have been reviewed and agreed to, from the pull request, do one of the following:
-
    + If you want to automatically merge the branches as part of closing the pull request using the fast\-forward merge option, choose **Merge**\.
-
    + If you want to close the pull request without using the automatic fast\-forward merge option to merge branches, or if there are merge conflicts in the branches that cannot be automatically resolved, choose **Close pull request**\.
 **Note**  
 You can always manually merge branches, including pull request branches, by using the git merge command in your local repo and pushing your changes\. AWS CodeCommit closes the pull request when you push the merged code\.
@@ -161,15 +156,10 @@ For more information, see [Working with Pull Requests](pull-requests.md)\.
 ## Step 5: Next Steps<a name="getting-started-cc-next"></a>
 
 Now that you have familiarized yourself with AWS CodeCommit and some of its features, consider doing the following:
-
 + If you are new to Git and AWS CodeCommit or want to review examples of using Git with AWS CodeCommit, continue to the [Git with AWS CodeCommit Tutorial](getting-started.md) tutorial\.
-
 + If you want to work with others in an AWS CodeCommit repository, see [Share a Repository](how-to-share-repository.md)\. \(If you want to share your repository with users in another AWS account, see [Configure Cross\-Account Access to an AWS CodeCommit Repository](cross-account.md)\.\)
-
 + If you want to migrate a repository to AWS CodeCommit, follow the steps in [Migrate to AWS CodeCommit](how-to-migrate-repository.md)\.
-
 + If you want to add your repository to a continuous delivery pipeline, follow the steps in [Simple Pipeline Walkthrough](http://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-cc.html)\.
-
 + If you want to learn more about products and services that integrate with AWS CodeCommit, including examples from the community, see [Product and Service Integrations](integrations.md)\.
 
 ## Step 6: Clean Up<a name="getting-started-cc-clean-up"></a>

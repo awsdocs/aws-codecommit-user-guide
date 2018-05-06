@@ -1,16 +1,13 @@
 # View AWS CodeCommit Repository Details<a name="how-to-view-repository-details"></a>
 
 To view information about available repositories, you can use:
-
 + Git from a local repo connected to the AWS CodeCommit repository\.
-
 + The AWS CLI\.
-
 + The AWS CodeCommit console\.
 
 Before you follow these instructions, complete the steps in [Setting Up ](setting-up.md)\.
 
-
+**Topics**
 + [Use the AWS CodeCommit Console to View Repository Details](#how-to-view-repository-details-console)
 + [Use Git to View AWS CodeCommit Repository Details](#how-to-view-repository-details-git)
 + [Use the AWS CLI to View AWS CodeCommit Repository Details](#how-to-view-repository-details-cli)
@@ -24,9 +21,7 @@ Use the AWS CodeCommit console to quickly view all repositories created with you
 1. Choose the name of the repository from the list\. 
 
 1. Do one of the following:
-
    + To view the URL for cloning the repository, in the navigation pane, choose **Code**, choose **Clone URL**, and then choose the protocol you want to use when cloning the repository\.
-
    + To view configurable details for the repository, in the navigation pane, choose **Settings**\. 
 
 **Note**  
@@ -91,11 +86,8 @@ For more options, see your Git documentation\.
 To use AWS CLI commands with AWS CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
 
 To use the AWS CLI to view repository details, run the following commands:
-
 + [list\-repositories](#how-to-view-repository-details-no-name-cli) to view a list of AWS CodeCommit repository names and their corresponding IDs\.
-
 + [get\-repository](#how-to-view-repository-details-with-name-cli) to view information about a single AWS CodeCommit repository\.
-
 + [batch\-get\-repositories](#how-to-view-repository-details-with-names-cli) to view information about multiple repositories in AWS CodeCommit\.
 
 ### To view a list of AWS CodeCommit repositories<a name="how-to-view-repository-details-no-name-cli"></a>
@@ -140,13 +132,9 @@ To get the AWS CodeCommit repository's name, run the [list\-repositories](#how-t
    ```
 
 1. If successful, this command outputs a `repositoryMetadata` object with the following information:
-
    + The repository's name \(`repositoryName`\)\.
-
    + The repository's description \(`repositoryDescription`\)\.
-
    + The repository's unique, system\-generated ID \(`repositoryId`\)\.
-
    + The ID of the AWS account associated with the repository \(`accountId`\)\.
 
    Here is some example output, based on the preceding example command:
@@ -181,15 +169,10 @@ To get the names of the repositories in AWS CodeCommit, run the [list\-repositor
    ```
 
 1. If successful, this command outputs an object with the following information:
-
    + A list of any AWS CodeCommit repositories that could not be found \(`repositoriesNotFound`\)\.
-
    + A list of AWS CodeCommit repositories \(`repositories`\)\. Each AWS CodeCommit repository's name is followed by:
-
      + The repository's description \(`repositoryDescription`\)\.
-
      + The repository's unique, system\-generated ID \(`repositoryId`\)\.
-
      + The ID of the AWS account associated with the repository \(`accountId`\)\.
 
    Here is some example output, based on the preceding example command:

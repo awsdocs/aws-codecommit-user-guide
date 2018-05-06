@@ -4,7 +4,7 @@ Before you can connect to AWS CodeCommit for the first time, you must complete t
 
 This topic walks you through the steps to install the AWS CLI, set up your computer and AWS profile, connect to an AWS CodeCommit repository, and clone that repository to your computer, also known as creating a local repo\. If you're new to Git, you might also want to review the information in [Where Can I Learn More About Git?](welcome.md#welcome-get-started-with-git)\.
 
-
+**Topics**
 + [Step 1: Initial Configuration for AWS CodeCommit](#setting-up-https-windows-account)
 + [Step 2: Install Git](#setting-up-https-windows-install-git)
 + [Step 3: Set Up the Credential Helper](#setting-up-https-windows-credential-helper)
@@ -68,33 +68,19 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
    ```
 
    To connect to a repository or a resource in another region, you must re\-configure the AWS CLI with the default region name for that region\. Supported default region names for AWS CodeCommit include:
-
    + us\-east\-2
-
    + us\-east\-1
-
    + eu\-west\-1
-
    + us\-west\-2
-
    + ap\-northeast\-1
-
    + ap\-southeast\-1
-
    + ap\-southeast\-2
-
    + eu\-central\-1
-
    + ap\-northeast\-2
-
    + sa\-east\-1
-
    + us\-west\-1
-
    + eu\-west\-2
-
    + ap\-south\-1
-
    + ca\-central\-1
 
    For more information about AWS CodeCommit and regions, see [Regions and Git Connection Endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\.
@@ -104,9 +90,7 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
 To work with files, commits, and other information in AWS CodeCommit repositories, you must install Git on your local machine\. AWS CodeCommit supports Git versions 1\.7\.9 and later\.
 
 To install Git, we recommend websites such as [Git for Windows](http://msysgit.github.io/)\. If you use this link to install Git, you can accept all of the installation default settings except for the following: 
-
 + When prompted during the **Adjusting your PATH environment** step, select the **Use Git from the Windows Command Prompt** option\.
-
 + \(Optional\) If you intend to use HTTPS with the credential helper that is included in the AWS CLI instead of configuring Git credentials for AWS CodeCommit, on the **Configuring extra options** page, make sure the **Enable Git Credential Manager** option is cleared\. The Git Credential Manager is only compatible with AWS CodeCommit if IAM users configure Git credentials\. For more information, see [For HTTPS Users Using Git Credentials](setting-up-gc.md) and [Git for Windows: I Installed Git for Windows, but I Am Denied Access to My Repository \(403\)](troubleshooting-ch.md#troubleshooting-windowshttps)\.
 
 **Note**  

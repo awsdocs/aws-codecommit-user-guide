@@ -4,7 +4,7 @@ Creating pull requests helps other users see and review your code changes before
 
 You can use the AWS CodeCommit console or the AWS CLI to create pull requests for your repository\. 
 
-
+**Topics**
 + [Use the AWS CodeCommit Console to Create a Pull Request](#how-to-create-pull-request-console)
 + [Use the AWS CLI to Create a Pull Request](#how-to-create-pull-request-cli)
 
@@ -47,19 +47,12 @@ To use AWS CLI commands with AWS CodeCommit, install the AWS CLI\. For more info
 To use the AWS CLI to create a pull request in an AWS CodeCommit repository:
 
 1. Run the create\-pull\-request command, specifying:
-
    + The name of the pull request \(with the \-\-title option\)\.
-
    + The description of the pull request \(with the \-\-description option\)\.
-
    + A list of targets for the create\-pull\-request command, including:
-
      + The name of the AWS CodeCommit repository where the pull request is created \(with the repositoryName attribute\)\.
-
      + The name of the branch that contains the code changes you want reviewed, also known as the source branch \(with the sourceReference attribute\)\.
-
      + \(Optional\) The name of the branch where you intend to merge your code changes, also known as the destination branch, if you do not want to merge to the default branch \(with the destinationReference attribute\)\.
-
    + A unique, client\-generated idempotency token \(with the \-\-client\-request\-token option\)\. 
 
    For example, to create a pull request named *My Pull Request* with a description of *Please review these changes by Tuesday* that targets the *MyNewBranch* source branch and is to be merged to the default branch *master* in an AWS CodeCommit repository named `MyDemoRepo`:

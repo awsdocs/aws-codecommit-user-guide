@@ -22,9 +22,7 @@ You can use the AWS CodeCommit console to review the files contained in a reposi
    To change the view to a different branch or tag, choose the view selector button\. Either choose a branch or tag name from the drop\-down list, or in the filter box, type the name of the branch or tag, and then choose it from the list\.
 
 1. Do one of the following:
-
    + To view the contents of a directory, choose it from the list\. You can choose any of the directories in the navigation list to return to that directory view\. You can also use the up arrow at the top of the directory list\.
-
    + To view the contents of a file, choose it from the list\. If the file is larger than the commit object limit, it cannot be displayed in the console and must be viewed in a local repo instead\. For more information, see [Limits](limits.md)\. To exit the file view, from the code navigation bar, choose the directory you want to view\.
 **Note**  
 If you choose a binary file, a warning message appears, asking you to confirm that you want to display the contents\. To view the file, choose **Show file contents**\. If you do not want to view the file, from the code navigation bar, choose the directory you want to view\.  

@@ -6,7 +6,7 @@ The procedures in this topic show you how to create and run a script that will m
 
 These instructions assume you have already completed the steps in [Setting Up ](setting-up.md) and [Create a Repository](how-to-create-repository.md)\. 
 
-
+**Topics**
 + [Step 0: Determine Whether to Migrate Incrementally](#how-to-push-large-repositories-determine)
 + [Step 1: Install Prerequisites and Add the AWS CodeCommit Repository as a Remote](#how-to-push-large-repositories-prereq)
 + [Step 2: Create the Script to Use for Migrating Incrementally](#how-to-push-large-repositories-createscript)
@@ -18,15 +18,10 @@ These instructions assume you have already completed the steps in [Setting Up ](
 There are several factors to consider to determine the overall size of your repository and whether to migrate incrementally\. The most obvious is the overall size of the artifacts in the repository\. Factors such as the accumulated history of the repository can also contribute to size\. A repository with years of history and branches can be very large, even though the individual assets are not\. There are a number of strategies you can pursue to make migrating these repositories simpler and more efficient, such as using a shallow clone strategy when cloning a repository with a long history of development, or turning off delta compression for large binary files\. You can research options by consulting your Git documentation, or you can choose to set up and configure incremental pushes for migrating your repository using the sample script included in this topic, `incremental-repo-migration.py`\. 
 
 You might want to configure incremental pushes if one or more of the following conditions is true:
-
 + The repository you want to migrate has more than five years of history\.
-
 + Your internet connection is subject to intermittent outages, dropped packets, slow response, or other interruptions in service\.
-
 + The overall size of the repository is larger than 2 GB and you intend to migrate the entire repository\.
-
 + The repository contains large artifacts or binaries that do not compress well, such as large image files with more than five tracked versions\.
-
 + You have previously attempted a migration to AWS CodeCommit and received an "Internal Service Error" message\. 
 
 Even if none of the above conditions are true, you can still choose to push incrementally\.

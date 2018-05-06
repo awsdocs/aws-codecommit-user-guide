@@ -13,14 +13,11 @@ You also create branches and tags and manage some access permissions in the AWS 
 After you complete this tutorial, you should have enough practice with the core Git and AWS CodeCommit concepts to use them for your own projects\. 
 
 Complete the [prerequisites and setup](setting-up.md), including:
-
 + Assign permissions to the IAM user\.
-
 + Set up credential management for HTTPS or SSH connections on the local machine you use for this tutorial\.
-
 + Configure the AWS CLI if you want to use the command line or terminal for all operations, including creating the repository\.
 
-
+**Topics**
 + [Step 1: Create an AWS CodeCommit Repository](#getting-started-create-repo)
 + [Step 2: Create a Local Repo](#getting-started-set-up-folders)
 + [Step 3: Create Your First Commit](#getting-started-create-commit)

@@ -6,7 +6,7 @@ The following are some basic examples of frequently used Git commands\.
 
 For more options, see your Git documentation\.
 
-
+**Topics**
 + [Configuration Variables](#how-to-basic-git-configuration-variables)
 + [Remote Repositories](#how-to-basic-git-remotes)
 + [Commits](#how-to-basic-git-commits)
@@ -22,8 +22,8 @@ For more options, see your Git documentation\.
 |  Lists only local configuration variables\.  |  `git config --local -l`  | 
 |  Lists only system configuration variables\.  |  `git config --system -l`  | 
 |  Lists only global configuration variables\.  |  `git config --global -l`  | 
-|  Sets a configuration variable in the specified configuration file\.  |  `git config [--local | --global | --system] variable-name variable-value`  | 
-| Edits a configuration file directly\. Can also be used to discover the location of a specific configuration file\. To exit edit mode, typically you type :q \(to exit without saving changes\) or :wq \(to save changes and then exit\), and then press Enter\. | git config \[\-\-local | \-\-global | \-\-system\] \-\-edit | 
+|  Sets a configuration variable in the specified configuration file\.  |  `git config [--local \| --global \| --system] variable-name variable-value`  | 
+| Edits a configuration file directly\. Can also be used to discover the location of a specific configuration file\. To exit edit mode, typically you type `:q` \(to exit without saving changes\) or `:wq` \(to save changes and then exit\), and then press Enter\. | `git config [--local \| --global \| --system] --edit` | 
 
 ## Remote Repositories<a name="how-to-basic-git-remotes"></a>
 
@@ -36,9 +36,9 @@ For more options, see your Git documentation\.
 |  Shows the nickname the local repo uses for the AWS CodeCommit repository\.  |  `git remote`  | 
 |  Shows the nickname and the URL the local repo uses for fetches and pushes to the AWS CodeCommit repository\.  |  `git remote -v`  | 
 |  Pushes finalized commits from the local repo to the AWS CodeCommit repository, using the specified nickname the local repo has for the AWS CodeCommit repository and the specified branch\. Also sets up upstream tracking information for the local repo during the push\.  |  `git push -u remote-name branch-name`  | 
-| Pushes finalized commits from the local repo to the AWS CodeCommit repository after upstream tracking information is set\. | git push | 
+| Pushes finalized commits from the local repo to the AWS CodeCommit repository after upstream tracking information is set\. | `git push` | 
 |  Pulls finalized commits to the local repo from the AWS CodeCommit repository, using the specified nickname the local repo has for the AWS CodeCommit repository and the specified branch  |  `git pull remote-name branch-name`  | 
-| Pulls finalized commits to the local repo from the AWS CodeCommit repository after upstream tracking information is set\. | git pull | 
+| Pulls finalized commits to the local repo from the AWS CodeCommit repository after upstream tracking information is set\. | `git pull` | 
 |  Disconnects the local repo from the AWS CodeCommit repository, using the specified nickname the local repo has for the AWS CodeCommit repository\.  |  `git remote rm remote-name`  | 
 
 ## Commits<a name="how-to-basic-git-commits"></a>
@@ -49,7 +49,7 @@ For more options, see your Git documentation\.
 |  Shows what has or hasn't been added to the pending commit in the local repo\.  |  `git status`  | 
 |  Shows what has or hasn't been added to the pending commit in the local repo in a concise format\. \(`M` = modified, `A` = added, `D` = deleted, and so on\)  |  `git status -sb`  | 
 |  Shows changes between the pending commit and the latest commit in the local repo\.  |  `git diff HEAD`  | 
-|  Adds specific files to the pending commit in the local repo\.  |  `git add [file-name-1 file-name-2 file-name-N | file-pattern]`  | 
+|  Adds specific files to the pending commit in the local repo\.  |  `git add [file-name-1 file-name-2 file-name-N \| file-pattern]`  | 
 |  Adds all new, modified, and deleted files to the pending commit in the local repo\.  |  `git add `  | 
 |  Begins finalizing the pending commit in the local repo, which displays an editor to provide a commit message\. After the message is entered, the pending commit is finalized\.  |  `git commit`  | 
 |  Finalizes the pending commit in the local repo, including specifying a commit message at the same time\.  |  `git commit -m "Some meaningful commit comment"`  | 

@@ -3,9 +3,7 @@
 You can keep repository users informed of repository events by configuring notifications\. When you configure notifications, subscribed users receive emails about the events that you specify, such as when someone comments on a commit\. For more information, see [Using Repository Notifications](how-to-repository-email.md#how-to-repository-email-using)\. 
 
 To use the AWS CodeCommit console  to configure notifications for a repository in AWS CodeCommit, you must have the following managed policy or the equivalent permissions attached to your IAM user:
-
 + **CloudWatchEventsFullAccess**
-
 + **AmazonSNSFullAccess**
 
 **Note**  

@@ -1,18 +1,14 @@
 # Update a Pull Request<a name="how-to-update-pull-request"></a>
 
 You can use your local Git client to push commits to the source branch, which updates the pull request with code changes\. You might update the pull request with more commits because:
-
 + You want users to review code changes you made to the source branch code in response to comments in the pull request\.
-
 + One or more commits have been made to the destination branch since the pull request was created\. You want to incorporate those changes into the source branch as part of the review \(forward integration\)\. This changes the state of the pull request to **Mergeable** and enables the merging and closing of the pull request from the console\.
 
 You can use the AWS CodeCommit console or the AWS CLI to update the title or description of a pull request\. You might want to update the pull request because:
-
 + Other users don't understand the description, or the original title is misleading\.
-
 + You want the title or description to reflect changes made to the source branch of an open pull request\.
 
-
+**Topics**
 + [Use Git to Update a Pull Request](#how-to-update-pull-request-git)
 + [Use the AWS CodeCommit Console to Update a Pull Request](#how-to-update-pull-request-console)
 + [Use the AWS CLI to Update Pull Requests](#how-to-update-pull-request-cli)
@@ -20,13 +16,9 @@ You can use the AWS CodeCommit console or the AWS CLI to update the title or des
 ## Use Git to Update a Pull Request<a name="how-to-update-pull-request-git"></a>
 
 You can use Git to update the source branch of a pull request with changes to the code to:
-
 + Add more code to the review\.
-
 + Incorporate changes suggested in review comments\.
-
 + Forward\-integrate changes to the destination branch in the source branch\.
-
 + Make sure that all the changes to be merged into the destination branch have been reviewed in the pull request\.
 
 You make the changes on your local computer, and then commit and push them to the source branch\. If [notifications are configured for the repository](how-to-repository-email.md), users subscribed to the topic receive emails when you push changes to the source branch of an open pull request\.
@@ -77,9 +69,7 @@ To use AWS CLI commands with AWS CodeCommit, install the AWS CLI\. For more info
 To use the AWS CLI to update pull requests in an AWS CodeCommit repository:
 
 1.  To update the title of a pull request in a repository, run the update\-pull\-request\-title command, specifying:
-
    + The ID of the pull request \(with the \-\-pull\-request\-id option\)\.
-
    + The title of the pull request \(with the \-\-title option\)\.
 
    For example, to update the title of a pull request with the ID of *47*:
@@ -118,9 +108,7 @@ To use the AWS CLI to update pull requests in an AWS CodeCommit repository:
    ```
 
 1. To update the description of a pull request, run the update\-pull\-request\-description command, specifying:
-
    + The ID of the pull request \(with the \-\-pull\-request\-id option\)\.
-
    + The description \(with the \-\-description option\)\. 
 
     For example, to update the description of a pull request with the ID of *47* :

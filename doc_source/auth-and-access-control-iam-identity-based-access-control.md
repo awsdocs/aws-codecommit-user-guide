@@ -5,7 +5,7 @@ The following examples of identity\-based policies demonstrate how an account ad
 **Important**  
 We recommend that you first review the introductory topics that explain the basic concepts and options available to manage access to your AWS CodeCommit resources\. For more information, see [Overview of Managing Access Permissions to Your AWS CodeCommit Resources](auth-and-access-control-iam-access-control-identity-based.md)\.
 
-
+**Topics**
 + [Permissions Required to Use the AWS CodeCommit Console](#console-permissions)
 + [AWS Managed \(Predefined\) Policies for AWS CodeCommit](#managed-policies)
 + [Customer Managed Policy Examples](#customer-managed-policies)
@@ -168,7 +168,6 @@ For more information about encryption and AWS CodeCommit, see [AWS KMS and Encry
 AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These AWS managed policies grant required permissions for common use cases\. The managed policies for AWS CodeCommit also provide permissions to perform operations in other services, such as IAM, Amazon SNS, and Amazon CloudWatch Events, as required for the responsibilities for the users who have been granted the policy in question\. For example, the AWSCodeCommitFullAccess policy is an administrative\-level user policy that allows users with this policy to create and manage CloudWatch Events rules for repositories \(rules whose names are prefixed with `codecommit`\) and Amazon SNS topics for notifications about repository\-related events \(topics whose names are prefixed with `codecommit`\), as well as administer repositories in AWS CodeCommit\. 
 
 The following AWS managed policies, which you can attach to users in your account, are specific to AWS CodeCommit:
-
 + **AWSCodeCommitFullAccess** – Grants full access to AWS CodeCommit\. Apply this policy only to administrative\-level users to whom you want to grant full control over AWS CodeCommit repositories and related resources in your AWS account, including the ability to delete repositories\.
 
   The AWSCodeCommitFullAccess policy contains the following policy statement:
@@ -275,7 +274,6 @@ The following AWS managed policies, which you can attach to users in your accoun
     ]
   }
   ```
-
 + **AWSCodeCommitPowerUser** – Allows users access to all of the functionality of AWS CodeCommit and repository\-related resources, except it does not allow them to delete AWS CodeCommit repositories or create or delete repository\-related resources in other AWS services, such as Amazon CloudWatch Events\. We recommend that you apply this policy to most users\.
 
   The AWSCodeCommitPowerUser policy contains the following policy statement:
@@ -391,7 +389,6 @@ The following AWS managed policies, which you can attach to users in your accoun
     ]
   }
   ```
-
 + **AWSCodeCommitReadOnly** – Grants read\-only access to AWS CodeCommit and repository\-related resources in other AWS services, as well as the ability to create and manage their own AWS CodeCommit\-related resources \(such as Git credentials and SSH keys for their IAM user to use when accessing repositories\)\. Apply this policy to users to whom you want to grant the ability to read the contents of a repository, but not make any changes to its contents\.
 
   The AWSCodeCommitReadOnly policy contains the following policy statement:
@@ -468,7 +465,7 @@ For more information, see [AWS Managed Policies](http://docs.aws.amazon.com/IAM/
 
 You can create your own custom IAM policies to allow permissions for AWS CodeCommit actions and resources\. You can attach these custom policies to the IAM users or groups that require those permissions\. You can also create your own custom IAM policies for integration between AWS CodeCommit and other AWS services\.
 
-
+**Topics**
 + [Customer Managed Identity Policy Examples](#customer-managed-policies-identity)
 + [Customer Managed Integration Policy Examples](#integration-policy-examples)
 
@@ -480,11 +477,8 @@ The following example IAM policies grant permissions for various AWS CodeCommit 
 All examples use the US West \(Oregon\) Region \(us\-west\-2\) and contain fictitious account IDs\.
 
  **Examples**
-
 + [Example 1: Allow a User to Perform AWS CodeCommit Operations in a Single Region](#identity-based-policies-example-1)
-
 + [Example 2: Allow a User to Use Git for a Single Repository](#identity-based-policies-example-2)
-
 + [Example 3: Allow a User Connecting From a Specific IP Address Range Access to a Repository ](#identity-based-policies-example-3)
 
 #### Example 1: Allow a User to Perform AWS CodeCommit Operations in a Single Region<a name="identity-based-policies-example-1"></a>
@@ -597,9 +591,7 @@ This section provides example customer\-managed user policies that grant permiss
 All examples use the US West \(Oregon\) Region \(us\-west\-2\) when a region is required, and contain fictitious account IDs\.
 
  **Examples**
-
 + [Example 1: Create a Policy That Enables Cross\-Account Access to an Amazon SNS Topic](#access-permissions-sns-int)
-
 + [Example 2: Create a Policy for AWS Lambda Integration](#access-permissions-lambda-int)
 
 #### Example 1: Create a Policy That Enables Cross\-Account Access to an Amazon SNS Topic<a name="access-permissions-sns-int"></a>

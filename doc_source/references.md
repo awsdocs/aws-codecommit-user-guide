@@ -2,7 +2,7 @@
 
 The following reference topics can help you better understand AWS CodeCommit, Git, AWS regions, product limitations, and more\.
 
-
+**Topics**
 + [Regions and Git Connection Endpoints for AWS CodeCommit](regions.md)
 + [Limits in AWS CodeCommit](limits.md)
 + [Temporary Access to AWS CodeCommit Repositories](temporary-access.md)

@@ -5,7 +5,7 @@ When you connect to an AWS CodeCommit repository for the first time, you typical
 **Note**  
 Depending on your usage, you might be charged for creating or accessing a repository\. For more information, see [Pricing](http://aws.amazon.com/codecommit/pricing) on the AWS CodeCommit product information page\.
 
-
+**Topics**
 + [Prerequisites for Connecting to an AWS CodeCommit Repository](#how-to-connect-prerequisites)
 + [Connect to the AWS CodeCommit Repository by Cloning the Repository](#how-to-connect-http)
 + [Connect a Local Repo to the AWS CodeCommit Repository](#how-to-connect-local)
@@ -13,15 +13,12 @@ Depending on your usage, you might be charged for creating or accessing a reposi
 ## Prerequisites for Connecting to an AWS CodeCommit Repository<a name="how-to-connect-prerequisites"></a>
 
 Before you can connect to an AWS CodeCommit repository:
-
 + You must have configured your local computer with the software and settings required to connect to AWS CodeCommit\. For more information, see [Setting Up ](setting-up.md)\.
-
 + You must have the clone URL of the AWS CodeCommit repository to which you want to connect\. This URL includes the name of the repository as well as its AWS region\. For more information, see [View Repository Details](how-to-view-repository-details.md)\.
 
   If you have not yet created an AWS CodeCommit repository, follow the instructions in [Create a Repository](how-to-create-repository.md), copy the clone URL of the new AWS CodeCommit repository, and return to this page\.
 
   If you have an AWS CodeCommit repository but you do not know its name, follow the instructions in [View Repository Details](how-to-view-repository-details.md)\.
-
 + You must have a location on your local machine to store a local copy of the AWS CodeCommit repository to which you will be connecting\. \(This local copy of the AWS CodeCommit repository is known as a *local repo*\.\) You then switch to and run Git commands from that location\. For example, you could use `/tmp` \(for Linux, macOS, or Unix\) or `c:\temp` \(for Windows\)\.
 **Note**  
 You can use any directory you want\. If you use a different directory than `/tmp` or `c:\temp`, be sure to substitute it for ours when you follow these instructions\.

@@ -6,7 +6,7 @@ You can set up notifications for a repository so that repository users receive e
 
 ![\[Notifications configured in AWS CodeCommit repository\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-notifications-configured.png)
 
-
+**Topics**
 + [Using Repository Notifications](#how-to-repository-email-using)
 + [Configure Repository Notifications](how-to-repository-email-create.md)
 + [Change, Disable, or Enable Notifications](how-to-repository-email-console-edit.md)
@@ -17,23 +17,14 @@ You can set up notifications for a repository so that repository users receive e
 Configuring notifications helps your repository users by sending emails to users when someone takes an action that affects another user\. For example, you can configure a repository to send notifications when comments are made on commits\. In this configuration, when a repository user comments on a line of code in a commit, other repository users receive an email\. They can sign in and view the comment\. Responses to comments also generate emails, so repository users stay informed\.
 
 Notification event types are grouped into the following categories:
-
 + **Pull request update events**: If you select this option, users receive emails when:
-
   + A pull request is created or closed\.
-
   + A pull request is updated with code changes\.
-
   + The title or description of the pull request changes\.
-
 + **Pull request comment events**: If you select this option, users receive emails when someone comments or replies to a comment in a pull request\.
-
 + **Commit comment events**: If you select this option, users receive emails when someone comments on a commit outside of a pull request\. This includes comments on:
-
   + Lines of code in a commit\.
-
   + Files in a commit\.
-
   + The commit itself\.
 
   For more information, see [Comment on a Commit](how-to-commit-comment.md)\.

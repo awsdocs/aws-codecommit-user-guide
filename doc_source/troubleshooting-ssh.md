@@ -2,7 +2,7 @@
 
 The following information might help you troubleshoot common issues when using SSH to connect to AWS CodeCommit repositories\.
 
-
+**Topics**
 + [Access Error: Public Key Is Uploaded Successfully to IAM but Connection Fails on Linux, macOS, or Unix Systems](#troubleshooting-ae4)
 + [Access Error: Public Key Is Uploaded Successfully to IAM and SSH Tested Successfully but Connection Fails on Windows Systems](#troubleshooting-ae5)
 + [Authentication Challenge: Authenticity of Host Can't Be Established When Connecting to an AWS CodeCommit Repository](#troubleshooting-ac1)
@@ -98,6 +98,8 @@ Make sure the fingerprint and public key for AWS CodeCommit connections match th
 | git\-codecommit\.ap\-south\-1\.amazonaws\.com | SHA256 | hUKwnTj7\+Xpx4Kddb6p45j4RazIJ4IhAMD8k29itOfE | 
 | git\-codecommit\.ca\-central\-1\.amazonaws\.com | MD5 | 9f:7c:a2:2f:8c:b5:74:fd:ab:b7:e1:fd:af:46:ed:23 | 
 | git\-codecommit\.ca\-central\-1\.amazonaws\.com | SHA256 | Qz5puafQdANVprLlj6r0Qyh4lCNsF6ob61dGcPtFS7w | 
+| git\-codecommit\.eu\-west\-3\.amazonaws\.com | MD5 | 1b:7f:97:dd:d7:76:8a:32:2c:bd:2c:7b:33:74:6a:76 | 
+| git\-codecommit\.eu\-west\-3\.amazonaws\.com | SHA256 | uw7c2FL564jVoFgtc\+ikzILnKBsZz7t9\+CFdSJjKbLI | 
 
 ## IAM Error: 'Invalid format' when attempting to add a public key to IAM<a name="troubleshooting-iam1"></a>
 
@@ -110,15 +112,12 @@ Make sure the fingerprint and public key for AWS CodeCommit connections match th
 **Problem:** After you configure SSH access for Windows and confirm connectivity at the command line or terminal, you see a message that the server's host key is not cached in the registry, and the prompt to store the key in the cache is frozen \(does not accept y/n/return input\) when you attempt to use commands such as git pull, git push, or git clone at the command prompt or Bash emulator\.
 
 **Possible fixes:** The most common cause for this error is that your Git environment is configured to use something other than OpenSSH for authentication \(probably PuTTY\)\. This is known to cause problems with the caching of keys in some configurations\. To fix this problem, try one of the following:
-
 + Open a Bash emulator and add the `GIT_SSH_COMMAND="ssh"` parameter before the Git command\. For example, if you are attempting to push to a repository, instead of typing git push, type: 
 
   ```
   GIT_SSH_COMMAND="ssh" git push
   ```
-
 + If you have PuTTY installed, open PuTTY, and in **Host Name \(or IP address\)**, type the AWS CodeCommit endpoint you want to reach \(for example, git\-codecommit\.us\-east\-2\.amazonaws\.com\)\. Choose **Open**\. When prompted by the PuTTY Security Alert, choose **Yes** to permanently cache the key\.
-
 + Rename or delete the `GIT_SSH` environment variable if you are no longer using it\. Then open a new command prompt or Bash emulator session, and try your command again\.
 
 For other solutions, see [Git clone/pull continually freezing at Store key in cache](http://stackoverflow.com/questions/33240137/git-clone-pull-continually-freezing-at-store-key-in-cache) on Stack Overflow\. 

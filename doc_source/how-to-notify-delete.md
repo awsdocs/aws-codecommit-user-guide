@@ -5,7 +5,7 @@ You might want to delete triggers if they are no longer being used\. You cannot 
 **Note**  
 If you configured one or more triggers for your repository, deleting the repository does not delete the Amazon SNS topics or Lambda functions you configured as the targets of those triggers\. Be sure to delete those resources, too, if they are no longer needed\.
 
-
+**Topics**
 + [Delete a Trigger from a Repository \(Console\)](#how-to-notify-delete-console)
 + [Delete a Trigger from a Repository \(AWS CLI\)](#how-to-notify-delete-cli)
 

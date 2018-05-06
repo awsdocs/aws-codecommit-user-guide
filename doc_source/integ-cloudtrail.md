@@ -11,11 +11,8 @@ When CloudTrail logging is enabled in your AWS account, API calls made to AWS Co
 All AWS CodeCommit actions are logged by CloudTrail, including some \(such as `GetObjectIdentifier`\) that are not currently documented in the [AWS CodeCommit API Reference](http://docs.aws.amazon.com/codecommit/latest/APIReference/) but are instead referenced as access permissions and documented in [AWS CodeCommit Permissions Reference](auth-and-access-control-permissions-reference.md)\. For example, calls to the `ListRepositories` \(in the AWS CLI, `aws codecommit list-repositories`\), `CreateRepository` \(`aws codecommit create-repository`\) and `PutRepositoryTriggers` \(`aws codecommit put-repository-triggers`\) actions generate entries in the CloudTrail log files, as well as Git client calls to `GitPull` and `GitPush`\. In addition, if you have an AWS CodeCommit repository configured as a source for a pipeline in AWS CodePipeline, you will see calls to AWS CodeCommit access permission actions such as `UploadArchive` from AWS CodePipeline\. Since AWS CodeCommit uses AWS Key Management Service to encrypt and decrypt repositories, you will also see calls from AWS CodeCommit to `Encrypt` and `Decrypt` actions from AWS KMS in CloudTrail logs\.
 
 Every log entry contains information about who generated the request\. The user identity information in the log entry helps you determine the following: 
-
 + Whether the request was made with root or IAM user credentials
-
 + Whether the request was made with temporary security credentials for a role or federated user, or made by an assumed role
-
 + Whether the request was made by another AWS service
 
 For more information, see the [CloudTrail userIdentity Element](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html)\.
@@ -35,7 +32,7 @@ CloudTrail log files can contain one or more log entries\. Each entry lists mult
 **Note**  
 This example has been formatted for improved readability\. In a CloudTrail log file, all entries and events are concatenated into a single line\. In addition, this example has been limited to a single AWS CodeCommit entry\. In a real CloudTrail log file, you will see entries and events from multiple AWS services\.
 
-
+**Contents**
 + [Example: A log entry for listing AWS CodeCommit repositories](#integ-cloudtrail-listrepositories)
 + [Example: A log entry for creating an AWS CodeCommit repository](#integ-cloudtrail-createrepository)
 + [Examples: Log entries for pull requests to an AWS CodeCommit repository](#integ-cloudtrail-gitpull)

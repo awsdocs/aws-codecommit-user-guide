@@ -4,7 +4,7 @@ You can use the AWS CodeCommit console, AWS CLI, or a Git client to edit the con
 
 ![\[A view of editing a file in the AWS CodeCommit console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-edit-file.png)
 
-
+**Topics**
 + [Edit a File in the AWS CodeCommit Console](#how-to-edit-file-console)
 + [Edit a File Using the AWS CLI](#how-to-edit-file-cli)
 + [Edit a File Using Git](#how-to-edit-file-git)
@@ -28,11 +28,8 @@ You can use the AWS CodeCommit console to edit a file that has been added to a b
 If you choose a binary file, a warning message appears asking you to confirm that you want to display the contents\. You should not use the AWS CodeCommit console to edit binary files\.
 
 1. Edit the file, and provide information to other users about who made this change and why\. 
-
    + In **Author name**, type your name\. This name is used as both the author name and the committer name in the commit information\. AWS CodeCommit defaults to using your IAM user name or a derivation of your console login as the author name\.
-
    + In **Email address**, type an email address so that other repository users can contact you about this change\. 
-
    + In **Commit message**, type a brief description of your changes\.
 
 1. Choose **Commit changes** to save your changes to the file and commit the changes to the repository\.
@@ -49,19 +46,12 @@ To use AWS CLI commands with AWS CodeCommit, install the AWS CLI\. For more info
 1. Using a local copy of the file, make the changes you want to add to the AWS CodeCommit repository\.
 
 1. At the terminal or command line, run the put\-file command, specifying:
-
    + The repository where you want to add the edited file\.
-
    + The branch where you want to add the edited file\.
-
    + The full commit ID of the most recent commit made to that branch, also known as the tip or head commit\.
-
    + The local location of the file\.
-
    + The name of the updated file you want to add, including the path where the updated file is stored in the repository, if any\.
-
    + The user name and email you want associated with this file change\.
-
    + A commit message that explains the change you made\.
 
    The user name, email address, and commit message are optional, but help other users know who made the change and why\. If you do not supply a user name, AWS CodeCommit defaults to using your IAM user name or a derivation of your console login as the author name\.

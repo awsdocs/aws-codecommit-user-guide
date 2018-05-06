@@ -8,7 +8,7 @@ To add a file to a repository, or edit an existing file in a repository, you can
 
 For information about working with other aspects of your repository in AWS CodeCommit, see [Working with Repositories](repositories.md), [Working with Pull Requests](pull-requests.md), [Working with Branches](branches.md), [Working with Commits](commits.md), and [Working with User Preferences](user-preferences.md)\. 
 
-
+**Topics**
 + [Browse Files in an AWS CodeCommit Repository](how-to-browse.md)
 + [Create or Add a File to an AWS CodeCommit Repository](how-to-create-file.md)
 + [Edit the Contents of a File in an AWS CodeCommit Repository](how-to-edit-file.md)

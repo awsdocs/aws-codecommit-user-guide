@@ -7,7 +7,7 @@ Deleting a branch does not delete any commits, but it does delete all references
 **Note**  
 You cannot use the instructions in this topic to delete a repository's default branch\. If you want to delete the default branch, you must create a new branch, make the new branch the default branch, and then delete the old branch\. To learn how to create a new branch, see [Create a Branch](how-to-create-branch.md)\. To learn how to make a branch the default branch, see [Change Branch Settings](how-to-change-branch.md)\.
 
-
+**Topics**
 + [Use the AWS CodeCommit Console to Delete a Branch](#how-to-delete-branch-console)
 + [Use the AWS CLI to Delete a Branch](#how-to-delete-branch-cli)
 + [Use Git to Delete a Branch](#how-to-delete-branch-git)
@@ -30,11 +30,9 @@ You can use the AWS CodeCommit console to delete a branch in an AWS CodeCommit r
 You can use the AWS CLI to delete a branch in an AWS CodeCommit repository, if that branch is not the default branch for the repository\. For more information about intalling and using the AWS CLI, see [Command Line Reference](cmd-ref.md)\. 
 
 1. At the terminal or command line, run the delete\-branch command, specifying:
-
    + The name of the AWS CodeCommit repository where the branch will be deleted \(with the \-\-repository\-name option\)\.
 **Tip**  
 To get the name of the AWS CodeCommit repository, run the [list\-repositories](how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli) command\.
-
    + The name of the branch to delete \(with the branch\-name option\)\.
 **Tip**  
 To get the name of the branch, run the [list\-branches](how-to-view-branch-details.md#how-to-view-branch-details-cli) command\.

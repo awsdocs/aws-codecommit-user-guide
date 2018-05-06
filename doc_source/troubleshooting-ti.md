@@ -2,7 +2,7 @@
 
 The following information might help you troubleshoot issues with triggers you might see in AWS CodeCommit\.
 
-
+**Topics**
 + [Trigger Error: A Repository Trigger Does Not Run When Expected](#troubleshooting-ti1)
 
 ## Trigger Error: A Repository Trigger Does Not Run When Expected<a name="troubleshooting-ti1"></a>

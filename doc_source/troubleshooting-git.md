@@ -2,7 +2,7 @@
 
 The following information might help you troubleshoot common issues when using Git with AWS CodeCommit repositories\. For troubleshooting problems specific to Git clients when using HTTPS or SSH, also see [Troubleshooting Git Credentials \(HTTPS\)](troubleshooting-gc.md), [Troubleshooting SSH Connections](troubleshooting-ssh.md), and [Troubleshooting the Credential Helper \(HTTPS\)](troubleshooting-ch.md)\.
 
-
+**Topics**
 + [Git Error: error: RPC failed; result=56, HTTP code = 200 fatal: The remote end hung up unexpectedly](#troubleshooting-ge1)
 + [Git Error: Too many reference update commands](#troubleshooting-ge2)
 + [Git Error: push via HTTPS is broken in some versions of Git](#troubleshooting-ge3)
@@ -47,13 +47,11 @@ Alternatively, use SSH instead of HTTPS to communicate with AWS CodeCommit repos
 **Problem:** After you configure SSH access for Windows, you see an access denied error when you attempt to use commands such as git pull, git push, or git clone\.
 
 **Possible fixes:** The most common cause for this error is that a GIT\_SSH environment variable exists on your computer and is configured to support another connection utility, such as PuTTY\. To fix this problem, try one of the following:
-
 + Open a Bash emulator and add the `GIT_SSH_COMMAND="ssh"` parameter before the Git command\. For example, if you are attempting to clone a repository, instead of typing git clone ssh://git\-codecommit\.us\-east\-2\.amazonaws\.com/v1/repos/MyDemoRepo my\-demo\-repo, type: 
 
   ```
   GIT_SSH_COMMAND="ssh" git clone ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo
   ```
-
 + Rename or delete the `GIT_SSH` environment variable if you are no longer using it\. Then open a new command prompt or Bash emulator session, and try your command again\.
 
 For more information about troubleshooting Git issues on Windows when using SSH, see [Troubleshooting SSH Connections](troubleshooting-ssh.md)\.

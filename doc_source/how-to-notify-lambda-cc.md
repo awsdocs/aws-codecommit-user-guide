@@ -4,7 +4,7 @@ The easiest way to create a trigger that will invoke a Lambda function is to cre
 
 However, you can also create a trigger for a Lambda function in an AWS CodeCommit repository\. Doing so requires that you choose an existing Lambda function to invoke, and also requires that you manually configure the permissions required for AWS CodeCommit to run the function\.
 
-
+**Topics**
 + [Manually Configure Permissions to Allow AWS CodeCommit to Run a Lambda Function](#how-to-notify-lam-perm)
 + [Create a Trigger for the Lambda Function in an AWS CodeCommit Repository \(Console\)](#how-to-notify-lam-console)
 + [Create a Trigger to a Lambda Function for an AWS CodeCommit Repository \(AWS CLI\)](#how-to-notify-lam-cli)
@@ -55,13 +55,9 @@ If you create a trigger in AWS CodeCommit that invokes a Lambda function, you mu
 1. On the **Set Permissions** page, choose **Policy Generator**, and then choose **Select**\.
 
 1. On the **Edit Permissions** page, do the following:
-
    + In **Effect**, choose **Allow**\.
-
    + In **AWS Service**, choose **AWS CodeCommit**\.
-
    + In **Actions**, select **GetRepository**\.
-
    + In **Amazon Resource Name \(ARN\)**, type the ARN for the repository \(for example, `arn:aws:codecommit:us-east-1:80398EXAMPLE:MyDemoRepo`\)\.
 
    Choose **Add Statement**, and then choose **Next Step**\.
@@ -106,19 +102,13 @@ Before you can successfully test or run the trigger for the example, you must co
 1. Choose **Create trigger**\.
 
 1. In the **Create trigger** pane, do the following:
-
    + In **Trigger name**, type a name for the trigger \(for example, *MyLambdaFunctionTrigger*\)\.
-
    + In **Events**, choose the repository events that will trigger the Lambda function\. 
 
      If you choose **All repository events**, you cannot choose any other events\. If you want to choose a subset of events, clear **All repository events**, and then choose the events you want from the list\. For example, if you want the trigger to run only when a user creates a tag or a branch in the AWS CodeCommit repository, remove **All repository events**, and then choose **Create branch or tag**\.
-
    + If you want the trigger to apply to all branches of the repository, in **Branches**, choose **All branches**\. Otherwise, choose **Specific branches**\. The default branch for the repository will be added by default\. You can keep or delete this branch from the list\. Choose up to ten branch names from the list of repository branches\.
-
    + In **Send to**, choose **AWS Lambda**\.
-
    + In **Lambda function ARN**, choose the function name from the list, or choose **Add an AWS Lambda function ARN** and then type the ARN for the function\.
-
    + In **Custom data**, optionally provide information you want included in the Lambda function \(for example, the name of the IRC channel used by developers to discuss development in the repository\)\. This field is a string\. It cannot be used to pass any dynamic parameters\.
 
 1. Optionally, choose **Test trigger**\. This option will attempt to invoke the function with sample data about your repository, including the most recent commit ID for the repository\. \(If no commit history exists, sample values consisting of zeroes will be generated instead\.\) This will help you confirm you have correctly configured access between AWS CodeCommit and the Lambda function\.
@@ -134,11 +124,8 @@ You can also use the command line to create a trigger for a Lambda function in r
 **To create a trigger for an Lambda function**
 
 1. Open a plain\-text editor and create a JSON file that specifies:
-
    + The Lambda function name\.
-
    + The repository and branches you want to monitor with this trigger\. \(If you do not specify any branches, the trigger will apply to all branches in the repository\.\)
-
    + The events that will activate this trigger\.
 
     Save the file\. 
@@ -195,13 +182,9 @@ You can also use the command line to create a trigger for a Lambda function in r
    ```
 
    You can create triggers for events you specify, such as when a commit is pushed to a repository\. Event types include:
-
    + `all` for all events in the specified repository and branches\.
-
    + `updateReference` for when commits are pushed to the specified repository and branches\.
-
    + `createReference` for when a new branch or tag is created in the specified repository\.
-
    + `deleteReference` for when a branch or tag is deleted in the specified repository\.
 **Note**  
 You can use more than one event type in a trigger\. However, if you specify `all`, you cannot specify other events\. 

@@ -8,7 +8,7 @@ Before you can push changes to an AWS CodeCommit repository, you must configure 
 
 For information about working with other aspects of your repository in AWS CodeCommit, see [Working with Files](files.md), [Working with Pull Requests](pull-requests.md) , [Working with Commits](commits.md), [Working with Branches](branches.md), and [Working with User Preferences](user-preferences.md)\. To learn about migrating to AWS CodeCommit, see [Migrate to AWS CodeCommit](how-to-migrate-repository.md)\.
 
-
+**Topics**
 + [Create an AWS CodeCommit Repository](how-to-create-repository.md)
 + [Connect to an AWS CodeCommit Repository](how-to-connect.md)
 + [Share an AWS CodeCommit Repository](how-to-share-repository.md)

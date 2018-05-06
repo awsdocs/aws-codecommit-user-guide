@@ -2,7 +2,7 @@
 
 The following information might help you troubleshoot console errors you might see when using AWS CodeCommit repositories\.
 
-
+**Topics**
 + [Access Error: Encryption Key Access Denied for an AWS CodeCommit Repository from the Console or the AWS CLI](#troubleshooting-ae3)
 + [Console Error: Cannot Browse the Code in an AWS CodeCommit Repository from the Console](#troubleshooting-cs1)
 

@@ -8,11 +8,8 @@ You can still change individual settings on console pages without having saved u
 User preferences are only available for IAM users\. You cannot set them if you use federated access, temporary access, or a root account to access the console\.
 
 User preferences include:
-
 + When viewing a list of repositories in your AWS account, the number of repositories displayed on the dashboard\.
-
 + When viewing changes in code, whether to use **Unified** or **Split** view, and whether to show or hide whitespace changes\.
-
 + When viewing a graph of commits, whether to display commits on branches to the left or to the right of the default branch\.
 
 ## View and Save User Preferences<a name="user-preferences-how-to"></a>
@@ -31,9 +28,6 @@ You can view and change your user preferences for the AWS CodeCommit console\. T
 ![\[A view of configurable user preferences in AWS CodeCommit.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-userprefs.png)
 
    Do one of the following:
-
    + To save and apply your changes, choose **Save**\.
-
    + To view the AWS CodeCommit console defaults, choose **Restore**\. These defaults are applied if you choose **Save**\.
-
    + To return to the console where you left off, choose **Back**\. Alternatively, choose **Dashboard** to go to the AWS CodeCommit console dashboard\.

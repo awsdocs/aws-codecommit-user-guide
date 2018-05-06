@@ -7,7 +7,7 @@ These instructions assume you have already completed the steps in [Setting Up ](
 **Note**  
 Depending on your usage, you might be charged for creating or accessing a repository\. For more information, see [Pricing](http://aws.amazon.com/codecommit/pricing) on the AWS CodeCommit product information page\.
 
-
+**Topics**
 + [Choose the Connection Protocol to Share with Your Users](#how-to-share-repo-choose)
 + [Create IAM Policies for Your Repository](#how-to-share-repo-create-policy)
 + [Create an IAM Group for Repository Users](#how-to-share-repository-IAMgroup)
@@ -85,9 +85,7 @@ If you use SSH, you must attach another managed policy to the IAMUserSSHKeys gro
 This name must be unique across an AWS account\.
 
 1. Select the check box next to the customer managed policy you created in the previous section \(for example, **AWSCodeCommitPowerUser\-MyDemoRepo**\)\. 
-
    + If your users will use HTTPS and Git credentials to connect to AWS CodeCommit, select the check boxes next to **IAMSelfManageServiceSpecificCredentials** and **IAMReadOnlyAccess**, and then choose **Next Step**\. 
-
    + If your users will use SSH to connect to your repository, select the check boxes next to **IAMUserSSHKeys** and **IAMReadOnlyAccess**, and then choose **Next Step**\.
 
 1. On the **Review** page, choose **Create Group**\. The group will be created in IAM with the specified policies already attached\. It will appear in the list of groups associated with your AWS account\.

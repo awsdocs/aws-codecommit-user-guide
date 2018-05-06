@@ -2,7 +2,7 @@
 
 The following information might help you troubleshoot common issues in AWS CodeCommit\.
 
-
+**Topics**
 + [Troubleshooting Git Credentials and HTTPS Connections to AWS CodeCommit](troubleshooting-gc.md)
 + [Troubleshooting SSH Connections to AWS CodeCommit](troubleshooting-ssh.md)
 + [Troubleshooting the Credential Helper and HTTPS Connections to AWS CodeCommit](troubleshooting-ch.md)

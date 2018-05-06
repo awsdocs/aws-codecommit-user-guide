@@ -5,7 +5,7 @@ By default, AWS CodeCommit is integrated with a number of AWS services\. You can
 **Note**  
 You can automatically build and deploy commits to an AWS CodeCommit repository by integrating with AWS CodePipeline\. To learn more, follow the steps in the [AWS for DevOps Getting Started Guide](http://docs.aws.amazon.com/devops/latest/gsg/welcome.html)\. 
 
-
+**Topics**
 + [Integration with Other AWS Services](#integrations-aws)
 + [Integration Examples from the Community](#integrations-community)
 
@@ -35,72 +35,61 @@ The following sections provide links to blog posts, articles, and community\-pro
 **Note**  
 These links are provided for informational purposes only, and should not be considered either a comprehensive list or an endorsement of the content of the examples\. AWS is not responsible for the content or accuracy of external content\.
 
-
+**Topics**
 + [Blog Posts](#integrations-community-blogposts)
 + [Code Samples](#integrations-community-code)
 
 ### Blog Posts<a name="integrations-community-blogposts"></a>
-
 + *[Build Serverless AWS CodeCommit Workflows using Amazon CloudWatch Events and JGit](https://aws.amazon.com/blogs/devops/build-serverless-aws-codecommit-workflows-using-amazon-cloudwatch-events-and-jgit/)*
 
   Learn how to create CloudWatch Events rules that process changes in a repository using AWS CodeCommit repository events and target actions in other AWS services\. Examples include AWS Lambda functions that enforce Git commit message policies on commits, replicate an AWS CodeCommit repository, and backing up an AWS CodeCommit repository to Amazon S3\.
 
   Published August 3, 2017
-
 + *[Replicating and Automating Sync\-Ups for a Repository with AWS CodeCommit](https://aws.amazon.com/blogs/devops/replicating-and-automating-sync-ups-for-a-repository-with-aws-codecommit/)*
 
   Learn how to back up or replicate an AWS CodeCommit repository to another AWS region, and how to back up repositories hosted on other services to AWS CodeCommit\.
 
   Published March 17, 2017
-
 + *[Migrating to AWS CodeCommit](https://romikoderbynew.com/2016/09/06/migrating-to-aws-codecommit/)*
 
   Learn how to push code to two repositories as part of migrating from using another Git repository to AWS CodeCommit when using SourceTree\.
 
   Published September 6, 2016
-
 + *[Set Up Continuous Testing with Appium, AWS CodeCommit, Jenkins, and AWS Device Farm](https://aws.amazon.com/blogs/mobile/set-up-continuous-testing-with-appium-aws-codecommit-jenkins-and-aws-device-farm/)*
 
   Learn how to create a continuous testing process for mobile devices using Appium, AWS CodeCommit, Jenkins, and Device Farm\.
 
   Published February 2, 2016
-
 + **[Using AWS CodeCommit with Git Repositories in Multiple AWS Accounts](https://alestic.com/2015/11/aws-codecommit-iam-role/)**
 
   Learn how to clone your AWS CodeCommit repository and, in one command, configure the credential helper to use a specific IAM role for connections to that repository\.
 
   Published November 2015
-
 + **[Integrating AWS OpsWorks and AWS CodeCommit](https://aws.amazon.com/blogs/devops/integrating-aws-opsworks-and-aws-codecommit/)**
 
   Learn how AWS OpsWorks can automatically fetch Apps and Chef cookbooks from AWS CodeCommit\.
 
   Published August 25 2015
-
 + **[Using AWS CodeCommit and GitHub Credential Helpers](http://jameswing.net/aws/using-codecommit-and-git-credentials.html)**
 
   Learn how to configure your gitconfig file to work with both AWS CodeCommit and GitHub credential helpers\.
 
   Published September 2015
-
 + **[Using AWS CodeCommit from Eclipse](https://java.awsblog.com/post/Tx579PWM8RIYV5/Using-AWS-CodeCommit-from-Eclipse)**
 
   Learn how to use the EGit tools in Eclipse to work with AWS CodeCommit\.
 
   Published August 2015
-
 + **[AWS CodeCommit with Amazon EC2 Role Credentials](http://jameswing.net/aws/codecommit-with-ec2-role-credentials.html)**
 
   Learn how to use an instance profile for Amazon EC2 when configuring automated agent access to an AWS CodeCommit repository\.
 
   Published July 2015
-
 + **[Integrating AWS CodeCommit with Jenkins](https://blogs.aws.amazon.com/application-management/post/Tx1C8B98XN0AF2E/Integrating-AWS-CodeCommit-with-Jenkins)**
 
   Learn how to use AWS CodeCommit and Jenkins to support two simple continuous integration \(CI\) scenarios\.
 
   Published July 2015
-
 + **[Integrating AWS CodeCommit with Review Board](https://blogs.aws.amazon.com/application-management/post/Tx35O95VQF5I0AT/Integrating-AWS-CodeCommit-with-Review-Board)**
 
   Learn how to integrate AWS CodeCommit into a development workflow using the [Review Board](https://www.reviewboard.org/) code review system\.
@@ -110,7 +99,6 @@ These links are provided for informational purposes only, and should not be cons
 ### Code Samples<a name="integrations-community-code"></a>
 
 The following are code samples that might be of interest to AWS CodeCommit users\.
-
 + **[Mac OS X Script to Periodically Delete Cached Credentials in the OS X Certificate Store](https://github.com/nicc777/macaws-codecommit-pwdel)**
 
   If you use the credential helper for AWS CodeCommit on Mac OS X, you are likely familiar with the problem with cached credentials\. This script demonstrate one solution\.

@@ -15,26 +15,20 @@ The pull request displays the differences between these two branches, so users c
 ![\[Adding a comment on a line in a pull request.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-comment.png)
 
 When your code has been reviewed, you can close the pull request in one of several ways: 
-
 + Merge the branches locally and push your changes\. This closes the request automatically\.
-
 + Use the AWS CodeCommit console to either close the pull request without merging or, if there are no conflicts, to close and merge the branches\.
-
 + Use the AWS CLI\.
 
 Before you create a pull request:
-
 + Create a branch that contains the code you want reviewed \(the source branch\)\.
-
 + Commit and push the code you want reviewed to the source branch\.
-
 + Set up notifications for your repository, so other users can be notified about the pull request and changes to it\. \(This step is optional, but recommended\.\)
 
 Pull requests are more effective when you've set up IAM users for your repository users in your AWS account\. It's easier to distinguish which user made which comment\. IAM users also have the advantage of being able to use Git credentials for repository access\. For more information, see [Step 1: Initial Configuration for AWS CodeCommit](setting-up-gc.md#setting-up-gc-account)\. However, you can use pull requests with other kinds of users, including federated access users\.
 
 For information about working with other aspects of your repository in AWS CodeCommit, see [Working with Repositories](repositories.md), [Working with Files](files.md), [Working with Commits](commits.md), [Working with Branches](branches.md), and [Working with User Preferences](user-preferences.md)\. 
 
-
+**Topics**
 + [Create a Pull Request](how-to-create-pull-request.md)
 + [View Pull Requests in an AWS CodeCommit Repository](how-to-view-pull-request.md)
 + [Review a Pull Request](how-to-review-pull-request.md)

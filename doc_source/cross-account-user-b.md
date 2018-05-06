@@ -2,7 +2,7 @@
 
 To access the repository in AccountA, users in the AccountB group must configure their local computers for repository access\. The following sections provide steps and examples\.
 
-
+**Topics**
 + [Step 1: Configure the AWS CLI and Git for an AccountB User to Access the Repository in AccountA](#cross-account-configure-credentials)
 + [Step 2: Clone and Access the AWS CodeCommit Repository in AccountA](#cross-account-clone-and-use)
 
@@ -140,15 +140,10 @@ Now that you've added a file, go to the AWS CodeCommit console to view your comm
 If this is the first time you have selected this option, review the information on the page, and then choose **Switch Role** again\.
 
 1. On the **Switch Role** page, do the following:
-
    + In **Account**, type the account ID for AccountA \( for example, *111122223333*\)\. 
-
    + In **Role**, type the name of the role you want to assume for access to the repository in AccountA \(for example, *MyCrossAccountRepositoryContributorRole*\)\.
-
    + In **Display Name**, type a friendly name for this role\. This name appears in the console when you are assuming this role\. It also appears in the list of assumed roles the next time you want to switch roles in the console\.
-
    + \(Optional\) In **Color**, choose a color label for the display name\.
-
    + Choose **Switch Role**\.
 
    For more information, see [Switching to a Role \(AWS Management Console\)](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html)\.

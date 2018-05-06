@@ -2,7 +2,7 @@
 
 You can edit the triggers that have been created for an AWS CodeCommit repository\. You can change the events and branches for the trigger, the action taken in response to the event, and other settings\. 
 
-
+**Topics**
 + [Edit a Trigger for a Repository \(Console\)](#how-to-notify-edit-console)
 + [Edit a Trigger for a Repository \(AWS CLI\)](#how-to-notify-edit-cli)
 

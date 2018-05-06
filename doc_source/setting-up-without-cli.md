@@ -3,18 +3,14 @@
 If you want to use SSH connections for your repository, you can connect to AWS CodeCommit without installing the AWS CLI\. The AWS CLI includes commands that will be useful later when using and managing AWS CodeCommit repositories, but it is not required for initial setup\.
 
 This topic assumes:
-
 + You have set up an IAM user with the policies or permissions required for AWS CodeCommit as well as the **IAMUserSSHKeys** managed policy or equivalent permissions required for uploading keys\. For more information, see [Using Identity\-Based Policies \(IAM Policies\) for AWS CodeCommit](auth-and-access-control-iam-identity-based-access-control.md)\.
-
 + You already have, or know how to create, a public/private key pair\. We strongly recommend you use a secure passphrase for your SSH key\. 
-
 + You are familiar with SSH, your Git client, and its configuration files\. 
-
 + If you are using Windows, you have installed a command\-line utility, such as Git Bash, that emulates the bash shell\. 
 
 If you need more guidance, follow the detailed instructions in [For SSH Connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md) or [For SSH Connections on Windows](setting-up-ssh-windows.md)\.
 
-
+**Topics**
 + [Step 1: Associate Your Public Key with Your IAM User](#setting-up-without-cli-add-key)
 + [Step 2: Add AWS CodeCommit to Your SSH Configuration](#setting-up-without-cli-configure-client)
 + [Next Steps](#setting-up-without-cli-next-step)

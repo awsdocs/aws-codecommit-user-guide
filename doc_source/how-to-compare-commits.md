@@ -2,7 +2,7 @@
 
 You can use the AWS CodeCommit console to view the differences between commit specifiers in an AWS CodeCommit repository\. You can quickly view the difference between a commit and its parent\. You can also compare any two references, including commit IDs\. 
 
-
+**Topics**
 + [Compare a Commit to Its Parent](#how-to-compare-commits-parent)
 + [Compare Any Two Commit Specifiers](#how-to-compare-commits-compare)
 
@@ -44,11 +44,8 @@ You can view the differences between any two commit specifiers in the AWS CodeCo
 ![\[Compare any two commit specifiers\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-1.png)
 
 1. Use the **Choose** buttons to compare two commit specifiers\. 
-
    + To compare the tip of a branch, choose the branch name\. This selects the most recent commit from that branch for the comparison\.
-
    + To compare a commit with a specific tag associated with it, choose the tag name\. This selects the tagged commit for the comparison\.
-
    + To compare a specific commit, paste the commit ID in the text box\. To get the full commit ID, choose **Commits** in the navigation bar, and copy the commit ID from the list\. On the **Compare** page, paste the full commit ID in the text box, and press **Enter**\. You can repeat this to copy and paste a second commit ID, if you want to compare two commit IDs\.  
 ![\[Compare branches, tags, or commit IDs\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-2.png)
 

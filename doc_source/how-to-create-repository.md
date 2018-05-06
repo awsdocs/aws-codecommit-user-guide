@@ -7,7 +7,7 @@ These instructions assume you have already completed the steps in [Setting Up ](
 **Note**  
 Depending on your usage, you might be charged for creating or accessing a repository\. For more information, see [Pricing](http://aws.amazon.com/codecommit/pricing) on the AWS CodeCommit product information page\.
 
-
+**Topics**
 + [Use the AWS CodeCommit Console to Create a Repository](#how-to-create-repository-console)
 + [Use the AWS CLI to Create an AWS CodeCommit Repository](#how-to-create-repository-cli)
 
@@ -52,11 +52,9 @@ To create a new AWS CodeCommit repository \(CLI\):
    The default region name must match the region for the repository in AWS CodeCommit\. For more information, see [Regions and Git Connection Endpoints](regions.md)\.
 
 1. Run the create\-repository command, specifying:
-
    + A name that uniquely identifies the AWS CodeCommit repository \(with the `--repository-name` option\)\.
 **Note**  
 This name must be unique across an AWS account\.
-
    + Optionally, a comment about the AWS CodeCommit repository \(with the `--repository-description` option\)\.
 
    For example, to create an AWS CodeCommit repository named `MyDemoRepo` with the description `"My demonstration repository"`:
@@ -68,13 +66,9 @@ This name must be unique across an AWS account\.
 The description field accepts all HTML characters and all valid Unicode characters\. If you are an application developer using the `GetRepository` or `BatchGetRepositories` APIs and plan to display the repository description field in a web browser, see the [AWS CodeCommit API Reference](http://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
 
 1. If successful, this command outputs a `repositoryMetadata` object with the following information:
-
    + The description \(`repositoryDescription`\)\.
-
    + The unique, system\-generated ID \(`repositoryId`\)\.
-
    + The name \(`repositoryName`\)\.
-
    + The ID of the AWS account associated with the AWS CodeCommit repository \(`accountId`\)\.
 
    Here is some example output, based on the preceding example command:

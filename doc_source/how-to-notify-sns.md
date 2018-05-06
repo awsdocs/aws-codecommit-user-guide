@@ -5,7 +5,7 @@ You can create a trigger for an AWS CodeCommit repository so that events in that
 **Note**  
 You must point the trigger to an existing Amazon SNS topic that will be the action taken in response to repository events\. For more information about creating and subscribing to Amazon SNS topics, see [Getting Started with Amazon Simple Notification Service](http://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html)\. 
 
-
+**Topics**
 + [Create a Trigger to an Amazon SNS Topic for an AWS CodeCommit Repository \(Console\)](#how-to-notify-sns-console)
 + [Create a Trigger to an Amazon SNS Topic for an AWS CodeCommit Repository \(AWS CLI\)](#how-to-notify-sns-cli)
 
@@ -20,19 +20,13 @@ You must point the trigger to an existing Amazon SNS topic that will be the acti
 1. Choose **Create trigger**\.
 
 1. In the **Create trigger** pane, do the following:
-
    + In **Trigger name**, type a name for the trigger, such as *MyFirstTrigger*\.
-
    + In **Events**, select the repository events that will trigger the Amazon SNS topic to send notifications\. 
 
      If you choose **All repository events**, you cannot choose any other events\. To choose a subset of events, remove **All repository events**, and then choose one or more events from the list\. For example, if you want the trigger to run only when a user creates a branch or tag in the AWS CodeCommit repository, remove **All repository events**, and then choose **Create branch or tag**\.
-
    + If you want the trigger to apply to all branches of the repository, in **Branches**, choose **All branches**\. Otherwise, choose **Specific branches**\. The default branch for the repository will be added by default\. You can keep or delete this branch from the list\. Choose up to ten branch names from the list of repository branches\.
-
    + In **Send to**, choose **Amazon SNS**\.
-
    + In **Amazon SNS Topic**, choose a topic name from the list, or choose **Add an Amazon SNS topic ARN** and then type the ARN for the function\.
-
    + In **Custom data**, optionally provide any information you want included in the notification sent by the Amazon SNS topic \(for example, an IRC channel name developers use when discussing development in this repository\)\. This field is a string\. It cannot be used to pass any dynamic parameters\.   
 ![\[Configure the trigger with a name, the events that will trigger the action, the service to use, and the action to take\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-triggers-create.png)![\[Configure the trigger with a name, the events that will trigger the action, the service to use, and the action to take\]](http://docs.aws.amazon.com/codecommit/latest/userguide/)
 
@@ -47,11 +41,8 @@ You can also use the command line to create a trigger for an Amazon SNS topic in
 **To create a trigger for an Amazon SNS topic**
 
 1. Open a plain\-text editor and create a JSON file that specifies:
-
    + The Amazon SNS topic name\.
-
    + The repository and branches you want to monitor with this trigger\. \(If you do not specify any branches, the trigger will apply to all branches in the repository\.\)
-
    + The events that will activate this trigger\.
 
     Save the file\. 
@@ -108,13 +99,9 @@ You can also use the command line to create a trigger for an Amazon SNS topic in
    ```
 
    You can create triggers for events you specify, such as when a commit is pushed to a repository\. Event types include:
-
    + `all` for all events in the specified repository and branches\.
-
    + `updateReference` for when commits are pushed to the specified repository and branches\.
-
    + `createReference` for when a new branch or tag is created in the specified repository\.
-
    + `deleteReference` for when a branch or tag is deleted in the specified repository\.
 **Note**  
 You can use more than one event type in a trigger\. However, if you specify `all`, you cannot specify other events\. 

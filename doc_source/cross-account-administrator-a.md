@@ -1,25 +1,20 @@
 # Cross\-Account Repository Access: Actions for the Administrator in AccountA<a name="cross-account-administrator-a"></a>
 
 To allow users or groups in AccountB to access a repository in AccountA, an AccountA administrator must:
-
 + Create a policy in AccountA that grants access to the repository\.
-
 + Create a role in AccountA that can be assumed by IAM users and groups in AccountB\.
-
 + Attach the policy to the role\.
 
 The following sections provide steps and examples\.
 
-
+**Topics**
 + [Step 1: Create a Policy for Repository Access in AccountA](#cross-account-create-policy-a)
 + [Step 2: Create a Role for Repository Access in AccountA](#cross-account-create-role-a)
 
 ## Step 1: Create a Policy for Repository Access in AccountA<a name="cross-account-create-policy-a"></a>
 
 You can create a policy in AccountA that grants access to the repository in AccountB\. Depending on the level of access you want to allow, do one of the following:
-
 + Configure the policy to allow AccountB users access to a specific repository, but do not allow them to view a list of all repositories in AccountA\.
-
 + Configure additional access to allow AccountB users to choose the repository from a list of all repositories in AccountA\.<a name="cross-account-create-policy-a-procedure"></a>
 
 **To create a role for repository access**

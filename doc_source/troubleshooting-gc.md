@@ -2,7 +2,7 @@
 
 The following information might help you troubleshoot common issues when using Git credentials and HTTPS to connect to AWS CodeCommit repositories\.
 
-
+**Topics**
 + [Git Credentials for AWS CodeCommit: I Keep Seeing a Prompt for Credentials When Connecting to My AWS CodeCommit Repository at the Terminal or Command Line](#troubleshooting-gc1)
 + [Git Credentials for AWS CodeCommit: I Set Up Git Credentials, But My System Is Not Using Them As I Expected](#troubleshooting-gc2)
 

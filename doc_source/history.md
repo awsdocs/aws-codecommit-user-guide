@@ -1,9 +1,7 @@
 # AWS CodeCommit User Guide Document History<a name="history"></a>
 
 The following table describes the important changes to the documentation since the last release of the *AWS CodeCommit User Guide*\.
-
 + **API version:** 2015\-04\-13
-
 + **Latest documentation update:** February 21, 2018 
 
 

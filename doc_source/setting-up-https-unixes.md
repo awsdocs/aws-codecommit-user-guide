@@ -2,7 +2,7 @@
 
 Before you can connect to AWS CodeCommit for the first time, you must complete the initial configuration steps\. This topic walks you through the steps to set up your computer and AWS profile, connect to an AWS CodeCommit repository, and clone that repository to your computer, also known as creating a local repo\. If you're new to Git, you might also want to review the information in [Where Can I Learn More About Git?](welcome.md#welcome-get-started-with-git)\.
 
-
+**Topics**
 + [Step 1: Initial Configuration for AWS CodeCommit](#setting-up-https-unixes-account)
 + [Step 2: Install Git](#setting-up-https-unixes-install-git)
 + [Step 3: Set Up the Credential Helper](#setting-up-https-unixes-credential-helper)
@@ -66,33 +66,19 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
    ```
 
    To connect to a repository or a resource in another region, you must re\-configure the AWS CLI with the default region name for that region\. Supported default region names for AWS CodeCommit include:
-
    + us\-east\-2
-
    + us\-east\-1
-
    + eu\-west\-1
-
    + us\-west\-2
-
    + ap\-northeast\-1
-
    + ap\-southeast\-1
-
    + ap\-southeast\-2
-
    + eu\-central\-1
-
    + ap\-northeast\-2
-
    + sa\-east\-1
-
    + us\-west\-1
-
    + eu\-west\-2
-
    + ap\-south\-1
-
    + ca\-central\-1
 
    For more information about AWS CodeCommit and regions, see [Regions and Git Connection Endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\.
@@ -140,9 +126,7 @@ If you want to use a different IAM user on the same local machine for AWS CodeCo
 If you are using macOS, use the following steps to ensure the credential helper is configured correctly\. 
 
 1. If you are using macOS, use HTTPS to [connect to an AWS CodeCommit repository](how-to-connect.md)\. After you connect to an AWS CodeCommit repository with HTTPS for the first time, subsequent access will fail after about fifteen minutes\. The default Git version on macOS uses the Keychain Access utility to store credentials\. For security measures, the password generated for access to your AWS CodeCommit repository is temporary, so the credentials stored in the keychain will stop working after about 15 minutes\. To prevent these expired credentials from being used, you must either:
-
    + Install a version of Git that does not use the keychain by default\.
-
    + Configure the Keychain Access utility to not provide credentials for AWS CodeCommit repositories\.
 
    1. Open the Keychain Access utility\. \(You can use Finder to locate it\.\)

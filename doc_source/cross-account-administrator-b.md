@@ -4,7 +4,7 @@ To allow users or groups in AccountB to access a repository in AccountA, the Acc
 
 The following sections provide steps and examples\.
 
-
+**Topics**
 + [Step 1: Create an IAM Group for Repository Access for AccountB Users](#cross-account-create-group-b)
 + [Step 2: Create a Policy and Add Users to the IAM Group](#cross-account-create-policy-b)
 

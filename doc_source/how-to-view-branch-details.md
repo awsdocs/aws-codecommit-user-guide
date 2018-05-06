@@ -2,7 +2,7 @@
 
 To view details about the branches in an AWS CodeCommit repository, you can use the AWS CodeCommit console\. You can view the date of the last commit to a branch, the commit message, and more\. You can also use Git from a local repo connected to the AWS CodeCommit repository or the AWS CLI to view branch details\.
 
-
+**Topics**
 + [Use the AWS CodeCommit Console to View Branch Details](#how-to-view-branch-details-console)
 + [Use Git to View Branch Details](#how-to-view-branch-details-git)
 + [Use the AWS CLI to View Branch Details](#how-to-view-branch-details-cli)
@@ -55,9 +55,7 @@ For more options, see your Git documentation\.
 To use AWS CLI commands with AWS CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
 
 To use the AWS CLI to view details about the branches in an AWS CodeCommit repository, run one or more of the following commands:
-
 + [list\-branches](#how-to-view-branch-details-cli) to view a list of branch names\.
-
 + [get\-branch](#how-to-view-branch-details-cli-details) to view information about a specific branch\.
 
 ### To view a list of branch names<a name="how-to-view-branch-details-cli-list"></a>
@@ -88,9 +86,7 @@ To get the name of the AWS CodeCommit repository, run the [list\-repositories](h
 ### To view information about a branch<a name="how-to-view-branch-details-cli-details"></a>
 
 1. Run the get\-branch command, specifying:
-
    + The repository name \(with the \-\-repository\-name option\)\.
-
    + The branch name \(with the \-\-branch\-name option\)\.
 
    For example, to view information about a branch named `MyNewBranch` in an AWS CodeCommit repository named `MyDemoRepo`:

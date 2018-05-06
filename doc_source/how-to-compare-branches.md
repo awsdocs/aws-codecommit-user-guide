@@ -2,7 +2,7 @@
 
 You can compare branches in an AWS CodeCommit repository by using the AWS CodeCommit console\. Comparing branches helps you quickly view the differences between a branch and the default branch, or view the differences between any two branches\.
 
-
+**Topics**
 + [Compare a Branch to the Default Branch](#how-to-compare-branches-default)
 + [Compare Two Specific Branches](#how-to-compare-branches-two)
 

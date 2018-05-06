@@ -8,7 +8,7 @@ In AWS CodeCommit, you can change the default branch for your repository\. This 
 
 For information about working with other aspects of your repository in AWS CodeCommit, see [Working with Repositories](repositories.md), [Working with Files](files.md), [Working with Pull Requests](pull-requests.md), [Working with Commits](commits.md), and [Working with User Preferences](user-preferences.md)\. 
 
-
+**Topics**
 + [Create a Branch in AWS CodeCommit](how-to-create-branch.md)
 + [View Branch Details in AWS CodeCommit](how-to-view-branch-details.md)
 + [Compare Branches in AWS CodeCommit](how-to-compare-branches.md)

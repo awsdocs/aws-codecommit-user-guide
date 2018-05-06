@@ -2,7 +2,7 @@
 
 The following information might help you troubleshoot configuration errors you might see when connecting with AWS CodeCommit repositories\.
 
-
+**Topics**
 + [Configuration Error: Cannot Configure AWS CLI Credentials on macOS](#troubleshooting-cf1)
 
 ## Configuration Error: Cannot Configure AWS CLI Credentials on macOS<a name="troubleshooting-cf1"></a>

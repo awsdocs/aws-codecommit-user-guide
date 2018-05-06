@@ -2,7 +2,7 @@
 
 You can use the AWS CodeCommit console to create branches for your repository\. This is a quick way to separate work on a new or different version of files without impacting work in the default branch\. After creating a branch in the AWS CodeCommit console, you'll need to pull that change to your local repo\. Alternatively, you can create a branch locally and push that change to an AWS CodeCommit repository by using Git from a local repo connected to the AWS CodeCommit repository\. You can also use the AWS CLI\.
 
-
+**Topics**
 + [Use the AWS CodeCommit Console to Create a Branch](#how-to-create-branch-console)
 + [Use Git to Create a Branch](#how-to-create-branch-git)
 + [Use the AWS CLI to Create a Branch](#how-to-create-branch-cli)
@@ -58,13 +58,10 @@ To use AWS CLI commands with AWS CodeCommit, install the AWS CLI\. For more info
 To use the AWS CLI to create a branch in an AWS CodeCommit repository and then push that branch to the AWS CodeCommit repository, follow these steps\.
 
 1. Run the create\-branch command, specifying:
-
    + The name of the AWS CodeCommit repository where the branch will be created \(with the \-\-repository\-name option\)\.
 **Note**  
 To get the name of the AWS CodeCommit repository, run the [list\-repositories](how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli) command\.
-
    + The name of the new branch \(with the \-\-branch\-name option\)\.
-
    + The ID of the commit to which the new branch will point \(with the \-\-commit\-id option\)\.
 
    For example, to create a new branch named `MyNewBranch` that points to commit ID `317f8570EXAMPLE` in an AWS CodeCommit repository named `MyDemoRepo`:

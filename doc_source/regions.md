@@ -4,7 +4,7 @@ Each AWS CodeCommit repository is associated with an AWS region\. AWS CodeCommit
 
 All the examples in this guide use the same endpoint URL for Git in US East \(Ohio\): `git-codecommit.us-east-2.amazonaws.com`\. However, when you use Git and configure your connections, make sure you choose the Git connection endpoint that matches the region that hosts your AWS CodeCommit repository\. For example, if you want to make a connection to a repository in US East \(N\. Virginia\), use the endpoint URL of `git-codecommit.us-east-1.amazonaws.com`\. This is also true for API calls\. When you make connections to an AWS CodeCommit repository with the AWS CLI or the SDKs, make sure you use the correct regional endpoint for the repository\.
 
-
+**Topics**
 + [Supported Regions for AWS CodeCommit](#regions-acc)
 + [Git Connection Endpoints](#regions-git)
 + [Server Fingerprints for AWS CodeCommit](#regions-fingerprints)
@@ -12,33 +12,20 @@ All the examples in this guide use the same endpoint URL for Git in US East \(Oh
 ## Supported Regions for AWS CodeCommit<a name="regions-acc"></a>
 
 You can create and use AWS CodeCommit repositories in the following AWS regions:
-
 + US East \(Ohio\) 
-
 + US East \(N\. Virginia\)
-
-+ US West \(Oregon\)
-
-+ EU \(Ireland\)
-
-+ Asia Pacific \(Tokyo\)
-
-+ Asia Pacific \(Singapore\)
-
-+ Asia Pacific \(Sydney\)
-
-+ EU \(Frankfurt\)
-
-+ Asia Pacific \(Seoul\)
-
-+ South America \(São Paulo\)
-
 + US West \(N\. California\)
-
++ US West \(Oregon\)
++ EU \(Ireland\)
 + EU \(London\)
-
++ EU \(Paris\)
++ EU \(Frankfurt\)
++ Asia Pacific \(Tokyo\)
++ Asia Pacific \(Singapore\)
++ Asia Pacific \(Sydney\)
++ Asia Pacific \(Seoul\)
 + Asia Pacific \(Mumbai\)
-
++ South America \(São Paulo\)
 + Canada \(Central\)
 
 For more information about regional endpoints for AWS CLI, service, and API calls to AWS CodeCommit, see [AWS Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region)\.
@@ -80,6 +67,8 @@ Use the following URLs when you configure Git connections to AWS CodeCommit repo
 | Asia Pacific \(Mumbai\) | ap\-south\-1 | ssh://git\-codecommit\.ap\-south\-1\.amazonaws\.com | SSH | 
 | Canada \(Central\) | ca\-central\-1 | https://git\-codecommit\.ca\-central\-1\.amazonaws\.com | HTTPS | 
 | Canada \(Central\) | ca\-central\-1 | ssh://git\-codecommit\.ca\-central\-1\.amazonaws\.com | SSH | 
+| EU \(Paris\) | eu\-west\-3 | https://git\-codecommit\.eu\-west\-3\.amazonaws\.com | HTTPS | 
+| EU \(Paris\) | eu\-west\-3 | ssh://git\-codecommit\.eu\-west\-3\.amazonaws\.com | SSH | 
 
 ## Server Fingerprints for AWS CodeCommit<a name="regions-fingerprints"></a>
 
@@ -118,3 +107,5 @@ The following table lists the public fingerprints for Git connection endpoints i
 | git\-codecommit\.ap\-south\-1\.amazonaws\.com | SHA256 | hUKwnTj7\+Xpx4Kddb6p45j4RazIJ4IhAMD8k29itOfE | 
 | git\-codecommit\.ca\-central\-1\.amazonaws\.com | MD5 | 9f:7c:a2:2f:8c:b5:74:fd:ab:b7:e1:fd:af:46:ed:23 | 
 | git\-codecommit\.ca\-central\-1\.amazonaws\.com | SHA256 | Qz5puafQdANVprLlj6r0Qyh4lCNsF6ob61dGcPtFS7w | 
+| git\-codecommit\.eu\-west\-3\.amazonaws\.com | MD5 | 1b:7f:97:dd:d7:76:8a:32:2c:bd:2c:7b:33:74:6a:76 | 
+| git\-codecommit\.eu\-west\-3\.amazonaws\.com | SHA256 | uw7c2FL564jVoFgtc\+ikzILnKBsZz7t9\+CFdSJjKbLI | 

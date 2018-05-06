@@ -6,7 +6,7 @@ You can use the AWS CodeCommit console to view information about tags in your re
 
 You can also use Git from your terminal or command line to view details about tags in a local repo\. 
 
-
+**Topics**
 + [Use the AWS CodeCommit Console to View Tag Details](#how-to-view-tag-details-console)
 + [Use Git to View Tag Details](#how-to-view-tag-details-git)
 
@@ -24,23 +24,16 @@ Use the AWS CodeCommit console to quickly view a list of tags for your repositor
 You can adjust the number of tags displayed on the **Tags** page by changing the number of tags per page\. 
 
 1. Do one of the following:
-
    + To view the code as it was at that tagged commit, choose the tag name\.
-
    + To view a graph of the repository from that tagged commit, choose the abbreviated commit ID\.
-
    + To view details of the commit, including the full commit message, committer, and author, choose the commit message\.
-
    + To compare the tagged commit with the head of the default branch in your repository, choose **Compare**\.
 
 ## Use Git to View Tag Details<a name="how-to-view-tag-details-git"></a>
 
 To use Git to view details about tags in a local repo, run one of the following commands:
-
 + [git tag](#how-to-view-tag-details-git-tag) to view a list of tag names\.
-
 + [git show](#how-to-view-tag-details-git-show) to view information about a specific tag\.
-
 + [git ls\-remote](#how-to-view-tag-details-git-remote) to view information about tags in an AWS CodeCommit repository\.
 
 **Note**  

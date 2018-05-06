@@ -7,7 +7,7 @@ An *account administrator* \(or administrator user\) is a user with administrato
 
 When granting permissions, you decide who gets the permissions, the resources they get permissions for, and the specific actions that you want to allow on those resources\.
 
-
+**Topics**
 + [AWS CodeCommit Resources and Operations](#arn-formats)
 + [Understanding Resource Ownership](#understanding-resource-ownership)
 + [Managing Access to Resources](#managing-access-resources)
@@ -60,11 +60,8 @@ arn:aws:codecommit:us-east-2:111111111111:MyDemo*
 ## Understanding Resource Ownership<a name="understanding-resource-ownership"></a>
 
 The AWS account owns the resources that are created in the account, regardless of who created them\. Specifically, the resource owner is the AWS account of the [principal entity](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) \(that is, the root account, an IAM user, or an IAM role\) that authenticates the resource creation request\. The following examples illustrate how this works:
-
 + If you create an IAM user in your AWS account and grant permissions to create AWS CodeCommit resources to that user, the user can create AWS CodeCommit resources\. However, your AWS account, to which the user belongs, owns the AWS CodeCommit resources\.
-
 + If you use the root account credentials of your AWS account to create a rule, your AWS account is the owner of the AWS CodeCommit resource\.
-
 + If you create an IAM role in your AWS account with permissions to create AWS CodeCommit resources, anyone who can assume the role can create AWS CodeCommit resources\. Your AWS account, to which the role belongs, owns the AWS CodeCommit resources\.
 
 ## Managing Access to Resources<a name="managing-access-resources"></a>
@@ -76,16 +73,14 @@ This section discusses using IAM in the context of AWS CodeCommit\. It doesn't p
 
 Permissions policies that are attached to an IAM identity are referred to as identity\-based policies \(IAM polices\)\. Permissions policies that are attached to a resource are referred to as resource\-based policies\. Currently, AWS CodeCommit supports only identity\-based policies \(IAM policies\)\.
 
-
+**Topics**
 + [Identity\-Based Policies \(IAM Policies\)](#identity-based-policies)
 + [Resource\-Based Policies](#resource-based-policies-overview)
 
 ### Identity\-Based Policies \(IAM Policies\)<a name="identity-based-policies"></a>
 
 To manage access to AWS resources, you attach permissions policies to IAM identities\. In AWS CodeCommit, you use identity\-based policies to control access to repositories\. For example, you can do the following: 
-
 + **Attach a permissions policy to a user or a group in your account** – To grant a user permissions to view AWS CodeCommit resources in the AWS CodeCommit console, attach an identity\-based permissions policy to a user or group that the user belongs to\.
-
 + **Attach a permissions policy to a role \(to grant cross\-account permissions\)** – Delegation, such as when you want to grant cross\-account access, involves setting up a trust between the account that owns the resource \(the trusting account\), and the account that contains the users who need to access the resource \(the trusted account\)\. A permissions policy grants the user of a role the needed permissions to carry out the intended tasks on the resource\. A trust policy specifies which trusted accounts are allowed to grant its users permissions to assume the role\. For more information, see [IAM Terms and Concepts](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html)\. 
 
   To grant cross\-account permissions, attach an identity\-based permissions policy to an IAM role\. For example, the administrator in Account A can create a role to grant cross\-account permissions to another AWS account \(for example, Account B\) or an AWS service as follows:
@@ -134,13 +129,9 @@ You can create policies to allow or deny users access to resources, or allow or 
 Some API operations can require permissions for more than one action\. For more information about resources and API operations, see [AWS CodeCommit Resources and Operations](#arn-formats) and [AWS CodeCommit Permissions Reference](auth-and-access-control-permissions-reference.md)\.
 
 The following are the basic elements of a policy:
-
 + **Resource** – To identify the resource that the policy applies to, you use an Amazon Resource Name \(ARN\)\. For more information, see [AWS CodeCommit Resources and Operations](#arn-formats)\.
-
 + **Action** – To identify resource operations that you want to allow or deny, you use action keywords\. For example, depending on the specified `Effect`, the `codecommit:GetBranch` permission either allows or denies the user to perform the `GetBranch` operation, which gets details about a branch in an AWS CodeCommit repository\.
-
 + **Effect** – You specify the effect, either allow or deny, that takes place when the user requests the specific action\. If you don't explicitly grant access to \(allow\) a resource, access is implicitly denied\. You can also explicitly deny access to a resource to make sure that a user cannot access it, even if a different policy grants access\.
-
 + **Principal** – In identity\-based policies \(IAM policies\), the only type of policies that AWS CodeCommit supports, the user that the policy is attached to is the implicit principal\. 
 
 To learn more about IAM policy syntax, see [AWS IAM Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.

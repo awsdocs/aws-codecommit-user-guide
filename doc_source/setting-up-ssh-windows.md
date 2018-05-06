@@ -2,7 +2,7 @@
 
 Before you can connect to AWS CodeCommit for the first time, you must complete the initial configuration steps\. This topic walks you through the steps for setting up your computer and AWS profile, connecting to an AWS CodeCommit repository, and cloning that repository to your computer \(also known as creating a local repo\)\. If you're new to Git, you might also want to review the information in [Where Can I Learn More About Git?](welcome.md#welcome-get-started-with-git)\.
 
-
+**Topics**
 + [Step 1: Initial Configuration for AWS CodeCommit](#setting-up-ssh-windows-account)
 + [Step 2: Install Git](#setting-up-ssh-windows-install-git)
 + [SSH and Windows: Set Up the Public and Private Keys for Git and AWS CodeCommit](#setting-up-ssh-windows-keys-windows)
@@ -87,9 +87,7 @@ You might need to run the emulator with administrative permissions\.
    ```
 
    This generates: 
-
    + The *codecommit\_rsa* file, which is the private key file\.
-
    + The *codecommit\_rsa*\.pub file, which is the public key file\.
 
 1. Run the following commands to display the value of the public key file \(*codecommit\_rsa*\.pub\):

@@ -2,7 +2,7 @@
 
 AWS CodeCommit is a version control service hosted by Amazon Web Services that you can use to privately store and manage assets \(such as documents, source code, and binary files\) in the cloud\. For information about pricing for AWS CodeCommit, see [Pricing\.](http://aws.amazon.com/codecommit/pricing/)
 
-
+**Topics**
 + [Introducing AWS CodeCommit](#welcome-introducing)
 + [How Does AWS CodeCommit Work?](#welcome-how-it-works)
 + [How Is AWS CodeCommit Different from File Versioning in Amazon S3?](#welcome-arc-vs-s3)
@@ -14,21 +14,13 @@ AWS CodeCommit is a version control service hosted by Amazon Web Services that y
 AWS CodeCommit is a secure, highly scalable, managed source control service that hosts private Git repositories\. AWS CodeCommit eliminates the need for you to manage your own source control system or worry about scaling its infrastructure\. You can use AWS CodeCommit to store anything from code to binaries\. It supports the standard functionality of Git, so it works seamlessly with your existing Git\-based tools\. 
 
 With AWS CodeCommit, you can:
-
 + **Benefit from a fully managed service hosted by AWS**\. AWS CodeCommit provides high service availability and durability and eliminates the administrative overhead of managing your own hardware and software\. There is no hardware to provision and scale and no server software to install, configure, and update\.
-
 + **Store your code securely**\. AWS CodeCommit repositories are encrypted at rest as well as in transit\.
-
 + **Work collaboratively on code\.** AWS CodeCommit repositories support pull requests, where users can review and comment on each other's code changes before merging them to branches; notifications that automatically send emails to users about pull requests and comments; and more\.
-
 + **Easily scale your version control projects**\. AWS CodeCommit repositories can scale up to meet your development needs\. The service can handle repositories with large numbers of files or branches, large file sizes, and lengthy revision histories\.
-
 + **Store anything, anytime**\. AWS CodeCommit has no limit on the size of your repositories or on the file types you can store\.
-
 + **Integrate with other AWS and third\-party services**\. AWS CodeCommit keeps your repositories close to your other production resources in the AWS Cloud, which helps increase the speed and frequency of your development lifecycle\. It is integrated with IAM and can be used with other AWS services and in parallel with other repositories\. For more information, see [Product and Service Integrations with AWS CodeCommit](integrations.md)\.
-
 + **Easily migrate files from other remote repositories**\. You can migrate to AWS CodeCommit from any Git\-based repository\. 
-
 + **Use the Git tools you already know**\. AWS CodeCommit supports Git commands as well as its own AWS CLI commands and APIs\.
 
 ## How Does AWS CodeCommit Work?<a name="welcome-how-it-works"></a>
@@ -66,13 +58,8 @@ To get started with AWS CodeCommit:
 ## Where Can I Learn More About Git?<a name="welcome-get-started-with-git"></a>
 
 If you don't know it already, you should [learn how to use Git](how-to-basic-git.md)\. Here are some helpful resources:
-
 + [Pro Git](http://git-scm.com/book), an online version of the *Pro Git* book\. Written by Scott Chacon\. Published by Apress\.
-
 + [Git Immersion](http://gitimmersion.com/), a try\-it\-yourself guided tour that walks you through the fundamentals of using Git\. Published by Neo Innovation, Inc\.
-
 + [Git Reference](http://gitref.org/index.html), an online quick reference that can also be used as a more in\-depth Git tutorial\. Published by the GitHub team\.
-
 + [Git Cheat Sheet](https://github.com/github/training-kit/blob/master/downloads/github-git-cheat-sheet.md) with basic Git command syntax\. Published by the GitHub team\.
-
 + [Git Pocket Guide](http://www.amazon.com/Git-Pocket-Guide-Richard-Silverman/dp/1449325866)\. Written by Richard E\. Silverman\. Published by O'Reilly Media, Inc\.

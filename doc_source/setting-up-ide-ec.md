@@ -3,9 +3,7 @@
 You can use Eclipse to make code changes in an AWS CodeCommit repository\. The Toolkit for Eclipse integration is designed to work with Git credentials and an IAM user\. You can clone existing repositories, create repositories, commit and push code changes to a repository, and more\. 
 
 To use Toolkit for Eclipse with AWS CodeCommit, you need the following:
-
 + Eclipse installed on your local computer\.
-
 + An IAM user with a valid set of credentials \(an access key and secret key\) configured for it\. This IAM user should also have: 
 
   One of the AWS CodeCommit managed policies and the IAMSelfManageServiceSpecificCredentials managed policy applied to it\.
@@ -15,10 +13,9 @@ To use Toolkit for Eclipse with AWS CodeCommit, you need the following:
   If the IAM user already has Git credentials configured, one of the AWS CodeCommit managed policies or equivalent permissions \.
 
   For more information, see [AWS Managed \(Predefined\) Policies for AWS CodeCommit](auth-and-access-control-iam-identity-based-access-control.md#managed-policies) and [Understanding and Getting Your Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)\.
-
 + An active set of Git credentials configured for the user in IAM\. For more information, see [Step 3: Create Git Credentials for HTTPS Connections to AWS CodeCommit](setting-up-gc.md#setting-up-gc-iam)\.
 
-
+**Topics**
 + [Step 1: Get an Access Key and Secret Key for Your IAM User](#setting-up-ide-ec-profile)
 + [Step 2: Install AWS Toolkit for Eclipse and Connect to AWS CodeCommit](#setting-up-ide-ec-connect)
 + [Clone an AWS CodeCommit Repository from Eclipse](#setting-up-ide-ec-checkout)
@@ -44,9 +41,7 @@ The only time that you can view or download the secret access keys is when you c
 1. Choose the **Security credentials** tab and then choose **Create access key**\.
 
 1. To see the new access key, choose **Show**\. Your credentials will look something like this:
-
    + Access key ID: AKIAIOSFODNN7EXAMPLE
-
    + Secret access key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 
 1. To download the key pair, choose **Download \.csv file**\. Store the keys in a secure location\.
@@ -54,9 +49,7 @@ The only time that you can view or download the secret access keys is when you c
    Keep the keys confidential in order to protect your AWS account, and never email them\. Do not share them outside your organization, even if an inquiry appears to come from AWS or Amazon\.com\. No one who legitimately represents Amazon will ever ask you for your secret key\.
 
 **Related topics**
-
 + [What Is IAM?](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*
-
 + [AWS Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) in *AWS General Reference* 
 
 ## Step 2: Install AWS Toolkit for Eclipse and Connect to AWS CodeCommit<a name="setting-up-ide-ec-connect"></a>
@@ -70,13 +63,9 @@ The Toolkit for Eclipse is a software package you can add to Eclipse\. After you
 1. In Eclipse, either follow the firstrun experience, or open **Preferences** from the Eclipse menu system \(the precise location will vary depending on your version and operating system\) and choose **AWS Toolkit**\.
 
 1. Do one of the following:
-
    + If you are following the firstrun experience, provide your AWS security credentials when prompted to set up your credential profile\.
-
    + If you are configuring in **Preferences** and have a credential profile already configured on your computer, choose it from the list in **Default Profile**\.
-
    + If you are configuring in **Preferences** and you do not see the profile you want to use, or if the list is empty, choose **Add profile**\. In **Profile Details**, provide a name for the proifle and the credentials for the IAM user \(access key and secret key\), or alternatively provide the location of the credentials file\.
-
    + If you are configuring in **Preferences** and you do not have a profile configured, use the links for signing up for a new account or managing your existing AWS security credentials\.
 
 1. In Eclipse, expand the **AWS Toolkit** menu and choose **AWS CodeCommit**\. Choose your credential profile, and then type the user name and password for your Git credentials or import them from the \.csv file\. Choose **Apply**, and then choose **OK**\.  

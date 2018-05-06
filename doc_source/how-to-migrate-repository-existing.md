@@ -1,20 +1,15 @@
 # Migrate a Git Repository to AWS CodeCommit<a name="how-to-migrate-repository-existing"></a>
 
 You can migrate an existing Git repository to an AWS CodeCommit repository\. The procedures in this topic walk you through the process of migrating a project hosted on another Git repository to AWS CodeCommit\. As part of this process, you will:
-
 + Complete the initial setup required for AWS CodeCommit\.
-
 + Create an AWS CodeCommit repository\.
-
 + Clone the repository and push it to AWS CodeCommit\.
-
 + View files in the AWS CodeCommit repository\.
-
 + Share the AWS CodeCommit repository with your team\.
 
 ![\[Migrating a Git repository to AWS CodeCommit\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-migrate-existing.png)![\[Migrating a Git repository to AWS CodeCommit\]](http://docs.aws.amazon.com/codecommit/latest/userguide/)
 
-
+**Topics**
 + [Step 0: Setup Required for Access to AWS CodeCommit](#how-to-migrate-existing-setup)
 + [Step 1: Create an AWS CodeCommit Repository](#how-to-migrate-existing-create)
 + [Step 2: Clone the Repository and Push to the AWS CodeCommit Repository](#how-to-migrate-existing-clone)
@@ -80,39 +75,24 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
    ```
 
    To connect to a repository or a resource in another region, you must re\-configure the AWS CLI with the default region name for that region\. Supported default region names for AWS CodeCommit include:
-
    + us\-east\-2
-
    + us\-east\-1
-
    + eu\-west\-1
-
    + us\-west\-2
-
    + ap\-northeast\-1
-
    + ap\-southeast\-1
-
    + ap\-southeast\-2
-
    + eu\-central\-1
-
    + ap\-northeast\-2
-
    + sa\-east\-1
-
    + us\-west\-1
-
    + eu\-west\-2
-
    + ap\-south\-1
-
    + ca\-central\-1
 
    For more information about AWS CodeCommit and regions, see [Regions and Git Connection Endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\.
 
 Next, you must install Git\. 
-
 + **For Linux, macOS, or Unix**:
 
   To work with files, commits, and other information in AWS CodeCommit repositories, you must install Git on your local machine\. AWS CodeCommit supports Git versions 1\.7\.9 and later\.
@@ -120,29 +100,21 @@ Next, you must install Git\.
   To install Git, we recommend websites such as [Git Downloads](http://git-scm.com/downloads)\.
 **Note**  
 Git is an evolving, regularly updated platform\. Occasionally, a feature change might affect the way it works with AWS CodeCommit\. If you encounter issues with a specific version of Git and AWS CodeCommit, review the information in [Troubleshooting](troubleshooting.md)\.
-
 + **For Windows:** 
 
   To work with files, commits, and other information in AWS CodeCommit repositories, you must install Git on your local machine\. AWS CodeCommit supports Git versions 1\.7\.9 and later\.
 
   To install Git, we recommend websites such as [Git for Windows](http://msysgit.github.io/)\. If you use this link to install Git, you can accept all of the installation default settings except for the following: 
-
   + When prompted during the **Adjusting your PATH environment** step, select the **Use Git from the Windows Command Prompt** option\.
-
   + \(Optional\) If you intend to use HTTPS with the credential helper that is included in the AWS CLI instead of configuring Git credentials for AWS CodeCommit, on the **Configuring extra options** page, make sure the **Enable Git Credential Manager** option is cleared\. The Git Credential Manager is only compatible with AWS CodeCommit if IAM users configure Git credentials\. For more information, see [For HTTPS Users Using Git Credentials](setting-up-gc.md) and [Git for Windows: I Installed Git for Windows, but I Am Denied Access to My Repository \(403\)](troubleshooting-ch.md#troubleshooting-windowshttps)\.
 **Note**  
 Git is an evolving, regularly updated platform\. Occasionally, a feature change might affect the way it works with AWS CodeCommit\. If you encounter issues with a specific version of Git and AWS CodeCommit, review the information in [Troubleshooting](troubleshooting.md)\.
 
 AWS CodeCommit supports both HTTPS and SSH authentication\. To complete setup, you must configure either Git credentials for AWS CodeCommit \(HTTPS, recommended for most users\), an SSH key pair to use when accessing AWS CodeCommit \(SSH\), or the credential helper included in the AWS CLI \(HTTPS\)\. 
-
 + For Git credentials on all supported operating systems, see [Step 3: Create Git Credentials for HTTPS Connections to AWS CodeCommit](setting-up-gc.md#setting-up-gc-iam)\.
-
 + For SSH on Linux, macOS, or Unix, see [SSH and Linux, macOS, or Unix: Set Up the Public and Private Keys for Git and AWS CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes)\.
-
 +  For SSH on Windows, see [SSH and Windows: Set Up the Public and Private Keys for Git and AWS CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
-
 + For the credential helper on Linux, macOS, or Unix, see [Set Up the Credential Helper \(Linux, macOS, or Unix\)](setting-up-https-unixes.md#setting-up-https-unixes-ch-config)\.
-
 + For the credential helper on Windows, see [Set Up the Credential Helper \(Windows\)](setting-up-https-windows.md#setting-up-https-windows-ch-config)\.
 
 ## Step 1: Create an AWS CodeCommit Repository<a name="how-to-migrate-existing-create"></a>
@@ -281,9 +253,7 @@ To manage access to your repository, create an IAM group for its users, add IAM 
 This name must be unique across an AWS account\.
 
 1. Select the check box next to the customer managed policy you created in the previous section \(for example, **AWSCodeCommitPowerUser\-MyDemoRepo**\)\. 
-
    + If your users will use HTTPS and Git credentials to connect to AWS CodeCommit, select the check boxes next to **IAMSelfManageServiceSpecificCredentials** and **IAMReadOnlyAccess**, and then choose **Next Step**\. 
-
    + If your users will use SSH to connect to your repository, select the check boxes next to **IAMUserSSHKeys** and **IAMReadOnlyAccess**, and then choose **Next Step**\.
 
 1. On the **Review** page, choose **Create Group**\. The group will be created in IAM with the specified policies already attached\. It will appear in the list of groups associated with your AWS account\.

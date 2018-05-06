@@ -2,7 +2,7 @@
 
 You can create a trigger for an AWS CodeCommit repository so that events in the repository will invoke a Lambda function\. In this example, you will create a Lambda function that returns the URL used to clone the repository to an Amazon CloudWatch log\.   
 
-
+**Topics**
 + [Create the Lambda Function](#how-to-notify-lambda-create-function)
 + [View the Trigger for the Lambda Function in the AWS CodeCommit Repository \(Console\)](#how-to-notify-lam-view)
 
@@ -20,15 +20,10 @@ You can create an AWS CodeCommit trigger for a Lambda function as part of creati
 
 1. On the **Configure triggers** page, choose AWS CodeCommit from the drop\-down list of services to integrate with Lambda\.   
 ![\[Creating a repository from the console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-lambda-trigger.png)![\[Creating a repository from the console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/)
-
    + In **Repository name**, choose the name of the repository where you want to configure a trigger that will use the Lambda function in response to repository events\.
-
    + In **Trigger name**, type a name for the trigger \(for example, *MyLambdaFunctionTrigger*\)\.
-
    + In **Events**, choose the repository events that will trigger the Lambda function\. If you choose **All repository events**, you cannot choose any other events\. If you want to choose a subset of events, clear **All repository events**, and then choose the events you want from the list\. For example, if you want the trigger to run only when a user creates a tag or a branch in the AWS CodeCommit repository, remove **All repository events**, and then choose **Create branch or tag**\.
-
    + If you want the trigger to apply to all branches of the repository, in **Branches**, choose **All branches**\. Otherwise, choose **Specific branches**\. The default branch for the repository will be added by default\. You can keep or delete this branch from the list\. Choose up to ten branch names from the list of repository branches\.
-
    + In **Custom data**, optionally provide information you want included in the Lambda function \(for example, the name of the IRC channel used by developers to discuss development in the repository\)\. This field is a string\. It cannot be used to pass any dynamic parameters\.
 
    Choose **Next**\.
@@ -94,15 +89,10 @@ You can create an AWS CodeCommit trigger for a Lambda function as part of creati
    ```
 
 1. In **Lambda function handler and role**, do the following:
-
    + In **Handler**, leave the default value as derived from the function \(`index.handler` for the Node\.js sample or `lambda_function.lambda_handler` for the Python sample\)\. 
-
    + In **Role**, choose **Create a custom role** from the list\. In the IAM console, do the following:
-
      + In **IAM Role**, choose **lambda\_basic\_execution**\.
-
      + In **Policy Name**, choose **Create a new role policy**\.
-
      + Choose **Allow** to create the role and eturn to the Lambda console\. A value of `lambda_basic_execution` should now be displayed for **Role**\. 
 **Note**  
 If you choose a different role or a different name for the role, be sure to use it in the steps in this topic\.
