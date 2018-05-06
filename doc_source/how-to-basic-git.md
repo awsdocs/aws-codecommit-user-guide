@@ -36,9 +36,9 @@ For more options, see your Git documentation\.
 |  Shows the nickname the local repo uses for the AWS CodeCommit repository\.  |  `git remote`  | 
 |  Shows the nickname and the URL the local repo uses for fetches and pushes to the AWS CodeCommit repository\.  |  `git remote -v`  | 
 |  Pushes finalized commits from the local repo to the AWS CodeCommit repository, using the specified nickname the local repo has for the AWS CodeCommit repository and the specified branch\. Also sets up upstream tracking information for the local repo during the push\.  |  `git push -u remote-name branch-name`  | 
-| Pushes finalized commits from the local repo to the AWS CodeCommit repository after upstream tracking information is set\. | git push | 
+| Pushes finalized commits from the local repo to the AWS CodeCommit repository after upstream tracking information is set\. | `git push` | 
 |  Pulls finalized commits to the local repo from the AWS CodeCommit repository, using the specified nickname the local repo has for the AWS CodeCommit repository and the specified branch  |  `git pull remote-name branch-name`  | 
-| Pulls finalized commits to the local repo from the AWS CodeCommit repository after upstream tracking information is set\. | git pull | 
+| Pulls finalized commits to the local repo from the AWS CodeCommit repository after upstream tracking information is set\. | `git pull` | 
 |  Disconnects the local repo from the AWS CodeCommit repository, using the specified nickname the local repo has for the AWS CodeCommit repository\.  |  `git remote rm remote-name`  | 
 
 ## Commits<a name="how-to-basic-git-commits"></a>
