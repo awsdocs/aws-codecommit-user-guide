@@ -74,6 +74,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Delete a Tag in AWS CodeCommit](how-to-delete-tag.md)
 + [Working with Branches in AWS CodeCommit Repositories](branches.md)
    + [Create a Branch in AWS CodeCommit](how-to-create-branch.md)
+   + [Limit Pushes and Merges to Branches in AWS CodeCommit](how-to-conditional-branch.md)
    + [View Branch Details in AWS CodeCommit](how-to-view-branch-details.md)
    + [Compare Branches in AWS CodeCommit](how-to-compare-branches.md)
    + [Change Branch Settings in AWS CodeCommit](how-to-change-branch.md)

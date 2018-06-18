@@ -71,7 +71,7 @@ To manage access to AWS resources, you use permissions policies\. A *permissions
 **Note**  
 This section discusses using IAM in the context of AWS CodeCommit\. It doesn't provide detailed information about the IAM service\. For more information about IAM, see [What Is IAM?](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*\. For information about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
 
-Permissions policies that are attached to an IAM identity are referred to as identity\-based policies \(IAM polices\)\. Permissions policies that are attached to a resource are referred to as resource\-based policies\. Currently, AWS CodeCommit supports only identity\-based policies \(IAM policies\)\.
+Permissions policies that are attached to an IAM identity are referred to as identity\-based policies \(IAM policies\)\. Permissions policies that are attached to a resource are referred to as resource\-based policies\. Currently, AWS CodeCommit supports only identity\-based policies \(IAM policies\)\.
 
 **Topics**
 + [Identity\-Based Policies \(IAM Policies\)](#identity-based-policies)

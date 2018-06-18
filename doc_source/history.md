@@ -2,11 +2,12 @@
 
 The following table describes the important changes to the documentation since the last release of the *AWS CodeCommit User Guide*\.
 + **API version:** 2015\-04\-13
-+ **Latest documentation update:** February 21, 2018 
++ **Latest documentation update:** May 16, 2018 
 
 
 | Change | Description | Date Changed | 
 | --- | --- | --- | 
+| New topic | The [Limit Pushes and Merges to Branches](how-to-conditional-branch.md) topic has been added\. The [AWS CodeCommit Permissions Reference](auth-and-access-control-permissions-reference.md) topic has been updated\.  | May 16, 2018 | 
 | New section | The [Working with Files in AWS CodeCommit Repositories](files.md) section has been added\. The [AWS CodeCommit Permissions Reference](auth-and-access-control-permissions-reference.md) and [Getting Started with AWS CodeCommit Tutorial](getting-started-cc.md) topics have been updated\.  | February 21, 2018 | 
 | New topic | The [Configure Cross\-Account Access to an AWS CodeCommit Repository](cross-account.md) topic has been added\. | February 21, 2018 | 
 | New topic | The [Integrate AWS Cloud9 with AWS CodeCommit](setting-up-ide-c9.md) topic has been added\. The [Product and Service Integrations](integrations.md) topic has been updated with information about AWS Cloud9\.  | December 1, 2017 | 

@@ -16,7 +16,7 @@ The following information might help you troubleshoot common issues when using t
 
  The default version of Git released on OS X and macOS uses the Keychain Access utility to save generated credentials\. For security reasons, the password generated for access to your AWS CodeCommit repository is temporary, so the credentials stored in the keychain will stop working after about 15 minutes\. If you are only accessing Git with AWS CodeCommit, try the following:
 
-1. In Terminal, run the git config command to find the Git configuration file where the Keychain Access utility is defined:
+1. In Terminal, run the git config command to find the Git configuration file \(gitconfig\) where the Keychain Access utility is defined\. Depending on your local system and preferences, you might have more than one gitconfig file\. 
 
    ```
    $ git config -l --show-origin

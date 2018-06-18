@@ -40,22 +40,52 @@ These links are provided for informational purposes only, and should not be cons
 + [Code Samples](#integrations-community-code)
 
 ### Blog Posts<a name="integrations-community-blogposts"></a>
-+ *[Build Serverless AWS CodeCommit Workflows using Amazon CloudWatch Events and JGit](https://aws.amazon.com/blogs/devops/build-serverless-aws-codecommit-workflows-using-amazon-cloudwatch-events-and-jgit/)*
++ **[Refining Access to Branches in AWS CodeCommit](https://aws.amazon.com/blogs/devops/refining-access-to-branches-in-aws-codecommit/)**
+
+  Learn how to restrict commits to repository branches by creating and applying an IAM policy that uses a context key\.
+
+  Published May 16, 2018
++ **[Replicate AWS CodeCommit Repositories Between Regions Using AWS Fargate](https://aws.amazon.com/blogs/devops/replicate-aws-codecommit-repository-between-regions-using-aws-fargate/)**
+
+  Learn how to set up continuous replication of an AWS CodeCommit repository from one AWS region to another using a serverless architecture\.
+
+  Published April 11, 2018
++ **[Distributing Your AWS OpsWorks for Chef Automate Infrastructure](https://aws.amazon.com/blogs/mt/distributing-your-aws-opsworks-for-chef-automate-infrastructure/)**
+
+  Learn how to use AWS CodePipeline, AWS CodeCommit, AWS CodeBuild, and AWS Lambda to ensure that cookbooks and other configurations are consistently deployed across two or more Chef Servers residing in one or more AWS Regions\.
+
+  Published March 9, 2018
++ **[Peanut Butter and Chocolate: Azure Functions CI/CD Pipeline with AWS CodeCommit](https://get-powershellblog.blogspot.com/2018/02/peanut-butter-and-chocolate-azure.html)**
+
+  Learn how to create a PowerShell\-based Azure Functions CI/CD pipeline where the code is stored in an AWS CodeCommit repository\.
+
+  Published February 19, 2018
++ **[Continuous Deployment to Kubernetes using AWS CodePipeline, AWS CodeCommit, AWS CodeBuild, Amazon ECR, and AWS Lambda](https://aws.amazon.com/blogs/devops/continuous-deployment-to-kubernetes-using-aws-codepipeline-aws-codecommit-aws-codebuild-amazon-ecr-and-aws-lambda/)**
+
+  Learn how to use Kubernetes and AWS together to create a fully managed, continuous deployment pipeline for container based applications\.
+
+  Published January 11, 2018
++ **[Use AWS CodeCommit Pull Requests to request code reviews and discuss code](https://aws.amazon.com/blogs/devops/using-aws-codecommit-pull-requests-to-request-code-reviews-and-discuss-code/)**
+
+  Learn how to use pull requests to review, comment upon, and interactively iterate on code changes in an AWS CodeCommit repository\.
+
+  Published November 20, 2017
++ **[Build Serverless AWS CodeCommit Workflows using Amazon CloudWatch Events and JGit](https://aws.amazon.com/blogs/devops/build-serverless-aws-codecommit-workflows-using-amazon-cloudwatch-events-and-jgit/)**
 
   Learn how to create CloudWatch Events rules that process changes in a repository using AWS CodeCommit repository events and target actions in other AWS services\. Examples include AWS Lambda functions that enforce Git commit message policies on commits, replicate an AWS CodeCommit repository, and backing up an AWS CodeCommit repository to Amazon S3\.
 
   Published August 3, 2017
-+ *[Replicating and Automating Sync\-Ups for a Repository with AWS CodeCommit](https://aws.amazon.com/blogs/devops/replicating-and-automating-sync-ups-for-a-repository-with-aws-codecommit/)*
++ **[Replicating and Automating Sync\-Ups for a Repository with AWS CodeCommit](https://aws.amazon.com/blogs/devops/replicating-and-automating-sync-ups-for-a-repository-with-aws-codecommit/)**
 
   Learn how to back up or replicate an AWS CodeCommit repository to another AWS region, and how to back up repositories hosted on other services to AWS CodeCommit\.
 
   Published March 17, 2017
-+ *[Migrating to AWS CodeCommit](https://romikoderbynew.com/2016/09/06/migrating-to-aws-codecommit/)*
++ **[Migrating to AWS CodeCommit](https://romikoderbynew.com/2016/09/06/migrating-to-aws-codecommit/)**
 
   Learn how to push code to two repositories as part of migrating from using another Git repository to AWS CodeCommit when using SourceTree\.
 
   Published September 6, 2016
-+ *[Set Up Continuous Testing with Appium, AWS CodeCommit, Jenkins, and AWS Device Farm](https://aws.amazon.com/blogs/mobile/set-up-continuous-testing-with-appium-aws-codecommit-jenkins-and-aws-device-farm/)*
++ **[Set Up Continuous Testing with Appium, AWS CodeCommit, Jenkins, and AWS Device Farm](https://aws.amazon.com/blogs/mobile/set-up-continuous-testing-with-appium-aws-codecommit-jenkins-and-aws-device-farm/)**
 
   Learn how to create a continuous testing process for mobile devices using Appium, AWS CodeCommit, Jenkins, and Device Farm\.
 

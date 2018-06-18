@@ -150,7 +150,7 @@ To allow users to use the AWS CodeCommit console, the administrator must grant t
 }
 ```
 
-In addition to permissions granted to users by identity\-based polices, AWS CodeCommit requires permissions for AWS Key Management Service \(AWS KMS\) actions\. An IAM user does not need explicit `Allow` permissions for these actions, but the user must not have any policies attached that set the following permissions to `Deny`:
+In addition to permissions granted to users by identity\-based policies, AWS CodeCommit requires permissions for AWS Key Management Service \(AWS KMS\) actions\. An IAM user does not need explicit `Allow` permissions for these actions, but the user must not have any policies attached that set the following permissions to `Deny`:
 
 ```
         "kms:Encrypt",
@@ -479,7 +479,8 @@ All examples use the US West \(Oregon\) Region \(us\-west\-2\) and contain ficti
  **Examples**
 + [Example 1: Allow a User to Perform AWS CodeCommit Operations in a Single Region](#identity-based-policies-example-1)
 + [Example 2: Allow a User to Use Git for a Single Repository](#identity-based-policies-example-2)
-+ [Example 3: Allow a User Connecting From a Specific IP Address Range Access to a Repository ](#identity-based-policies-example-3)
++ [Example 3: Allow a User Connecting from a Specified IP Address Range Access to a Repository ](#identity-based-policies-example-3)
++ [Example 4: Deny or Allow Actions on Branches](#identity-based-policies-example-4)
 
 #### Example 1: Allow a User to Perform AWS CodeCommit Operations in a Single Region<a name="identity-based-policies-example-1"></a>
 
@@ -522,9 +523,9 @@ The following example allows the specified user to pull from, and push to, the A
 }
 ```
 
-#### Example 3: Allow a User Connecting From a Specific IP Address Range Access to a Repository<a name="identity-based-policies-example-3"></a>
+#### Example 3: Allow a User Connecting from a Specified IP Address Range Access to a Repository<a name="identity-based-policies-example-3"></a>
 
-You can create a policy that only allows users to connect to an AWS CodeCommit repository if their IP address is within a certain IP address range\. There are two equally valid approaches to this\. You can create a Deny policy that disallows AWS CodeCommit operations if the IP address for the user is not within a specific block, or you can create an Allow policy that allows AWS CodeCommit operations if the IP address for the user is within a specific block\.
+You can create a policy that only allows users to connect to an AWS CodeCommit repository if their IP address is within a certain IP address range\. There are two equally valid approaches to this\. You can create a `Deny` policy that disallows AWS CodeCommit operations if the IP address for the user is not within a specific block, or you can create an `Allow` policy that allows AWS CodeCommit operations if the IP address for the user is within a specific block\.
 
 You can create a `Deny` policy that denies access to all users who are not within a certain IP range\. For example, you could attach the AWSCodeCommitPowerUser managed policy and a customer\-managed policy to all users who require access to your repository\. The following example policy denies all AWS CodeCommit permissions to users whose IP addresses are not within the specified IP address block of 203\.0\.113\.0/16:
 
@@ -580,6 +581,67 @@ The following example policy allows the specified user to access an AWS CodeComm
          }
       }
    ]
+}
+```
+
+#### Example 4: Deny or Allow Actions on Branches<a name="identity-based-policies-example-4"></a>
+
+You can create a policy that denies users permissions to actions you specify on one or more branches\. Alternatively, you can create a policy that allows actions on one or more branches that they might not otherwise have in other branches of a repository\. You can use these policies with the appropriate managed \(predefined\) policies\. For more information, see [Limit Pushes and Merges to Branches in AWS CodeCommit](how-to-conditional-branch.md)\.
+
+For example, you can create a `Deny` policy that denies users the ability to make changes to a branch named master, including deleting that branch, in a repository named *MyDemoRepo*\. You can use this policy with the **AWSCodeCommitPowerUser** managed policy\. Users with these two policies applied would be able to create and delete branches, create pull requests, and all other actions as allowed by **AWSCodeCommitPowerUser**, but they would not be able to push changes to the branch named *master*, add or edit a file in the *master* branch in the AWS CodeCommit console, or merge a pull request into the *master* branch\. Because `Deny` is applied to `GitPush`, you must include a `Null` statement in the policy, to allow initial `GitPush` calls to be analyzed for validity when users make pushes from their local repos\.
+
+**Tip**  
+If you want to create a policy that applies to all branches named *master* in all repositories in your AWS account, for `Resource`, specify an asterisk \( `*` \) instead of a repository ARN\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": [
+                "codecommit:GitPush",
+                "codecommit:DeleteBranch",
+                "codecommit:PutFile",
+                "codecommit:MergePullRequestByFastForward"
+            ],
+            "Resource": "arn:aws:codecommit:us-east-2:80398EXAMPLE:MyDemoRepo",
+            "Condition": {
+                "StringEqualsIfExists": {
+                    "codecommit:References": [
+                        "refs/heads/master"   
+                    ]
+                },
+                "Null": {
+                    "codecommit:References": false
+                }
+            }
+        }
+    ]
+}
+```
+
+The following example policy allows a user to make changes to a branch named master in all repositories in an AWS account\. You might use this policy with the AWSCodeCommitReadOnly managed policy to allow automated pushes to the repository\. Because the Effect is `Allow`, this example policy would not work with managed policies such as AWSCodeCommitPowerUser\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "codecommit:GitPush"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringNotEqualsIfExists": {
+                    "codecommit:References": [
+                        "refs/heads/master"
+                    ]
+                }
+            }
+        }
+    ]
 }
 ```
 

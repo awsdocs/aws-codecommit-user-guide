@@ -26,7 +26,7 @@ Although Git supports a variety of connection protocols, AWS CodeCommit does not
 
 ## Create IAM Policies for Your Repository<a name="how-to-share-repo-create-policy"></a>
 
-AWS provides three managed policies in IAM for AWS CodeCommit\. These policies cannot be edited and apply to all repositories associated with your AWS account\. However, you can use these policies as templates to create your own custom managed policies that apply only to the repository you want to share\. Your customer managed policy can apply specifically to the repository you want to share\. For more information about managed policies and IAM users, see [Managed Polices](http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_managed-vs-inline.html#aws-managed-policies) and [IAM Users and Groups](http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html)\. 
+AWS provides three managed policies in IAM for AWS CodeCommit\. These policies cannot be edited and apply to all repositories associated with your AWS account\. However, you can use these policies as templates to create your own custom managed policies that apply only to the repository you want to share\. Your customer managed policy can apply specifically to the repository you want to share\. For more information about managed policies and IAM users, see [Managed Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_managed-vs-inline.html#aws-managed-policies) and [IAM Users and Groups](http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html)\. 
 
 **Tip**  
 For more fine\-grained control over access to your repository, you can create more than one customer managed policy and apply the policies to different IAM users and groups\.
