@@ -54,7 +54,7 @@ AWS CodeCommit supports Git versions 1\.7\.9 and later\. Git is an evolving, reg
    output = json
    ```
 
-   Add two lines to the profile configuration, `role_arn` and `source_profile`\. Provide the ARN of the role in AccountA you will assume to access the repository in the other account, and the name of the current profile\. For example:
+   Add two lines to the profile configuration, `role_arn` and `source_profile`\. Provide the ARN of the role in AccountA you will assume to access the repository in the other account, and the name of the AWS CLI credential profile in account B\. For example:
 
    ```
    [profile MyCrossAccountAccessProfile]
