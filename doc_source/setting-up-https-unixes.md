@@ -127,6 +127,7 @@ If you are using macOS, use the following steps to ensure the credential helper 
 
 1. If you are using macOS, use HTTPS to [connect to an AWS CodeCommit repository](how-to-connect.md)\. After you connect to an AWS CodeCommit repository with HTTPS for the first time, subsequent access will fail after about fifteen minutes\. The default Git version on macOS uses the Keychain Access utility to store credentials\. For security measures, the password generated for access to your AWS CodeCommit repository is temporary, so the credentials stored in the keychain will stop working after about 15 minutes\. To prevent these expired credentials from being used, you must either:
    + Install a version of Git that does not use the keychain by default\.
+   + Configure git to stop using `osxkeychain` as credential helper. For example if `git config --system credential.helper` returns `osxkeychain`, you can run `git config --system --unset credential.helper` to do this.
    + Configure the Keychain Access utility to not provide credentials for AWS CodeCommit repositories\.
 
    1. Open the Keychain Access utility\. \(You can use Finder to locate it\.\)
