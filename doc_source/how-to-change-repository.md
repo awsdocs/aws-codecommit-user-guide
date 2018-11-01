@@ -1,25 +1,31 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Change AWS CodeCommit Repository Settings<a name="how-to-change-repository"></a>
 
-To change the settings of an AWS CodeCommit repository, such as its description or name, you can use the AWS CLI and the AWS CodeCommit console\.
+You can use the AWS CLI and the AWS CodeCommit console to change the settings of an AWS CodeCommit repository, such as its description or name\.
 
 **Important**  
 Changing a repository's name may break any local repos that use the old name in their remote URL\. Run the git remote set\-url command to update the remote URL to use the new repository's name\.
 
 **Topics**
-+ [Use the AWS CodeCommit Console to Change Repository Settings](#how-to-change-repository-console)
-+ [Use the AWS CLI to Change AWS CodeCommit Repository Settings](#how-to-change-repository-cli)
++ [Change Repository Settings \(Console\)](#how-to-change-repository-console)
++ [Change AWS CodeCommit Repository Settings \(AWS CLI\)](#how-to-change-repository-cli)
 
-## Use the AWS CodeCommit Console to Change Repository Settings<a name="how-to-change-repository-console"></a>
+## Change Repository Settings \(Console\)<a name="how-to-change-repository-console"></a>
 
 To use the AWS CodeCommit console to change an AWS CodeCommit repository's settings in AWS CodeCommit, follow these steps\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In the list of repositories, choose the name of the repository where you want to change settings\. 
+1. In **Repositories**, choose the name of the repository where you want to change settings\. 
 
 1. In the navigation pane, choose **Settings**\. 
 
-1. To change the name of the repository, in the **General** tab, in **Repository name**, type a new name in the **Name** text box, choose **Change name**, and then choose **Change name** again\.
+1. To change the name of the repository, in **Repository name**, enter a new name in the **Name** text box and choose **Save**\. When prompted, verify your choice\. 
 **Important**  
 Changing the name of the AWS CodeCommit repository will change the SSH and HTTPS URLs that users need to connect to the repository\. Users will not be able to connect to this repository until they update their connection settings\. Also, because the repository's ARN will change, changing the repository name will invalidate any IAM user policies that rely on this repository's ARN\.  
 To connect to the repository after the name is changed, each user must use the git remote set\-url command and specify the new URL to use\. For example, if you changed the name of the repository from MyDemoRepo to MyRenamedDemoRepo, users who use HTTPS to connect to the repository would run the following Git command:  
@@ -34,23 +40,23 @@ Users who use SSH to connect to the repository would run the following Git comma
    ```
 For more options, see your Git documentation\.
 
-1. To change the repository's description, modify the text in the **Description** text box, and then choose **Save changes**\.
+1. To change the repository's description, modify the text in the **Description** text box, and then choose **Save**\.
 **Note**  
-The description field accepts all HTML characters and all valid Unicode characters\. If you are an application developer using the `GetRepository` or `BatchGetRepositories` APIs and plan to display the repository description field in a web browser, see the [AWS CodeCommit API Reference](http://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
+The description field displays Markdown in the console and accepts all HTML characters and valid Unicode characters\. If you are an application developer who is using the `GetRepository` or `BatchGetRepositories` APIs and you plan to display the repository description field in a web browser, see the [AWS CodeCommit API Reference](http://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
 
-1. To change the default branch, choose a different branch from the **Default branch** drop\-down list, choose **Save changes**, and then choose **Change default**\.
+1. To change the default branch, in **Default branch**, choose the branch drop\-down list and choose a different branch\. Choose **Save**\.
 
-1. To delete the repository, choose **Delete repository**\. In the box next to **Type the name of the repository to confirm deletion**, type the repository's name, and then choose **Delete**\.
+1. To delete the repository, choose **Delete repository**\. In the box next to **Type the name of the repository to confirm deletion**, enter **delete**, and then choose **Delete**\.
 **Important**  
 After you delete this repository in AWS CodeCommit, you will no longer be able to clone it to any local repo or shared repo\. You will also no longer be able to pull data from it, or push data to it, from any local repo or shared repo\. This action cannot be undone\.
 
-## Use the AWS CLI to Change AWS CodeCommit Repository Settings<a name="how-to-change-repository-cli"></a>
+## Change AWS CodeCommit Repository Settings \(AWS CLI\)<a name="how-to-change-repository-cli"></a>
 
 To use AWS CLI commands with AWS CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
 
 To use AWS CLI to change an AWS CodeCommit repository's settings in AWS CodeCommit, run one or more of the following commands:
-+ [update\-repository\-description](#how-to-change-repository-cli-description) to change an AWS CodeCommit repository's description\.
-+ [update\-repository\-name](#how-to-change-repository-cli-name) to change an AWS CodeCommit repository's name\.
++ [update\-repository\-description](#how-to-change-repository-cli-description) to change the description of an AWS CodeCommit repository\.
++ [update\-repository\-name](#how-to-change-repository-cli-name) to change the name of an AWS CodeCommit repository\.
 
 ### To change an AWS CodeCommit repository's description<a name="how-to-change-repository-cli-description"></a>
 
@@ -60,7 +66,7 @@ To use AWS CLI to change an AWS CodeCommit repository's settings in AWS CodeComm
 To get the name of the AWS CodeCommit repository, run the [list\-repositories](how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli) command\.
    + The new repository description \(with the `--repository-description` option\)\.
 **Note**  
-The description field accepts all HTML characters and all valid Unicode characters\. If you are an application developer using the `GetRepository` or `BatchGetRepositories` APIs and plan to display the repository description field in a web browser, see the [AWS CodeCommit API Reference](http://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
+The description field displays Markdown in the console and accepts all HTML characters and valid Unicode characters\. If you are an application developer who is using the `GetRepository` or `BatchGetRepositories` APIs and you plan to display the repository description field in a web browser, see the [AWS CodeCommit API Reference](http://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
 
    For example, to change the description for the AWS CodeCommit repository named `MyDemoRepo` to `This description was changed`:
 
@@ -72,7 +78,7 @@ The description field accepts all HTML characters and all valid Unicode characte
 
 1. To verify the changed description, run the get\-repository command, specifying the name of the AWS CodeCommit repository whose description you changed with the `--repository-name` option\.
 
-   The output of the command will show the changed text in `repositoryDescription`\.
+   The output of the command shows the changed text in `repositoryDescription`\.
 
 ### To change an AWS CodeCommit repository's name<a name="how-to-change-repository-cli-name"></a>
 
@@ -90,6 +96,6 @@ To get the AWS CodeCommit repository's name, run the [list\-repositories](how-to
 
    This command produces output only if there are errors\.
 **Important**  
-Changing the name of the AWS CodeCommit repository will change the SSH and HTTPS URLs that users need to connect to the repository\. Users will not be able to connect to this repository until they update their connection settings\. Also, because the repository's ARN will change, changing the repository name will invalidate any IAM user policies that rely on this repository's ARN\.
+Changing the name of the AWS CodeCommit repository changes the SSH and HTTPS URLs that users need to connect to the repository\. Users cannot connect to this repository until they update their connection settings\. Also, because the repository's ARN changes, changing the repository name invalidates any IAM user policies that rely on this repository's ARN\.
 
 1. To verify the changed name, run the list\-repositories command and review the list of repository names\.

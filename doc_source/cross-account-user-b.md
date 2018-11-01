@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Cross\-Account Repository Access: Actions for the Repository User in AccountB<a name="cross-account-user-b"></a>
 
 To access the repository in AccountA, users in the AccountB group must configure their local computers for repository access\. The following sections provide steps and examples\.
@@ -29,7 +35,26 @@ AWS CodeCommit supports Git versions 1\.7\.9 and later\. Git is an evolving, reg
 
    These commands return nothing, but the email and user name you specify will be associated with the commits you make to the repository in AccountA\.
 
-1. Run the aws configure \-\-profile command to configure a profile to use when connecting to the repository in AccountA\. When prompted, provide the access key and secret key for your IAM user\. For example, run the following command to create an AWS CLI profile named *MyCrossAccountAccessProfile* that you use to access a repository in AccountA in US East \(Ohio\) \(us\-east\-2\):
+1. Run the aws configure \-\-profile command to configure a default profile to use when connecting to resources in AccountB\. When prompted, provide the access key and secret key for your IAM user\.
+**Note**  
+If you have already installed the AWS CLI and configured a profile, you can skip this step\. 
+
+    For example, run the following command to create a default AWS CLI profile that you use to access AWS resources in AccountA in US East \(Ohio\) \(us\-east\-2\):
+
+   ```
+   aws configure
+   ```
+
+   When prompted, provide the following information:
+
+   ```
+   AWS Access Key ID [None]: Your-IAM-User-Access-Key
+   AWS Secret Access Key ID [None]: Your-IAM-User-Secret-Access-Key
+   Default region name ID [None]: us-east-2
+   Default output format [None]: json
+   ```
+
+1. Run the aws configure \-\-profile command again to configure a named profile to use when connecting to the repository in AccountA\. When prompted, provide the access key and secret key for your IAM user\. For example, run the following command to create an AWS CLI profile named *MyCrossAccountAccessProfile* that you use to access a repository in AccountA in US East \(Ohio\) \(us\-east\-2\):
 
    ```
    aws configure --profile MyCrossAccountAccessProfile
@@ -54,19 +79,19 @@ AWS CodeCommit supports Git versions 1\.7\.9 and later\. Git is an evolving, reg
    output = json
    ```
 
-   Add two lines to the profile configuration, `role_arn` and `source_profile`\. Provide the ARN of the role in AccountA you will assume to access the repository in the other account, and the name of the AWS CLI credential profile in account B\. For example:
+   Add two lines to the profile configuration, `role_arn` and `source_profile`\. Provide the ARN of the role in AccountA you will assume to access the repository in the other account, and the name of your default AWS CLI profile in AccountB\. For example:
 
    ```
    [profile MyCrossAccountAccessProfile]
    region = US East (Ohio)
    role_arn = arn:aws:iam::111122223333:role/MyCrossAccountRepositoryContributorRole
-   source_profile = MyCrossAccountAccessProfile
+   source_profile = default
    output = json
    ```
 
    Save your changes, and close the plain\-text editor\.
 
-1. Run the git config command twice: once to configure Git to use the AWS CLI credential helper with the AWS CLI profile you just created, and again to use HTTP\. For example:
+1. Run the git config command twice: once to configure Git use the AWS CLI credential helper with the AWS CLI profile you just created, and again to use HTTP\. For example:
 
    ```
    git config --global credential.helper "!aws codecommit credential-helper --profile MyCrossAccountAccessProfile $@"
@@ -148,7 +173,7 @@ If this is the first time you have selected this option, review the information 
 
    For more information, see [Switching to a Role \(AWS Management Console\)](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html)\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
    If the assumed role has permission to view the names of repositories in AccountA, you see a list of repositories and an error message that informs you that you do not have permissions to view their status\. This is expected behavior\. Choose the name of the shared repository from the list\.
 

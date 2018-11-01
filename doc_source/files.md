@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Working with Files in AWS CodeCommit Repositories<a name="files"></a>
 
 In AWS CodeCommit, a file is a version\-controlled, self\-contained piece of information available to you and other users of the repository and branch where the file is stored\. You can organize your repository files with a directory structure, just as you would on a computer\. Unlike your computer, AWS CodeCommit automatically tracks every change to a file\. You can compare versions of a file, and store different versions of a file in different repository branches\.

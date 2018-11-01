@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Set Up Connections from Development Tools Using Git Credentials<a name="setting-up-ide"></a>
 
 After you have configured Git credentials for AWS CodeCommit in the IAM console, you can use those credentials with any development tool that supports Git credentials\. For example, you can configure access to your AWS CodeCommit repository in AWS Cloud9, Visual Studio, Eclipse, Xcode, IntelliJ, or any integrated development environment \(IDE\) that integrates Git credentials\. After configuring access, you can edit your code, commit your changes, and push directly from the IDE or other development tool\. 

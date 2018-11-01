@@ -1,10 +1,17 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # What Is AWS CodeCommit?<a name="welcome"></a>
 
 AWS CodeCommit is a version control service hosted by Amazon Web Services that you can use to privately store and manage assets \(such as documents, source code, and binary files\) in the cloud\. For information about pricing for AWS CodeCommit, see [Pricing\.](http://aws.amazon.com/codecommit/pricing/)
 
 **Note**  
 This is a HIPAA Eligible Service\. For more information about AWS, U\.S\. Health Insurance Portability and Accountability Act of 1996 \(HIPAA\), and using AWS services to process, store, and transmit protected health information \(PHI\), see [HIPAA Overview](https://aws.amazon.com/compliance/hipaa-compliance/)\.  
-For information about this service and ISO 27001, a security management standard that specifies security management best practices, see [ISO 27001 Overview](https://aws.amazon.com/compliance/iso-27001-faqs/)\.
+For information about this service and ISO 27001, a security management standard that specifies security management best practices, see [ISO 27001 Overview](https://aws.amazon.com/compliance/iso-27001-faqs/)\.  
+For information about this service and the Federal Information Processing Standard \(FIPS\) Publication 140\-2 US government standard that specifies the security requirements for cryptographic modules that protect sensitive information, see [Federal Information Processing Standard \(FIPS\) 140\-2 Overview](https://aws.amazon.com/compliance/fips/) and [Git Connection Endpoints](regions.md#regions-git)\.
 
 **Topics**
 + [Introducing AWS CodeCommit](#welcome-introducing)

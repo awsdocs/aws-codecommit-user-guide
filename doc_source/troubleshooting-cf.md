@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Troubleshooting Configuration Errors and AWS CodeCommit<a name="troubleshooting-cf"></a>
 
 The following information might help you troubleshoot configuration errors you might see when connecting with AWS CodeCommit repositories\.

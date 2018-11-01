@@ -1,8 +1,14 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Example: Create a Trigger in AWS CodeCommit for an Existing AWS Lambda Function<a name="how-to-notify-lambda-cc"></a>
 
-The easiest way to create a trigger that will invoke a Lambda function is to create that trigger in the Lambda console\. This built\-in integration ensures that AWS CodeCommit will have the permissions required to run the function\. You can add a trigger for an existing Lambda function by going to the Lambda console, choosing the function, and on the **Triggers** tab for the function, and then following the steps in **Add trigger**\. These are similar steps to the ones shown in [Create the Lambda Function](how-to-notify-lambda.md#how-to-notify-lambda-create-function)\.
+The easiest way to create a trigger that invokes a Lambda function is to create that trigger in the Lambda console\. This built\-in integration ensures that AWS CodeCommit has the permissions required to run the function\. To add a trigger for an existing Lambda function, go to the Lambda console, and choose the function\. On the **Triggers** tab for the function, follow the steps in **Add trigger**\. These are similar steps to the ones shown in [Create the Lambda Function](how-to-notify-lambda.md#how-to-notify-lambda-create-function)\.
 
-However, you can also create a trigger for a Lambda function in an AWS CodeCommit repository\. Doing so requires that you choose an existing Lambda function to invoke, and also requires that you manually configure the permissions required for AWS CodeCommit to run the function\.
+You can also create a trigger for a Lambda function in an AWS CodeCommit repository\. Doing so requires that you choose an existing Lambda function to invoke\. It also requires that you manually configure the permissions required for AWS CodeCommit to run the function\.
 
 **Topics**
 + [Manually Configure Permissions to Allow AWS CodeCommit to Run a Lambda Function](#how-to-notify-lam-perm)
@@ -44,13 +50,13 @@ If you create a trigger in AWS CodeCommit that invokes a Lambda function, you mu
    }
    ```
 
-   For more information about resource policies for Lambda functions, see [AddPermission](http://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) and [The Pull/Push Event Models](http://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html) in the Lambda User Guide\.
+   For more information about resource policies for Lambda functions, see [AddPermission](http://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) and [The Pull/Push Event Models](http://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html) in the *Lambda User Guide*\.
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
 1. In the **Dashboard** navigation pane, choose **Roles**, and in the list of roles, select *lambda\_basic\_execution*\.
 
-1. On the summary page for the role, choose the **Permissions** tab, and in the **Inline Policies** section, choose **Create Role Policy**\.
+1. On the summary page for the role, choose the **Permissions** tab, and in **Inline Policies**, choose **Create Role Policy**\.
 
 1. On the **Set Permissions** page, choose **Policy Generator**, and then choose **Select**\.
 
@@ -58,7 +64,7 @@ If you create a trigger in AWS CodeCommit that invokes a Lambda function, you mu
    + In **Effect**, choose **Allow**\.
    + In **AWS Service**, choose **AWS CodeCommit**\.
    + In **Actions**, select **GetRepository**\.
-   + In **Amazon Resource Name \(ARN\)**, type the ARN for the repository \(for example, `arn:aws:codecommit:us-east-1:80398EXAMPLE:MyDemoRepo`\)\.
+   + In **Amazon Resource Name \(ARN\)**, enter the ARN for the repository \(for example, `arn:aws:codecommit:us-east-1:80398EXAMPLE:MyDemoRepo`\)\.
 
    Choose **Add Statement**, and then choose **Next Step**\.
 
@@ -86,32 +92,34 @@ If you create a trigger in AWS CodeCommit that invokes a Lambda function, you mu
 
 ## Create a Trigger for the Lambda Function in an AWS CodeCommit Repository \(Console\)<a name="how-to-notify-lam-console"></a>
 
-After you have created the Lambda function, you can create a trigger in AWS CodeCommit that will run the function in response to the repository events you specify\.
+After you have created the Lambda function, you can create a trigger in AWS CodeCommit that runs the function in response to the repository events you specify\.
 
 **Note**  
 Before you can successfully test or run the trigger for the example, you must configure the policies that allow AWS CodeCommit to invoke the function and the Lambda function to get information about the repository\. For more information, see [To allow AWS CodeCommit to run a Lambda function](#how-to-notify-lambda-create-function-perm)\.
 
-**To create a trigger for a Lambda function in the AWS CodeCommit console**
+**To create a trigger for a Lambda function**
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. From the list of repositories, choose the repository where you want to create triggers for repository events\.
+1. In **Repositories**, choose the repository where you want to create triggers for repository events\.
 
 1. In the navigation pane for the repository, choose **Settings**\. In **Settings**, choose **Triggers**\.
 
 1. Choose **Create trigger**\.
 
-1. In the **Create trigger** pane, do the following:
-   + In **Trigger name**, type a name for the trigger \(for example, *MyLambdaFunctionTrigger*\)\.
-   + In **Events**, choose the repository events that will trigger the Lambda function\. 
+   If this feature does not appear available in the new console experience, choose the navigation bar option **Return to the old experience**\.
+
+1. In **Create trigger**, do the following:
+   + In **Trigger name**, enter a name for the trigger \(for example, *MyLambdaFunctionTrigger*\)\.
+   + In **Events**, choose the repository events that trigger the Lambda function\. 
 
      If you choose **All repository events**, you cannot choose any other events\. If you want to choose a subset of events, clear **All repository events**, and then choose the events you want from the list\. For example, if you want the trigger to run only when a user creates a tag or a branch in the AWS CodeCommit repository, remove **All repository events**, and then choose **Create branch or tag**\.
-   + If you want the trigger to apply to all branches of the repository, in **Branches**, choose **All branches**\. Otherwise, choose **Specific branches**\. The default branch for the repository will be added by default\. You can keep or delete this branch from the list\. Choose up to ten branch names from the list of repository branches\.
+   + If you want the trigger to apply to all branches of the repository, in **Branches**, choose **All branches**\. Otherwise, choose **Specific branches**\. The default branch for the repository is added by default\. You can keep or delete this branch from the list\. Choose up to 10 branch names from the list of repository branches\.
    + In **Send to**, choose **AWS Lambda**\.
-   + In **Lambda function ARN**, choose the function name from the list, or choose **Add an AWS Lambda function ARN** and then type the ARN for the function\.
-   + In **Custom data**, optionally provide information you want included in the Lambda function \(for example, the name of the IRC channel used by developers to discuss development in the repository\)\. This field is a string\. It cannot be used to pass any dynamic parameters\.
+   + In **Lambda function ARN**, choose the function name from the list, or choose **Add an AWS Lambda function ARN** and then enter the ARN for the function\.
+   + In **Custom data**, optionally enter information you want included in the Lambda function \(for example, the name of the IRC channel used by developers to discuss development in the repository\)\. This field is a string\. It cannot be used to pass any dynamic parameters\.
 
-1. Optionally, choose **Test trigger**\. This option will attempt to invoke the function with sample data about your repository, including the most recent commit ID for the repository\. \(If no commit history exists, sample values consisting of zeroes will be generated instead\.\) This will help you confirm you have correctly configured access between AWS CodeCommit and the Lambda function\.
+1. Optionally, choose **Test trigger**\. This option attempts to invoke the function with sample data about your repository, including the most recent commit ID for the repository\. \(If no commit history exists, sample values consisting of zeroes are generated instead\.\) This helps you confirm that you have correctly configured access between AWS CodeCommit and the Lambda function\.
 
 1. Choose **Create** to finish creating the trigger\.
 
@@ -125,12 +133,12 @@ You can also use the command line to create a trigger for a Lambda function in r
 
 1. Open a plain\-text editor and create a JSON file that specifies:
    + The Lambda function name\.
-   + The repository and branches you want to monitor with this trigger\. \(If you do not specify any branches, the trigger will apply to all branches in the repository\.\)
-   + The events that will activate this trigger\.
+   + The repository and branches you want to monitor with this trigger\. \(If you do not specify any branches, the trigger applies to all branches in the repository\.\)
+   + The events that activate this trigger\.
 
     Save the file\. 
 
-   For example, if you want to create a trigger for a repository named *MyDemoRepo* that will publish all repository events to a Lambda function named *MyCodeCommitFunction* for two branches, *master* and *preprod*:
+   For example, if you want to create a trigger for a repository named *MyDemoRepo* that publishes all repository events to a Lambda function named *MyCodeCommitFunction* for two branches, *master* and *preprod*:
 
    ```
    {
@@ -151,7 +159,7 @@ You can also use the command line to create a trigger for a Lambda function in r
    }
    ```
 
-   There must be a trigger block in the JSON for each trigger for a repository\. To create more than one trigger for a repository, include additional blocks in the JSON\. Remember that all triggers created in this file are for the specified repository\. You cannot create triggers for multiple repositories in a single JSON file\. For example, if you wanted to create two triggers for a repository, you could create a JSON file with two trigger blocks\. In the following example, no branches are specified in the second trigger block, so that trigger will apply to all branches:
+   There must be a trigger block in the JSON for each trigger for a repository\. To create more than one trigger for a repository, include additional blocks in the JSON\. Remember that all triggers created in this file are for the specified repository\. You cannot create triggers for multiple repositories in a single JSON file\. For example, if you wanted to create two triggers for a repository, you could create a JSON file with two trigger blocks\. In the following example, no branches are specified in the second trigger block, so that trigger applies to all branches:
 
    ```
    {
@@ -189,9 +197,9 @@ You can also use the command line to create a trigger for a Lambda function in r
 **Note**  
 You can use more than one event type in a trigger\. However, if you specify `all`, you cannot specify other events\. 
 
-   To see the full list of valid event types, at the terminal or command prompt, type aws codecommit put\-repository\-triggers help\. 
+   To see the full list of valid event types, at the terminal or command prompt, enter aws codecommit put\-repository\-triggers help\. 
 
-   In addition, you can include a string in `customData` \(for example, an IRC channel name developers use when discussing development in this repository\)\. This field is a string\. It cannot be used to pass any dynamic parameters\. This string will be appended as an attribute to the AWS CodeCommit JSON returned in response to the trigger\.
+   In addition, you can include a string in `customData` \(for example, an IRC channel name developers use when discussing development in this repository\)\. This field is a string\. It cannot be used to pass any dynamic parameters\. This string is appended as an attribute to the AWS CodeCommit JSON returned in response to the trigger\.
 
 1. At a terminal or command prompt, optionally run the test\-repository\-triggers command\. For example, the following is used to test that the JSON file named *trigger\.json* is valid and that AWS CodeCommit can trigger the Lambda function\. This test uses sample data to trigger the function if no real data is available\.
 

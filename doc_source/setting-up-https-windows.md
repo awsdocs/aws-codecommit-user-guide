@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Setup Steps for HTTPS Connections to AWS CodeCommit Repositories on Windows with the AWS CLI Credential Helper<a name="setting-up-https-windows"></a>
 
 Before you can connect to AWS CodeCommit for the first time, you must complete the initial configuration steps\. For most users, this can be done most easily by following the steps in [For HTTPS Users Using Git Credentials](setting-up-gc.md)\. However, if you want to connect to AWS CodeCommit using a root account, federated access, or temporary credentials, you must use the credential helper that is included in the AWS CLI\.
@@ -151,7 +157,7 @@ If an administrator has already sent you the name and connection details for the
 
 **To connect to an AWS CodeCommit repository**
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. In the region selector, choose the region where the repository was created\. Repositories are specific to an AWS region\. For more information, see [Regions and Git Connection Endpoints](regions.md)\.
 

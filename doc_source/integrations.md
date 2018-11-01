@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Product and Service Integrations with AWS CodeCommit<a name="integrations"></a>
 
 By default, AWS CodeCommit is integrated with a number of AWS services\. You can also use AWS CodeCommit with products and services outside of AWS\. The following information can help you configure AWS CodeCommit to integrate with the products and services you use\.

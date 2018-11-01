@@ -1,6 +1,12 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Browse Files in an AWS CodeCommit Repository<a name="how-to-browse"></a>
 
-After you connect to an AWS CodeCommit repository, you can clone it to a local repo or use the AWS CodeCommit console to browse its contents\. This topic provides instructions for browsing the content of an AWS CodeCommit repository by using the console\.
+After you connect to an AWS CodeCommit repository, you can clone it to a local repo or use the AWS CodeCommit console to browse its contents\. This topic describes how to use the AWS CodeCommit console to browse the content of an AWS CodeCommit repository\.
 
 **Note**  
 For active AWS CodeCommit users, there is no charge for browsing code from the AWS CodeCommit console\. For information about when charges may apply, see [Pricing](http://aws.amazon.com/codecommit/pricing/)\.
@@ -13,13 +19,13 @@ You can use the AWS CodeCommit console to review the files contained in a reposi
 
 **To browse the content of a repository**
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. On the **Dashboard** page, from the list of repositories, choose the repository you want to browse\. 
+1. On the **Repositories** page, from the list of repositories, choose the repository you want to browse\. 
 
 1.  In the **Code** view, browse the contents of the default branch for your repository\. 
 
-   To change the view to a different branch or tag, choose the view selector button\. Either choose a branch or tag name from the drop\-down list, or in the filter box, type the name of the branch or tag, and then choose it from the list\.
+   To change the view to a different branch or tag, choose the view selector button\. Either choose a branch or tag name from the drop\-down list, or in the filter box, enter the name of the branch or tag, and then choose it from the list\.
 
 1. Do one of the following:
    + To view the contents of a directory, choose it from the list\. You can choose any of the directories in the navigation list to return to that directory view\. You can also use the up arrow at the top of the directory list\.

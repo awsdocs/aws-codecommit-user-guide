@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Authentication and Access Control for AWS CodeCommit<a name="auth-and-access-control"></a>
 
 Access to AWS CodeCommit requires credentials\. Those credentials must have permissions to access AWS resources, such as AWS CodeCommit repositories, and your IAM user, which you use to manage your Git credentials or the SSH public key that you use for making Git connections\. The following sections provide details on how you can use [AWS Identity and Access Management \(IAM\)](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) and AWS CodeCommit to help secure access to your resources:

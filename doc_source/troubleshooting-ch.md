@@ -1,6 +1,12 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Troubleshooting the Credential Helper and HTTPS Connections to AWS CodeCommit<a name="troubleshooting-ch"></a>
 
-The following information might help you troubleshoot common issues when using the credential helper included with the AWS CLI and HTTPS to connect to AWS CodeCommit repositories\.
+The following information might help you troubleshoot common issues when you use the credential helper included with the AWS CLI and HTTPS to connect to AWS CodeCommit repositories\.
 
 **Topics**
 + [Git for macOS: I Configured the Credential Helper Successfully, but Now I Am Denied Access to My Repository \(403\)](#troubleshooting-macoshttps)
@@ -12,9 +18,9 @@ The following information might help you troubleshoot common issues when using t
 + The AWS CLI is configured for a different AWS region than the one where the repository exists\.
 + The Keychain Access utility has saved credentials which have since expired\.
 
-**Possible fixes:** To verify whether the AWS CLI is configured for the correct region, run the aws configure command, and review the displayed information\. If the AWS CodeCommit repository is in a different region than the one shown for the AWS CLI, you must run the aws configure command and change the values to the appropriate ones for that region\. For more information, see [Step 1: Initial Configuration for AWS CodeCommit](setting-up-https-unixes.md#setting-up-https-unixes-account)\.
+**Possible fixes:** To verify whether the AWS CLI is configured for the correct region, run the aws configure command, and review the displayed information\. If the AWS CodeCommit repository is in a region different from the one shown for the AWS CLI, you must run the aws configure command and change the values to ones appropriate for that region\. For more information, see [Step 1: Initial Configuration for AWS CodeCommit](setting-up-https-unixes.md#setting-up-https-unixes-account)\.
 
- The default version of Git released on OS X and macOS uses the Keychain Access utility to save generated credentials\. For security reasons, the password generated for access to your AWS CodeCommit repository is temporary, so the credentials stored in the keychain will stop working after about 15 minutes\. If you are only accessing Git with AWS CodeCommit, try the following:
+ The default version of Git released on OS X and macOS uses the Keychain Access utility to save generated credentials\. For security reasons, the password generated for access to your AWS CodeCommit repository is temporary, so the credentials stored in the keychain stop working after about 15 minutes\. If you are only accessing Git with AWS CodeCommit, try the following:
 
 1. In Terminal, run the git config command to find the Git configuration file \(gitconfig\) where the Keychain Access utility is defined\. Depending on your local system and preferences, you might have more than one gitconfig file\. 
 
@@ -59,24 +65,32 @@ If you are accessing other repositories with Git, you can configure the Keychain
 
 1. In **Confirm before allowing access**, choose `git-credential-osxkeychain`, and then choose the minus sign to remove it from the list\.
 **Note**  
-After removing `git-credential-osxkeychain` from the list, you will see a pop\-up dialog box whenever you run a Git command\. Choose **Deny** to continue\. If you find the pop\-ups too disruptive, here are some alternatives:  
+After removing `git-credential-osxkeychain` from the list, you see a dialog box whenever you run a Git command\. Choose **Deny** to continue\. If you find the pop\-ups too disruptive, here are some alternatives:  
 Connect to AWS CodeCommit using SSH instead of HTTPS\. For more information, see [For SSH Connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md)\. 
-In the Keychain Access utility, on the **Access Control** tab for `git-codecommit.us-east-2.amazonaws.com`, choose the **Allow all applications to access this item \(access to this item is not restricted\)** option\. This will prevent the pop\-ups, but the credentials will eventually expire \(on average, this takes about 15 minutes\) and you will see a 403 error message\. When this happens, you must delete the keychain item in order to restore functionality\.
+In the Keychain Access utility, on the **Access Control** tab for `git-codecommit.us-east-2.amazonaws.com`, choose the **Allow all applications to access this item \(access to this item is not restricted\)** option\. This prevents the pop\-ups, but the credentials eventually expire \(on average, this takes about 15 minutes\) and you then see a 403 error message\. When this happens, you must delete the keychain item to restore functionality\.
 Install a version of Git that does not use the keychain by default\.
 Consider a scripting solution for deleting the keychain item\. To view a community\-generated sample of a scripted solution, see [Mac OS X Script to Periodically Delete Cached Credentials in the OS X Certificate Store](integrations.md#integrations-community-code) in [Product and Service Integrations](integrations.md)\.
+
+If you want to stop Git from using the Keychain Access utility entirely, you can configure Git to stop using 'osxkeychain' as the credential helper\. For example, if you open a terminal and run the command `git config --system credential.helper`, and it returns `osxkeychain`, you will know that Git is set to use the Keychain Access utility\. You can change this by running the following command:
+
+```
+git config --system --unset credential.helper
+```
+
+Be aware that by running this command with the `--system` option changes the Git behavior system\-wide for all users, and this might have unintended consequences for other users, or for other repositories if you're using other repository services in addition to AWS CodeCommit\. Also be aware that this approach might require the use of `sudo`, and that your account might not have sufficient system permissions to apply this change\. Make sure to verify that the command applied successfully by re\-running the `git config --system credential.helper` command\. For more information, see [Customizing Git \- Git Configuration](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration) and [this article on Stack Overflow](https://stackoverflow.com/questions/16052602/disable-git-credential-osxkeychain)\.
 
 ## Git for Windows: I Installed Git for Windows, but I Am Denied Access to My Repository \(403\)<a name="troubleshooting-windowshttps"></a>
 
 **Problem:** On Windows, the credential helper does not seem to access or use your credentials as expected\. This can be caused by different problems:
-+ The AWS CLI is configured for a different AWS region than the one where the repository exists\.
-+ By default, Git for Windows installs a Git Credential Manager utility that is not compatible with AWS CodeCommit connections that use the AWS credential helper\. When installed, it will cause connections to repository to fail even thought the credential helper has been installed with the AWS CLI and configured for connections to AWS CodeCommit\.
++ The AWS CLI is configured for an AWS Region different from the one where the repository exists\.
++ By default, Git for Windows installs a Git Credential Manager utility that is not compatible with AWS CodeCommit connections that use the AWS credential helper\. When installed, it causes connections to repository to fail even thought the credential helper has been installed with the AWS CLI and configured for connections to AWS CodeCommit\.
 + Some versions of Git for Windows might not be in full compliance with [RFC 2617](https://tools.ietf.org/html/rfc2617#page-5) and [RFC 4559](https://tools.ietf.org/html/rfc4559#page-2), which could potentially cause issues with both Git credentials and the credential helper included with the AWS CLI\. For more information, see [Version 2\.11\.0\(3\) does not ask for username/password](https://github.com/git-for-windows/git/issues/1034)\.
 
 **Possible fixes:** 
 + If you are attempting to use the credential helper included with the AWS CLI, consider connecting with Git credentials over HTTPS instead of using the credential helper\. Git credentials configured for your IAM user are compatible with the Git Credential Manager for Windows, unlike the credential helper for AWS CodeCommit\. For more information, see [For HTTPS Users Using Git Credentials](setting-up-gc.md)\. 
 
-  If you want to use the credential helper, to verify whether the AWS CLI is configured for the correct region, run the aws configure command, and review the displayed information\. If the AWS CodeCommit repository is in a different region than the one shown for the AWS CLI, you must run the aws configure command and change the values to the appropriate ones for that region\. For more information, see [Step 1: Initial Configuration for AWS CodeCommit](setting-up-https-windows.md#setting-up-https-windows-account)\.
-+ If possible, uninstall and reinstall Git for Windows\. When installing Git for Windows, clear the check box for the option for installing the Git Credential Manager utility\. This credential manager is not compatible with the credential helper for AWS CodeCommit\. If you installed the Git Credential Manager or another credential management utility and you do not want to uninstall it, you can modify your \.gitconfig file and add specific credential management for AWS CodeCommit:
+  If you want to use the credential helper, to verify whether the AWS CLI is configured for the correct region, run the aws configure command, and review the displayed information\. If the AWS CodeCommit repository is in a region different from the one shown for the AWS CLI, you must run the aws configure command and change the values to ones appropriate for that region\. For more information, see [Step 1: Initial Configuration for AWS CodeCommit](setting-up-https-windows.md#setting-up-https-windows-account)\.
++ If possible, uninstall and reinstall Git for Windows\. When you install Git for Windows, clear the check box for the option to install the Git Credential Manager utility\. This credential manager is not compatible with the credential helper for AWS CodeCommit\. If you installed the Git Credential Manager or another credential management utility and you do not want to uninstall it, you can modify your \.gitconfig file and add specific credential management for AWS CodeCommit:
 
   1. Open **Control Panel**, choose **Credential Manager**, and remove any stored credentials for AWS CodeCommit\.
 
@@ -94,13 +108,13 @@ If you work with multiple Git profiles, you might have both local and global \.g
 
   1. Save the file, and then open a new command line session before you attempt to connect again\.
 
-  You can also use this approach if you want to use the credential helper for AWS CodeCommit when connecting to AWS CodeCommit repositories and another credential management system when connecting to other hosted repositories, such as GitHub repositories\. 
+  You can also use this approach if you want to use the credential helper for AWS CodeCommit when you connect to AWS CodeCommit repositories and another credential management system when you connect to other hosted repositories, such as GitHub repositories\. 
 
-  To reset which credential helper is used as the default, you can use the \-\-system option instead of \-\-global or \-\-local when running the git config command\.
+  To reset which credential helper is used as the default, you can use the \-\-system option instead of \-\-global or \-\-local when you run the git config command\.
 + If you are using Git credentials on a Windows computer, you can try to work around any RFC noncompliance issues by including your Git credential user name as part of the connection string\. For example, to work around the issue and clone a repository named *MyDemoRepo* in the US East \(Ohio\) region:
 
   ```
   git clone https://Your-Git-Credential-Username@git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo
   ```
 **Note**  
-This approach will not work if you have an `@` character in your Git credentials username\. You must URL encode \(also known as URL escaping or [percent\-encoding](https://en.wikipedia.org/wiki/Percent-encoding)\) the character before it will work\.
+This approach does not work if you have an `@` character in your Git credentials user name\. You must URL\-encode \(also known as URL escaping or [percent\-encoding](https://en.wikipedia.org/wiki/Percent-encoding)\) the character before it will work\.

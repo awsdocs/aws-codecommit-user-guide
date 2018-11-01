@@ -1,6 +1,12 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Push Commits to an Additional Git Repository<a name="how-to-mirror-repo-pushes"></a>
 
-You can configure your local repo to push changes to two remote repositories\. For example, you might want to continue using your existing Git repository solution while you try out AWS CodeCommit\. Follow these basic steps to push changes in your local repo to both AWS CodeCommit and a separate Git repository\.
+You can configure your local repo to push changes to two remote repositories\. For example, you might want to continue using your existing Git repository solution while you try out AWS CodeCommit\. Follow these basic steps to push changes in your local repo to AWS CodeCommit and a separate Git repository\.
 
 **Tip**  
 If you do not have a current Git repository, you can create an empty one on a service other than AWS CodeCommit and then migrate your AWS CodeCommit repository to it\. You should follow steps similar to the ones in [Migrate to AWS CodeCommit](how-to-migrate-repository.md)\.
@@ -23,7 +29,7 @@ If you do not have a current Git repository, you can create an empty one on a se
 
 1. Run the git remote set\-url \-\-add \-\-push origin *git\-repository\-name* command where *git\-repository\-name* is the URL and name of the Git repository where you want to host your code\. This changes the push destination of `origin` to that Git repository\.
 **Note**  
-git remote set\-url \-\-add \-\-push overrides the default URL for pushes, so you will have to run this command twice, as demonstrated in later steps\.
+git remote set\-url \-\-add \-\-push overrides the default URL for pushes, so you must run this command twice, as demonstrated in later steps\.
 
    For example, the following command changes the push of origin to *some\-URL*/MyDestinationRepo:
 
@@ -33,7 +39,7 @@ git remote set\-url \-\-add \-\-push overrides the default URL for pushes, so yo
 
    This command returns nothing\.
 **Tip**  
-If you are pushing to a Git repository that requires credentials, make sure you configure those credentials in a credential helper or in the configuration of the *some\-URL* string; otherwise, your pushes to that repository will fail\.
+If you are pushing to a Git repository that requires credentials, make sure you configure those credentials in a credential helper or in the configuration of the *some\-URL* string\. Otherwise, your pushes to that repository fail\.
 
 1. Run the git remote \-v command again, which should create output similar to the following:
 
@@ -87,7 +93,7 @@ If you are pushing to a Git repository that requires credentials, make sure you 
    origin  ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo (push)
    ```
 
-   You now have two Git repositories as the destination for your pushes, but your pushes will go to *some\-URL*/MyDestinationRepo first\. If the push to that repository fails, your commits will not be pushed to either repository\.
+   You now have two Git repositories as the destination for your pushes, but your pushes go to *some\-URL*/MyDestinationRepo first\. If the push to that repository fails, your commits are not pushed to either repository\.
 **Tip**  
 If the other repository requires credentials you want to enter manually, consider changing the order of the pushes so that you push to AWS CodeCommit first\. Run git remote set\-url \-\-delete to delete the repository that is pushed to first, and then run git remote set\-url \-\-add to add it again so that it becomes the second push destination in the list\.   
 For more options, see your Git documentation\.
@@ -114,7 +120,7 @@ For more options, see your Git documentation\.
 
 1. To push the commit from the local repo to your remote repositories, run git push \-u *remote\-name* *branch\-name* where *remote\-name* is the nickname the local repo uses for the remote repositories and *branch\-name* is the name of the branch to push to the repository\.
 **Tip**  
-You only have to use the `-u` option the first time you push\. The upstream tracking information will be set\.
+You only have to use the `-u` option the first time you push\. Then the upstream tracking information is set\.
 
    For example, running git push \-u origin master would show the push went to both remote repositories in the expected branches, with output similar to the following:
 

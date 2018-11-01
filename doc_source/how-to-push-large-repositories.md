@@ -1,10 +1,16 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Migrate a Repository Incrementally<a name="how-to-push-large-repositories"></a>
 
-When migrating to AWS CodeCommit, consider pushing your repository in increments or chunks to reduce the chances an intermittent network issue or degraded network performance will cause the entire push to fail\. By using incremental pushes with a script like the following, you can restart the migration and push only those commits that did not succeed on the earlier attempt\.
+When migrating to AWS CodeCommit, consider pushing your repository in increments or chunks to reduce the chances an intermittent network issue or degraded network performance causes the entire push to fail\. By using incremental pushes with a script like the one included here, you can restart the migration and push only those commits that did not succeed on the earlier attempt\.
 
-The procedures in this topic show you how to create and run a script that will migrate your repository in increments and repush only those increments that did not succeed until the migration is complete\.
+The procedures in this topic show you how to create and run a script that migrates your repository in increments and repushes only those increments that did not succeed until the migration is complete\.
 
-These instructions assume you have already completed the steps in [Setting Up ](setting-up.md) and [Create a Repository](how-to-create-repository.md)\. 
+These instructions are written with the assumption that you have already completed the steps in [Setting Up ](setting-up.md) and [Create a Repository](how-to-create-repository.md)\. 
 
 **Topics**
 + [Step 0: Determine Whether to Migrate Incrementally](#how-to-push-large-repositories-determine)
@@ -15,7 +21,7 @@ These instructions assume you have already completed the steps in [Setting Up ](
 
 ## Step 0: Determine Whether to Migrate Incrementally<a name="how-to-push-large-repositories-determine"></a>
 
-There are several factors to consider to determine the overall size of your repository and whether to migrate incrementally\. The most obvious is the overall size of the artifacts in the repository\. Factors such as the accumulated history of the repository can also contribute to size\. A repository with years of history and branches can be very large, even though the individual assets are not\. There are a number of strategies you can pursue to make migrating these repositories simpler and more efficient, such as using a shallow clone strategy when cloning a repository with a long history of development, or turning off delta compression for large binary files\. You can research options by consulting your Git documentation, or you can choose to set up and configure incremental pushes for migrating your repository using the sample script included in this topic, `incremental-repo-migration.py`\. 
+There are several factors to consider to determine the overall size of your repository and whether to migrate incrementally\. The most obvious is the overall size of the artifacts in the repository\. Factors such as the accumulated history of the repository can also contribute to size\. A repository with years of history and branches can be very large, even though the individual assets are not\. There are a number of strategies you can pursue to make migrating these repositories simpler and more efficient\. For example, you can use a shallow clone strategy when cloning a repository with a long history of development, or you can turn off delta compression for large binary files\. You can research options by consulting your Git documentation, or you can choose to set up and configure incremental pushes for migrating your repository using the sample script included in this topic, `incremental-repo-migration.py`\. 
 
 You might want to configure incremental pushes if one or more of the following conditions is true:
 + The repository you want to migrate has more than five years of history\.
@@ -28,13 +34,16 @@ Even if none of the above conditions are true, you can still choose to push incr
 
 ## Step 1: Install Prerequisites and Add the AWS CodeCommit Repository as a Remote<a name="how-to-push-large-repositories-prereq"></a>
 
-You can create your own custom script, which will have its own prerequisites\. If you choose to use the sample included in this topic, you must first install its prerequisites, as well as clone the repository to your local computer and add the AWS CodeCommit repository as a remote for the repository you want to migrate\.
+You can create your own custom script, which has its own prerequisites\. If you use the sample included in this topic, you must:
++ Install its prerequisites\.
++ Clone the repository to your local computer\.
++ Add the AWS CodeCommit repository as a remote for the repository you want to migrate\.
 
 **Set up to run incremental\-repo\-migration\.py**
 
-1.  On your local computer, install Python 2\.6 or later, if it is not already installed\. For more information and the latest versions, see [the Python website](https://www.python.org/downloads/)\.
+1.  On your local computer, install Python 2\.6 or later\. For more information and the latest versions, see [the Python website](https://www.python.org/downloads/)\.
 
-1. On the same computer, install GitPython, which is a Python library used to interact with Git repositories, if it is not already installed\. For more information, see [the GitPython documentation](http://gitpython.readthedocs.org/en/stable/)\.
+1. On the same computer, install GitPython, which is a Python library used to interact with Git repositories\. For more information, see [the GitPython documentation](http://gitpython.readthedocs.org/en/stable/)\.
 
 1.  Use the git clone \-\-mirror command to clone the repository you want to migrate to your local computer\. From the terminal \(Linux, macOS, or Unix\) or the command prompt \(Windows\), use the git clone \-\-mirror command to create a local repo for the repository, including the directory where you want to create the local repo\. For example, to clone a Git repository named *MyMigrationRepo* with a URL of *https://example\.com/my\-repo/* to a directory named *my\-repo*:
 
@@ -55,15 +64,15 @@ You can create your own custom script, which will have its own prerequisites\. I
 
 1. Change directories to the local repo for the repository you just cloned \(for example, *my\-repo*\)\. From that directory, use the git remote add *DefaultRemoteName* *RemoteRepositoryURL* command to add the AWS CodeCommit repository as a remote repository for the local repo\.
 **Note**  
-When pushing large repositories, consider using SSH instead of HTTPS\. When pushing a large change, a large number of changes, or a large repository, long\-running HTTPS connections are often terminated prematurely due to networking issues or firewall settings\. For more information about setting up AWS CodeCommit for SSH, see [For SSH Connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md) or [For SSH Connections on Windows](setting-up-ssh-windows.md)\.
+When pushing large repositories, consider using SSH instead of HTTPS\. When you push a large change, a large number of changes, or a large repository, long\-running HTTPS connections are often terminated prematurely due to networking issues or firewall settings\. For more information about setting up AWS CodeCommit for SSH, see [For SSH Connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md) or [For SSH Connections on Windows](setting-up-ssh-windows.md)\.
 
-    For example, to add the SSH endpoint for an AWS CodeCommit repository named MyDestinationRepo as a remote repository for the remote named `codecommit`, use the following command: 
+    For example, use the following command to add the SSH endpoint for an AWS CodeCommit repository named MyDestinationRepo as a remote repository for the remote named `codecommit`: 
 
    ```
    git remote add codecommit ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDestinationRepo
    ```
 **Tip**  
-Because this is a clone, the default remote name \(`origin`\) will already be in use\. You must use another remote name\. Although the example uses `codecommit`, you can use any name you want\. Use the git remote show command to review the list of remotes set for your local repo\.
+Because this is a clone, the default remote name \(`origin`\) is already in use\. You must use another remote name\. Although the example uses `codecommit`, you can use any name you want\. Use the git remote show command to review the list of remotes set for your local repo\.
 
 1. Use the git remote \-v command to display the fetch and push settings for your local repo and confirm they are set correctly\. For example:
 
@@ -72,11 +81,11 @@ Because this is a clone, the default remote name \(`origin`\) will already be in
    codecommit  ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDestinationRepo (push)
    ```
 **Tip**  
-If you still see fetch and push entries for a different remote repository \(for example, entries for origin\), remove them using the git remote set\-url \-\-delete command\.
+If you still see fetch and push entries for a different remote repository \(for example, entries for origin\), use the git remote set\-url \-\-delete command to remove them\.
 
 ## Step 2: Create the Script to Use for Migrating Incrementally<a name="how-to-push-large-repositories-createscript"></a>
 
-These steps assume you will use the `incremental-repo-migration.py` sample script\. 
+These steps are written with the assumption that you are using the `incremental-repo-migration.py` sample script\. 
 
 1. Open a text editor and paste the contents of [the sample script](#how-to-push-large-repositories-sample) into an empty document\.
 
@@ -94,7 +103,7 @@ These steps assume you will use the `incremental-repo-migration.py` sample scrip
    python incremental-repo-migration.py
    ```
 
-1. The script runs and shows progress at the terminal or command prompt\. Some large repositories will be slow to show progress\. The script will stop if a single push fails three times\. You can then rerun the script, and it will start from the batch that failed\. You can rerun the script until all pushes succeed and the migration is complete\.
+1. The script runs and shows progress at the terminal or command prompt\. Some large repositories are slow to show progress\. The script stops if a single push fails three times\. You can then rerun the script, and it starts from the batch that failed\. You can rerun the script until all pushes succeed and the migration is complete\.
 
 **Tip**  
 You can run `incremental-repo-migration.py` from any directory as long as you use the `-l` and `-r` options to specify the local and remote settings to use\. For example, to use the script from any directory to migrate a local repo located at /tmp/*my\-repo* to a remote nicknamed *codecommit*:  
@@ -107,7 +116,7 @@ python incremental-repo-migration.py -l "/tmp/my-repo" -r "codecommit"
 ```
 python incremental-repo-migration.py -b 500
 ```
-This will push the local repo incrementally in batches of 500 commits\. If you decide to change the batch size again when migrating the repository \(for example, if you decide to decrease the batch size after an unsuccessful attempt\), remember to use the `-c` option to remove the batch tags before resetting the batch size with `-b`:  
+This pushes the local repo incrementally in batches of 500 commits\. If you decide to change the batch size again when you migrate the repository \(for example, if you decide to decrease the batch size after an unsuccessful attempt\), remember to use the `-c` option to remove the batch tags before resetting the batch size with `-b`:  
 
 ```
 python incremental-repo-migration.py -c

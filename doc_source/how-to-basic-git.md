@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Basic Git Commands<a name="how-to-basic-git"></a>
 
 You can use Git to work with a local repo and the AWS CodeCommit repository to which you've connected the local repo\.

@@ -1,6 +1,12 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Limit Pushes and Merges to Branches in AWS CodeCommit<a name="how-to-conditional-branch"></a>
 
-By default, any AWS CodeCommit repository user who has sufficient permissions to push code to the repository can contribute to any branch in that repository\. This is true no matter how you add a branch to the repository: by using the console, the command line, or Git\. However, you might want to configure a branch so that only certain repository users can push or merge code to that branch\. For example, you might want to configure a branch used for production code so that only a subset of senior developers can push or merge changes to that branch\. Other developers can still pull from the branch, make their own branches, and create pull requests, but they cannot push or merge changes to that branch\. You can configure this access by creating a conditional policy that uses a context key for one or more branches in IAM\. 
+By default, any AWS CodeCommit repository user who has sufficient permissions to push code to the repository can contribute to any branch in that repository\. This is true no matter how you add a branch to the repository: by using the console, the command line, or Git\. However, you might want to configure a branch so that only some repository users can push or merge code to that branch\. For example, you might want to configure a branch used for production code so that only a subset of senior developers can push or merge changes to that branch\. Other developers can still pull from the branch, make their own branches, and create pull requests, but they cannot push or merge changes to that branch\. You can configure this access by creating a conditional policy that uses a context key for one or more branches in IAM\. 
 
 **Note**  
 To complete some of the procedures in this topic, you must sign in with an adminstrative user that has sufficient permissions to configure and apply IAM policies\. For more information, see [Creating an IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html)\. 
@@ -59,7 +65,7 @@ To create a policy that applies to all branches named master in all repositories
 
 1. Choose **Review policy**\. Correct any errors in your policy statement, and then continue to **Create policy**\.
 
-1. When the JSON is validated, the **Create policy** page is displayed\. A warning appears in the **Summary** section, advising you that this policy will not grant permissions\. This is expected\. 
+1. When the JSON is validated, the **Create policy** page is displayed\. A warning appears in the **Summary** section, advising you that this policy does not grant permissions\. This is expected\. 
    + In **Name**, type a name for this policy, such as **DenyChangesToMaster**\.
    + In **Description**, type a description of the policy's purpose\. This is optional, but recommended\.
    + Choose **Create policy**\.
@@ -72,7 +78,7 @@ You've created a policy that limits pushes and merges to a branch, but the polic
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. In the navigation pane, choose **Groups**, if you want to apply the policy to an IAM group, or **Role**, if you want to apply the policy to a role that users assume\. Choose the name of the group or role\.
+1. In the navigation pane, if you want to apply the policy to an IAM group, choose **Groups**\.If you want to apply the policy to a role that users assume, choose **Role**\. Choose the name of the group or role\.
 
 1. On the **Permissions** tab, choose **Attach Policy**\.
 
@@ -84,5 +90,5 @@ For more information, see [Attaching and Detatching IAM Policies](http://docs.aw
 
 You should test the effects of the policy you've applied on the group or role to ensure that it acts as expected\. There are many ways you can do this\. For example, to test a policy similar to the one shown above, you can:
 + Sign in to the AWS CodeCommit console with an IAM user who is either a member of an IAM group that has the policy applied, or assumes a role that has the policy applied\. In the console, add a file on the branch where the restrictions apply\. You should see an error message when you attempt to save or upload a file to that branch\. Add a file to a different branch\. The operation should succeed\.
-+ Sign in to the AWS CodeCommit console with an IAM user who is either a member of an IAM group that has the policy applied, or assumes a role that has the policy applied\. Create a pull request that will merge to the branch where the restrictions apply\. You should be able to create the pull request, but get an error if you try to merge it\. 
++ Sign in to the AWS CodeCommit console with an IAM user who is either a member of an IAM group that has the policy applied, or assumes a role that has the policy applied\. Create a pull request that merges to the branch where the restrictions apply\. You should be able to create the pull request, but get an error if you try to merge it\. 
 + From the terminal or command line, create a commit on the branch where the restrictions apply, and then push that commit to the AWS CodeCommit repository\. You should see an error message\. Commits and pushes made from other branches should work as usual\.

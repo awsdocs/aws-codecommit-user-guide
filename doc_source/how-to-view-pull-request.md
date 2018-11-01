@@ -1,39 +1,45 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # View Pull Requests in an AWS CodeCommit Repository<a name="how-to-view-pull-request"></a>
 
-You can use the AWS CodeCommit console or the the AWS CLI to view pull requests for your repository\. By default, you see only open pull requests, but you can change the filter to view all pull requests, only closed requests, only pull requests that you created, and more\. 
+You can use the AWS CodeCommit console or the AWS CLI to view pull requests for your repository\. By default, you see only open pull requests, but you can change the filter to view all pull requests, only closed requests, only pull requests that you created, and more\. 
 
 **Topics**
-+ [Use the AWS CodeCommit Console to View Pull Requests](#how-to-view-pull-request-console)
-+ [Use the AWS CLI to View Pull Requests](#how-to-view-pull-request-cli)
++ [View Pull Requests \(Console\)](#how-to-view-pull-request-console)
++ [View Pull Requests \(AWS CLI\)](#how-to-view-pull-request-cli)
 
-## Use the AWS CodeCommit Console to View Pull Requests<a name="how-to-view-pull-request-console"></a>
+## View Pull Requests \(Console\)<a name="how-to-view-pull-request-console"></a>
 
 You can use the AWS CodeCommit console to view a list of pull requests in an AWS CodeCommit repository\. By changing the filter, you can change the list display to only show you a certain set of pull requests\. For example, you can view a list of pull requests you created with a status of **Open**, or you can choose a different filter and view pull requests you created with a status of **Closed**\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In the list of repositories, choose the name of the repository\. 
+1. In **Repositories**, choose the name of the repository where you want to view pull requests\. 
 
 1. In the navigation pane, choose **Pull Requests**\.
 
-1. By default, a list of all open pull requests is displayed\. Pull requests are displayed in the order of most recent activity\.  
-![\[Open pull requests displayed in the AWS CodeCommit console.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
+1. By default, a list of all open pull requests is displayed\.   
+![\[Pull requests displayed in the AWS CodeCommit console.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
 
-1. To display other pull requests, in **View**, choose the display filter that meets your needs:
-   + **All open requests** \(default\): Displays all pull requests with a status of **Open**\.
-   + **All requests**: Displays all pull requests\.
-   + **All closed requests**: Displays all pull requests with a status of **Closed**\.
-   + **All my requests**: Displays all pull requests that you created, regardless of the status\. It does not display reviews that you have commented on or otherwise participated in\.
-   + **All my open requests**: Displays all pull requests that you created with a status of **Open**\.
-   + **All my closed requests**: Displays all pull requests that you created with a status of **Closed**\.
+1. To change the display filter, choose from the list of available filters:
+   + **Open pull requests** \(default\): Displays all pull requests with a status of **Open**\.
+   + **All pull requests**: Displays all pull requests\.
+   + **Closed pull requests**: Displays all pull requests with a status of **Closed**\.
+   + **My pull requests**: Displays all pull requests that you created, regardless of the status\. It does not display reviews that you have commented on or otherwise participated in\.
+   + **My open pull requests**: Displays all pull requests that you created with a status of **Open**\.
+   + **My closed pull requests**: Displays all pull requests that you created with a status of **Closed**\.
 
 1. When you find a pull request in the displayed list that you would like to view, choose it\.
 
-## Use the AWS CLI to View Pull Requests<a name="how-to-view-pull-request-cli"></a>
+## View Pull Requests \(AWS CLI\)<a name="how-to-view-pull-request-cli"></a>
 
 To use AWS CLI commands with AWS CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
 
-To use the AWS CLI to view pull requests in an AWS CodeCommit repository, follow these steps\.
+Follow these steps to use the AWS CLI to view pull requests in an AWS CodeCommit repository\.
 
 1. To view a list of pull requests in a repository, run the list\-pull\-requests command, specifying:
    + The name of the AWS CodeCommit repository where you want to view pull requests \(with the \-\-repository\-name option\)\.

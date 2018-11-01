@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Integrate AWS Cloud9 with AWS CodeCommit<a name="setting-up-ide-c9"></a>
 
 You can use AWS Cloud9 to make code changes in an AWS CodeCommit repository\. AWS Cloud9 contains a collection of tools that you can use to write code, as well as build, run, test, debug, and release software\. You can clone existing repositories, create repositories, commit and push code changes to a repository, and more, all from your AWS Cloud9 EC2 development environment\. The AWS Cloud9 EC2 development environment is generally preconfigured with the AWS CLI, an Amazon EC2 role, and Git, so in most cases, you can run a few simple commands and start interacting with your repository\.
@@ -87,8 +93,7 @@ Once you've configured the AWS CLI credential helper, you can clone your AWS Cod
    git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo
    ```
 **Tip**  
-You can find the Clone URL for your repository in the AWS CodeCommit console, both on the **Dashboard**, and in the **Connect** information on the **Code** page of the repository itself\.  
-![\[The HTTPS clone URL of a repository, as viewed and copied from the AWS CodeCommit console dashboard.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-dashboard-url.png)
+You can find the Clone URL for your repository in the AWS CodeCommit console, both in **Repositories**, and in the **Clone URL** information on the **Code** page of the repository itself\.
 
 1. When the cloning is complete, expand the folder for your repository in the side navigation, and choose the file you want to open for editing\. Alternatively, choose **File** and then choose **New File** to create a new file\.
 

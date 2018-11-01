@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Delete Triggers from an AWS CodeCommit Repository<a name="how-to-notify-delete"></a>
 
 You might want to delete triggers if they are no longer being used\. You cannot undo the deletion of a trigger, but you can re\-create one\.
@@ -11,13 +17,15 @@ If you configured one or more triggers for your repository, deleting the reposit
 
 ## Delete a Trigger from a Repository \(Console\)<a name="how-to-notify-delete-console"></a>
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. From the list of repositories, choose the repository where you want to delete triggers for repository events\.
+1. In **Repositories**, choose the repository where you want to delete triggers for repository events\.
 
 1. In the navigation pane for the repository, choose **Settings**\. In **Settings**, choose **Triggers**\.
 
 1. Select the triggers you want to delete from the list of triggers, and then choose **Delete**\.
+
+   If this feature does not appear available in the new console experience, choose the navigation bar option **Return to the old experience**\.
 
 1. In the dialog box, choose **Delete** to confirm\.
 
@@ -63,7 +71,7 @@ If you configured one or more triggers for your repository, deleting the reposit
    }
    ```
 
-1. At the terminal or command line, run the put\-repository\-triggers command\. This will update the triggers for the repository and delete the *MyFirstTrigger* trigger:
+1. At the terminal or command line, run the put\-repository\-triggers command\. This updates the triggers for the repository and deletes the *MyFirstTrigger* trigger:
 
    ```
    aws codecommit put-repository-triggers --repository-name MyDemoRepo file://MyTriggers.json

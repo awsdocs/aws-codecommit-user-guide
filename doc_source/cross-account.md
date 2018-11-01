@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Configure Cross\-Account Access to an AWS CodeCommit Repository<a name="cross-account"></a>
 
 You can configure access to AWS CodeCommit repositories for IAM users and groups in another AWS account\. This is often referred to as *cross\-account access*\. This section provides examples and step\-by\-step instructions for configuring cross\-account access for a repository named *MySharedDemoRepo* in the US East \(Ohio\) Region in an AWS account \(referred to as AccountA\) to IAM users who belong to an IAM group named *DevelopersWithCrossAccountRepositoryAccess* in another AWS account \(referred to as AccountB\)\.

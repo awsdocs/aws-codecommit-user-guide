@@ -1,6 +1,12 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Change Branch Settings in AWS CodeCommit<a name="how-to-change-branch"></a>
 
-You can change the default branch to use in the AWS CodeCommit console\. You can also use the AWS CLI to change the default branch for a repository\. To change other branch settings, you can use Git from a local repo connected to the AWS CodeCommit repository\. 
+\-You can change the default branch to use in the AWS CodeCommit console\. You can use the AWS CLI to change the default branch for a repository\. To change other branch settings, you can use Git from a local repo connected to the AWS CodeCommit repository\. 
 
 **Topics**
 + [Use the AWS CodeCommit Console to Change the Default Branch](#how-to-change-branch-console)
@@ -10,14 +16,13 @@ You can change the default branch to use in the AWS CodeCommit console\. You can
 
 You can specify which branch is the default branch in an AWS CodeCommit repository in the AWS CodeCommit console\. 
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In the list of repositories, choose the name of the repository where you want to change settings\. 
+1. In **Repositories**, choose the name of the repository where you want to change settings\. 
 
-1. In the navigation pane, choose **Branches**\.
+1. In the navigation pane, choose **Settings**\.
 
-1. Choose **Change default branch**\. In the **Default branch** drop\-down list, choose a different branch, and then choose **Change**\.  
-![\[Changing the default branch used in an AWS CodeCommit repository.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-branches-change.png)
+1. In **Default branch**, choose the branch drop\-down list and choose a different branch\. Choose **Save**\.
 
 ## Use the AWS CLI to Change Branch Settings<a name="how-to-change-branch-cli"></a>
 

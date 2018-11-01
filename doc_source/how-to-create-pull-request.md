@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Create a Pull Request<a name="how-to-create-pull-request"></a>
 
 Creating pull requests helps other users see and review your code changes before you merge them into another branch\. First, you create a branch for your code changes\. This is referred to as the source branch for a pull request\. After you commit and push changes to the repository, you can create a pull request that compares the contents of that branch \(the source branch\) to the branch where you want to merge your changes after the pull request is closed \(the destination branch\)\. 
@@ -5,42 +11,42 @@ Creating pull requests helps other users see and review your code changes before
 You can use the AWS CodeCommit console or the AWS CLI to create pull requests for your repository\. 
 
 **Topics**
-+ [Use the AWS CodeCommit Console to Create a Pull Request](#how-to-create-pull-request-console)
-+ [Use the AWS CLI to Create a Pull Request](#how-to-create-pull-request-cli)
++ [Create a Pull Request \(Console\)](#how-to-create-pull-request-console)
++ [Create a Pull Request \(AWS CLI\)](#how-to-create-pull-request-cli)
 
-## Use the AWS CodeCommit Console to Create a Pull Request<a name="how-to-create-pull-request-console"></a>
+## Create a Pull Request \(Console\)<a name="how-to-create-pull-request-console"></a>
 
 You can use the AWS CodeCommit console to create a pull request in an AWS CodeCommit repository\. If your repository is [configured with notifications](how-to-repository-email.md), subscribed users receive an email when you create a pull request\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In the list of repositories, choose the name of the repository\. 
+1. In **Repositories**, choose the name of the repository where you want to create a pull request\. 
 
 1. In the navigation pane, choose **Pull Requests**\.
 **Tip**  
-You can also create pull requests from **Branches**, **Code**, or **Compare**\.
+You can also create pull requests from **Branches** and **Code**\.
 
 1. Choose **Create pull request**\.   
-![\[Creating a pull request from the Pull Requests view in the AWS CodeCommit console.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
+![\[Creating a pull request from the Pull requests page in the AWS CodeCommit console.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
 
 1. In **Create pull request**, in **Source**, choose the branch that contains the changes you want reviewed\. 
 
-1. In **Destination**, review the branch where you intend to merge your code changes when the pull request is closed\. By default, the destination branch is preconfigured with the default branch of the repository, but you can choose a different branch\.
+1. In **Destination**, choose the branch where you intend to merge your code changes when the pull request is closed\. 
 
 1. Choose **Compare**\. A comparison runs on the two branches, and the differences between them are displayed\. An analysis is also performed to determine whether the two branches can be merged automatically when the pull request is closed\.
 
 1. Review the comparison details and the changes to be sure that the pull request contains the changes and commits you want reviewed\. If not, adjust your choices for source and destination branches, and choose **Compare** again\.
 
-1. When you are satisfied with the comparison results for the pull request, in **Title**, provide a short but descriptive title for this review\. This is the title that appears in the list of pull requests for the repository\. 
+1. When you are satisfied with the comparison results for the pull request, in **Title**, enter a short but descriptive title for this review\. This is the title that appears in the list of pull requests for the repository\. 
 
-1. \(Optional\) In **Description**, provide details about this review and any other useful information for reviewers\.
+1. \(Optional\) In **Description**, enter details about this review and any other useful information for reviewers\.
 
 1. Choose **Create**\.  
 ![\[Creating a pull request\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-create.png)
 
 Your pull request appears in the list of pull requests for the repository\. If you [configured notifications](how-to-repository-email.md), subscribers to the Amazon SNS topic receive an email to inform them of the newly created pull request\.
 
-## Use the AWS CLI to Create a Pull Request<a name="how-to-create-pull-request-cli"></a>
+## Create a Pull Request \(AWS CLI\)<a name="how-to-create-pull-request-cli"></a>
 
 To use AWS CLI commands with AWS CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
 

@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Setup for SSH Users Not Using the AWS CLI<a name="setting-up-without-cli"></a>
 
 If you want to use SSH connections for your repository, you can connect to AWS CodeCommit without installing the AWS CLI\. The AWS CLI includes commands that will be useful later when using and managing AWS CodeCommit repositories, but it is not required for initial setup\.

@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Using Identity\-Based Policies \(IAM Policies\) for AWS CodeCommit<a name="auth-and-access-control-iam-identity-based-access-control"></a>
 
 The following examples of identity\-based policies demonstrate how an account administrator can attach permissions policies to IAM identities \(users, groups, and roles\) to grant permissions to perform operations on AWS CodeCommit resources\.

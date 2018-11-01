@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Cross Account Repository Access: Actions for the Administrator in AccountB<a name="cross-account-administrator-b"></a>
 
 To allow users or groups in AccountB to access a repository in AccountA, the AccountB administrator must create a group in AccountB\. This group must be configured with a policy that allows group members to assume the role created by the AccountA administrator\. 

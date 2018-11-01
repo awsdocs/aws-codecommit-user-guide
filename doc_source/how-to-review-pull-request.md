@@ -1,34 +1,40 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Review a Pull Request<a name="how-to-review-pull-request"></a>
 
-You can use the AWS CodeCommit console to review the changes included in a pull request\. You can add comments to the request, to the files, and to specific lines of code\. You can also reply to comments made by other users\. If your repository is [configured with notifications](how-to-repository-email.md), you receive emails when users reply to your comments or when users comment on a pull request\.
+You can use the AWS CodeCommit console to review the changes included in a pull request\. You can add comments to the request, files, and specific lines of code\. You can also reply to comments made by other users\. If your repository is [configured with notifications](how-to-repository-email.md), you receive emails when users reply to your comments or when users comment on a pull request\.
 
 You can use the AWS CLI to comment on a pull request and reply to comments\. To review the changes, you must use the git diff command or a diff tool\.
 
 **Topics**
-+ [Use the AWS CodeCommit Console to Review a Pull Request](#how-to-review-pull-request-console)
-+ [Use the AWS CLI to Review Pull Requests](#how-to-review-pull-request-cli)
++ [Review a Pull Request \(Console\)](#how-to-review-pull-request-console)
++ [Review Pull Requests \(AWS CLI\)](#how-to-review-pull-request-cli)
 
-## Use the AWS CodeCommit Console to Review a Pull Request<a name="how-to-review-pull-request-console"></a>
+## Review a Pull Request \(Console\)<a name="how-to-review-pull-request-console"></a>
 
 You can use the AWS CodeCommit console to review a pull request in an AWS CodeCommit repository\. 
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In the list of repositories, choose the name of the repository\. 
+1. In **Repositories**, choose the name of the repository\. 
 
-1. In the navigation pane, choose **Pull Requests**\.
+1. In the navigation pane, choose **Pull requests**\.
 
-1. By default, a list of all open pull requests is displayed\. Choose the open pull request you want to review\. You can also comment on a closed pull request\.  
+1. By default, a list of all open pull requests is displayed\. Choose the open pull request you want to review\. You can also comment on a closed or merged pull request\.  
 ![\[Open pull requests displayed in the AWS CodeCommit console.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
 
 1. In the pull request, choose **Changes**\.
 
 1. Do one of the following:
-   + To add a general comment, in **Comments on changes**, type a comment and then choose **Save**\. You can use [Markdown](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html), or you can type your comment in plaintext\.  
+   + To add a general comment, in **Comments on changes**, in **New comment**, enter a comment and then choose **Save**\. You can use [Markdown](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html), or you can enter your comment in plaintext\.  
 ![\[A general comment on the changes in a pull request.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-changecomment.png)
-   + To add a comment to a file in the commit, in **Changes**, find the name of the file\. Choose the comment bubble that appears next to the file name ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png), type a comment, and then choose **Save**\.   
+   + To add a comment to a file in the commit, in **Changes**, find the name of the file\. Choose the comment bubble that appears next to the file name ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png), enter a comment, and then choose **Save**\.   
 ![\[Adding a comment on a file in a pull request.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-addfilecomment.png)
-   + To add a comment to a changed line in the pull request, in **Changes**, go to the line you want to comment on\. Choose the comment bubble ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png), type a comment, and then choose **Save**\.   
+   + To add a comment to a changed line in the pull request, in **Changes**, go to the line you want to comment on\. Choose the comment bubble ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png), enter a comment, and then choose **Save**\.   
 ![\[Adding a comment on a line in a pull request.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-comment.png)
 
 1. To reply to comments on a commit, in **Changes** or **Activity**, choose **Reply**\.   
@@ -36,7 +42,7 @@ You can use the AWS CodeCommit console to review a pull request in an AWS CodeCo
 
 If [notifications](how-to-repository-email.md) are configured, the user who created the pull request receives email about your comments\. You receive email if a user replies to your comments or if the pull request is updated\.
 
-## Use the AWS CLI to Review Pull Requests<a name="how-to-review-pull-request-cli"></a>
+## Review Pull Requests \(AWS CLI\)<a name="how-to-review-pull-request-cli"></a>
 
 To use AWS CLI commands with AWS CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
 
@@ -51,7 +57,7 @@ To use the AWS CLI to review pull requests in an AWS CodeCommit repository:
    + The content of your comment \(with the \-\-content option\)\.
    + A list of location information about where to place the comment, including:
      + The name of the file being compared, including its extension and subdirectory, if any \(with the filePath attribute\)\.
-     + The line number of the change within a compared file \(with the filePosition attribute\)\.
+     + The line number of the change in a compared file \(with the filePosition attribute\)\.
      + Whether the comment on the change is "before" or "after" in the comparison between the source and destination branches \(with the relativeFileVersion attribute\)\.
 
    For example, to add the comment *"These don't appear to be used anywhere\. Can we remove them?"* on the change to the *ahs\_count\.py* file in a pull request with the ID of *47* in a repository named *MyDemoRepo*:
@@ -89,7 +95,7 @@ To use the AWS CLI to review pull requests in an AWS CodeCommit repository:
    ```
 
 1. To view comments for a pull request, run the get\-comments\-for\-pull\-request command, specifying:
-   + The AWS CodeCommit repository's name \(with the `--repository-name` option\)\.
+   + The name of the AWS CodeCommit repository \(with the `--repository-name` option\)\.
    + The full commit ID of the commit in the source branch that was the tip of the branch at the time the comment was made \(with the `--after-commit-id option`\)\.
    + The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created \(with the `--before-commit-id` option\)\. 
    + \(Optional\) An enumeration token to return the next batch of the results \(with the `--next-token` option\)\.

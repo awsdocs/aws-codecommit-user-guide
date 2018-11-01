@@ -1,29 +1,35 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Delete an AWS CodeCommit Repository<a name="how-to-delete-repository"></a>
 
-To delete an AWS CodeCommit repository, use the AWS CLI or the AWS CodeCommit console\.
+You can use the AWS CodeCommit console or the AWS CLI to delete an AWS CodeCommit repository\.
 
 **Note**  
 Deleting a repository does not delete any local copies of that repository \(local repos\)\. To delete a local repo, use your local machine's directory and file management tools\.
 
 **Topics**
-+ [Use the AWS CodeCommit Console to Delete a Repository](#how-to-delete-repository-console)
++ [Delete a Repository \(Console\)](#how-to-delete-repository-console)
 + [Delete a Local Repo](#how-to-delete-repository-git)
-+ [Use the AWS CLI to Delete an AWS CodeCommit Repository](#how-to-delete-repository-cli)
++ [Delete an AWS CodeCommit Repository \(AWS CLI\)](#how-to-delete-repository-cli)
 
-## Use the AWS CodeCommit Console to Delete a Repository<a name="how-to-delete-repository-console"></a>
+## Delete a Repository \(Console\)<a name="how-to-delete-repository-console"></a>
 
-To use the AWS CodeCommit console to delete an AWS CodeCommit repository, follow these steps\.
+Follow these steps to use the AWS CodeCommit console to delete an AWS CodeCommit repository\.
 
 **Important**  
-After you delete an AWS CodeCommit repository, you will no longer be able to clone it to any local repo or shared repo\. You will also no longer be able to pull data from it, or push data to it, from any local repo or shared repo\. This action cannot be undone\.
+After you delete an AWS CodeCommit repository, you are no longer able to clone it to any local repo or shared repo\. You are also no longer able to pull data from it, or push data to it, from any local repo or shared repo\. This action cannot be undone\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In the list of repositories, choose the name of the repository you want to delete\. 
+1. In **Repositories**, choose the name of the repository you want to delete\. 
 
 1. In the navigation pane, choose **Settings**\.
 
-1. In **General**, choose **Delete repository**\. In the box next to **Type the name of the repository to confirm deletion**, type the repository's name, and then choose **Delete**\. The repository is permanently deleted\.
+1. On the **Repository settings** page, in **Delete repository**, choose **Delete repository**\. Enter **delete**, and then choose **Delete**\. The repository is permanently deleted\.
 **Note**  
 Deleting the repository in AWS CodeCommit does not delete any local repos\. 
 
@@ -33,17 +39,17 @@ Use your local machine's directory and file management tools to delete the direc
 
 Deleting a local repo does not delete any AWS CodeCommit repository to which it might be connected\. 
 
-## Use the AWS CLI to Delete an AWS CodeCommit Repository<a name="how-to-delete-repository-cli"></a>
+## Delete an AWS CodeCommit Repository \(AWS CLI\)<a name="how-to-delete-repository-cli"></a>
 
 To use AWS CLI commands with AWS CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
 
 To use the AWS CLI to delete an AWS CodeCommit repository, run the delete\-repository command, specifying the name of the AWS CodeCommit repository to delete \(with the `--repository-name` option\)\.
 
 **Important**  
-After you delete an AWS CodeCommit repository, you will no longer be able to clone it to any local repo or shared repo\. You will also no longer be able to pull data from it, or push data to it, from any local repo or shared repo\. This action cannot be undone\.
+After you delete an AWS CodeCommit repository, you are no longer able to clone it to any local repo or shared repo\. You are also no longer able to pull data from it, or push data to it, from any local repo or shared repo\. This action cannot be undone\.
 
 **Tip**  
-To get the AWS CodeCommit repository's name, run the [list\-repositories](how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli) command\.
+To get the name of the AWS CodeCommit repository, run the [list\-repositories](how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli) command\.
 
 For example, to delete a repository named `MyDemoRepo`:
 
@@ -51,7 +57,7 @@ For example, to delete a repository named `MyDemoRepo`:
 aws codecommit delete-repository --repository-name MyDemoRepo
 ```
 
-If successful, the ID of the AWS CodeCommit repository that was permanently deleted will appear in the output:
+If successful, the ID of the AWS CodeCommit repository that was permanently deleted appears in the output:
 
 ```
 {
@@ -59,4 +65,4 @@ If successful, the ID of the AWS CodeCommit repository that was permanently dele
 }
 ```
 
-Deleting an AWS CodeCommit repository does not delete any local repos that may be connected to it\. 
+Deleting an AWS CodeCommit repository does not delete any local repos that might be connected to it\. 

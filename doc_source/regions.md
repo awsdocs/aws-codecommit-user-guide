@@ -1,8 +1,14 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Regions and Git Connection Endpoints for AWS CodeCommit<a name="regions"></a>
 
-Each AWS CodeCommit repository is associated with an AWS region\. AWS CodeCommit offers regional endpoints to make your requests to the service\. In addition, AWS CodeCommit provides Git connection endpoints for both SSH and HTTPS protocols in every region where AWS CodeCommit is available\. 
+Each AWS CodeCommit repository is associated with an AWS Region\. AWS CodeCommit offers regional endpoints to make your requests to the service\. In addition, AWS CodeCommit provides Git connection endpoints for both SSH and HTTPS protocols in every region where AWS CodeCommit is available\. 
 
-All the examples in this guide use the same endpoint URL for Git in US East \(Ohio\): `git-codecommit.us-east-2.amazonaws.com`\. However, when you use Git and configure your connections, make sure you choose the Git connection endpoint that matches the region that hosts your AWS CodeCommit repository\. For example, if you want to make a connection to a repository in US East \(N\. Virginia\), use the endpoint URL of `git-codecommit.us-east-1.amazonaws.com`\. This is also true for API calls\. When you make connections to an AWS CodeCommit repository with the AWS CLI or the SDKs, make sure you use the correct regional endpoint for the repository\.
+All of the examples in this guide use the same endpoint URL for Git in US East \(Ohio\): `git-codecommit.us-east-2.amazonaws.com`\. However, when you use Git and configure your connections, make sure you choose the Git connection endpoint that matches the region that hosts your AWS CodeCommit repository\. For example, if you want to make a connection to a repository in US East \(N\. Virginia\), use the endpoint URL of `git-codecommit.us-east-1.amazonaws.com`\. This is also true for API calls\. When you make connections to an AWS CodeCommit repository with the AWS CLI or the SDKs, make sure you use the correct regional endpoint for the repository\.
 
 **Topics**
 + [Supported Regions for AWS CodeCommit](#regions-acc)
@@ -28,6 +34,8 @@ You can create and use AWS CodeCommit repositories in the following AWS regions:
 + South America \(São Paulo\)
 + Canada \(Central\)
 
+AWS CodeCommit has added support for the Federal Information Processing Standard \(FIPS\) Publication 140\-2 government standard in some regions\. For more information about FIPS and FIPS endpoints, see [Federal Information Processing Standard \(FIPS\) 140\-2 Overview](https://aws.amazon.com/compliance/fips/)\. For Git connection endpoints that support FIPS, see [Git Connection Endpoints](#regions-git)\.
+
 For more information about regional endpoints for AWS CLI, service, and API calls to AWS CodeCommit, see [AWS Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region)\.
 
 ## Git Connection Endpoints<a name="regions-git"></a>
@@ -41,10 +49,16 @@ Use the following URLs when you configure Git connections to AWS CodeCommit repo
 | --- | --- | --- | --- | 
 | US East \(Ohio\) | us\-east\-2 | https://git\-codecommit\.us\-east\-2\.amazonaws\.com | HTTPS | 
 | US East \(Ohio\) | us\-east\-2 | ssh://git\-codecommit\.us\-east\-2\.amazonaws\.com | SSH | 
+| US East \(Ohio\) | us\-east\-2 | https://git\-codecommit\-fips\.us\-east\-2\.amazonaws\.com | HTTPS | 
 | US East \(N\. Virginia\) | us\-east\-1 | https://git\-codecommit\.us\-east\-1\.amazonaws\.com | HTTPS | 
 | US East \(N\. Virginia\) | us\-east\-1 | ssh://git\-codecommit\.us\-east\-1\.amazonaws\.com | SSH | 
+| US East \(N\. Virginia\) | us\-east\-1 | https://git\-codecommit\-fips\.us\-east\-1\.amazonaws\.com | HTTPS | 
 | US West \(Oregon\) | us\-west\-2 | https://git\-codecommit\.us\-west\-2\.amazonaws\.com | HTTPS | 
 | US West \(Oregon\) | us\-west\-2 | ssh://git\-codecommit\.us\-west\-2\.amazonaws\.com | SSH | 
+| US West \(Oregon\) | us\-west\-2 | https://git\-codecommit\-fips\.us\-west\-2\.amazonaws\.com | HTTPS | 
+| US West \(N\. California\) | us\-west\-1 | https://git\-codecommit\.us\-west\-1\.amazonaws\.com | HTTPS | 
+| US West \(N\. California\) | us\-west\-1 | ssh://git\-codecommit\.us\-west\-1\.amazonaws\.com  | SSH | 
+| US West \(N\. California\) | us\-west\-1 | https://git\-codecommit\-fips\.us\-west\-1\.amazonaws\.com | HTTPS | 
 | EU \(Ireland\) | eu\-west\-1 | https://git\-codecommit\.eu\-west\-1\.amazonaws\.com | HTTPS | 
 | EU \(Ireland\) | eu\-west\-1 | ssh://git\-codecommit\.eu\-west\-1\.amazonaws\.com | SSH | 
 | Asia Pacific \(Tokyo\) | ap\-northeast\-1 | https://git\-codecommit\.ap\-northeast\-1\.amazonaws\.com | HTTPS | 
@@ -59,14 +73,13 @@ Use the following URLs when you configure Git connections to AWS CodeCommit repo
 | Asia Pacific \(Seoul\) | ap\-northeast\-2 | ssh://git\-codecommit\.ap\-northeast\-2\.amazonaws\.com  | SSH | 
 | South America \(São Paulo\) | sa\-east\-1 | https://git\-codecommit\.sa\-east\-1\.amazonaws\.com | HTTPS | 
 | South America \(São Paulo\) | sa\-east\-1 | ssh://git\-codecommit\.sa\-east\-1\.amazonaws\.com  | SSH | 
-| US West \(N\. California\) | us\-west\-1 | https://git\-codecommit\.us\-west\-1\.amazonaws\.com | HTTPS | 
-| US West \(N\. California\) | us\-west\-1 | ssh://git\-codecommit\.us\-west\-1\.amazonaws\.com  | SSH | 
 | EU \(London\) | eu\-west\-2 | https://git\-codecommit\.eu\-west\-2\.amazonaws\.com | HTTPS | 
 | EU \(London\) | eu\-west\-2 | ssh://git\-codecommit\.eu\-west\-2\.amazonaws\.com  | SSH | 
 | Asia Pacific \(Mumbai\) | ap\-south\-1 | https://git\-codecommit\.ap\-south\-1\.amazonaws\.com | HTTPS | 
 | Asia Pacific \(Mumbai\) | ap\-south\-1 | ssh://git\-codecommit\.ap\-south\-1\.amazonaws\.com | SSH | 
 | Canada \(Central\) | ca\-central\-1 | https://git\-codecommit\.ca\-central\-1\.amazonaws\.com | HTTPS | 
 | Canada \(Central\) | ca\-central\-1 | ssh://git\-codecommit\.ca\-central\-1\.amazonaws\.com | SSH | 
+| Canada \(Central\) | ca\-central\-1 | https://git\-codecommit\-fips\.ca\-central\-1\.amazonaws\.com | HTTPS | 
 | EU \(Paris\) | eu\-west\-3 | https://git\-codecommit\.eu\-west\-3\.amazonaws\.com | HTTPS | 
 | EU \(Paris\) | eu\-west\-3 | ssh://git\-codecommit\.eu\-west\-3\.amazonaws\.com | SSH | 
 

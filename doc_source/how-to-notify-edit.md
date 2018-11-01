@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Edit Triggers for an AWS CodeCommit Repository<a name="how-to-notify-edit"></a>
 
 You can edit the triggers that have been created for an AWS CodeCommit repository\. You can change the events and branches for the trigger, the action taken in response to the event, and other settings\. 
@@ -8,13 +14,15 @@ You can edit the triggers that have been created for an AWS CodeCommit repositor
 
 ## Edit a Trigger for a Repository \(Console\)<a name="how-to-notify-edit-console"></a>
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. From the list of repositories, choose the repository where you want to edit a trigger for repository events\.
+1. In **Repositories**, choose the repository where you want to edit a trigger for repository events\.
 
 1. In the navigation pane for the repository, choose **Settings**\. In **Settings**, choose **Triggers**\.
 
-1. From the list of triggers for the repository, select the trigger you want to edit, and then choose **Edit**\.  
+1. From the list of triggers for the repository, select the trigger you want to edit, and then choose **Edit**\. 
+
+   If this feature does not appear available in the new console experience, choose the navigation bar option **Return to the old experience**\.
 
 1. Make the changes you want to the trigger, and then choose **Update** to save your changes\.
 
@@ -30,7 +38,7 @@ You can edit the triggers that have been created for an AWS CodeCommit repositor
 
 1. Edit the JSON file in a plain\-text editor and make changes to the trigger block of the trigger you want to edit\. Replace the `configurationId` pair with a `repositoryName` pair\. Save the file\.
 
-   For example, if you want to edit a trigger named *MyFirstTrigger* in the repository named *MyDemoRepo* so that it applies to all branches, you would replace `configurationId` with `repositoryName`, and remove the specified `master` and `preprod` branches in *red italic text*\. By default, if no branches are specified, the trigger will apply to all branches in the repository:
+   For example, if you want to edit a trigger named *MyFirstTrigger* in the repository named *MyDemoRepo* so that it applies to all branches, you would replace `configurationId` with `repositoryName`, and remove the specified `master` and `preprod` branches in *red italic text*\. By default, if no branches are specified, the trigger applies to all branches in the repository:
 
    ```
    {
@@ -52,7 +60,7 @@ You can edit the triggers that have been created for an AWS CodeCommit repositor
    }
    ```
 
-1. At the terminal or command line, run the put\-repository\-triggers command\. This will update all triggers for the repository, including the changes you made to the *MyFirstTrigger* trigger:
+1. At the terminal or command line, run the put\-repository\-triggers command\. This updates all triggers for the repository, including the changes you made to the *MyFirstTrigger* trigger:
 
    ```
    aws codecommit put-repository-triggers --repository-name MyDemoRepo file://MyTriggers.json

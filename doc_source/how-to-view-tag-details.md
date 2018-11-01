@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # View Tag Details in AWS CodeCommit<a name="how-to-view-tag-details"></a>
 
 In Git, a tag is a label you can apply to a reference like a commit to mark it with information that might be important to other repository users\. For example, you might tag the commit that was the beta release point for a project with the tag **beta**\. For more information, see [Use Git to Create a Tag](how-to-create-tag.md#how-to-create-tag-git)\.
@@ -7,16 +13,16 @@ You can use the AWS CodeCommit console to view information about tags in your re
 You can also use Git from your terminal or command line to view details about tags in a local repo\. 
 
 **Topics**
-+ [Use the AWS CodeCommit Console to View Tag Details](#how-to-view-tag-details-console)
-+ [Use Git to View Tag Details](#how-to-view-tag-details-git)
++ [View Tag Details \(Console\)](#how-to-view-tag-details-console)
++ [View Tag Details \(Git\)](#how-to-view-tag-details-git)
 
-## Use the AWS CodeCommit Console to View Tag Details<a name="how-to-view-tag-details-console"></a>
+## View Tag Details \(Console\)<a name="how-to-view-tag-details-console"></a>
 
 Use the AWS CodeCommit console to quickly view a list of tags for your repository and details about the commits referenced by the tags\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In the list of repositories, choose the name of the repository\. 
+1. In **Repositories**, choose the name of the repository where you want to view tags\. 
 
 1. In the navigation pane, choose **Tags**\.  
 ![\[A view of tags in a repository.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-tags-view.png)
@@ -25,11 +31,9 @@ You can adjust the number of tags displayed on the **Tags** page by changing the
 
 1. Do one of the following:
    + To view the code as it was at that tagged commit, choose the tag name\.
-   + To view a graph of the repository from that tagged commit, choose the abbreviated commit ID\.
-   + To view details of the commit, including the full commit message, committer, and author, choose the commit message\.
-   + To compare the tagged commit with the head of the default branch in your repository, choose **Compare**\.
+   + To view details of the commit, including the full commit message, committer, and author, choose the abbreviated commit ID\.
 
-## Use Git to View Tag Details<a name="how-to-view-tag-details-git"></a>
+## View Tag Details \(Git\)<a name="how-to-view-tag-details-git"></a>
 
 To use Git to view details about tags in a local repo, run one of the following commands:
 + [git tag](#how-to-view-tag-details-git-tag) to view a list of tag names\.

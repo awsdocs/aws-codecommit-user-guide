@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Working with Repositories in AWS CodeCommit<a name="repositories"></a>
 
 A repository is the fundamental version control object in AWS CodeCommit\. It's where you securely store code and files for your project\. It also stores your project history, from the first commit through the latest changes\. You can share your repository with other users so you can work together on a project\. You can set up notifications so that repository users receive email about events \(for example, another user commenting on their code\)\. You can also change the default settings for your repository, browse its contents, and more\. You can create triggers for your repository so that code pushes or other events trigger actions, such as emails or code functions\. You can even configure a repository on your local computer \(a local repo\) to push your changes to more than one repository\. 

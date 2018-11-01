@@ -1,12 +1,18 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Create a Commit in AWS CodeCommit<a name="how-to-create-commit"></a>
 
-Follow these steps to use Git to create a commit in a local repo\. If the local repo is connected to an AWS CodeCommit repository, you use Git to push the commit from the local repo to the AWS CodeCommit repository\.
+Follow these steps to use Git to create a commit in a local repo\. If the local repo is connected to an AWS CodeCommit repository, you use Git to push the commit from the local repo to the AWS CodeCommit repository\. To create a commit directly in the AWS CodeCommit console, see [Create or Add a File to an AWS CodeCommit Repository](how-to-create-file.md) and [Edit the Contents of a File in an AWS CodeCommit Repository](how-to-edit-file.md)\.
 
 1. Complete the prerequisites, including [Setting Up ](setting-up.md)\.
 **Important**  
-If you have not completed setup, you will not be able to connect or commit to the repository\.
+If you have not completed setup, you cannot connect or commit to the repository using Git\.
 
-1. Make sure you are creating a commit in the desired branch\. To see a list of available branches and find out which branch you are currently set to use, run git branch\. All branches will be displayed\. An asterisk \(`*`\) will appear next to your current branch\. To switch to a different branch, run git checkout *branch\-name*\.
+1. Make sure you are creating a commit in the desired branch\. To see a list of available branches and find out which branch you are currently set to use, run git branch\. All branches are displayed\. An asterisk \(`*`\) appears next to your current branch\. To switch to a different branch, run git checkout *branch\-name*\.
 
 1. Make a change to the branch \(such as adding, modifying, or deleting a file\)\.
 
@@ -51,9 +57,9 @@ If you have not completed setup, you will not be able to connect or commit to th
 
 1. Before you push the finalized commit from the local repo to the AWS CodeCommit repository, you can see what will be pushed by running git diff \-\-stat *remote\-name*/*branch\-name*, where *remote\-name* is the nickname the local repo uses for the AWS CodeCommit repository and *branch\-name* is the name of the branch to compare\.
 **Tip**  
-To get the nickname, run git remote\. To get a list of branch names, run git branch\. An asterisk \(`*`\) will appear next to the current branch\. You can also run git status to get the current branch name\.
+To get the nickname, run git remote\. To get a list of branch names, run git branch\. An asterisk \(`*`\) appears next to the current branch\. You can also run git status to get the current branch name\.
 **Note**  
-If you cloned the repository, from the local repo's perspective, *remote\-name* is not the name of the AWS CodeCommit repository\. When you clone a repository, *remote\-name* is set automatically to `origin`\. 
+If you cloned the repository, from the perspective of the local repo, *remote\-name* is not the name of the AWS CodeCommit repository\. When you clone a repository, *remote\-name* is set automatically to `origin`\. 
 
    For example, git diff \-\-stat origin/master would show output similar to the following:
 

@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Working with Commits in AWS CodeCommit Repositories<a name="commits"></a>
 
 Commits to a repository are snapshots of the contents and changes to the contents of your repository\. Every time a user commits and pushes a change, that information is saved and stored\. So, too, is information that includes who committed the change, the date and time of the commit, and the changes made as part of the commit\. You can also add tags to commits, to easily identify specific commits\. In AWS CodeCommit, you can:
@@ -6,7 +12,7 @@ Commits to a repository are snapshots of the contents and changes to the content
 + Compare a commit to its parent or to another specifier\.
 + Add comments to your commits and reply to comments made by others\.
 
-![\[Adding a comment to a changed line in a commit.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-savelinecomment.png)
+![\[Adding a comment to a changed line in a commit.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-addlinecomment.png)
 
 Before you can push commits to an AWS CodeCommit repository, you must set up your local computer to connect to the repository\. For the simplest method, see [For HTTPS Users Using Git Credentials](setting-up-gc.md)\. 
 

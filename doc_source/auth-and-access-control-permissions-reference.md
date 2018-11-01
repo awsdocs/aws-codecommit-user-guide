@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # AWS CodeCommit Permissions Reference<a name="auth-and-access-control-permissions-reference"></a>
 
 The following tables list each AWS CodeCommit API operation, the corresponding actions for which you can grant permissions, and the format of the resource ARN to use for granting permissions\. The AWS CodeCommit APIs are grouped into tables based on the scope of the actions allowed by that API\. Refer to it when setting up [Access Control](auth-and-access-control.md#access-control) and writing permissions policies that you can attach to an IAM identity \(identity\-based policies\)\. 
@@ -99,7 +105,10 @@ If you see an expand arrow \(**↗**\) in the upper\-right corner of the table, 
 
 | AWS CodeCommit API Operations for Individual Files | Required Permissions  | Resources | 
 | --- | --- | --- | 
+|  [DeleteFile](http://docs.aws.amazon.com/codecommit/latest/APIReference/API_DeleteFile.html)  |  `codecommit:DeleteFile` Required to delete a specified file from a specified branch in an AWS CodeCommit repository from the AWS CodeCommit console\.  |  arn:aws:codecommit:*region*:*account\-id*:*repository\-name*  | 
 |  [GetBlob](http://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetBlob.html)  |  `codecommit:GetBlob` Required to view the encoded content of an individual file in an AWS CodeCommit repository from the AWS CodeCommit console\.  |  arn:aws:codecommit:*region*:*account\-id*:*repository\-name*  | 
+|  [GetFile](http://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetFile.html)  |  `codecommit:GetFile` Required to view the encoded content of an individual file and its metadata an AWS CodeCommit repository from the AWS CodeCommit console\.  |  arn:aws:codecommit:*region*:*account\-id*:*repository\-name*  | 
+|  [GetFolder](http://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetFolder.html)  |  `codecommit:GetFolder` Required to view the contents of a specified folder in an AWS CodeCommit repository from the AWS CodeCommit console\.  |  arn:aws:codecommit:*region*:*account\-id*:*repository\-name*  | 
 |  [PutFile](http://docs.aws.amazon.com/codecommit/latest/APIReference/API_PutFile.html)  |  `codecommit:PutFile` Required to add a new or modified file to an AWS CodeCommit repository from the AWS CodeCommit console, AWS CodeCommit API, or the AWS CLI\.  |  arn:aws:codecommit:*region*:*account\-id*:*repository\-name*  | 
 
 ## Permissions for Actions on Comments<a name="aa-comments"></a>

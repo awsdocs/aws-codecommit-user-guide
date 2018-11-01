@@ -1,6 +1,12 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Compare Branches in AWS CodeCommit<a name="how-to-compare-branches"></a>
 
-You can compare branches in an AWS CodeCommit repository by using the AWS CodeCommit console\. Comparing branches helps you quickly view the differences between a branch and the default branch, or view the differences between any two branches\.
+You can use the AWS CodeCommit console to compare branches in an AWS CodeCommit repository\. Comparing branches helps you quickly view the differences between a branch and the default branch, or view the differences between any two branches\.
 
 **Topics**
 + [Compare a Branch to the Default Branch](#how-to-compare-branches-default)
@@ -10,29 +16,25 @@ You can compare branches in an AWS CodeCommit repository by using the AWS CodeCo
 
 Use the AWS CodeCommit console to quickly view the differences between a branch and the default branch for your repository\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In the list of repositories, choose the name of the repository\. 
+1. In **Repositories**, choose the name of the repository where you want to compare branches\. 
 
-1. In the navigation pane, choose **Branches**\.
+1. In the navigation pane, choose **Commits**, and then choose the **Compare commits** tab\.
 
-1. In the list of branches, find the branch you want to compare to the default branch, and then choose **Compare**\.   
-![\[The list of branches in a repository, including information about the branches and the option to compare other branches to the default branch.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-branches.png)
-
-   The **Compare** view opens and displays the differences between the branch you chose and the default branch\.  
-![\[An abbreviated view of the differences between a branch and the default branch in a repository, including the number of changed files and the changes in those files.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-branches-compare1.png)
+1. In **Destination**, choose the name of the default branch\. In **Source**, choose the branch you want to compare to the default branch\. Choose **Compare**\.
 
 ## Compare Two Specific Branches<a name="how-to-compare-branches-two"></a>
 
 Use the AWS CodeCommit console to view the differences between two branches that you want to compare\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In the list of repositories, choose the name of the repository\. 
+1. In **Repositories**, choose the name of the repository where you want to compare branches\. 
 
-1. In the navigation pane, choose **Compare**\.
+1. In the navigation pane, choose **Commits**, and then choose the **Compare commits** tab\.
 
-1. Choose the two branches to compare, and then choose **Compare**\. To view the list of changed files, expand the changed files list\. You can view changes in files side by side \(Split view\) or inline \(Unified view\)\.
+1. In **Destination** and **Source**, choose the two branches to compare, and then choose **Compare**\. To view the list of changed files, expand the changed files list\. You can view changes in files side by side \(Split view\) or inline \(Unified view\)\.
 **Note**  
 If you are signed in as an IAM user, you can configure and save your preferences for viewing code and other console settings\. For more information, see [Working with User Preferences](user-preferences.md)\.  
-![\[An abbreviated view of the differences between two branches, including the number of changed files and the changes in those files.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-branches-compare1.png)
+![\[An abbreviated view of the differences between two branches.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-branches.png)

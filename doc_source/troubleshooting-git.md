@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Troubleshooting Git Clients and AWS CodeCommit<a name="troubleshooting-git"></a>
 
 The following information might help you troubleshoot common issues when using Git with AWS CodeCommit repositories\. For troubleshooting problems specific to Git clients when using HTTPS or SSH, also see [Troubleshooting Git Credentials \(HTTPS\)](troubleshooting-gc.md), [Troubleshooting SSH Connections](troubleshooting-ssh.md), and [Troubleshooting the Credential Helper \(HTTPS\)](troubleshooting-ch.md)\.

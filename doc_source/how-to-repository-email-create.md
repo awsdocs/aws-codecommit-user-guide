@@ -1,8 +1,14 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Configure Repository Notifications<a name="how-to-repository-email-create"></a>
 
 You can keep repository users informed of repository events by configuring notifications\. When you configure notifications, subscribed users receive emails about the events that you specify, such as when someone comments on a commit\. For more information, see [Using Repository Notifications](how-to-repository-email.md#how-to-repository-email-using)\. 
 
-To use the AWS CodeCommit console  to configure notifications for a repository in AWS CodeCommit, you must have the following managed policy or the equivalent permissions attached to your IAM user:
+To use the AWS CodeCommit console  to configure notifications for a repository in AWS CodeCommit, you must have the following managed policies or the equivalent permissions attached to your IAM user:
 + **CloudWatchEventsFullAccess**
 + **AmazonSNSFullAccess**
 
@@ -11,35 +17,37 @@ Equivalent permissions are included in the **AWSCodeCommitFullAccess** policy, w
 
 **To configure notifications for a repository**
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In the list of repositories, choose the name of the repository where you want to configure notifications\. 
+1. In **Repositories**, choose the name of the repository where you want to configure notifications\. 
 
-1. In the navigation pane, choose **Settings**, and then choose **Notifications**\.
+1. In the navigation pane, choose **Settings**\. Choose **Notifications**\.
 
-1. In **Event types**, select the event types you want included in the CloudWatch Events rule for the repository\.  
-![\[Configuring notifications in an AWS CodeCommit repository\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-notifications-not-configured.png)
+1. Choose **Set up**\.
 
-1. In **SNS topic**, either choose a topic from the list of Amazon SNS topics in your AWS account, or create a topic to use for this repository\. 
+1. Select the event types you want included in the CloudWatch Events rule for the repository\.  
+![\[Configuring notifications in an AWS CodeCommit repository\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-notifications-configuring.png)
+
+1. In **SNS topic**, either choose a topic from the list of Amazon SNS topics in your AWS account, or create one to use for this repository\. 
 **Note**  
 If you create a topic, you can manage subscriptions for that policy from the AWS CodeCommit console\. If you use an existing topic, you cannot manage subscriptions for that topic unless you have permissions to manage subscriptions for all topics in Amazon SNS\. For more information, see [Amazon Simple Notification Service Developer Guide](http://docs.aws.amazon.com/sns/latest/dg/)\.
 
-   If you create a topic, in **Topic name**, type a name for the topic\. Optionally, in **Display name**, type a short name \. Choose **Create**\.
+   If you create a topic, in **Topic name**, enter a name for the topic after the underscore\. \(The first part of the topic name is populated for you\. Keep this first part of the name\.\) Optionally, in **Display name**, enter a short name\. Choose **Create**\.
 
-1. To add the email addresses of the repository users, choose **Manage subscriptions**\. In **Add email subscriber**, type the email address of a repository user, and then choose **Save**\. You can add only one email address at a time\.
+1. To add email addresses of the repository users, in **Subscribers**, choose **Add**\. In **Add email subscriber**, enter the email address of a repository user, and then choose **Save**\. You can add only one email address at a time\.
 **Note**  
 A confirmation email is sent to the address as soon as you choose **Save**\. However, the status of the subscription is not updated while you remain in **Manage subscriptions**\.
 
    After you have added all the email addresses to the list of subscribers, choose **Close**\.
 **Tip**  
-Amazon SNS coordinates and manages the delivery and sending of messages to subscribing endpoints and email addresses\. Endpoints include web servers, email addresses, Amazon Simple Queue Service queues, and AWS Lambda functions\. For more information, see [What Is Amazon Simple Notification Service?](http://docs.aws.amazon.com/sns/latest/dg/welcome.html) and [Sending Amazon SNS Messages to HTTP/HTTPS Endpoints](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html)\.
+Amazon SNS coordinates and manages the delivery and sending of messages to subscribing endpoints and email addresses\. Endpoints include web servers, email addresses, Amazon Simple Queue Service queues, and AWS Lambda functions\. For more information, see [What Is Amazon Simple Notification Service?](http://docs.aws.amazon.com/sns/latest/dg/welcome.html) and [Sending Amazon SNS Messages to HTTP/HTTPS Endpoints](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html) in the *Amazon SNS Developer Guide*\.
 
 1. To finish configuring notifications, choose **Save**\.
 
 After you have configured notifications for a repository, you can view the CloudWatch Events rule automatically created for the repository\.
 
 **Important**  
-Do not edit or delete this rule\. Changing or deleting the rule might cause operational issues\. For example, emails might not be sent to subscribers or the inability to change notification settings for a repository in AWS CodeCommit\.<a name="how-to-repository-email-view-rule"></a>
+Do not edit or delete this rule\. Changing or deleting the rule might cause operational issues\. For example, emails might not be sent to subscribers or you might not be able to change notification settings for a repository in AWS CodeCommit\.<a name="how-to-repository-email-view-rule"></a>
 
 **To view the CloudWatch Events rule for a repository**
 
@@ -47,7 +55,7 @@ Do not edit or delete this rule\. Changing or deleting the rule might cause oper
 
 1. In the navigation bar, under **Events**, choose **Rules**\.
 
-1. Choose the rule for your repository from the list\. The rule name is displayed on the **Notifications** tab in your repository settings\.
+1. Choose the rule for your repository\. The rule name is displayed on the **Notifications** tab in your repository settings\.
 
 1. View the rule summary information\.
 **Important**  

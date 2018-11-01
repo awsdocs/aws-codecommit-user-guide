@@ -1,6 +1,12 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Test Triggers for an AWS CodeCommit Repository<a name="how-to-notify-test"></a>
 
-You can test the triggers that have been created for an AWS CodeCommit repository\. Testing involves running the trigger with sample data from your repository, including the most recent commit ID\. If no commit history exists for the repository, sample values consisting of zeroes will be generated instead\. Testing triggers helps you confirm you have correctly configured access between AWS CodeCommit and the target of the trigger, whether that is an AWS Lambda function or an Amazon Simple Notification Service notification\. 
+You can test the triggers that have been created for an AWS CodeCommit repository\. Testing involves running the trigger with sample data from your repository, including the most recent commit ID\. If no commit history exists for the repository, sample values consisting of zeroes are generated instead\. Testing triggers helps you confirm you have correctly configured access between AWS CodeCommit and the target of the trigger, whether that is an AWS Lambda function or an Amazon Simple Notification Service notification\. 
 
 **Topics**
 + [Test a Trigger for a Repository \(Console\)](#how-to-notify-test-console)
@@ -8,15 +14,17 @@ You can test the triggers that have been created for an AWS CodeCommit repositor
 
 ## Test a Trigger for a Repository \(Console\)<a name="how-to-notify-test-console"></a>
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. From the list of repositories, choose the repository where you want to test a trigger for repository events\.
+1. In **Repositories**, choose the repository where you want to test a trigger for repository events\.
 
 1. In the navigation pane for the repository, choose **Settings**\. In **Settings**, choose **Triggers**\.
 
-1. Choose the trigger you want to edit from the list of triggers, and then choose **Edit**\. 
+1. Choose the trigger you want to edit, and then choose **Edit**\. 
 
-1. In the **Edit trigger** dialog box, choose **Test trigger**\. You will see a success or failure message\. If successful, you will also see a corresponding action response from the Lambda function or the Amazon SNS topic\.
+   If this feature does not appear available in the new console experience, choose the navigation bar option **Return to the old experience**\.
+
+1. In **Edit trigger**, choose **Test trigger**\. You should see a success or failure message\. If successful, you should also see a corresponding action response from the Lambda function or the Amazon SNS topic\.
 
 ## Test a Trigger for a Repository \(AWS CLI\)<a name="how-to-notify-test-cli"></a>
 
@@ -30,7 +38,7 @@ You can test the triggers that have been created for an AWS CodeCommit repositor
 
 1. Edit the JSON file in a plain\-text editor and make the changes to the trigger statement\. Replace the `configurationId` pair with a `repositoryName` pair\. Save the file\.
 
-   For example, if you want to test a trigger named *MyFirstTrigger* in the repository named *MyDemoRepo* so that it applies to all branches, you would replace the `configurationId` with `repositoryName` and then save a file that looks similar to the following as *TestTrigger\.json*:
+   For example, if you want to test a trigger named *MyFirstTrigger* in the repository named *MyDemoRepo* so that it applies to all branches, replace the `configurationId` with `repositoryName` and then save a file that looks similar to the following as *TestTrigger\.json*:
 
    ```
    {
@@ -52,7 +60,7 @@ You can test the triggers that have been created for an AWS CodeCommit repositor
    }
    ```
 
-1. At the terminal or command line, run the test\-repository\-triggers command\. This will update all triggers for the repository, including the changes you made to the *MyFirstTrigger* trigger:
+1. At the terminal or command line, run the test\-repository\-triggers command\. This updates all triggers for the repository, including the changes you made to the *MyFirstTrigger* trigger:
 
    ```
    aws codecommit test-repository-triggers --cli-input-json file://TestTrigger.json

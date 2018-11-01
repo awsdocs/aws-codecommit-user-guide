@@ -1,6 +1,12 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Migrate a Git Repository to AWS CodeCommit<a name="how-to-migrate-repository-existing"></a>
 
-You can migrate an existing Git repository to an AWS CodeCommit repository\. The procedures in this topic walk you through the process of migrating a project hosted on another Git repository to AWS CodeCommit\. As part of this process, you will:
+You can migrate an existing Git repository to an AWS CodeCommit repository\. The procedures in this topic show you how to migrate a project hosted on another Git repository to AWS CodeCommit\. As part of this process, you:
 + Complete the initial setup required for AWS CodeCommit\.
 + Create an AWS CodeCommit repository\.
 + Clone the repository and push it to AWS CodeCommit\.
@@ -110,7 +116,7 @@ Git is an evolving, regularly updated platform\. Occasionally, a feature change 
 **Note**  
 Git is an evolving, regularly updated platform\. Occasionally, a feature change might affect the way it works with AWS CodeCommit\. If you encounter issues with a specific version of Git and AWS CodeCommit, review the information in [Troubleshooting](troubleshooting.md)\.
 
-AWS CodeCommit supports both HTTPS and SSH authentication\. To complete setup, you must configure either Git credentials for AWS CodeCommit \(HTTPS, recommended for most users\), an SSH key pair to use when accessing AWS CodeCommit \(SSH\), or the credential helper included in the AWS CLI \(HTTPS\)\. 
+AWS CodeCommit supports both HTTPS and SSH authentication\. To complete setup, you must configure Git credentials for AWS CodeCommit \(HTTPS, recommended for most users\), an SSH key pair to use when accessing AWS CodeCommit \(SSH\), or the credential helper included in the AWS CLI \(HTTPS\)\. 
 + For Git credentials on all supported operating systems, see [Step 3: Create Git Credentials for HTTPS Connections to AWS CodeCommit](setting-up-gc.md#setting-up-gc-iam)\.
 + For SSH on Linux, macOS, or Unix, see [SSH and Linux, macOS, or Unix: Set Up the Public and Private Keys for Git and AWS CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes)\.
 +  For SSH on Windows, see [SSH and Windows: Set Up the Public and Private Keys for Git and AWS CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
@@ -119,29 +125,27 @@ AWS CodeCommit supports both HTTPS and SSH authentication\. To complete setup, y
 
 ## Step 1: Create an AWS CodeCommit Repository<a name="how-to-migrate-existing-create"></a>
 
-In this section, you will use the AWS CodeCommit console to create the AWS CodeCommit repository you will use for the rest of this tutorial\. To use the AWS CLI to create the repository, see [Use the AWS CLI to Create an AWS CodeCommit Repository](how-to-create-repository.md#how-to-create-repository-cli)\.
+In this section, you use the AWS CodeCommit console to create the AWS CodeCommit repository you use for the rest of this tutorial\. To use the AWS CLI to create the repository, see [Create an AWS CodeCommit Repository \(AWS CLI\)](how-to-create-repository.md#how-to-create-repository-cli)\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In the region selector, choose the region where you will create the repository\. For more information, see [Regions and Git Connection Endpoints](regions.md)\.
+1. In the region selector, choose the region where you want to create the repository\. For more information, see [Regions and Git Connection Endpoints](regions.md)\.
 
-1. On the **Dashboard** page, choose **Create repository**\. \(If a welcome page appears instead of the **Dashboard** page, choose **Get Started Now**\.\) 
+1. On the **Repositories** page, choose **Create repository**\. 
 
-1. On the **Create repository** page, in **Repository name**, type a name for the repository\.
+1. On the **Create repository** page, in **Repository name**, enter a name for the repository\.
 **Note**  
 This name must be unique in the region for your AWS account\.
 
-1. \(Optional\) In the **Description** box, type a description for the repository\. This can help you and other users identify the purpose of the repository\. 
+1. \(Optional\) In the **Description** box, enter a description for the repository\. This can help you and other users identify the purpose of the repository\. 
 **Note**  
-The description field accepts all HTML characters and all valid Unicode characters\. If you are an application developer using the `GetRepository` or `BatchGetRepositories` APIs and plan to display the repository description field in a web browser, see the [AWS CodeCommit API Reference](http://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
+The description field displays Markdown in the console and accepts all HTML characters and valid Unicode characters\. If you are an application developer who is using the `GetRepository` or `BatchGetRepositories` APIs and you plan to display the repository description field in a web browser, see the [AWS CodeCommit API Reference](http://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
 
-1. Choose **Create repository**\. 
+1. Choose **Create**\. 
 
-1. In **Configure email notifications**, configure notifications so that repository users receive emails about important repository events\. This step is optional, but recommended\. You can choose the event types \(for example, comments on code\) and whether to use an existing Amazon SNS topic or create one specifically for this purpose\. You can choose to skip this step and configure notifications at a later time\. For more information, see [Configuring Notifications for Events in an AWS CodeCommit Repository](how-to-repository-email.md)\. 
+![\[Creating a repository for migrating a Git repository to AWS CodeCommit\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-create-repo-migrate-existing.png)
 
-![\[Creating a repository for migrating a Git repository to AWS CodeCommit\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-create-repo-migrate-existing.png)![\[Creating a repository for migrating a Git repository to AWS CodeCommit\]](http://docs.aws.amazon.com/codecommit/latest/userguide/)
-
-After it is created, the repository will appear in the list of repositories in your dashboard\. In the URL column, choose the copy icon, and then choose the protocol \(SSH or HTTPS\) you will use to connect to AWS CodeCommit\. Copy the URL\.
+After it is created, the repository appears in the **Repositories** list\. In the URL column, choose the copy icon, and then choose the protocol \(SSH or HTTPS\) to be used to connect to AWS CodeCommit\. Copy the URL\.
 
 For example, if you named your repository *MyClonedRepository* and you are using Git credentials with HTTPS in the US West \(Oregon\) region, the URL would look like the following:
 
@@ -149,13 +153,13 @@ For example, if you named your repository *MyClonedRepository* and you are using
 https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyClonedRepository
 ```
 
-You will need this URL later in [Step 2: Clone the Repository and Push to the AWS CodeCommit Repository](#how-to-migrate-existing-clone)\.
+You need this URL later in [Step 2: Clone the Repository and Push to the AWS CodeCommit Repository](#how-to-migrate-existing-clone)\.
 
 ## Step 2: Clone the Repository and Push to the AWS CodeCommit Repository<a name="how-to-migrate-existing-clone"></a>
 
-In this section, you will clone an existing Git repository to your local computer, creating what is called a local repo\. You will then push the contents of the local repo to the AWS CodeCommit repository you created earlier\.
+In this section, you clone an existing Git repository to your local computer, creating what is called a local repo\. You then push the contents of the local repo to the AWS CodeCommit repository you created earlier\.
 
-1. From the terminal or command prompt on your local computer, run the git clone command with the `--mirror` option to clone a bare copy of the remote repository into a new folder named *aws\-codecommit\-demo*\. Note that this is a bare repo meant only for migration, and is not the local repo for interacting with the migrated repository in AWS CodeCommit\. You'll want to create that later, after the migration to AWS CodeCommit is complete\.
+1. From the terminal or command prompt on your local computer, run the git clone command with the `--mirror` option to clone a bare copy of the remote repository into a new folder named *aws\-codecommit\-demo*\. This is a bare repo meant only for migration\. It is not the local repo for interacting with the migrated repository in AWS CodeCommit\. You can create that later, after the migration to AWS CodeCommit is complete\.
 
    The following example clones a sample application created for AWS demonstration purposes and hosted on GitHub \(*https://github\.com/awslabs/aws\-demo\-php\-simple\-app\.git*\) to a local repo in a directory named *aws\-codecommit\-demo*\. 
 
@@ -177,14 +181,14 @@ In this section, you will clone an existing Git repository to your local compute
    git push https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyClonedRepository --all
    ```
 **Note**  
-The \-\-all option only pushes all branches for the repository\. It does not push other references, such as tags\. If you want to push tags, wait until the initial push is complete, and then push again, this time using the \-\-tags option, for example:  
+The \-\-all option only pushes all branches for the repository\. It does not push other references, such as tags\. If you want to push tags, wait until the initial push is complete, and then push again, this time using the \-\-tags option:  
 
    ```
    git push ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyClonedRepository --tags
    ```
-For more information about git push and its options, see [Git push](https://git-scm.com/docs/git-push)\. For information about pushing large repositories, especially when pushing all references at once \(for example, with the \-\-mirror option\), see [Migrate a Repository in Increments](how-to-push-large-repositories.md)\.
+For more information about git push and its options, see [Git push](https://git-scm.com/docs/git-push) on the Git website\. For information about pushing large repositories, especially when pushing all references at once \(for example, with the \-\-mirror option\), see [Migrate a Repository in Increments](how-to-push-large-repositories.md)\.
 
-You can delete the *aws\-codecommit\-demo* folder and its contents after you have migrated the repository to AWS CodeCommit\. To create a local repo with all the correct references for working with the repository in AWS CodeCommit, run the `git clone` command without the `--mirror` option\. For example:
+You can delete the *aws\-codecommit\-demo* folder and its contents after you have migrated the repository to AWS CodeCommit\. To create a local repo with all the correct references for working with the repository in AWS CodeCommit, run the `git clone` command without the `--mirror` option:
 
 ```
 git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyClonedRepository
@@ -194,16 +198,16 @@ git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyClonedReposi
 
 After you have pushed the contents of your directory, you can use the AWS CodeCommit console to quickly view all of the files in that repository\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. Choose the name of the repository from the list \(for example, *MyClonedRepository*\)\. 
+1. In **Repositories**, choose the name of the repository \(for example, *MyClonedRepository*\)\. 
 
 1. View the files in the repository for the branches, the clone URLs, the settings, and more\.  
-![\[View of a cloned repository in AWS CodeCommit\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cloned-repo-url.png)![\[View of a cloned repository in AWS CodeCommit\]](http://docs.aws.amazon.com/codecommit/latest/userguide/)
+![\[View of a cloned repository in AWS CodeCommit\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cloned-repo-url.png)
 
 ## Step 4: Share the AWS CodeCommit Repository<a name="how-to-migrate-existing-share"></a>
 
-When you create a repository in AWS CodeCommit, two endpoints are generated: one for HTTPS connections and one for SSH connections\. Both provide secure connections over a network\. Your users can use either protocol\. Both endpoints remain active no matter which protocol you recommend to your users\. Before you can share your repository with others, you must create IAM policies that allow access to your repository to other users\. Provide those access instructions to your users\. 
+When you create a repository in AWS CodeCommit, two endpoints are generated: one for HTTPS connections and one for SSH connections\. Both provide secure connections over a network\. Your users can use either protocol\. Both endpoints remain active no matter which protocol you recommend to your users\. Before you can share your repository with others, you must create IAM policies that allow other users access to your repository\. Provide those access instructions to your users\. 
 
 **Create a customer managed policy for your repository**
 
@@ -213,11 +217,11 @@ When you create a repository in AWS CodeCommit, two endpoints are generated: one
 
 1. On the **Create Policy** page, next to **Copy an AWS Managed Policy**, choose **Select**\.
 
-1. On the **Copy an AWS Managed Policy** page, type **AWSCodeCommitPowerUser** in the **Search Policies** search box\. Choose **Select** next to that policy name\.
+1. On the **Copy an AWS Managed Policy** page, in **Search Policies**, enter **AWSCodeCommitPowerUser**\. Choose **Select** next to the policy name\.
 
-1. On the **Review Policy** page, in **Policy Name**, type a new name for the policy \(for example, *AWSCodeCommitPowerUser\-MyDemoRepo*\)\.
+1. On the **Review Policy** page, in **Policy Name**, enter a new name for the policy \(for example, *AWSCodeCommitPowerUser\-MyDemoRepo*\)\.
 
-   In the **Policy Document** text box, replace the "\*" portion of the `Resource` line with the Amazon Resource Name \(ARN\) of the AWS CodeCommit repository\. For example:
+   In **Policy Document**, replace the "\*" portion of the `Resource` line with the Amazon Resource Name \(ARN\) of the AWS CodeCommit repository, as shown here:
 
    ```
    "Resource": [
@@ -227,7 +231,7 @@ When you create a repository in AWS CodeCommit, two endpoints are generated: one
 **Tip**  
 To find the ARN for the AWS CodeCommit repository, go to the AWS CodeCommit console and choose the repository name from the list\. For more information, see [View Repository Details](how-to-view-repository-details.md)\.
 
-   If you want this policy to apply to more than one repository, add each repository as a resource by specifying its ARN\. Include a comma between each resource statement, as shown in the following example:
+   If you want this policy to apply to more than one repository, add each repository as a resource by specifying its ARN\. Include a comma between each resource statement, as shown here:
 
    ```
    "Resource": [
@@ -236,27 +240,21 @@ To find the ARN for the AWS CodeCommit repository, go to the AWS CodeCommit cons
     ]
    ```
 
-1. Choose **Validate Policy**\. After it is validated, choose **Create Policy**\.
-**Tip**  
-Creating a managed policy for a repository does not supply additional permissions required for individual users to set up Git credentials or SSH keys in IAM\. You must apply these managed policies to individual IAM users\.  
-To allow users to use Git credentials to connect to AWS CodeCommit, select the **IAMSelfManageServiceSpecificCredentials** and **IAMReadOnlyAccess** managed policies and apply them to your users\.
-To allow users to use SSH to connect to AWS CodeCommit, select the **IAMUserSSHKeys** and **IAMReadOnlyAccess** managed policies and apply them to your users\.
+1. Choose **Validate Policy**\. After the policy is validated, choose **Create Policy**\.
 
-To manage access to your repository, create an IAM group for its users, add IAM users to that group, and then attach the customer managed policy you created in the previous step, as well as any additional policies required for access, such as IAMUserSSHKeys or IAMSelfManageServiceSpecificCredentials\. 
+To manage access to your repository, create an IAM group for its users, add IAM users to that group, and then attach the customer managed policy you created in the previous step\. Attach any other policies required for access, such as IAMUserSSHKeys or IAMSelfManageServiceSpecificCredentials\. 
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
 1. In the **Dashboard** navigation area, choose **Groups**, and then choose **Create New Group**\. 
 
-1. On the **Set Group Name** page, in the **Group Name** box, type a name for the group \(for example, *MyDemoRepoGroup*\), and then choose **Next Step**\. Consider including the repository name as part of the group name\.
+1. On the **Set Group Name** page, in **Group Name**, enter a name for the group \(for example, *MyDemoRepoGroup*\), and then choose **Next Step**\. Consider including the repository name as part of the group name\.
 **Note**  
 This name must be unique across an AWS account\.
 
 1. Select the check box next to the customer managed policy you created in the previous section \(for example, **AWSCodeCommitPowerUser\-MyDemoRepo**\)\. 
-   + If your users will use HTTPS and Git credentials to connect to AWS CodeCommit, select the check boxes next to **IAMSelfManageServiceSpecificCredentials** and **IAMReadOnlyAccess**, and then choose **Next Step**\. 
-   + If your users will use SSH to connect to your repository, select the check boxes next to **IAMUserSSHKeys** and **IAMReadOnlyAccess**, and then choose **Next Step**\.
 
-1. On the **Review** page, choose **Create Group**\. The group will be created in IAM with the specified policies already attached\. It will appear in the list of groups associated with your AWS account\.
+1. On the **Review** page, choose **Create Group**\. IAM creates this group with the specified policies already attached\. The group appears in the list of groups associated with your AWS account\.
 
 1. Choose your group from the list\. 
 
@@ -266,16 +264,14 @@ You can use the Search box to quickly find users by name\.
 
 1. When you have added your users, close the IAM console\.
 
-After you have created an IAM user that will access AWS CodeCommit using the policy group and policies you configured, send that user the connection information they will use to connect to the repository\.
+After you have created an IAM user to access AWS CodeCommit using the policy group and policies you configured, send that user the information required to connect to the repository\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. In the region selector, choose the region where the repository was created\. Repositories are specific to an AWS region\. For more information, see [Regions and Git Connection Endpoints](regions.md)\.
 
-1. On the **Dashboard** page, choose the name of the repository you want to share\. 
+1. On the **Repositories** page, find the name of the repository you want to share\. 
 
-1. On the **Code** page, choose **Clone URL**, and then choose the protocol you want your users to use\. 
+1. In **Clone URL**, choose the protocol \(HTTPS or SSH\) that you want your users to use\. This copies the clone URL for the connection protocol\. 
 
-1. Copy the displayed URL for the connection protocol your users will use when connecting to your AWS CodeCommit repository\. 
-
-1. Send your users the connection information along with any other instructions, such as installing the AWS CLI, configuring a profile, or installing Git\. Make sure to include the configuration information for the connection protocol \(for example, for HTTPS, configuring the credential helper for Git\)\. 
+1. Send your users the clone URL along with any other instructions, such as installing the AWS CLI, configuring a profile, or installing Git\. Make sure to include the configuration information for the connection protocol \(for example, for HTTPS, configuring the credential helper for Git\)\. 

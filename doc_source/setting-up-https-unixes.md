@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Setup Steps for HTTPS Connections to AWS CodeCommit Repositories on Linux, macOS, or Unix with the AWS CLI Credential Helper<a name="setting-up-https-unixes"></a>
 
 Before you can connect to AWS CodeCommit for the first time, you must complete the initial configuration steps\. This topic walks you through the steps to set up your computer and AWS profile, connect to an AWS CodeCommit repository, and clone that repository to your computer, also known as creating a local repo\. If you're new to Git, you might also want to review the information in [Where Can I Learn More About Git?](welcome.md#welcome-get-started-with-git)\.
@@ -127,7 +133,6 @@ If you are using macOS, use the following steps to ensure the credential helper 
 
 1. If you are using macOS, use HTTPS to [connect to an AWS CodeCommit repository](how-to-connect.md)\. After you connect to an AWS CodeCommit repository with HTTPS for the first time, subsequent access will fail after about fifteen minutes\. The default Git version on macOS uses the Keychain Access utility to store credentials\. For security measures, the password generated for access to your AWS CodeCommit repository is temporary, so the credentials stored in the keychain will stop working after about 15 minutes\. To prevent these expired credentials from being used, you must either:
    + Install a version of Git that does not use the keychain by default\.
-   + Configure git to stop using `osxkeychain` as credential helper. For example if `git config --system credential.helper` returns `osxkeychain`, you can run `git config --system --unset credential.helper` to do this.
    + Configure the Keychain Access utility to not provide credentials for AWS CodeCommit repositories\.
 
    1. Open the Keychain Access utility\. \(You can use Finder to locate it\.\)
@@ -149,7 +154,7 @@ If an administrator has already sent you the name and connection details for the
 
 **To connect to an AWS CodeCommit repository**
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. In the region selector, choose the region where the repository was created\. Repositories are specific to an AWS region\. For more information, see [Regions and Git Connection Endpoints](regions.md)\.
 

@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # AWS CodeCommit Reference<a name="references"></a>
 
 The following reference topics can help you better understand AWS CodeCommit, Git, AWS regions, product limitations, and more\.

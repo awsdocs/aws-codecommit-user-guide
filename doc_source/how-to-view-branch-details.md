@@ -1,30 +1,36 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # View Branch Details in AWS CodeCommit<a name="how-to-view-branch-details"></a>
 
-To view details about the branches in an AWS CodeCommit repository, you can use the AWS CodeCommit console\. You can view the date of the last commit to a branch, the commit message, and more\. You can also use Git from a local repo connected to the AWS CodeCommit repository or the AWS CLI to view branch details\.
+You can use the AWS CodeCommit console to view details about the branches in an AWS CodeCommit repository\. You can view the date of the last commit to a branch, the commit message, and more\. You can also use Git from a local repo connected to the AWS CodeCommit repository or the AWS CLI to view branch details\.
 
 **Topics**
-+ [Use the AWS CodeCommit Console to View Branch Details](#how-to-view-branch-details-console)
-+ [Use Git to View Branch Details](#how-to-view-branch-details-git)
-+ [Use the AWS CLI to View Branch Details](#how-to-view-branch-details-cli)
++ [View Branch Details \(Console\)](#how-to-view-branch-details-console)
++ [View Branch Details \(Git\)](#how-to-view-branch-details-git)
++ [View Branch Details \(AWS CLI\)](#how-to-view-branch-details-cli)
 
-## Use the AWS CodeCommit Console to View Branch Details<a name="how-to-view-branch-details-console"></a>
+## View Branch Details \(Console\)<a name="how-to-view-branch-details-console"></a>
 
 Use the AWS CodeCommit console to quickly view a list of branches for your repository and details about the branches\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In the list of repositories, choose the name of the repository\. 
+1. In **Repositories**, choose the name of the repository where you want to view branch details\. 
 
 1. In the navigation pane, choose **Branches**\.  
-![\[A view of branches in a repository.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-branches-list.png)
+![\[A view of branches in a repository.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-branches.png)
 
-1. You can adjust the number of branches displayed on the **Branches** page by changing the number of branches shown on a page\. The name of the branch used as the default for the repository is displayed next to the **Default** label\. To view details about the most recent commit to a branch, choose the commit message\. To view the files and code in a branch, choose the branch name\. 
+1. The name of the branch used as the default for the repository is displayed next to **Default branch**\. To view details about the most recent commit to a branch, choose the branch, and then choose **View last commit**\. To view the files and code in a branch, choose the branch name\. 
 
-## Use Git to View Branch Details<a name="how-to-view-branch-details-git"></a>
+## View Branch Details \(Git\)<a name="how-to-view-branch-details-git"></a>
 
 To use Git from a local repo to view details about both the local and remote tracking branches for an AWS CodeCommit repository, run the git branch command\.
 
-The following steps assume you have already connected the local repo to the AWS CodeCommit repository\. For instructions, see [Connect to a Repository](how-to-connect.md)\.
+The following steps are written with the assumption that you have already connected the local repo to the AWS CodeCommit repository\. For instructions, see [Connect to a Repository](how-to-connect.md)\.
 
 1. Run the git branch command, specifying the \-\-all option:
 
@@ -46,11 +52,11 @@ The following steps assume you have already connected the local repo to the AWS 
 git branch shows local branches\.  
 git branch \-r shows remote branches\.  
 git checkout *existing\-branch\-name* switches to the specified branch name and, if git branch is run immediately afterward, displays it with an asterisk \(`*`\)\.  
-git remote update *remote\-name* updates your local repo with the list of available AWS CodeCommit repository branches\. \(To get a list of AWS CodeCommit repository names, along with their URLs, run the git remote \-v command\.\)
+git remote update *remote\-name* updates your local repo with the list of available AWS CodeCommit repository branches\. \(To get a list of AWS CodeCommit repository names and their URLs, run the git remote \-v command\.\)
 
 For more options, see your Git documentation\.
 
-## Use the AWS CLI to View Branch Details<a name="how-to-view-branch-details-cli"></a>
+## View Branch Details \(AWS CLI\)<a name="how-to-view-branch-details-cli"></a>
 
 To use AWS CLI commands with AWS CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
 

@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Setup for HTTPS Users Using Git Credentials<a name="setting-up-gc"></a>
 
 The simplest way to set up connections to AWS CodeCommit repositories is to configure Git credentials for AWS CodeCommit in the IAM console, and then use those credentials for HTTPS connections\. You can also use these same credentials with any third\-party tool or individual development environment \(IDE\) that supports HTTPS authentication using a static user name and password\. For examples, see [For Connections from Development Tools](setting-up-ide.md)\.
@@ -72,7 +78,7 @@ If an administrator has already sent you the name and connection details for the
 
 **To connect to an AWS CodeCommit repository**
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. In the region selector, choose the region where the repository was created\. Repositories are specific to an AWS region\. For more information, see [Regions and Git Connection Endpoints](regions.md)\.
 

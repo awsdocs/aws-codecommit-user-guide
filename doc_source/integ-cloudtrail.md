@@ -1,10 +1,24 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Logging AWS CodeCommit API Calls with AWS CloudTrail<a name="integ-cloudtrail"></a>
 
-AWS CodeCommit is integrated with CloudTrail, a service that captures all of the AWS CodeCommit API calls and delivers the log files to an Amazon S3 bucket that you specify\. CloudTrail captures API calls from the AWS CodeCommit console, your Git client, and from code calls to the AWS CodeCommit APIs\. Using the information collected by CloudTrail, you can determine the request that was made to AWS CodeCommit, the source IP address from which the request was made, who made the request, when it was made, and so on\. 
+AWS CodeCommit is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS CodeCommit\. CloudTrail captures all API calls for AWS CodeCommit as events, including calls from the AWS CodeCommit console, your Git client, and from code calls to the AWS CodeCommit APIs\. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS CodeCommit\. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**\. Using the information collected by CloudTrail, you can determine the request that was made to AWS CodeCommit, the IP address from which the request was made, who made the request, when it was made, and additional details\. 
 
-To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/)\.
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/)\.
 
 ## AWS CodeCommit Information in CloudTrail<a name="service-name-info-in-cloudtrail"></a>
+
+CloudTrail is enabled on your AWS account when you create the account\. When activity occurs in AWS CodeCommit, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**\. You can view, search, and download recent events in your AWS account\. For more information, see [Viewing Events with CloudTrail Event History](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html)\. 
+
+For an ongoing record of events in your AWS account, including events for AWS CodeCommit, create a trail\. A trail enables CloudTrail to deliver log files to an Amazon S3 bucket\. By default, when you create a trail in the console, the trail applies to all regions\. The trail logs events from all regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify\. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs\. For more information, see: 
++ [Overview for Creating a Trail](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail Supported Services and Integrations](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics#cloudtrail-aws-service-specific-topics-integrations.html)
++ [Configuring Amazon SNS Notifications for CloudTrail](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail Log Files from Multiple Regions](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
 When CloudTrail logging is enabled in your AWS account, API calls made to AWS CodeCommit actions are tracked in CloudTrail log files, where they are written with other AWS service records\. CloudTrail determines when to create and write to a new file based on a time period and file size\.
 
@@ -19,12 +33,6 @@ For more information, see the [CloudTrail userIdentity Element](http://docs.aws.
 
 You can store your log files in your Amazon S3 bucket for as long as you want, but you can also define Amazon S3 lifecycle rules to archive or delete log files automatically\. By default, your log files are encrypted with Amazon S3 server\-side encryption \(SSE\)\.
 
-If you want to be notified upon log file delivery, you can configure CloudTrail to publish Amazon SNS notifications when new log files are delivered\. For more information, see [Configuring Amazon SNS Notifications for CloudTrail](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)\.
-
-You can also aggregate AWS CodeCommit log files from multiple AWS regions and multiple AWS accounts into a single Amazon S3 bucket\. 
-
-For more information, see [Receiving CloudTrail Log Files from Multiple Regions](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html) and [Receiving CloudTrail Log Files from Multiple Accounts](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)\.
-
 ## Understanding AWS CodeCommit Log File Entries<a name="understanding-service-name-entries"></a>
 
 CloudTrail log files can contain one or more log entries\. Each entry lists multiple JSON\-formatted events\. A log event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on\. Log entries are not an ordered stack trace of the public API calls, so they do not appear in any specific order\. 
@@ -35,7 +43,7 @@ This example has been formatted for improved readability\. In a CloudTrail log f
 **Contents**
 + [Example: A log entry for listing AWS CodeCommit repositories](#integ-cloudtrail-listrepositories)
 + [Example: A log entry for creating an AWS CodeCommit repository](#integ-cloudtrail-createrepository)
-+ [Examples: Log entries for pull requests to an AWS CodeCommit repository](#integ-cloudtrail-gitpull)
++ [Examples: Log entries for Git pull calls to an AWS CodeCommit repository](#integ-cloudtrail-gitpull)
 + [Example: A log entry for a successful push to an AWS CodeCommit repository](#integ-cloudtrail-gitpush)
 
 ### Example: A log entry for listing AWS CodeCommit repositories<a name="integ-cloudtrail-listrepositories"></a>
@@ -127,7 +135,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 }
 ```
 
-### Examples: Log entries for pull requests to an AWS CodeCommit repository<a name="integ-cloudtrail-gitpull"></a>
+### Examples: Log entries for Git pull calls to an AWS CodeCommit repository<a name="integ-cloudtrail-gitpull"></a>
 
 The following example shows a CloudTrail log entry that demonstrates the `GitPull` action where the local repo is already up\-to\-date\.
 

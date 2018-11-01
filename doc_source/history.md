@@ -1,8 +1,25 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # AWS CodeCommit User Guide Document History<a name="history"></a>
 
-The following table describes the important changes to the documentation since the last release of the *AWS CodeCommit User Guide*\.
+The following table describes important changes to the documentation for AWS CodeCommit\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 + **API version:** 2015\-04\-13
-+ **Latest documentation update:** May 16, 2018 
++ **Latest documentation update:** October 30, 2018 
+
+| Change | Description | Date | 
+| --- |--- |--- |
+| Content update | The content in this guide has been updated to support the new AWS CodeCommit console experience\. | October 30, 2018 | 
+| AWS CodeCommit and the Federal Information Processing Standard \(FIPS\) | AWS CodeCommit has added support for the Federal Information Processing Standard \(FIPS\) Publication 140\-2 government standard in some regions\. For more information about FIPS and FIPS endpoints, see [Federal Information Processing Standard \(FIPS\) 140\-2 Overview](https://aws.amazon.com/compliance/fips/)\. For more information about Git connection endpoints, see [Regions](http://docs.aws.amazon.com/codecommit/latest/userguide/regions.html)\. | October 25, 2018 | 
+| AWS CodeCommit adds three APIs | AWS CodeCommit has added three APIs to support working with files\. For more information about Git connection endpoints, see [Permissions for Actions on Individual Files](http://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-permissions-reference.html#aa-files) and [AWS CodeCommit API Reference](http://docs.aws.amazon.com/codecommit/latest/APIReference/)\. | September 27, 2018 | 
+| AWS CodeCommit documentation history notification available through RSS feed  | You can now receive notification about updates to the AWS CodeCommit documentation by subscribing to an RSS feed\. | June 29, 2018 | 
+
+## Earlier Updates<a name="history-archive"></a>
+
+The following table describes important changes to the documentation prior to June 29, 2018\.
 
 
 | Change | Description | Date Changed | 
@@ -41,7 +58,7 @@ The following table describes the important changes to the documentation since t
 | New topics | The [Manage Triggers for a Repository](how-to-notify.md) section has been added\. New topics include examples, including policy and code samples, of how to create, edit, and delete triggers\. | March 7, 2016 | 
 | New topic | The [Product and Service Integrations](integrations.md) topic has been added\. Minor updates have been made to [Troubleshooting](troubleshooting.md)\. | March 7, 2016 | 
 | Topic update | In addition to the MD5 server fingerprint, the SHA256 server fingerprint for AWS CodeCommit has been added to [For SSH Connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md) and [For SSH Connections on Windows](setting-up-ssh-windows.md)\. | December 9, 2015 | 
-| New topic | The [Browse Files in a RepositoryCreate or Add a FileEdit the Contents of a File](how-to-browse.md) topic has been added\. New issues have been added to [Troubleshooting](troubleshooting.md)\. Minor improvements and fixes have been made throughout the user guide\. | October 5, 2015 | 
+| New topic | The [Browse Files in a Repository](how-to-browse.md) topic has been added\. New issues have been added to [Troubleshooting](troubleshooting.md)\. Minor improvements and fixes have been made throughout the user guide\. | October 5, 2015 | 
 | New topic |  The [For SSH Users Not Using the AWS CLI](setting-up-without-cli.md) topic has been added\. The topics in the [Setting Up ](setting-up.md) section have been streamlined\. Guidance to help users determine which steps to follow for their operating systems and preferred protocols has been provided\.  |  August 5, 2015  | 
 | Topic update | Clarification and examples have been added to the SSH key ID steps in [SSH and Linux, macOS, or Unix: Set Up the Public and Private Keys for Git and AWS CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes) and [SSH and Windows: Set Up the Public and Private Keys for Git and AWS CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\. | July 24, 2015 | 
 | Topic update | Steps in [SSH and Windows: Set Up the Public and Private Keys for Git and AWS CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows) have been updated to address an issue with IAM and saving the public key file\. | July 22, 2015 | 

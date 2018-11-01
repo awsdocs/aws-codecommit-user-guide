@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Integrate Eclipse with AWS CodeCommit<a name="setting-up-ide-ec"></a>
 
 You can use Eclipse to make code changes in an AWS CodeCommit repository\. The Toolkit for Eclipse integration is designed to work with Git credentials and an IAM user\. You can clone existing repositories, create repositories, commit and push code changes to a repository, and more\. 

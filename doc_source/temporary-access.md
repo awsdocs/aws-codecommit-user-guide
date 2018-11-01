@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Temporary Access to AWS CodeCommit Repositories<a name="temporary-access"></a>
 
 You can allow users temporary access to your AWS CodeCommit repositories\. For example, you might do this to allow IAM users to access AWS CodeCommit repositories in separate AWS accounts \(a technique known as *cross\-account access*\)\. For a walkthrough of configuring cross\-account access to a repository, see [Configure Cross\-Account Access to an AWS CodeCommit Repository](cross-account.md)\. 

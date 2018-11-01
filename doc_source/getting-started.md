@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Git with AWS CodeCommit Tutorial<a name="getting-started"></a>
 
 If you are new to Git and AWS CodeCommit, this tutorial helps you learn some simple commands to get you started\. If you are already familiar with Git, you can skip this tutorial and go to [AWS CodeCommit Tutorial](getting-started-cc.md)\.
@@ -39,19 +45,19 @@ Depending on your usage, you might be charged for creating or accessing a reposi
 
 **To create the AWS CodeCommit repository \(console\)**
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In the region selector, choose the region where you will create the repository\. For more information, see [Regions and Git Connection Endpoints](regions.md)\.
+1. In the region selector, choose the region where you want to create the repository\. For more information, see [Regions and Git Connection Endpoints](regions.md)\.
 
-1. On the **Welcome** page, choose **Get Started Now**\. \(If a **Dashboard** page appears instead, choose **Create repository**\.\) 
+1. On the **Repositories** page, choose **Create repository**\. 
 
-1. On the **Create repository** page, in the **Repository name** box, type a name \(for example, **MyDemoRepo**\)\.
+1. On the **Create repository** page, in **Repository name**, enter a name \(for example, **MyDemoRepo**\)\.
+**Note**  
+Repository names can be no longer than 100 characters\. For more information, see [Limits](limits.md#limits-repository-names)\.
 
-1. In **Description**, type a description \(for example, **My demonstration repository**\)\.
+1. \(Optional\) In **Description**, enter a description \(for example, **My demonstration repository\.**\)\. This can help you and other users identify the purpose of the repository\.
 
-1. Choose **Create repository**\. 
-
-1. In **Configure email notifications**, configure notifications so that repository users receive emails about important repository events\. This step is optional, but recommended\. You can choose the event types \(for example, comments on code\) and whether to use an existing Amazon SNS topic or create one specifically for this purpose\. You can choose to skip this step and configure notifications at a later time\. For more information, see [Configuring Notifications for Events in an AWS CodeCommit Repository](how-to-repository-email.md)\.
+1. Choose **Create**\. 
 
 **Note**  
 The remaining steps in this tutorial use `MyDemoRepo` for the name of your AWS CodeCommit repository\. If you choose a different name, be sure to use it throughout this tutorial\.
@@ -62,7 +68,7 @@ For more information about creating repositories, including how to create a repo
 
 In this step, you set up a local repo on your local machine to connect to your repository\. To do this, you select a directory on your local machine that represents the local repo\. You use Git to clone and initialize a copy of your empty AWS CodeCommit repository inside of that directory\. Then you specify the user name and email address used to annotate your commits\. <a name="arc-create-local-repo-gs"></a>
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. In the region selector, choose the region where the repository was created\. Repositories are specific to an AWS region\. For more information, see [Regions and Git Connection Endpoints](regions.md)\.
 
@@ -117,7 +123,7 @@ git push -u origin master
 ```
 
 **Tip**  
-After you have pushed files to your AWS CodeCommit repository, you can use the AWS CodeCommit console to view the contents\. For more information, see [Browse Files in a RepositoryCreate or Add a FileEdit the Contents of a File](how-to-browse.md)\.
+After you have pushed files to your AWS CodeCommit repository, you can use the AWS CodeCommit console to view the contents\. For more information, see [Browse Files in a Repository](how-to-browse.md)\.
 
 ## Step 5: Share the AWS CodeCommit Repository and Push and Pull Another Commit<a name="getting-started-pull-commits"></a>
 
@@ -411,9 +417,9 @@ You also remove the local repo and shared repo on your local machine because the
 **Important**  
 After you delete this repository, you won't be able to clone it to any local repo or shared repo\. You also won't be able to pull data from it, or push data to it, from any local repo or shared repo\. This action cannot be undone\.
 
-### To delete the AWS CodeCommit repository \(console\)<a name="w3ab1c11c15c37b8"></a>
+### To delete the AWS CodeCommit repository \(console\)<a name="w3ab1c13c16c37b8"></a>
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. On the **Dashboard** page, in the list of repositories, choose **MyDemoRepo**\. 
 
@@ -423,7 +429,7 @@ After you delete this repository, you won't be able to clone it to any local rep
 
 1. In the box next to **Type the name of the repository to confirm deletion**, type **MyDemoRepo**, and then choose **Delete**\. 
 
-### To delete the AWS CodeCommit repository \(AWS CLI\)<a name="w3ab1c11c15c37c10"></a>
+### To delete the AWS CodeCommit repository \(AWS CLI\)<a name="w3ab1c13c16c37c10"></a>
 
 Run the [delete\-repository](how-to-delete-repository.md#how-to-delete-repository-cli) command:
 
@@ -431,7 +437,7 @@ Run the [delete\-repository](how-to-delete-repository.md#how-to-delete-repositor
 aws codecommit delete-repository --repository-name MyDemoRepo
 ```
 
-### To delete the local repo and shared repo<a name="w3ab1c11c15c37c12"></a>
+### To delete the local repo and shared repo<a name="w3ab1c13c16c37c12"></a>
 
 For Linux, macOS, or Unix: 
 

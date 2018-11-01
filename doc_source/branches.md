@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # Working with Branches in AWS CodeCommit Repositories<a name="branches"></a>
 
 What is a branch? In Git, branches are simply pointers or references to a commit\. In development, they're a convenient way to organize your work\. You can use branches to separate work on a new or different version of files without impacting work in other branches\. You can use branches to develop new features, store a specific version of your project from a particular commit, and more\.

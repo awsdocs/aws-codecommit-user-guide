@@ -1,3 +1,9 @@
+--------
+
+ The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
+
+--------
+
 # View Commit Details in AWS CodeCommit<a name="how-to-view-commit-details"></a>
 
 You can use the AWS CodeCommit console to browse the history of commits in a repository\. This can help you identify changes made in a repository, including:
@@ -21,24 +27,21 @@ Using the git rebase command to rebase a repository changes the history of a rep
 
 You can browse the commit history for a specific branch or tag of the repository, including information about the committer and the commit message\. You can also view the code for a specific commit\.
 
-**To browse the history of commits \(console\)**
+**To browse the history of commits**
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. On the **Dashboard** page, from the list of repositories, choose the repository for which you want to review the commit history\. 
+1. In **Repositories**, choose the repository for which you want to review the commit history\. 
 
 1. In the navigation pane, choose **Commits**\. In the commit history view, a history of commits for the repository in the default branch is displayed, in reverse chronological order of the commit date\. Date and time are in coordinated universal time \(UTC\)\. You can view the commit history of a different branch by choosing the view selector button and then choosing a branch from the list\. If you are using tags in your repository, you can view a commit with a specific tag and its parents by choosing that tag in the view selector button\.  
-![\[The commit history view in the console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-code-history.png)![\[The commit history view in the console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/)
+![\[The commits view in the console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commit-list.png)
 
 1. To view the difference between a commit and its parent, and to see any comments on the changes, choose the abbreviated commit ID\. For more information, see [Compare a Commit to Its Parent](how-to-compare-commits.md#how-to-compare-commits-parent) and [Comment on a Commit](how-to-commit-comment.md)\. To view the difference between a commit and any other commit specifier, including a branch, tag, or commit ID, see [Compare Any Two Commit Specifiers](how-to-compare-commits.md#how-to-compare-commits-compare)\.
 
 1. Do one or more of the following:
-   + To view the date and time a change was made, hover over the days or months ago description\.
-   + To view the email associated with the author, hover over the user name\.
-   + To view the full commit ID, copy and then paste it into a text editor or other location\. To copy it, choose the copy icon\.
-   + To view the code as it was at the time of a commit, choose the code icon \(**< / >**\) for the commit\. The contents of the repository as they were at the time of that commit is displayed in the **Code** view\. The view selector button displays the abbreviated commit ID instead of a branch or tag\.
-   + If the full commit subject is too long to fit in the initial view, choose the arrow next to the message\. The commit message box expands to display up to 5,000 characters of the subject and message\.
-   + To collapse the list of commits for a particular date, choose the arrow next to that date\.
+   + To view the date and time a change was made, hover over the commit date\.
+   + To view the full commit ID, copy and then paste it into a text editor or other location\. To copy it, choose **Copy ID**\.
+   + To view the code as it was at the time of a commit, choose **Browse**\. The contents of the repository as they were at the time of that commit is displayed in the **Code** view\. The view selector button displays the abbreviated commit ID instead of a branch or tag\.
 
 ### View a Graph of the Commit History of a Repository<a name="how-to-view-commit-details-console-visualizer"></a>
 
@@ -47,37 +50,25 @@ You can view a graph of the commits made to a repository\. The **Commit Visualiz
 **Note**  
 Commits that are merged using the fast\-forward method do not appear as separate lines in the graph of commits\.
 
-**To view a graph of commits \(console\)**
+**To view a graph of commits**
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codecommit](https://console.aws.amazon.com/codecommit)\.
+1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. On the **Dashboard** page, from the list of repositories, choose the repository for which you want to view a commit graph\. 
+1. In **Repositories**, choose the repository for which you want to view a commit graph\. 
 
-1. In the navigation pane, choose **Visualizer**\.  
-![\[A graphical view of a repository in the console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-simple1.png)![\[A graphical view of a repository in the console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/)
+1. In the navigation pane, choose **Commits**, and then choose the **Commit visualizer** tab\.  
+![\[A graphical view of a repository in the console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-complex1.png)
 
-   In the commit graph, the subject for each commit message appears next to that point in the graph\. You can use the direction buttons to change which side of the graph shows branches\.
+   In the commit graph, the abbreviated commit ID and the subject for each commit message appears next to that point in the graph\. 
 **Note**  
 The graph can display up to 35 branches on a page\. If there are more than 35 branches, the graph is too complex to display\. You can simplify the view in two ways:   
 By using the view selector button to show the graph for a specific branch\.
 By pasting a full commit ID into the search box to render the graph from that commit\.
 
-1. To see more details about a commit point, choose the point in the graph\.  
-![\[A detail view of a commit point\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-simple1-detail.png)![\[A detail view of a commit point\]](http://docs.aws.amazon.com/codecommit/latest/userguide/)
+1. To render a new graph from a commit, choose the point in the graph that corresponds to that commit\. The view selector button changes to the abbreviated commit ID\.  
+![\[A new graph rendered from a specific commit\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-commit.png)
 
-   The detail view shows: 
-   + The date of the commit\.
-   + The name of the author\.
-   + The subject and contents of the commit message \(up to 200 characters\)\.
-   + The full commit ID\.
-   + The commit IDs of any parents of the commit\.
-
-   If the commit is a merge made by any method other than fast\-forward, multiple parent IDs are displayed\. To copy a commit ID, choose the copy icon next to that ID\.
-
-1. To render a new graph from a commit, choose the commit ID in the detail view\. The view selector button changes to the abbreviated commit ID\.  
-![\[A new graph rendered from a specific commit\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-commit.png)![\[A new graph rendered from a specific commit\]](http://docs.aws.amazon.com/codecommit/latest/userguide/)
-
-## Use the AWS CLI to View Commit Details<a name="how-to-view-commit-details-cli"></a>
+## View Commit Details \(AWS CLI\)<a name="how-to-view-commit-details-cli"></a>
 
 Git lets you view details about commits\. You can also use the AWS CLI to view details about the commits in a local repo or in an AWS CodeCommit repository, by running the following commands:
 + [aws codecommit get\-commit](#how-to-view-commit-details-cli-commit), to view information about a commit\.
@@ -87,7 +78,7 @@ Git lets you view details about commits\. You can also use the AWS CLI to view d
 ### To view information about a commit<a name="how-to-view-commit-details-cli-commit"></a>
 
 1. Run the aws codecommit get\-commit command, specifying:
-   + The AWS CodeCommit repository's name \(with the `--repository-name` option\)\.
+   + The name of the AWS CodeCommit repository \(with the `--repository-name` option\)\.
    + The full commit ID\. 
 
    For example, to view information about a commit with the ID `317f8570EXAMPLE` in an AWS CodeCommit repository named `MyDemoRepo`:
@@ -132,7 +123,7 @@ Git lets you view details about commits\. You can also use the AWS CLI to view d
 
 1. Run the aws codecommit get\-differences command, specifying:
    + The name of the AWS CodeCommit repository \(with the `--repository-name` option\)\.
-   + The commit specifiers you want to get information about\. Only `--after-commit-specifier` is required\. If you do not specify `--before-commit-specifier`, all files current as of the `--after-commit-specifier` will be shown\. 
+   + The commit specifiers you want to get information about\. Only `--after-commit-specifier` is required\. If you do not specify `--before-commit-specifier`, all files current as of the `--after-commit-specifier` are shown\. 
 
    For example, to view information about the differences between commits with the IDs `317f8570EXAMPLE` and `4c925148EXAMPLE` in an AWS CodeCommit repository named `MyDemoRepo`:
 
@@ -190,7 +181,7 @@ Git lets you view details about commits\. You can also use the AWS CLI to view d
    }
    ```
 
-## Use Git to View Commit Details<a name="how-to-view-commit-details-git"></a>
+## View Commit Details \(Git\)<a name="how-to-view-commit-details-git"></a>
 
 Before you follow these steps, you should have already connected the local repo to the AWS CodeCommit repository and committed changes\. For instructions, see [Connect to a Repository](how-to-connect.md)\.
 
@@ -222,7 +213,7 @@ index 0000000..443b974
 **Note**  
 In this and the following examples, commit IDs have been abbreviated\. The full commit IDs are not shown\.
 
-You can also use the git show command with the commit ID to view the changes that occurred:
+To view the changes that occurred, use the git show command with the commit ID:
 
 ```
 git show 94ba1e60
