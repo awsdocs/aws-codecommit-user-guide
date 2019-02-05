@@ -417,7 +417,7 @@ You also remove the local repo and shared repo on your local machine because the
 **Important**  
 After you delete this repository, you won't be able to clone it to any local repo or shared repo\. You also won't be able to pull data from it, or push data to it, from any local repo or shared repo\. This action cannot be undone\.
 
-### To delete the AWS CodeCommit repository \(console\)<a name="w3ab1c13c16c37b8"></a>
+### To delete the AWS CodeCommit repository \(console\)<a name="w4aac13c16c37b8"></a>
 
 1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
@@ -429,7 +429,7 @@ After you delete this repository, you won't be able to clone it to any local rep
 
 1. In the box next to **Type the name of the repository to confirm deletion**, type **MyDemoRepo**, and then choose **Delete**\. 
 
-### To delete the AWS CodeCommit repository \(AWS CLI\)<a name="w3ab1c13c16c37c10"></a>
+### To delete the AWS CodeCommit repository \(AWS CLI\)<a name="w4aac13c16c37c10"></a>
 
 Run the [delete\-repository](how-to-delete-repository.md#how-to-delete-repository-cli) command:
 
@@ -437,7 +437,7 @@ Run the [delete\-repository](how-to-delete-repository.md#how-to-delete-repositor
 aws codecommit delete-repository --repository-name MyDemoRepo
 ```
 
-### To delete the local repo and shared repo<a name="w3ab1c13c16c37c12"></a>
+### To delete the local repo and shared repo<a name="w4aac13c16c37c12"></a>
 
 For Linux, macOS, or Unix: 
 

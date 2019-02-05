@@ -30,7 +30,7 @@ Equivalent permissions are included in the **AWSCodeCommitFullAccess** policy, w
 
 1. In **SNS topic**, either choose a topic from the list of Amazon SNS topics in your AWS account, or create one to use for this repository\. 
 **Note**  
-If you create a topic, you can manage subscriptions for that policy from the AWS CodeCommit console\. If you use an existing topic, you cannot manage subscriptions for that topic unless you have permissions to manage subscriptions for all topics in Amazon SNS\. For more information, see [Amazon Simple Notification Service Developer Guide](http://docs.aws.amazon.com/sns/latest/dg/)\.
+If you create a topic, you can manage subscriptions for that policy from the AWS CodeCommit console\. If you use an existing topic, you cannot manage subscriptions for that topic unless you have permissions to manage subscriptions for all topics in Amazon SNS\. For more information, see [Amazon Simple Notification Service Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/)\.
 
    If you create a topic, in **Topic name**, enter a name for the topic after the underscore\. \(The first part of the topic name is populated for you\. Keep this first part of the name\.\) Optionally, in **Display name**, enter a short name\. Choose **Create**\.
 
@@ -40,7 +40,7 @@ A confirmation email is sent to the address as soon as you choose **Save**\. How
 
    After you have added all the email addresses to the list of subscribers, choose **Close**\.
 **Tip**  
-Amazon SNS coordinates and manages the delivery and sending of messages to subscribing endpoints and email addresses\. Endpoints include web servers, email addresses, Amazon Simple Queue Service queues, and AWS Lambda functions\. For more information, see [What Is Amazon Simple Notification Service?](http://docs.aws.amazon.com/sns/latest/dg/welcome.html) and [Sending Amazon SNS Messages to HTTP/HTTPS Endpoints](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html) in the *Amazon SNS Developer Guide*\.
+Amazon SNS coordinates and manages the delivery and sending of messages to subscribing endpoints and email addresses\. Endpoints include web servers, email addresses, Amazon Simple Queue Service queues, and AWS Lambda functions\. For more information, see [What Is Amazon Simple Notification Service?](https://docs.aws.amazon.com/sns/latest/dg/welcome.html) and [Sending Amazon SNS Messages to HTTP/HTTPS Endpoints](https://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html) in the *Amazon SNS Developer Guide*\.
 
 1. To finish configuring notifications, choose **Save**\.
 

@@ -33,11 +33,11 @@ This name must be unique in the region for your AWS account\.
 
 1. \(Optional\) In the **Description** box, enter a description for the repository\. This can help you and other users identify the purpose of the repository\. 
 **Note**  
-The description field displays Markdown in the console and accepts all HTML characters and valid Unicode characters\. If you are an application developer who is using the `GetRepository` or `BatchGetRepositories` APIs and you plan to display the repository description field in a web browser, see the [AWS CodeCommit API Reference](http://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
+The description field displays Markdown in the console and accepts all HTML characters and valid Unicode characters\. If you are an application developer who is using the `GetRepository` or `BatchGetRepositories` APIs and you plan to display the repository description field in a web browser, see the [AWS CodeCommit API Reference](https://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
 
 1. Choose **Create**\. 
 
-After you create a repository, you can connect to it and start adding code either through the AWS CodeCommit console or a local Git client, or by integrating your AWS CodeCommit repository with your favorite IDE\. For more information, see [Setting Up for AWS CodeCommit ](setting-up.md)\. You can also add your repository to a continuous delivery pipeline\. For more information, see [Simple Pipeline Walkthrough](http://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-cc.html)\.
+After you create a repository, you can connect to it and start adding code either through the AWS CodeCommit console or a local Git client, or by integrating your AWS CodeCommit repository with your favorite IDE\. For more information, see [Setting Up for AWS CodeCommit ](setting-up.md)\. You can also add your repository to a continuous delivery pipeline\. For more information, see [Simple Pipeline Walkthrough](https://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-cc.html)\.
 
 To get information about the new AWS CodeCommit repository, such as the URLs to use when cloning the repository, choose the repository's name from the list, or just choose the connection protocol you want to use next to the repository's name\.
 
@@ -67,7 +67,7 @@ This name must be unique across an AWS account\.
    aws codecommit create-repository --repository-name MyDemoRepo --repository-description "My demonstration repository" 
    ```
 **Note**  
-The description field displays Markdown in the console and accepts all HTML characters and valid Unicode characters\. If you are an application developer who is using the `GetRepository` or `BatchGetRepositories` APIs and you plan to display the repository description field in a web browser, see the [AWS CodeCommit API Reference](http://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
+The description field displays Markdown in the console and accepts all HTML characters and valid Unicode characters\. If you are an application developer who is using the `GetRepository` or `BatchGetRepositories` APIs and you plan to display the repository description field in a web browser, see the [AWS CodeCommit API Reference](https://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
 
 1. If successful, this command outputs a `repositoryMetadata` object with the following information:
    + The description \(`repositoryDescription`\)\.
@@ -92,4 +92,4 @@ The description field displays Markdown in the console and accepts all HTML char
 
    If you forget the name or ID, follow the instructions in [View AWS CodeCommit Repository Details \(AWS CLI\)](how-to-view-repository-details.md#how-to-view-repository-details-cli)\.
 
-After you create a repository, you can connect to it and start adding code\. For more information, see [Connect to a Repository](how-to-connect.md)\. You can also add your repository to a continuous delivery pipeline\. For more information, see [Simple Pipeline Walkthrough](http://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-cc.html)\.
+After you create a repository, you can connect to it and start adding code\. For more information, see [Connect to a Repository](how-to-connect.md)\. You can also add your repository to a continuous delivery pipeline\. For more information, see [Simple Pipeline Walkthrough](https://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-cc.html)\.

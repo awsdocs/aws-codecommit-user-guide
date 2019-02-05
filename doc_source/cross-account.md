@@ -24,7 +24,7 @@ To configure cross\-account access:
   + AWS console access\.
   + An access key and secret key to use when installing and configuring the AWS CLI credential helper on a local computer or Amazon EC2 instance, as described in [For HTTPS Connections on Linux, macOS, or Unix with the AWS CLI Credential Helper](setting-up-https-unixes.md) or [For HTTPS Connections on Windows with the AWS CLI Credential Helper](setting-up-https-windows.md)\.
 
-  For more information, see [IAM users](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html#intro-identity-users)\.
+  For more information, see [IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html#intro-identity-users)\.
 
 **Topics**
 + [Cross\-Account Repository Access: Actions for the Administrator in AccountA](cross-account-administrator-a.md)

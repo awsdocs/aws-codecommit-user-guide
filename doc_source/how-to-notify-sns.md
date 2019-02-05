@@ -9,7 +9,7 @@
 You can create a trigger for an AWS CodeCommit repository so that events in that repository trigger notifications from an Amazon Simple Notification Service \(Amazon SNS\) topic\. You might want to create a trigger to an Amazon SNS topic to enable users to subscribe to notifications about repository events, such as the deletion of branches\. You can also take advantage of the integration of Amazon SNS topics with other services, such as Amazon Simple Queue Service \(Amazon SQS\) and AWS Lambda\. 
 
 **Note**  
-You must point the trigger to an existing Amazon SNS topic that is the action taken in response to repository events\. For more information about creating and subscribing to Amazon SNS topics, see [Getting Started with Amazon Simple Notification Service](http://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html)\. 
+You must point the trigger to an existing Amazon SNS topic that is the action taken in response to repository events\. For more information about creating and subscribing to Amazon SNS topics, see [Getting Started with Amazon Simple Notification Service](https://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html)\. 
 
 **Topics**
 + [Create a Trigger to an Amazon SNS Topic for an AWS CodeCommit Repository \(Console\)](#how-to-notify-sns-console)
@@ -138,7 +138,7 @@ You can use more than one event type in a trigger\. However, if you specify `all
 
    **aws codecommit put\-repository\-triggers \-\-cli\-input\-json file://*trigger\.json***
 
-   This command returns a [configuration ID](http://docs.aws.amazon.com/codecommit/latest/APIReference/API_PutRepositoryTriggers.html#-PutRepositoryTriggers-response-configurationId), similar to the following:
+   This command returns a [configuration ID](https://docs.aws.amazon.com/codecommit/latest/APIReference/API_PutRepositoryTriggers.html#-PutRepositoryTriggers-response-configurationId), similar to the following:
 
    ```
    {

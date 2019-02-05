@@ -9,8 +9,44 @@
 The following information might help you troubleshoot common issues when you use the credential helper included with the AWS CLI and HTTPS to connect to AWS CodeCommit repositories\.
 
 **Topics**
++ [Command Not Found Error Returned in Windows When Using the Credential Helper](#troubleshooting-py3)
++ [Prompted for User Name When Connecting to an AWS CodeCommit Repository](#troubleshooting-ae1)
 + [Git for macOS: I Configured the Credential Helper Successfully, but Now I Am Denied Access to My Repository \(403\)](#troubleshooting-macoshttps)
 + [Git for Windows: I Installed Git for Windows, but I Am Denied Access to My Repository \(403\)](#troubleshooting-windowshttps)
+
+## Command Not Found Error Returned in Windows When Using the Credential Helper<a name="troubleshooting-py3"></a>
+
+**Problem:** After updating the AWS CLI, credential helper connections to AWS CodeCommit repositories fail with `aws codecommit credential-helper $@ get: aws: command not found`\.
+
+**Cause**: The most common reason for this error is that your AWS CLI version has been updated to a version that uses Python 3\. There is a known issue with the MSI package\. To verify whether you have one of the affected versions, open a command line and run the following command: `aws --version`
+
+If the output Python version begins with a 3, you have an affected version\. For example: 
+
+```
+aws-cli/1.16.62 Python/3.6.2 Darwin/16.7.0 botocore/1.12.52
+```
+
+**Possible fixes:** You can work around this issue by doing one of the following:
++ Install and configure the AWS CLI on Windows using Python and pip instead of the MSI\. For more information, see [Install Python, pip, and the AWS CLI on Windows](https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html#awscli-install-windows-pip)\.
++ Manually edit your \.gitconfig file to change the `[credential]` section to explicitly point to `aws.cmd` on your local computer\. For example:
+
+  ```
+  [credential]    
+      helper = !"\C:\\Program Files\\Amazon\\AWSCLI\\bin\\aws.cmd\" codecommit credential-helper $@ 
+      UseHttpPath = true
+  ```
++ Run the git config command to update your \.gitconfig file to explicitly reference `aws.cmd`, and manually update your PATH environment variable to include the path to the command as needed\. For example: 
+
+  ```
+  git config --global credential.helper "!aws.cmd codecommit credential-helper $@"
+  git config --global credential.UseHttpPath true
+  ```
+
+## Prompted for User Name When Connecting to an AWS CodeCommit Repository<a name="troubleshooting-ae1"></a>
+
+**Problem:** When you try to use the credential helper to communicate with an AWS CodeCommit repository, a message appears prompting you for your user name\.
+
+**Possible fixes:** Configure your AWS profile or make sure the profile you are using is the one you configured for working with AWS CodeCommit\. For more information about setting up, see [Setup Steps for HTTPS Connections to AWS CodeCommit Repositories on Linux, macOS, or Unix with the AWS CLI Credential Helper](setting-up-https-unixes.md) or [Setup Steps for HTTPS Connections to AWS CodeCommit Repositories on Windows with the AWS CLI Credential Helper](setting-up-https-windows.md)\. For more information about IAM, access keys, and secret keys, see [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html) and [How Do I Get Credentials?](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials)\.
 
 ## Git for macOS: I Configured the Credential Helper Successfully, but Now I Am Denied Access to My Repository \(403\)<a name="troubleshooting-macoshttps"></a>
 

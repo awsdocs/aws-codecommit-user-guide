@@ -6,12 +6,12 @@
 
 # Limits in AWS CodeCommit<a name="limits"></a>
 
-The following table describes limits in AWS CodeCommit\. For information about limits that can be changed, see [AWS Service Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_codecommit)\.
+The following table describes limits in AWS CodeCommit\. For information about limits that can be changed, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_codecommit)\.
 
 
 |  |  | 
 | --- |--- |
-| Number of repositories |  Maximum of 1,000 per AWS account\. This limit can be changed\. For more information, see [AWS Service Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.  | 
+| Number of repositories |  Maximum of 1,000 per AWS account\. This limit can be changed\. For more information, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.  | 
 | Regions |  AWS CodeCommit is available in the following regions: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html) For more information, see [Regions and Git Connection Endpoints](regions.md)\.  | 
 | Number of references in a single push | Maximum of 4,000, including create, delete, and update\. There is no limit on the overall number of references in the repository\. | 
 |  Number of triggers in a repository  |  Maximum of 10\.  | 

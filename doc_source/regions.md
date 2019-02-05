@@ -36,7 +36,7 @@ You can create and use AWS CodeCommit repositories in the following AWS regions:
 
 AWS CodeCommit has added support for the Federal Information Processing Standard \(FIPS\) Publication 140\-2 government standard in some regions\. For more information about FIPS and FIPS endpoints, see [Federal Information Processing Standard \(FIPS\) 140\-2 Overview](https://aws.amazon.com/compliance/fips/)\. For Git connection endpoints that support FIPS, see [Git Connection Endpoints](#regions-git)\.
 
-For more information about regional endpoints for AWS CLI, service, and API calls to AWS CodeCommit, see [AWS Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region)\.
+For more information about regional endpoints for AWS CLI, service, and API calls to AWS CodeCommit, see [AWS Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region)\.
 
 ## Git Connection Endpoints<a name="regions-git"></a>
 

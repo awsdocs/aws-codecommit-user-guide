@@ -8,7 +8,7 @@
 
 The easiest way to get started with AWS CodeCommit is to follow the steps in [AWS CodeCommit Tutorial](getting-started-cc.md)\. If you are new to Git as well as AWS CodeCommit, you should also consider following the steps in [Git with AWS CodeCommit Tutorial](getting-started.md)\. This will help you familiarize yourself with AWS CodeCommit as well as the basics of using Git when interacting with your AWS CodeCommit repositories\.
 
-You can also follow the tutorial in [Simple Pipeline Walkthrough with AWS CodePipeline and AWS CodeCommit](http://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-cc.html) to learn how to use your AWS CodeCommit repository as part of a continuous delivery pipeline\.
+You can also follow the tutorial in [Simple Pipeline Walkthrough with AWS CodePipeline and AWS CodeCommit](https://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-cc.html) to learn how to use your AWS CodeCommit repository as part of a continuous delivery pipeline\.
 
 The tutorials in this section assume you have completed the [prerequisites and setup](setting-up.md), including:
 + Assigning permissions to the IAM user\.

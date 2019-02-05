@@ -9,12 +9,15 @@
 AWS CodeCommit is a version control service hosted by Amazon Web Services that you can use to privately store and manage assets \(such as documents, source code, and binary files\) in the cloud\. For information about pricing for AWS CodeCommit, see [Pricing\.](http://aws.amazon.com/codecommit/pricing/)
 
 **Note**  
+AWS CodeCommit is in scope with many compliance programs\. For details about AWS and compliance efforts, see [AWS Services In Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/)\.  
 This is a HIPAA Eligible Service\. For more information about AWS, U\.S\. Health Insurance Portability and Accountability Act of 1996 \(HIPAA\), and using AWS services to process, store, and transmit protected health information \(PHI\), see [HIPAA Overview](https://aws.amazon.com/compliance/hipaa-compliance/)\.  
 For information about this service and ISO 27001, a security management standard that specifies security management best practices, see [ISO 27001 Overview](https://aws.amazon.com/compliance/iso-27001-faqs/)\.  
+For information about this service and the Payment Card Industry Data Security Standard \(PCI DSS\), see [PCI DSS Overview](https://aws.amazon.com/compliance/pci-dss-level-1-faqs/)\.  
 For information about this service and the Federal Information Processing Standard \(FIPS\) Publication 140\-2 US government standard that specifies the security requirements for cryptographic modules that protect sensitive information, see [Federal Information Processing Standard \(FIPS\) 140\-2 Overview](https://aws.amazon.com/compliance/fips/) and [Git Connection Endpoints](regions.md#regions-git)\.
 
 **Topics**
 + [Introducing AWS CodeCommit](#welcome-introducing)
++ [AWS CodeCommit, Git, and Choosing the Right AWS Service For Your Needs](#welcome-alternate-services)
 + [How Does AWS CodeCommit Work?](#welcome-how-it-works)
 + [How Is AWS CodeCommit Different from File Versioning in Amazon S3?](#welcome-arc-vs-s3)
 + [How Do I Get Started with AWS CodeCommit?](#welcome-get-started)
@@ -33,6 +36,21 @@ With AWS CodeCommit, you can:
 + **Integrate with other AWS and third\-party services**\. AWS CodeCommit keeps your repositories close to your other production resources in the AWS Cloud, which helps increase the speed and frequency of your development lifecycle\. It is integrated with IAM and can be used with other AWS services and in parallel with other repositories\. For more information, see [Product and Service Integrations with AWS CodeCommit](integrations.md)\.
 + **Easily migrate files from other remote repositories**\. You can migrate to AWS CodeCommit from any Git\-based repository\. 
 + **Use the Git tools you already know**\. AWS CodeCommit supports Git commands as well as its own AWS CLI commands and APIs\.
+
+## AWS CodeCommit, Git, and Choosing the Right AWS Service For Your Needs<a name="welcome-alternate-services"></a>
+
+As a Git\-based service, AWS CodeCommit is well suited to most version control needs\. There are no arbitrary limits on file size, file type, and repository size\. However, there are inherent limitations to Git that can negatively affect the performance of certain kinds of operations, particularly over time\. You can avoid potential degredation of AWS CodeCommit repository performance by avoiding using it for use cases where other AWS services are better suited to the task\. You can also optimize Git performance for complex repositories\. Here are some use cases where Git, and therefore AWS CodeCommit, might not be the best solution for you, or where you might need to take additional steps to optimize for Git\.
+
+
+****  
+
+| Use case | Description | Other services to consider | 
+| --- | --- | --- | 
+| Large files that change frequently | Git uses delta encoding to store differences between versions of files\. For example, if you change a few words in a document, Git will only store those changed words\. If you have files or objects over 5 MB with many changes, Git might need to reconstruct a large chain of delta differences\. This can consume an increasing amount of compute resources on both your local computer and in AWS CodeCommit as these files grow over time\.  | To version large files, consider Amazon Simple Storage Service \(Amazon S3\)\. For more information, see [Using Versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) in the Amazon Simple Storage Service Developer Guide\. | 
+| Database | Git repositories grow larger over time\. Because versioning tracks all changes, any change will increase your repository size\. In other words, as you commit data, even if you delete data in a commit, data is added to a repository\. As there is more data to process and transmit over time, Git will slow down\. This is particularly detrimental to a database use case\. Git was not designed as a database\. | To create and use a database with consistent performance regardless of size, consider Amazon DynamoDB\. For more information, see [Amazon DynamoDB Getting Started Guide](https://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/)\. | 
+| Audit trails | Typically, audit trails are kept for long periods of time and are continuously generated by system processes at a very frequent cadence\. Git was designed to securely store source code generated by groups of developers on a development cycle\. Rapidly changing repositories that continually store programmatically\-generated system changes will see performance degrade over time\.  | To store audit trails, consider Amazon Simple Storage Service \(Amazon S3\)\. To audit AWS activity, depending on your use case, consider using [AWS CloudTrail](https://aws.amazon.com/cloudtrail/), [AWS Config](https://aws.amazon.com/config/), or [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/)\.  | 
+| Backups | Git was designed to version source code written by developers\. You can [push commits to two remote repositories](how-to-mirror-repo-pushes.md), including an AWS CodeCommit repository, as a backup strategy\. However, Git was not designed to handle backups of your computer file system, database dumps, or similar backup content\. Doing so might slow down your system and increase the amount of time required to clone and push a repository\. | To learn about backing up to the AWS Cloud, see [Backup & Restore](https://aws.amazon.com/backup-restore/)\. | 
+| Large numbers of branches or references | When a Git client pushes or pulls repository data, the remote server must send all branches and references such as tags, even if you are only interested in a single branch\. If you have thousands of branches and references, this can take time to process and send \(pack negotiation\) and result in apparently slow repository response\. The more branches and tags you have, the longer this process can take\. We recommend using AWS CodeCommit, but delete branches and tags that are no longer needed\. | To analyze the number of references in an AWS CodeCommit repository in order to determine which might not be needed, you can use one of the following commands:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) | 
 
 ## How Does AWS CodeCommit Work?<a name="welcome-how-it-works"></a>
 
@@ -54,7 +72,7 @@ You can use the AWS CLI or the AWS CodeCommit console to track and manage your r
 
 ## How Is AWS CodeCommit Different from File Versioning in Amazon S3?<a name="welcome-arc-vs-s3"></a>
 
-AWS CodeCommit is designed for team software development\. It manages batches of changes across multiple files, which can occur in parallel with changes made by other developers\. Amazon S3 versioning supports the recovery of past versions of files, but it's not focused on collaborative file tracking features that software development teams need\.
+AWS CodeCommit is optimized for team software development\. It manages batches of changes across multiple files, which can occur in parallel with changes made by other developers\. Amazon S3 versioning supports the recovery of past versions of files, but it's not focused on collaborative file tracking features that software development teams need\.
 
 ## How Do I Get Started with AWS CodeCommit?<a name="welcome-get-started"></a>
 

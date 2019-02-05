@@ -34,21 +34,21 @@ Amazon EC2 instances that meet the preceding requirements are already set up to 
 ## Step 1: Complete the Prerequisites<a name="temporary-access-prerequisites"></a>
 
 Complete the setup steps to provide a user with temporary access to your AWS CodeCommit repositories: 
-+ For cross\-account access, see [Walkthrough: Delegating Access Across AWS Accounts Using IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-walkthrough-crossacct.html)\.
-+ For SAML and federation, see [ Using Your Organization's Authentication System to Grant Access to AWS Resources](http://docs.aws.amazon.com/STS/latest/UsingSTS/STSUseCases.html#IdentityBrokerApplication) and [About AWS STS SAML 2\.0\-based Federation](http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html)\.
-+ For MFA, see [Using Multi\-Factor Authentication \(MFA\) Devices with AWS](http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingMFA.html) and [Creating Temporary Security Credentials to Enable Access for IAM Users](http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSessionTokens.html)\.
-+ For Login with Amazon, Amazon Cognito, Facebook, Google, or any OIDC\-compatible identity provider, see [About AWS STS Web Identity Federation](http://docs.aws.amazon.com/STS/latest/UsingSTS/web-identity-federation.html)\.
++ For cross\-account access, see [Walkthrough: Delegating Access Across AWS Accounts Using IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-walkthrough-crossacct.html)\.
++ For SAML and federation, see [ Using Your Organization's Authentication System to Grant Access to AWS Resources](https://docs.aws.amazon.com/STS/latest/UsingSTS/STSUseCases.html#IdentityBrokerApplication) and [About AWS STS SAML 2\.0\-based Federation](https://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html)\.
++ For MFA, see [Using Multi\-Factor Authentication \(MFA\) Devices with AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingMFA.html) and [Creating Temporary Security Credentials to Enable Access for IAM Users](https://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSessionTokens.html)\.
++ For Login with Amazon, Amazon Cognito, Facebook, Google, or any OIDC\-compatible identity provider, see [About AWS STS Web Identity Federation](https://docs.aws.amazon.com/STS/latest/UsingSTS/web-identity-federation.html)\.
 
 Use the information in [Authentication and Access Control for AWS CodeCommit](auth-and-access-control.md) to specify the AWS CodeCommit permissions you want to temporarily grant the user\.
 
 ## Step 2: Get Temporary Access Credentials<a name="temporary-access-get-credentials"></a>
 
 Depending on the way you set up temporary access, your user can get temporary access credentials in one of the following ways:
-+ For cross\-account access, call the AWS CLI [assume\-role](http://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html) command or call the AWS STS [AssumeRole](http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API\.
-+ For SAML, call the AWS CLI [assume\-role\-with\-saml](http://docs.aws.amazon.com/cli/latest/reference/sts/assume-role-with-saml.html) command or the AWS STS [AssumeRoleWithSAML](http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html) API\.
-+ For federation, call the AWS CLI [assume\-role](http://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html) or [get\-federation\-token](http://docs.aws.amazon.com/cli/latest/reference/sts/get-federation-token.html) commands or the AWS STS [AssumeRole](http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) or [GetFederationToken](http://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html) APIs\.
-+ For MFA, call the AWS CLI [get\-session\-token](http://docs.aws.amazon.com/cli/latest/reference/sts/get-session-token.html) command or the AWS STS [GetSessionToken](http://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html) API\.
-+ For Login with Amazon, Amazon Cognito, Facebook, Google, or any OIDC\-compatible identity provider, call the AWS CLI [assume\-role\-with\-web\-identity](http://docs.aws.amazon.com/cli/latest/reference/sts/assume-role-with-web-identity.html) command or the AWS STS [AssumeRoleWithWebIdentity](http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html) API\.
++ For cross\-account access, call the AWS CLI [assume\-role](https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html) command or call the AWS STS [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API\.
++ For SAML, call the AWS CLI [assume\-role\-with\-saml](https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role-with-saml.html) command or the AWS STS [AssumeRoleWithSAML](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html) API\.
++ For federation, call the AWS CLI [assume\-role](https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html) or [get\-federation\-token](https://docs.aws.amazon.com/cli/latest/reference/sts/get-federation-token.html) commands or the AWS STS [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) or [GetFederationToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html) APIs\.
++ For MFA, call the AWS CLI [get\-session\-token](https://docs.aws.amazon.com/cli/latest/reference/sts/get-session-token.html) command or the AWS STS [GetSessionToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html) API\.
++ For Login with Amazon, Amazon Cognito, Facebook, Google, or any OIDC\-compatible identity provider, call the AWS CLI [assume\-role\-with\-web\-identity](https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role-with-web-identity.html) command or the AWS STS [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html) API\.
 
 Your user should receive a set of temporary access credentials, which include an AWS access key ID, a secret access key, and a session token\. Your user should make a note of these three values because they are used in the next step\.
 
@@ -89,7 +89,7 @@ Before you continue, make sure the git config file is configured to use the AWS 
      set AWS_SESSION_TOKEN=TheSessionToken
      ```
 
-   For more information, see [Configuring the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) in the *AWS Command Line Interface User Guide*\.
+   For more information, see [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) in the *AWS Command Line Interface User Guide*\.
 
 1. Set up the Git credential helper with the AWS CLI named profile associated with the temporary access credentials\. 
    + [Linux, macOS, or Unix](setting-up-https-unixes.md)

@@ -8,14 +8,15 @@
 
 The following table describes important changes to the documentation for AWS CodeCommit\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 + **API version:** 2015\-04\-13
-+ **Latest documentation update:** October 30, 2018 
++ **Latest documentation update:** January 2, 2019
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| Content update | The content in this guide has been updated to support the new AWS CodeCommit console experience\. | October 30, 2018 | 
-| AWS CodeCommit and the Federal Information Processing Standard \(FIPS\) | AWS CodeCommit has added support for the Federal Information Processing Standard \(FIPS\) Publication 140\-2 government standard in some regions\. For more information about FIPS and FIPS endpoints, see [Federal Information Processing Standard \(FIPS\) 140\-2 Overview](https://aws.amazon.com/compliance/fips/)\. For more information about Git connection endpoints, see [Regions](http://docs.aws.amazon.com/codecommit/latest/userguide/regions.html)\. | October 25, 2018 | 
-| AWS CodeCommit adds three APIs | AWS CodeCommit has added three APIs to support working with files\. For more information about Git connection endpoints, see [Permissions for Actions on Individual Files](http://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-permissions-reference.html#aa-files) and [AWS CodeCommit API Reference](http://docs.aws.amazon.com/codecommit/latest/APIReference/)\. | September 27, 2018 | 
-| AWS CodeCommit documentation history notification available through RSS feed  | You can now receive notification about updates to the AWS CodeCommit documentation by subscribing to an RSS feed\. | June 29, 2018 | 
+| [Content update](#history) | The content in this guide has been updated with minor fixes and additional troubleshooting guidance\. | January 2, 2019 | 
+| [Content update](#history) | The content in this guide has been updated to support the new AWS CodeCommit console experience\. | October 30, 2018 | 
+| [AWS CodeCommit and the Federal Information Processing Standard \(FIPS\)](#history) | AWS CodeCommit has added support for the Federal Information Processing Standard \(FIPS\) Publication 140\-2 government standard in some regions\. For more information about FIPS and FIPS endpoints, see [Federal Information Processing Standard \(FIPS\) 140\-2 Overview](https://aws.amazon.com/compliance/fips/)\. For more information about Git connection endpoints, see [Regions](https://docs.aws.amazon.com/codecommit/latest/userguide/regions.html)\. | October 25, 2018 | 
+| [AWS CodeCommit adds three APIs](#history) | AWS CodeCommit has added three APIs to support working with files\. For more information about Git connection endpoints, see [Permissions for Actions on Individual Files](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-permissions-reference.html#aa-files) and [AWS CodeCommit API Reference](https://docs.aws.amazon.com/codecommit/latest/APIReference/)\. | September 27, 2018 | 
+| [AWS CodeCommit documentation history notification available through RSS feed ](#history) | You can now receive notification about updates to the AWS CodeCommit documentation by subscribing to an RSS feed\. | June 29, 2018 | 
 
 ## Earlier Updates<a name="history-archive"></a>
 

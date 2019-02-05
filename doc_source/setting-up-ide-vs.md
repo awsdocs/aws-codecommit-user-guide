@@ -22,8 +22,8 @@ To use Visual Studio with AWS CodeCommit, you need the following:
 
   If the IAM user already has Git credentials configured, one of the AWS CodeCommit managed policies or equivalent permissions\.
 
-   For more information, see [AWS Managed \(Predefined\) Policies for AWS CodeCommit](auth-and-access-control-iam-identity-based-access-control.md#managed-policies) and [Understanding and Getting Your Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)\.
-+ The AWS Toolkit for Visual Studio installed on the computer where you've installed Visual Studio\. For more information, see [Setting Up the AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/getting-set-up.html)\.
+   For more information, see [AWS Managed \(Predefined\) Policies for AWS CodeCommit](auth-and-access-control-iam-identity-based-access-control.md#managed-policies) and [Understanding and Getting Your Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)\.
++ The AWS Toolkit for Visual Studio installed on the computer where you've installed Visual Studio\. For more information, see [Setting Up the AWS Toolkit for Visual Studio](https://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/getting-set-up.html)\.
 
 **Topics**
 + [Step 1: Get an Access Key and Secret Key for Your IAM User](#setting-up-ide-vs-profile)
@@ -34,13 +34,13 @@ To use Visual Studio with AWS CodeCommit, you need the following:
 
 ## Step 1: Get an Access Key and Secret Key for Your IAM User<a name="setting-up-ide-vs-profile"></a>
 
-If you do not already have a credential profile set up on the computer where Visual Studio is installed, you can [configure one with the AWS CLI and the aws configure command](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-quick-configuration)\. Alternatively, you can follow this procedure to create and download your credentials\. Provide them to the Toolkit for Visual Studio when prompted\. 
+If you do not already have a credential profile set up on the computer where Visual Studio is installed, you can [configure one with the AWS CLI and the aws configure command](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-quick-configuration)\. Alternatively, you can follow this procedure to create and download your credentials\. Provide them to the Toolkit for Visual Studio when prompted\. 
 
 **To get the access key ID and secret access key for an IAM user**
 
 Access keys consist of an access key ID and secret access key, which are used to sign programmatic requests that you make to AWS\. If you don't have access keys, you can create them from the AWS Management Console\. We recommend that you use IAM access keys instead of AWS account root user access keys\. IAM lets you securely control access to AWS services and resources in your AWS account\.
 
-The only time that you can view or download the secret access keys is when you create the keys\. You cannot recover them later\. However, you can create new access keys at any time\. You must also have permissions to perform the required IAM actions\. For more information, see [Permissions Required to Access IAM Resources](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_permissions-required.html) in the *IAM User Guide*\.
+The only time that you can view or download the secret access keys is when you create the keys\. You cannot recover them later\. However, you can create new access keys at any time\. You must also have permissions to perform the required IAM actions\. For more information, see [Permissions Required to Access IAM Resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_permissions-required.html) in the *IAM User Guide*\.
 
 1. Open the [IAM console](https://console.aws.amazon.com/iam/home?#home)\.
 
@@ -59,8 +59,8 @@ The only time that you can view or download the secret access keys is when you c
    Keep the keys confidential in order to protect your AWS account, and never email them\. Do not share them outside your organization, even if an inquiry appears to come from AWS or Amazon\.com\. No one who legitimately represents Amazon will ever ask you for your secret key\.
 
 **Related topics**
-+ [What Is IAM?](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*
-+ [AWS Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) in *AWS General Reference* 
++ [What Is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*
++ [AWS Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) in *AWS General Reference* 
 
 ## Step 2: Install AWS Toolkit for Visual Studio and Connect to AWS CodeCommit<a name="setting-up-ide-vs-connect"></a>
 
@@ -120,4 +120,4 @@ After you have connected to AWS CodeCommit, you can see a list of repositories a
 
 Git operations in Visual Studio for AWS CodeCommit repositories work exactly as they do for any other Git\-based repository\. You can make changes to code, add files, and create local commits\. When you are ready to share, you use the **Sync** option in Team Explorer to push your commits to the AWS CodeCommit repository\. Because your Git credentials for your IAM user are already stored locally and associated with your connected AWS credential profile, you won’t be prompted to supply them again when you push to AWS CodeCommit\.
 
-For more information about working with Toolkit for Visual Studio, see the [AWS Toolkit for Visual Studio User Guide](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/)\.
+For more information about working with Toolkit for Visual Studio, see the [AWS Toolkit for Visual Studio User Guide](https://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/)\.

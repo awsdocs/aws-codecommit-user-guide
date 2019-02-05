@@ -50,7 +50,7 @@ If you create a trigger in AWS CodeCommit that invokes a Lambda function, you mu
    }
    ```
 
-   For more information about resource policies for Lambda functions, see [AddPermission](http://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) and [The Pull/Push Event Models](http://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html) in the *Lambda User Guide*\.
+   For more information about resource policies for Lambda functions, see [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) and [The Pull/Push Event Models](https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html) in the *Lambda User Guide*\.
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 

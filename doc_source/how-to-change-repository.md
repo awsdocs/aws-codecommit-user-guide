@@ -42,7 +42,7 @@ For more options, see your Git documentation\.
 
 1. To change the repository's description, modify the text in the **Description** text box, and then choose **Save**\.
 **Note**  
-The description field displays Markdown in the console and accepts all HTML characters and valid Unicode characters\. If you are an application developer who is using the `GetRepository` or `BatchGetRepositories` APIs and you plan to display the repository description field in a web browser, see the [AWS CodeCommit API Reference](http://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
+The description field displays Markdown in the console and accepts all HTML characters and valid Unicode characters\. If you are an application developer who is using the `GetRepository` or `BatchGetRepositories` APIs and you plan to display the repository description field in a web browser, see the [AWS CodeCommit API Reference](https://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
 
 1. To change the default branch, in **Default branch**, choose the branch drop\-down list and choose a different branch\. Choose **Save**\.
 
@@ -66,7 +66,7 @@ To use AWS CLI to change an AWS CodeCommit repository's settings in AWS CodeComm
 To get the name of the AWS CodeCommit repository, run the [list\-repositories](how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli) command\.
    + The new repository description \(with the `--repository-description` option\)\.
 **Note**  
-The description field displays Markdown in the console and accepts all HTML characters and valid Unicode characters\. If you are an application developer who is using the `GetRepository` or `BatchGetRepositories` APIs and you plan to display the repository description field in a web browser, see the [AWS CodeCommit API Reference](http://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
+The description field displays Markdown in the console and accepts all HTML characters and valid Unicode characters\. If you are an application developer who is using the `GetRepository` or `BatchGetRepositories` APIs and you plan to display the repository description field in a web browser, see the [AWS CodeCommit API Reference](https://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
 
    For example, to change the description for the AWS CodeCommit repository named `MyDemoRepo` to `This description was changed`:
 

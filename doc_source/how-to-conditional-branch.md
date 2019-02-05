@@ -9,7 +9,7 @@
 By default, any AWS CodeCommit repository user who has sufficient permissions to push code to the repository can contribute to any branch in that repository\. This is true no matter how you add a branch to the repository: by using the console, the command line, or Git\. However, you might want to configure a branch so that only some repository users can push or merge code to that branch\. For example, you might want to configure a branch used for production code so that only a subset of senior developers can push or merge changes to that branch\. Other developers can still pull from the branch, make their own branches, and create pull requests, but they cannot push or merge changes to that branch\. You can configure this access by creating a conditional policy that uses a context key for one or more branches in IAM\. 
 
 **Note**  
-To complete some of the procedures in this topic, you must sign in with an adminstrative user that has sufficient permissions to configure and apply IAM policies\. For more information, see [Creating an IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html)\. 
+To complete some of the procedures in this topic, you must sign in with an adminstrative user that has sufficient permissions to configure and apply IAM policies\. For more information, see [Creating an IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html)\. 
 
 **Topics**
 + [Configure an IAM Policy to Limit Pushes and Merges to a Branch](#how-to-conditional-branch-create-policy)
@@ -84,7 +84,7 @@ You've created a policy that limits pushes and merges to a branch, but the polic
 
 1. Select the conditional policy you created from the list of policies, and then choose **Attach policy**\.
 
-For more information, see [Attaching and Detatching IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html)\.
+For more information, see [Attaching and Detatching IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html)\.
 
 ## Test the Policy<a name="how-to-conditional-branch-test"></a>
 

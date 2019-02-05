@@ -172,7 +172,7 @@ Now that you have familiarized yourself with AWS CodeCommit and some of its feat
 + If you are new to Git and AWS CodeCommit or want to review examples of using Git with AWS CodeCommit, continue to the [Git with AWS CodeCommit Tutorial](getting-started.md) tutorial\.
 + If you want to work with others in an AWS CodeCommit repository, see [Share a Repository](how-to-share-repository.md)\. \(If you want to share your repository with users in another AWS account, see [Configure Cross\-Account Access to an AWS CodeCommit Repository](cross-account.md)\.\)
 + If you want to migrate a repository to AWS CodeCommit, follow the steps in [Migrate to AWS CodeCommit](how-to-migrate-repository.md)\.
-+ If you want to add your repository to a continuous delivery pipeline, follow the steps in [Simple Pipeline Walkthrough](http://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-cc.html)\.
++ If you want to add your repository to a continuous delivery pipeline, follow the steps in [Simple Pipeline Walkthrough](https://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-cc.html)\.
 + If you want to learn more about products and services that integrate with AWS CodeCommit, including examples from the community, see [Product and Service Integrations](integrations.md)\.
 
 ## Step 6: Clean Up<a name="getting-started-cc-clean-up"></a>

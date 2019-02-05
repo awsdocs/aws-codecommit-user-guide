@@ -465,7 +465,7 @@ The following AWS managed policies, which you can attach to users in your accoun
   }
   ```
 
-For more information, see [AWS Managed Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
+For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
 
 ## Customer Managed Policy Examples<a name="customer-managed-policies"></a>
 
@@ -660,7 +660,7 @@ All examples use the US West \(Oregon\) Region \(us\-west\-2\) when a region is 
 
  **Examples**
 + [Example 1: Create a Policy That Enables Cross\-Account Access to an Amazon SNS Topic](#access-permissions-sns-int)
-+ [Example 2: Create a Policy for AWS Lambda Integration](#access-permissions-lambda-int)
++ [Example 3: Create a Policy for AWS Lambda Integration with an AWS CodeCommit Trigger](#access-permissions-lambda-int)
 
 #### Example 1: Create a Policy That Enables Cross\-Account Access to an Amazon SNS Topic<a name="access-permissions-sns-int"></a>
 
@@ -716,9 +716,43 @@ However, if you want to configure your trigger to use an Amazon SNS topic in ano
 }
 ```
 
-#### Example 2: Create a Policy for AWS Lambda Integration<a name="access-permissions-lambda-int"></a>
+#### Example 2: Create an Amazon Simple Notification Service \(Amazon SNS\) Topic Policy to Allow Amazon CloudWatch Events to Publish AWS CodeCommit Events to the topic<a name="access-permissions-SNS-CWE"></a>
 
-You can configure an AWS CodeCommit repository so that code pushes or other events trigger actions, such as invoking a function in AWS Lambda\. For more information, see [Create a Trigger for a Lambda Function](how-to-notify-lambda.md)\.
+You can configure CloudWatch Events to publish to an Amazon SNS topic when events occur, including AWS CodeCommit events\. To do so, you must make sure that CloudWatch Events has permission to publish events to your Amazon SNS topic by creating a policy for the topic or modifying an existing policy for the topic similar to the following:
+
+```
+{
+  Version":"2012-10-17",
+  "Id":"__default_policy_ID",
+  "Statement":[
+    {
+      "Sid":"__default_statement_ID",
+      "Effect":"Allow",
+      "Principal":"{"AWS":"*"},
+      "Action":{
+        "SNS:Publish"
+      ]
+      "Resource":"arn:aws:sns:us-east-2:123456789012:MyTopic",
+      "Condition":{
+        "StringEquals":{"AWS:SourceOwner":123456789012"}
+      }
+    },                    
+    {
+      "Sid":"Allow_Publish_Events",
+      "Effect":"Allow",
+      "Principal":{"Service":"events.amazonaws.com"},
+      "Action":"sns:Publish",
+      "Resource":"arn:aws:sns:us-east-2:123456789012:MyTopic"
+    }
+  ]
+}
+```
+
+For more information about AWS CodeCommit and CloudWatch Events, see [CloudWatch Events Event Examples From Supported Services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#codecommit_event_type)\.
+
+#### Example 3: Create a Policy for AWS Lambda Integration with an AWS CodeCommit Trigger<a name="access-permissions-lambda-int"></a>
+
+You can configure an AWS CodeCommit repository so that code pushes or other events trigger actions, such as invoking a function in AWS Lambda\. For more information, see [Create a Trigger for a Lambda Function](how-to-notify-lambda.md)\. This information is specific to triggers, and not CloudWatch Events\.
 
 If you want your trigger to run a Lambda function directly \(instead of using an Amazon SNS topic to invoke the Lambda function\), and you do not configure the trigger in the Lambda console, you must include a policy similar to the following in the function's resource policy:
 
@@ -734,6 +768,6 @@ If you want your trigger to run a Lambda function directly \(instead of using an
 }
 ```
 
-When manually configuring an AWS CodeCommit trigger that invokes a Lambda function, you must also use the Lambda [AddPermission](http://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) command to grant permission for AWS CodeCommit to invoke the function\. For an example, see the [To allow AWS CodeCommit to run a Lambda function](how-to-notify-lambda-cc.md#how-to-notify-lambda-create-function-perm) section of [Create a Trigger for an Existing Lambda Function](how-to-notify-lambda-cc.md)\. 
+When manually configuring an AWS CodeCommit trigger that invokes a Lambda function, you must also use the Lambda [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) command to grant permission for AWS CodeCommit to invoke the function\. For an example, see the [To allow AWS CodeCommit to run a Lambda function](how-to-notify-lambda-cc.md#how-to-notify-lambda-create-function-perm) section of [Create a Trigger for an Existing Lambda Function](how-to-notify-lambda-cc.md)\. 
 
-For more information about resource policies for Lambda functions, see [AddPermission](http://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) and [The Pull/Push Event Models](http://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html) in the *AWS Lambda Developer Guide*\.
+For more information about resource policies for Lambda functions, see [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) and [The Pull/Push Event Models](https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html) in the *AWS Lambda Developer Guide*\.

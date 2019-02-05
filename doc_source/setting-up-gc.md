@@ -19,7 +19,7 @@ Follow these steps to set up an AWS account, create an IAM user, and configure a
 
 1. Create an AWS account by going to [http://aws\.amazon\.com](http://aws.amazon.com) and choosing **Sign Up**\.
 
-1. Create an IAM user, or use an existing one, in your AWS account\. Make sure you have an access key ID and a secret access key associated with that IAM user\. For more information, see [Creating an IAM User in Your AWS Account](http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SettingUpUser.html)\.
+1. Create an IAM user, or use an existing one, in your AWS account\. Make sure you have an access key ID and a secret access key associated with that IAM user\. For more information, see [Creating an IAM User in Your AWS Account](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SettingUpUser.html)\.
 **Note**  
 AWS CodeCommit requires AWS Key Management Service\. If you are using an existing IAM user, make sure there are no policies attached to the user that expressly deny the AWS KMS actions required by AWS CodeCommit\. For more information, see [AWS KMS and Encryption](encryption.md)\.
 
@@ -50,7 +50,7 @@ Git is an evolving, regularly updated platform\. Occasionally, a feature change 
 
 ## Step 3: Create Git Credentials for HTTPS Connections to AWS CodeCommit<a name="setting-up-gc-iam"></a>
 
-After you have installed Git, create Git credentials for your IAM user in IAM\. For more information, see [Use Git Credentials and HTTPS with AWS CodeCommit](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#git-credentials-code-commit) in the *IAM User Guide*\.
+After you have installed Git, create Git credentials for your IAM user in IAM\. For more information, see [Use Git Credentials and HTTPS with AWS CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#git-credentials-code-commit) in the *IAM User Guide*\.
 
 **To set up HTTPS Git Credentials for AWS CodeCommit**
 
@@ -63,7 +63,7 @@ After you have installed Git, create Git credentials for your IAM user in IAM\. 
 1. On the user details page, choose the **Security Credentials** tab, and in **HTTPS Git credentials for AWS CodeCommit**, choose **Generate**\.  
 ![\[Generating Git credentials in the IAM console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-iam-gc1.png)
 **Note**  
-You cannot choose your own user name or password for Git credentials\. For more information, see [Use Git Credentials and HTTPS with AWS CodeCommit](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#git-credentials-code-commit)\.
+You cannot choose your own user name or password for Git credentials\. For more information, see [Use Git Credentials and HTTPS with AWS CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#git-credentials-code-commit)\.
 
 1. Copy the user name and password that IAM generated for you, either by showing, copying, and pasting this information into a secure file on your local computer, or by choosing **Download credentials** to download this information as a \.CSV file\. You will need this information to connect to AWS CodeCommit\.  
 ![\[Downloading Git credentials from the IAM console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-iam-gc2.png)

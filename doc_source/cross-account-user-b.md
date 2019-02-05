@@ -18,7 +18,7 @@ You must use the credential helper, not SSH keys or Git credentials, to access r
 
 **To configure the AWS CLI and Git for cross\-account access**
 
-1. Install the AWS CLI on the local computer\. For more information, see instructions for your operating system in [Installing the AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)\.
+1. Install the AWS CLI on the local computer\. For more information, see instructions for your operating system in [Installing the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)\.
 
 1. Install Git on the local computer\. To install Git, we recommend websites such as [Git Downloads](http://git-scm.com/downloads) or [Git for Windows](http://msysgit.github.io/)\. 
 
@@ -171,7 +171,7 @@ If this is the first time you have selected this option, review the information 
    + \(Optional\) In **Color**, choose a color label for the display name\.
    + Choose **Switch Role**\.
 
-   For more information, see [Switching to a Role \(AWS Management Console\)](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html)\.
+   For more information, see [Switching to a Role \(AWS Management Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html)\.
 
 1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
