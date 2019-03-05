@@ -94,7 +94,7 @@ If you have already installed the AWS CLI and configured a profile, you can skip
 1. Run the git config command twice: once to configure Git use the AWS CLI credential helper with the AWS CLI profile you just created, and again to use HTTP\. For example:
 
    ```
-   git config --global credential.helper "!aws codecommit credential-helper --profile MyCrossAccountAccessProfile $@"
+   git config --global credential.helper '!aws codecommit credential-helper --profile MyCrossAccountAccessProfile $@'
    ```
 
    ```
