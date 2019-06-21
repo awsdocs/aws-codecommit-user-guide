@@ -1,10 +1,4 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
-# View Tag Details in AWS CodeCommit<a name="how-to-view-tag-details"></a>
+# View Git Tag Details in AWS CodeCommit<a name="how-to-view-tag-details"></a>
 
 In Git, a tag is a label you can apply to a reference like a commit to mark it with information that might be important to other repository users\. For example, you might tag the commit that was the beta release point for a project with the tag **beta**\. For more information, see [Use Git to Create a Tag](how-to-create-tag.md#how-to-create-tag-git)\.
 
@@ -20,7 +14,7 @@ You can also use Git from your terminal or command line to view details about ta
 
 Use the AWS CodeCommit console to quickly view a list of tags for your repository and details about the commits referenced by the tags\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
+1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. In **Repositories**, choose the name of the repository where you want to view tags\. 
 
@@ -38,12 +32,12 @@ You can adjust the number of tags displayed on the **Tags** page by changing the
 To use Git to view details about tags in a local repo, run one of the following commands:
 + [git tag](#how-to-view-tag-details-git-tag) to view a list of tag names\.
 + [git show](#how-to-view-tag-details-git-show) to view information about a specific tag\.
-+ [git ls\-remote](#how-to-view-tag-details-git-remote) to view information about tags in an AWS CodeCommit repository\.
++ [git ls\-remote](#how-to-view-tag-details-git-remote) to view information about tags in a CodeCommit repository\.
 
 **Note**  
-To ensure that your local repo is updated with all of the tags in the AWS CodeCommit repository, run git fetch followed by git fetch \-\-tags\.
+To ensure that your local repo is updated with all of the tags in the CodeCommit repository, run git fetch followed by git fetch \-\-tags\.
 
-In the following steps, we assume that you have already connected the local repo to AWS CodeCommit repository\. For instructions, see [Connect to a Repository](how-to-connect.md)\.
+In the following steps, we assume that you have already connected the local repo to a CodeCommit repository\. For instructions, see [Connect to a Repository](how-to-connect.md)\.
 
 ### To view a list of tags in a local repo<a name="how-to-view-tag-details-git-tag"></a>
 
@@ -95,7 +89,7 @@ To exit the output of the tag information, type :q\.
 
 For more options, see your Git documentation\.
 
-### To view information about tags in an AWS CodeCommit repository<a name="how-to-view-tag-details-git-remote"></a>
+### To view information about tags in a CodeCommit repository<a name="how-to-view-tag-details-git-remote"></a>
 
 1. Run the git ls\-remote \-\-tags command\.
 
@@ -103,7 +97,7 @@ For more options, see your Git documentation\.
    git ls-remote --tags
    ```
 
-1. If successful, this command produces as output a list of the tags in the AWS CodeCommit repository: 
+1. If successful, this command produces as output a list of the tags in the CodeCommit repository: 
 
    ```
    129ce87a...70fbffba    refs/tags/beta

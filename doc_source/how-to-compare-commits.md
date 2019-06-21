@@ -1,12 +1,6 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Compare Commits in AWS CodeCommit<a name="how-to-compare-commits"></a>
 
-You can use the AWS CodeCommit console to view the differences between commit specifiers in an AWS CodeCommit repository\. You can quickly view the difference between a commit and its parent\. You can also compare any two references, including commit IDs\. 
+You can use the CodeCommit console to view the differences between commit specifiers in a CodeCommit repository\. You can quickly view the difference between a commit and its parent\. You can also compare any two references, including commit IDs\. 
 
 **Topics**
 + [Compare a Commit to Its Parent](#how-to-compare-commits-parent)
@@ -14,9 +8,9 @@ You can use the AWS CodeCommit console to view the differences between commit sp
 
 ## Compare a Commit to Its Parent<a name="how-to-compare-commits-parent"></a>
 
-You can quickly view the difference between a commit and its parent to review the commit message, the committer, and exactly what changed\.
+You can quickly view the difference between a commit and its parent to review the commit message, the committer, and what changed\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
+1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. On the **Repositories** page, choose the repository where you want to view the difference between a commit and its parent\. 
 
@@ -37,9 +31,9 @@ Your preferences for viewing code and other console settings are saved as browse
 
 ## Compare Any Two Commit Specifiers<a name="how-to-compare-commits-compare"></a>
 
-You can view the differences between any two commit specifiers in the AWS CodeCommit console\. Commit specifiers are references, such as branches, tags, and commit IDs\. 
+You can view the differences between any two commit specifiers in the CodeCommit console\. Commit specifiers are references, such as branches, tags, and commit IDs\. 
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
+1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. On the **Repositories** page, choose the repository where you want to compare commits, branches, or tagged commits\. 
 

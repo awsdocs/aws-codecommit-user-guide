@@ -1,9 +1,3 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Update a Pull Request<a name="how-to-update-pull-request"></a>
 
 You can use your local Git client to push commits to the source branch, which updates the pull request with code changes\. You might update the pull request with more commits because:
@@ -51,13 +45,13 @@ You can run these commands separately, or you can use the `-a` option to add cha
 
    For more information, see [Basic Git Commands](how-to-basic-git.md) or consult your Git documentation\.
 
-1. Run the **git push **command to push your changes to AWS CodeCommit\. Your pull request is updated with the changes you made to the source branch\.
+1. Run the **git push **command to push your changes to CodeCommit\. Your pull request is updated with the changes you made to the source branch\.
 
 ## Update a Pull Request \(Console\)<a name="how-to-update-pull-request-console"></a>
 
-You can use the AWS CodeCommit console to update the title and description of a pull request in an AWS CodeCommit repository\. 
+You can use the CodeCommit console to update the title and description of a pull request in an CodeCommit repository\. 
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
+1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. In **Repositories**, choose the name of the repository where you want to update a pull request\. 
 
@@ -71,9 +65,9 @@ You cannot update the title or description of a closed or merged pull request\.
 
 ## Update Pull Requests \(AWS CLI\)<a name="how-to-update-pull-request-cli"></a>
 
-To use AWS CLI commands with AWS CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
 
-To use the AWS CLI to update pull requests in an AWS CodeCommit repository:
+**To use the AWS CLI to update pull requests in a CodeCommit repository**
 
 1.  To update the title of a pull request in a repository, run the update\-pull\-request\-title command, specifying:
    + The ID of the pull request \(with the \-\-pull\-request\-id option\)\.

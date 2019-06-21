@@ -1,29 +1,26 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Troubleshooting SSH Connections to AWS CodeCommit<a name="troubleshooting-ssh"></a>
 
-The following information might help you troubleshoot common issues when using SSH to connect to AWS CodeCommit repositories\.
+The following information might help you troubleshoot common issues when using SSH to connect to CodeCommit repositories\.
 
 **Topics**
-+ [Access Error: Public Key Is Uploaded Successfully to IAM but Connection Fails on Linux, macOS, or Unix Systems](#troubleshooting-ae4)
-+ [Access Error: Public Key Is Uploaded Successfully to IAM and SSH Tested Successfully but Connection Fails on Windows Systems](#troubleshooting-ae5)
-+ [Authentication Challenge: Authenticity of Host Can't Be Established When Connecting to an AWS CodeCommit Repository](#troubleshooting-ac1)
-+ [IAM Error: 'Invalid format' when attempting to add a public key to IAM](#troubleshooting-iam1)
-+ [Git on Windows: Bash Emulator or Command Line Freezes When Attempting to Connect Using SSH](#troubleshooting-gw2)
++ [Access error: Public key is uploaded successfully to IAM but connection fails on Linux, macOS, or Unix systems](#troubleshooting-ae4)
++ [Access error: Public key is uploaded successfully to IAM and SSH tested successfully but connection fails on Windows systems](#troubleshooting-ae5)
++ [Authentication challenge: Authenticity of host can't be established when connecting to a CodeCommit repository](#troubleshooting-ac1)
++ [IAM error: 'Invalid format' when attempting to add a public key to IAM](#troubleshooting-iam1)
++ [Git on Windows: Bash emulator or command line freezes when attempting to connect using SSH](#troubleshooting-gw2)
 
-## Access Error: Public Key Is Uploaded Successfully to IAM but Connection Fails on Linux, macOS, or Unix Systems<a name="troubleshooting-ae4"></a>
+## Access error: Public key is uploaded successfully to IAM but connection fails on Linux, macOS, or Unix systems<a name="troubleshooting-ae4"></a>
 
-**Problem:** When you try to connect to an SSH endpoint to communicate with an AWS CodeCommit repository, either when testing the connection or cloning a repository, the connection fails or is refused\.
+**Problem:** When you try to connect to an SSH endpoint to communicate with a CodeCommit repository, either when testing the connection or cloning a repository, the connection fails or is refused\.
 
-**Possible fixes:** The SSH Key ID assigned to your public key in IAM might not be associated with your connection attempt\. [You might not have configured a config file](setting-up-ssh-unixes.md#cc-configure-config), you might not have access to the configuration file, another setting might be preventing a successful read of the config file, or you might have provided the ID of the IAM user instead of the key ID\.
+**Possible fixes:** The SSH key ID assigned to your public key in IAM might not be associated with your connection attempt\. [You might not have configured a config file](setting-up-ssh-unixes.md#cc-configure-config), you might not have access to the configuration file, another setting might be preventing a successful read of the config file, you might have provided the wrong key ID, or you might have provided the ID of the IAM user instead of the key ID\.
 
-The SSH Key ID can be found in the IAM console in the profile for your IAM user:
+The SSH key ID can be found in the IAM console in the profile for your IAM user:
 
 ![\[The SSH Key ID in the IAM console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-ssh-key-id-iam.png)![\[The SSH Key ID in the IAM console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/)
+
+**Note**  
+If you have more than one SSH key IDs uploaded, the keys are listed alphabetically by key ID, not by upload date\. Make sure that you have copied the key ID that is associated with the correct upload date\.
 
 Try testing the connection with the following command:
 
@@ -31,7 +28,7 @@ Try testing the connection with the following command:
 ssh Your-SSH-Key-ID@git-codecommit.us-east-2.amazonaws.com
 ```
 
-If you see a success message after confirming the connection, your SSH Key ID is valid\. Edit your config file to associate your connection attempts with your public key in IAM\. If you do not want to edit your config file for some reason, you can preface all connection attempts to your repository with your SSH Key ID\. For example, if you wanted to clone a repository named *MyDemoRepo* without modifying your config file to associate your connection attempts, you would type the following command:
+If you see a success message after confirming the connection, your SSH key ID is valid\. Edit your config file to associate your connection attempts with your public key in IAM\. If you do not want to edit your config file, you can preface all connection attempts to your repository with your SSH key ID\. For example, if you wanted to clone a repository named *MyDemoRepo* without modifying your config file to associate your connection attempts, you would run the following command:
 
 ```
 git clone ssh://Your-SSH-Key-ID@git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo
@@ -39,11 +36,11 @@ git clone ssh://Your-SSH-Key-ID@git-codecommit.us-east-2.amazonaws.com/v1/repos/
 
 For more information, see [For SSH Connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md)\. 
 
-## Access Error: Public Key Is Uploaded Successfully to IAM and SSH Tested Successfully but Connection Fails on Windows Systems<a name="troubleshooting-ae5"></a>
+## Access error: Public key is uploaded successfully to IAM and SSH tested successfully but connection fails on Windows systems<a name="troubleshooting-ae5"></a>
 
-**Problem:** When you try to use an SSH endpoint to clone or communicate with an AWS CodeCommit repository, an error message appears containing the phrase `No supported authentication methods available`\.
+**Problem:** When you try to use an SSH endpoint to clone or communicate with a CodeCommit repository, an error message appears containing the phrase `No supported authentication methods available`\.
 
-**Possible fixes:** The most common reason for this error is that you have a Windows system environment variable set that directs Windows to use another program when you attempt to use SSH\. For example, you might have set a GIT\_SSH variable to point to one of the PuTTY set of tools \(plink\.exe\)\. This might be a legacy configuration, or it might be necessary for one or more other programs installed on your computer\. If you are sure that this environment variable is not needed, you can remove it by opening your system properties and deleting the environment variable\.
+**Possible fixes:** The most common reason for this error is that you have a Windows system environment variable set that directs Windows to use another program when you attempt to use SSH\. For example, you might have set a GIT\_SSH variable to point to one of the PuTTY set of tools \(plink\.exe\)\. This might be a legacy configuration, or it might be required for one or more other programs installed on your computer\. If you are sure that this environment variable is not required, you can remove it by opening your system properties\.
 
 To work around this issue, open a Bash emulator and then try your SSH connection again, but include `GIT_SSH_COMMAND="SSH"` as a prefix\. For example, to clone a repository using SSH:
 
@@ -51,15 +48,15 @@ To work around this issue, open a Bash emulator and then try your SSH connection
 GIT_SSH_COMMAND="ssh" git clone ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo
 ```
 
-A similar problem might occur if your version of Windows requires that you include the SSH Key ID as part of the connection string when connecting using SSH at the Windows command line\. Try your connection again, this time including the SSH Key ID copied from IAM as part of the command\. For example:
+A similar problem might occur if your version of Windows requires that you include the SSH key ID as part of the connection string when connecting through SSH at the Windows command line\. Try your connection again, this time including the SSH key ID copied from IAM as part of the command\. For example:
 
 ```
 git clone ssh://Your-SSH-Key-ID@git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo
 ```
 
-## Authentication Challenge: Authenticity of Host Can't Be Established When Connecting to an AWS CodeCommit Repository<a name="troubleshooting-ac1"></a>
+## Authentication challenge: Authenticity of host can't be established when connecting to a CodeCommit repository<a name="troubleshooting-ac1"></a>
 
-**Problem:** When you try to use an SSH endpoint to communicate with an AWS CodeCommit repository, a warning message appears containing the phrase `The authenticity of host 'host-name' can't be established.`
+**Problem:** When you try to use an SSH endpoint to communicate with a CodeCommit repository, a warning message appears containing the phrase `The authenticity of host 'host-name' can't be established.`
 
 **Possible fixes:** Your credentials might not be set up correctly\. Follow the instructions in [For SSH Connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md) or [For SSH Connections on Windows](setting-up-ssh-windows.md)\. 
 
@@ -69,10 +66,10 @@ If you have followed those steps and the problem persists, someone might be atte
 Are you sure you want to continue connecting (yes/no)?
 ```
 
-Make sure the fingerprint and public key for AWS CodeCommit connections match those documented in the SSH setup topics before you continue with the connection\.
+Make sure the fingerprint and public key for CodeCommit connections match those documented in the SSH setup topics before you continue with the connection\.
 
 
-**Public fingerprints for AWS CodeCommit**  
+**Public fingerprints for CodeCommit**  
 
 | Server | Cryptographic hash type | Fingerprint | 
 | --- | --- | --- | 
@@ -106,14 +103,18 @@ Make sure the fingerprint and public key for AWS CodeCommit connections match th
 | git\-codecommit\.ca\-central\-1\.amazonaws\.com | SHA256 | Qz5puafQdANVprLlj6r0Qyh4lCNsF6ob61dGcPtFS7w | 
 | git\-codecommit\.eu\-west\-3\.amazonaws\.com | MD5 | 1b:7f:97:dd:d7:76:8a:32:2c:bd:2c:7b:33:74:6a:76 | 
 | git\-codecommit\.eu\-west\-3\.amazonaws\.com | SHA256 | uw7c2FL564jVoFgtc\+ikzILnKBsZz7t9\+CFdSJjKbLI | 
+| git\-codecommit\.us\-gov\-west\-1\.amazonaws\.com | MD5 | 9f:6c:19:3b:88:cd:e8:88:1b:9c:98:6a:95:31:8a:69 | 
+| git\-codecommit\.us\-gov\-west\-1\.amazonaws\.com | SHA256 | djXQoSIFcg8vHe0KVH1xW/gOF9X37tWTqu4Hkng75x4 | 
+| git\-codecommit\.us\-gov\-east\-1\.amazonaws\.com | MD5 | 00:8d:b5:55:6f:05:78:05:ed:ea:cb:3f:e6:f0:62:f2 | 
+| git\-codecommit\.us\-gov\-east\-1\.amazonaws\.com | SHA256 | fVb\+R0z7qW7minenW\+rUpAABRCRBTCzmETAJEQrg98 | 
 
-## IAM Error: 'Invalid format' when attempting to add a public key to IAM<a name="troubleshooting-iam1"></a>
+## IAM error: 'Invalid format' when attempting to add a public key to IAM<a name="troubleshooting-iam1"></a>
 
-**Problem:** In IAM, when attempting to set up to use SSH with AWS CodeCommit, an error message appears containing the phrase `Invalid format` when you attempt to add your public key\.
+**Problem:** In IAM, when attempting to set up to use SSH with CodeCommit, an error message appears containing the phrase `Invalid format` when you attempt to add your public key\.
 
-**Possible fixes:** IAM accepts public keys in the OpenSSH format only\. If you provide your public key in another format, or if the key does not contain the required number of bits, you will see this error\. This problem most commonly occurs when the public/private key pairs are generated on Windows computers\. To generate a key pair and copy the OpenSSH format required by IAM, see [SSH and Windows: Set Up the Public and Private Keys for Git and AWS CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
+**Possible fixes:** IAM accepts public keys in the OpenSSH format only\. If you provide your public key in another format, or if the key does not contain the required number of bits, you see this error\. This problem most commonly occurs when the public\-private key pairs are generated on Windows computers\. To generate a key pair and copy the OpenSSH format required by IAM, see [SSH and Windows: Set Up the Public and Private Keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
 
-## Git on Windows: Bash Emulator or Command Line Freezes When Attempting to Connect Using SSH<a name="troubleshooting-gw2"></a>
+## Git on Windows: Bash emulator or command line freezes when attempting to connect using SSH<a name="troubleshooting-gw2"></a>
 
 **Problem:** After you configure SSH access for Windows and confirm connectivity at the command line or terminal, you see a message that the server's host key is not cached in the registry, and the prompt to store the key in the cache is frozen \(does not accept y/n/return input\) when you attempt to use commands such as git pull, git push, or git clone at the command prompt or Bash emulator\.
 
@@ -123,7 +124,7 @@ Make sure the fingerprint and public key for AWS CodeCommit connections match th
   ```
   GIT_SSH_COMMAND="ssh" git push
   ```
-+ If you have PuTTY installed, open PuTTY, and in **Host Name \(or IP address\)**, type the AWS CodeCommit endpoint you want to reach \(for example, git\-codecommit\.us\-east\-2\.amazonaws\.com\)\. Choose **Open**\. When prompted by the PuTTY Security Alert, choose **Yes** to permanently cache the key\.
++ If you have PuTTY installed, open PuTTY, and in **Host Name \(or IP address\)**, enter the CodeCommit endpoint you want to reach \(for example, git\-codecommit\.us\-east\-2\.amazonaws\.com\)\. Choose **Open**\. When prompted by the PuTTY security alert, choose **Yes** to permanently cache the key\.
 + Rename or delete the `GIT_SSH` environment variable if you are no longer using it\. Then open a new command prompt or Bash emulator session, and try your command again\.
 
 For other solutions, see [Git clone/pull continually freezing at Store key in cache](http://stackoverflow.com/questions/33240137/git-clone-pull-continually-freezing-at-store-key-in-cache) on Stack Overflow\. 

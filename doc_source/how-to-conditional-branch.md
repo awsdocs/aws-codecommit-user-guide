@@ -1,12 +1,6 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Limit Pushes and Merges to Branches in AWS CodeCommit<a name="how-to-conditional-branch"></a>
 
-By default, any AWS CodeCommit repository user who has sufficient permissions to push code to the repository can contribute to any branch in that repository\. This is true no matter how you add a branch to the repository: by using the console, the command line, or Git\. However, you might want to configure a branch so that only some repository users can push or merge code to that branch\. For example, you might want to configure a branch used for production code so that only a subset of senior developers can push or merge changes to that branch\. Other developers can still pull from the branch, make their own branches, and create pull requests, but they cannot push or merge changes to that branch\. You can configure this access by creating a conditional policy that uses a context key for one or more branches in IAM\. 
+By default, any CodeCommit repository user who has sufficient permissions to push code to the repository can contribute to any branch in that repository\. This is true no matter how you add a branch to the repository: by using the console, the command line, or Git\. However, you might want to configure a branch so that only some repository users can push or merge code to that branch\. For example, you might want to configure a branch used for production code so that only a subset of senior developers can push or merge changes to that branch\. Other developers can still pull from the branch, make their own branches, and create pull requests, but they cannot push or merge changes to that branch\. You can configure this access by creating a conditional policy that uses a context key for one or more branches in IAM\. 
 
 **Note**  
 To complete some of the procedures in this topic, you must sign in with an adminstrative user that has sufficient permissions to configure and apply IAM policies\. For more information, see [Creating an IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html)\. 
@@ -28,7 +22,7 @@ You can create a policy in IAM that prevents users from updating a branch, inclu
 
 1. Choose **Create policy**\.
 
-1. Choose **JSON**, and then paste the following example policy\. Replace the value of `Resource` with the ARN of the repository that contains the branch for which you want to restrict access\. Replace the value of `codecommit:References` with a reference to the branch or branches to which you want to restrict access\. For example, this policy denies pushing commits, merging pull requests, and adding files to a branch named *`master`* and a branch named `prod` in a repository named `MyDemoRepo`:
+1. Choose **JSON**, and then paste the following example policy\. Replace the value of `Resource` with the ARN of the repository that contains the branch for which you want to restrict access\. Replace the value of `codecommit:References` with a reference to the branch or branches to which you want to restrict access\. For example, this policy denies pushing commits, merging branches, merging pull requests, and adding files to a branch named *`master`* and a branch named `prod` in a repository named `MyDemoRepo`:
 
    ```
    {
@@ -40,9 +34,14 @@ You can create a policy in IAM that prevents users from updating a branch, inclu
                    "codecommit:GitPush",
                    "codecommit:DeleteBranch",
                    "codecommit:PutFile",
-                   "codecommit:MergePullRequestByFastForward"
+                   "codecommit:MergeBranchesByFastForward",
+                   "codecommit:MergeBranchesBySquash",
+                   "codecommit:MergeBranchesByThreeWay",
+                   "codecommit:MergePullRequestByFastForward",
+                   "codecommit:MergePullRequestBySquash",
+                   "codecommit:MergePullRequestByThreeWay"
                ],
-               "Resource": "arn:aws:codecommit:us-east-2:80398EXAMPLE:MyDemoRepo",
+               "Resource": "arn:aws:codecommit:us-east-2:111111111111:MyDemoRepo",
                "Condition": {
                    "StringEqualsIfExists": {
                        "codecommit:References": [
@@ -59,15 +58,15 @@ You can create a policy in IAM that prevents users from updating a branch, inclu
    }
    ```
 
-   Branches in Git are simply pointers \(references\) to the SHA\-1 value of the head commit, which is why the condition uses `References`\. The `Null` statement is required in any policy whose effect is `Deny` and where `GitPush` is one of the actions\. This is required because of the way Git and `git-receive-pack` work when pushing changes from a local repo to AWS CodeCommit\.
+   Branches in Git are simply pointers \(references\) to the SHA\-1 value of the head commit, which is why the condition uses `References`\. The `Null` statement is required in any policy whose effect is `Deny` and where `GitPush` is one of the actions\. This is required because of the way Git and `git-receive-pack` work when pushing changes from a local repo to CodeCommit\.
 **Tip**  
 To create a policy that applies to all branches named master in all repositories in an AWS account, change the value of `Resource` from a repository ARN to an asterisk \(`*`\)\. 
 
 1. Choose **Review policy**\. Correct any errors in your policy statement, and then continue to **Create policy**\.
 
 1. When the JSON is validated, the **Create policy** page is displayed\. A warning appears in the **Summary** section, advising you that this policy does not grant permissions\. This is expected\. 
-   + In **Name**, type a name for this policy, such as **DenyChangesToMaster**\.
-   + In **Description**, type a description of the policy's purpose\. This is optional, but recommended\.
+   + In **Name**, enter a name for this policy, such as **DenyChangesToMaster**\.
+   + In **Description**, enter a description of the policy's purpose\. This is optional, but recommended\.
    + Choose **Create policy**\.
 
 ## Apply the IAM Policy to an IAM Group or Role<a name="how-to-conditional-branch-apply-policy"></a>
@@ -89,6 +88,6 @@ For more information, see [Attaching and Detatching IAM Policies](https://docs.a
 ## Test the Policy<a name="how-to-conditional-branch-test"></a>
 
 You should test the effects of the policy you've applied on the group or role to ensure that it acts as expected\. There are many ways you can do this\. For example, to test a policy similar to the one shown above, you can:
-+ Sign in to the AWS CodeCommit console with an IAM user who is either a member of an IAM group that has the policy applied, or assumes a role that has the policy applied\. In the console, add a file on the branch where the restrictions apply\. You should see an error message when you attempt to save or upload a file to that branch\. Add a file to a different branch\. The operation should succeed\.
-+ Sign in to the AWS CodeCommit console with an IAM user who is either a member of an IAM group that has the policy applied, or assumes a role that has the policy applied\. Create a pull request that merges to the branch where the restrictions apply\. You should be able to create the pull request, but get an error if you try to merge it\. 
-+ From the terminal or command line, create a commit on the branch where the restrictions apply, and then push that commit to the AWS CodeCommit repository\. You should see an error message\. Commits and pushes made from other branches should work as usual\.
++ Sign in to the CodeCommit console with an IAM user who is either a member of an IAM group that has the policy applied, or assumes a role that has the policy applied\. In the console, add a file on the branch where the restrictions apply\. You should see an error message when you attempt to save or upload a file to that branch\. Add a file to a different branch\. The operation should succeed\.
++ Sign in to the CodeCommit console with an IAM user who is either a member of an IAM group that has the policy applied, or assumes a role that has the policy applied\. Create a pull request that merges to the branch where the restrictions apply\. You should be able to create the pull request, but get an error if you try to merge it\. 
++ From the terminal or command line, create a commit on the branch where the restrictions apply, and then push that commit to the CodeCommit repository\. You should see an error message\. Commits and pushes made from other branches should work as usual\.

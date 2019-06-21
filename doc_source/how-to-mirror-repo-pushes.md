@@ -1,15 +1,9 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Push Commits to an Additional Git Repository<a name="how-to-mirror-repo-pushes"></a>
 
-You can configure your local repo to push changes to two remote repositories\. For example, you might want to continue using your existing Git repository solution while you try out AWS CodeCommit\. Follow these basic steps to push changes in your local repo to AWS CodeCommit and a separate Git repository\.
+You can configure your local repo to push changes to two remote repositories\. For example, you might want to continue using your existing Git repository solution while you try out AWS CodeCommit\. Follow these basic steps to push changes in your local repo to CodeCommit and a separate Git repository\.
 
 **Tip**  
-If you do not have a current Git repository, you can create an empty one on a service other than AWS CodeCommit and then migrate your AWS CodeCommit repository to it\. You should follow steps similar to the ones in [Migrate to AWS CodeCommit](how-to-migrate-repository.md)\.
+If you do not have a Git repository, you can create an empty one on a service other than CodeCommit and then migrate your CodeCommit repository to it\. You should follow steps similar to the ones in [Migrate to CodeCommit](how-to-migrate-repository.md)\.
 
 1. From the command prompt or terminal, switch to your local repo directory and run the git remote \-v command\. You should see output similar to the following:
 
@@ -57,7 +51,7 @@ If you are pushing to a Git repository that requires credentials, make sure you 
    origin  some-URL/MyDestinationRepo (push)
    ```
 
-1. Now add the AWS CodeCommit repository\. Run git remote set\-url \-\-add \-\-push origin again, this time with the URL and repository name of your AWS CodeCommit repository\.
+1. Now add the CodeCommit repository\. Run git remote set\-url \-\-add \-\-push origin again, this time with the URL and repository name of your CodeCommit repository\.
 
    For example, the following command adds the push of **origin** to https://git\-codecommit\.us\-east\-2\.amazonaws\.com/v1/repos/MyDemoRepo:
 
@@ -95,7 +89,7 @@ If you are pushing to a Git repository that requires credentials, make sure you 
 
    You now have two Git repositories as the destination for your pushes, but your pushes go to *some\-URL*/MyDestinationRepo first\. If the push to that repository fails, your commits are not pushed to either repository\.
 **Tip**  
-If the other repository requires credentials you want to enter manually, consider changing the order of the pushes so that you push to AWS CodeCommit first\. Run git remote set\-url \-\-delete to delete the repository that is pushed to first, and then run git remote set\-url \-\-add to add it again so that it becomes the second push destination in the list\.   
+If the other repository requires credentials you want to enter manually, consider changing the order of the pushes so that you push to CodeCommit first\. Run git remote set\-url \-\-delete to delete the repository that is pushed to first, and then run git remote set\-url \-\-add to add it again so that it becomes the second push destination in the list\.   
 For more options, see your Git documentation\.
 
 1. To verify you are now pushing to both remote repositories, use a text editor to create the following text file in your local repo:

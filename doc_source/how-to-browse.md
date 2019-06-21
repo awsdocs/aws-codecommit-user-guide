@@ -1,25 +1,19 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Browse Files in an AWS CodeCommit Repository<a name="how-to-browse"></a>
 
-After you connect to an AWS CodeCommit repository, you can clone it to a local repo or use the AWS CodeCommit console to browse its contents\. This topic describes how to use the AWS CodeCommit console to browse the content of an AWS CodeCommit repository\.
+After you connect to a CodeCommit repository, you can clone it to a local repo or use the CodeCommit console to browse its contents\. This topic describes how to use the CodeCommit console to browse the content of a CodeCommit repository\.
 
 **Note**  
-For active AWS CodeCommit users, there is no charge for browsing code from the AWS CodeCommit console\. For information about when charges may apply, see [Pricing](http://aws.amazon.com/codecommit/pricing/)\.
+For active CodeCommit users, there is no charge for browsing code from the CodeCommit console\. For information about when charges might apply, see [Pricing](http://aws.amazon.com/codecommit/pricing/)\.
 
-![\[A view of the contents of a file in the AWS CodeCommit console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-code-browse-file.png)
+![\[A view of the contents of a file in the CodeCommit console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-code-browse-file.png)
 
-## Browse an AWS CodeCommit Repository<a name="how-to-browse-console"></a>
+## Browse a CodeCommit Repository<a name="how-to-browse-console"></a>
 
-You can use the AWS CodeCommit console to review the files contained in a repository or to quickly read the contents of a file\. 
+You can use the CodeCommit console to review the files contained in a repository or to quickly read the contents of a file\. 
 
 **To browse the content of a repository**
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
+1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. On the **Repositories** page, from the list of repositories, choose the repository you want to browse\. 
 

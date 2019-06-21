@@ -1,12 +1,6 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Review a Pull Request<a name="how-to-review-pull-request"></a>
 
-You can use the AWS CodeCommit console to review the changes included in a pull request\. You can add comments to the request, files, and specific lines of code\. You can also reply to comments made by other users\. If your repository is [configured with notifications](how-to-repository-email.md), you receive emails when users reply to your comments or when users comment on a pull request\.
+You can use the AWS CodeCommit console to review the changes included in a pull request\. You can add comments to the request, files, and individual lines of code\. You can also reply to comments made by other users\. If your repository is [configured with notifications](how-to-repository-email.md), you receive emails when users reply to your comments or when users comment on a pull request\.
 
 You can use the AWS CLI to comment on a pull request and reply to comments\. To review the changes, you must use the git diff command or a diff tool\.
 
@@ -16,16 +10,16 @@ You can use the AWS CLI to comment on a pull request and reply to comments\. To 
 
 ## Review a Pull Request \(Console\)<a name="how-to-review-pull-request-console"></a>
 
-You can use the AWS CodeCommit console to review a pull request in an AWS CodeCommit repository\. 
+You can use the CodeCommit console to review a pull request in a CodeCommit repository\. 
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
+1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. In **Repositories**, choose the name of the repository\. 
 
 1. In the navigation pane, choose **Pull requests**\.
 
 1. By default, a list of all open pull requests is displayed\. Choose the open pull request you want to review\. You can also comment on a closed or merged pull request\.  
-![\[Open pull requests displayed in the AWS CodeCommit console.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
+![\[Open pull requests displayed in the CodeCommit console.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
 
 1. In the pull request, choose **Changes**\.
 
@@ -44,14 +38,14 @@ If [notifications](how-to-repository-email.md) are configured, the user who crea
 
 ## Review Pull Requests \(AWS CLI\)<a name="how-to-review-pull-request-cli"></a>
 
-To use AWS CLI commands with AWS CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
 
-To use the AWS CLI to review pull requests in an AWS CodeCommit repository:
+**To use the AWS CLI to review pull requests in an CodeCommit repository**
 
 1. To add a comment to a pull request in a repository, run the post\-comment\-for\-pull\-request command, specifying:
    + The ID of the pull request \(with the \-\-pull\-request\-id option\)\.
    + The name of the repository that contains the pull request \(with the \-\-repository\-name option\)\.
-   + The full commit ID of the commit in the destination branch where the pull request will be merged \(with the \-\-before\-commit\-id option\)\.
+   + The full commit ID of the commit in the destination branch where the pull request is merged \(with the \-\-before\-commit\-id option\)\.
    + The full commit ID of the commit in the source branch that is the current tip of the branch for the pull request when you post the comment \(with the \-\-after\-commit\-id option\)\.
    + A unique, client\-generated idempotency token \(with the \-\-client\-request\-token option\)\.
    + The content of your comment \(with the \-\-content option\)\.
@@ -95,7 +89,7 @@ To use the AWS CLI to review pull requests in an AWS CodeCommit repository:
    ```
 
 1. To view comments for a pull request, run the get\-comments\-for\-pull\-request command, specifying:
-   + The name of the AWS CodeCommit repository \(with the `--repository-name` option\)\.
+   + The name of the CodeCommit repository \(with the `--repository-name` option\)\.
    + The full commit ID of the commit in the source branch that was the tip of the branch at the time the comment was made \(with the `--after-commit-id option`\)\.
    + The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created \(with the `--before-commit-id` option\)\. 
    + \(Optional\) An enumeration token to return the next batch of the results \(with the `--next-token` option\)\.

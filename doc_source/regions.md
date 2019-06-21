@@ -1,23 +1,17 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Regions and Git Connection Endpoints for AWS CodeCommit<a name="regions"></a>
 
-Each AWS CodeCommit repository is associated with an AWS Region\. AWS CodeCommit offers regional endpoints to make your requests to the service\. In addition, AWS CodeCommit provides Git connection endpoints for both SSH and HTTPS protocols in every region where AWS CodeCommit is available\. 
+Each CodeCommit repository is associated with an AWS Region\. CodeCommit offers regional endpoints to make your requests to the service\. In addition, CodeCommit provides Git connection endpoints for both SSH and HTTPS protocols in every Region where CodeCommit is available\. 
 
-All of the examples in this guide use the same endpoint URL for Git in US East \(Ohio\): `git-codecommit.us-east-2.amazonaws.com`\. However, when you use Git and configure your connections, make sure you choose the Git connection endpoint that matches the region that hosts your AWS CodeCommit repository\. For example, if you want to make a connection to a repository in US East \(N\. Virginia\), use the endpoint URL of `git-codecommit.us-east-1.amazonaws.com`\. This is also true for API calls\. When you make connections to an AWS CodeCommit repository with the AWS CLI or the SDKs, make sure you use the correct regional endpoint for the repository\.
+All of the examples in this guide use the same endpoint URL for Git in US East \(Ohio\): `git-codecommit.us-east-2.amazonaws.com`\. However, when you use Git and configure your connections, make sure you choose the Git connection endpoint that matches the AWS Region that hosts your CodeCommit repository\. For example, if you want to make a connection to a repository in US East \(N\. Virginia\), use the endpoint URL of `git-codecommit.us-east-1.amazonaws.com`\. This is also true for API calls\. When you make connections to a CodeCommit repository with the AWS CLI or the SDKs, make sure you use the correct regional endpoint for the repository\.
 
 **Topics**
-+ [Supported Regions for AWS CodeCommit](#regions-acc)
++ [Supported Regions for CodeCommit](#regions-acc)
 + [Git Connection Endpoints](#regions-git)
-+ [Server Fingerprints for AWS CodeCommit](#regions-fingerprints)
++ [Server Fingerprints for CodeCommit](#regions-fingerprints)
 
-## Supported Regions for AWS CodeCommit<a name="regions-acc"></a>
+## Supported Regions for CodeCommit<a name="regions-acc"></a>
 
-You can create and use AWS CodeCommit repositories in the following AWS regions:
+You can create and use CodeCommit repositories in the following AWS Regions:
 + US East \(Ohio\) 
 + US East \(N\. Virginia\)
 + US West \(N\. California\)
@@ -33,14 +27,16 @@ You can create and use AWS CodeCommit repositories in the following AWS regions:
 + Asia Pacific \(Mumbai\)
 + South America \(São Paulo\)
 + Canada \(Central\)
++ AWS GovCloud \(US\-West\)
++ AWS GovCloud \(US\-East\)
 
-AWS CodeCommit has added support for the Federal Information Processing Standard \(FIPS\) Publication 140\-2 government standard in some regions\. For more information about FIPS and FIPS endpoints, see [Federal Information Processing Standard \(FIPS\) 140\-2 Overview](https://aws.amazon.com/compliance/fips/)\. For Git connection endpoints that support FIPS, see [Git Connection Endpoints](#regions-git)\.
+CodeCommit has added support for the Federal Information Processing Standard \(FIPS\) Publication 140\-2 government standard in some regions\. For more information about FIPS and FIPS endpoints, see [Federal Information Processing Standard \(FIPS\) 140\-2 Overview](https://aws.amazon.com/compliance/fips/)\. For Git connection endpoints that support FIPS, see [Git Connection Endpoints](#regions-git)\.
 
-For more information about regional endpoints for AWS CLI, service, and API calls to AWS CodeCommit, see [AWS Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region)\.
+For more information about regional endpoints for AWS CLI, service, and API calls to CodeCommit, see [AWS Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region)\.
 
 ## Git Connection Endpoints<a name="regions-git"></a>
 
-Use the following URLs when you configure Git connections to AWS CodeCommit repositories:
+Use the following URLs when you configure Git connections to CodeCommit repositories:
 
 
 **Git connection endpoints for AWS CodeCommit**  
@@ -82,13 +78,16 @@ Use the following URLs when you configure Git connections to AWS CodeCommit repo
 | Canada \(Central\) | ca\-central\-1 | https://git\-codecommit\-fips\.ca\-central\-1\.amazonaws\.com | HTTPS | 
 | EU \(Paris\) | eu\-west\-3 | https://git\-codecommit\.eu\-west\-3\.amazonaws\.com | HTTPS | 
 | EU \(Paris\) | eu\-west\-3 | ssh://git\-codecommit\.eu\-west\-3\.amazonaws\.com | SSH | 
+| AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | https://git\-codecommit\.us\-gov\-west\-1\.amazonaws\.com | HTTPS | 
+| AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | ssh://git\-codecommit\.us\-gov\-west\-1\.amazonaws\.com | SSH | 
+| AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | https://git\-codecommit\-fips\.us\-gov\-west\-1\.amazonaws\.com | HTTPS | 
 
-## Server Fingerprints for AWS CodeCommit<a name="regions-fingerprints"></a>
+## Server Fingerprints for CodeCommit<a name="regions-fingerprints"></a>
 
-The following table lists the public fingerprints for Git connection endpoints in AWS CodeCommit\. These server fingerprints are displayed as part of the verification process for adding an endpoint to your known hosts file\.
+The following table lists the public fingerprints for Git connection endpoints in CodeCommit\. These server fingerprints are displayed as part of the verification process for adding an endpoint to your known hosts file\.
 
 
-**Public fingerprints for AWS CodeCommit**  
+**Public fingerprints for CodeCommit**  
 
 | Server | Cryptographic hash type | Fingerprint | 
 | --- | --- | --- | 
@@ -122,3 +121,7 @@ The following table lists the public fingerprints for Git connection endpoints i
 | git\-codecommit\.ca\-central\-1\.amazonaws\.com | SHA256 | Qz5puafQdANVprLlj6r0Qyh4lCNsF6ob61dGcPtFS7w | 
 | git\-codecommit\.eu\-west\-3\.amazonaws\.com | MD5 | 1b:7f:97:dd:d7:76:8a:32:2c:bd:2c:7b:33:74:6a:76 | 
 | git\-codecommit\.eu\-west\-3\.amazonaws\.com | SHA256 | uw7c2FL564jVoFgtc\+ikzILnKBsZz7t9\+CFdSJjKbLI | 
+| git\-codecommit\.us\-gov\-west\-1\.amazonaws\.com | MD5 | 9f:6c:19:3b:88:cd:e8:88:1b:9c:98:6a:95:31:8a:69 | 
+| git\-codecommit\.us\-gov\-west\-1\.amazonaws\.com | SHA256 | djXQoSIFcg8vHe0KVH1xW/gOF9X37tWTqu4Hkng75x4 | 
+| git\-codecommit\.us\-gov\-east\-1\.amazonaws\.com | MD5 | 00:8d:b5:55:6f:05:78:05:ed:ea:cb:3f:e6:f0:62:f2 | 
+| git\-codecommit\.us\-gov\-east\-1\.amazonaws\.com | SHA256 | fVb\+R0z7qW7minenW\+rUpAABRCRBTCzmETAJEQrg98 | 

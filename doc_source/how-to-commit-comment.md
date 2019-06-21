@@ -1,14 +1,8 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Comment on a Commit in AWS CodeCommit<a name="how-to-commit-comment"></a>
 
-You can use the AWS CodeCommit console to comment on commits in a repository, and view and reply to other users' comments on commits\. This can help you discuss changes made in a repository, including:
-+ Why specific changes were made\.
-+ Whether more changes or fixes are required\.
+You can use the CodeCommit console to comment on commits in a repository, and view and reply to other users' comments on commits\. This can help you discuss changes made in a repository, including:
++ Why changes were made\.
++ Whether more changes are required\.
 + Whether changes should be merged into another branch\.
 
 You can comment on an overall commit, a file in a commit, or a specific line or change in a file\.
@@ -23,11 +17,11 @@ For best results, use commenting when you are signed in as an IAM user\. The com
 
 ## View Comments on a Commit in a Repository<a name="how-to-commit-comment-view-console"></a>
 
-You can use the AWS CodeCommit console to view comments on a commit\. 
+You can use the CodeCommit console to view comments on a commit\. 
 
-**To view comments on a commit \(console\)**
+**To view comments on a commit**
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
+1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. In **Repositories**, choose the repository for which you want to review comments on commits\. 
 
@@ -37,15 +31,15 @@ You can use the AWS CodeCommit console to view comments on a commit\.
 
 ## Add and Reply to Comments on a Commit in a Repository<a name="how-to-commit-comment-add-console"></a>
 
-You can use the AWS CodeCommit console to add comments to the comparison of a commit and a parent, or to the comparison between two specified commits\. You can also reply to existing comments\. 
+You can use the CodeCommit console to add comments to the comparison of a commit and a parent, or to the comparison between two specified commits\. You can also reply to comments\. 
 
-### Add and Reply to Comments on a Commit<a name="how-to-commit-comment-add-cpage"></a>
+### Add and Reply to Comments on a Commit \(Console\)<a name="how-to-commit-comment-add-cpage"></a>
 
 You can add and reply to comments to a commit\. Your comments are marked as those belonging to the IAM user or role you used to sign in to the console\.
 
-**To add and reply to comments on a commit \(console\)**
+**To add and reply to comments on a commit**
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
+1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. In **Repositories**, choose the repository where you want to comment on commits\. 
 
@@ -61,7 +55,7 @@ You can add and reply to comments to a commit\. Your comments are marked as thos
    + To add a comment to a changed line in the commit, go to the line where the change appears\. Choose the comment bubble ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png), enter your comment, and then choose **Save**\.   
 ![\[Adding a comment on a line in a commit.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-addlinecomment.png)
 **Note**  
-You can edit your comment after you have saved it, but you cannot delete it from the AWS CodeCommit console\. Consider using the **Preview markdown** mode for your comment before you save it\.
+You can edit your comment after you have saved it, but you cannot delete it from the CodeCommit console\. Consider using the **Preview markdown** mode for your comment before you save it\.
 
 1. To reply to comments on a commit, choose **Reply**\.   
 ![\[Choose Reply to add a comment to an existing comment on a commit.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)
@@ -72,7 +66,7 @@ You can add comments to a comparison between branches, tags, or commits\.
 
 **To add or reply to comments when comparing commit specifiers**
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
+1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. In **Repositories**, choose the repository where you want to compare commits, branches, or tagged commits\. 
 
@@ -89,19 +83,19 @@ You can add comments to a comparison between branches, tags, or commits\.
 ## View, Add, Update, and Reply to Commments \(AWS CLI\)<a name="how-to-commit-comment-cli"></a>
 
 You can view, add, reply, update, and delete the contents of a comment by running the following commands:
-+ [get\-comments\-for\-compared\-commit](#how-to-commit-comment-cli-get-comments), to view the comments on the comparison between two commits\.
-+ [get\-comment](#how-to-commit-comment-cli-get-comment-info), to view details on a specific comment\.
-+ [delete\-comment\-content](#how-to-commit-comment-cli-commit-delete), to delete the contents of a comment that you created\.
-+ [post\-comment\-for\-compared\-commit](#how-to-commit-comment-cli-comment), to create a comment on the comparison between two commits\.
-+ [update\-comment](#how-to-commit-comment-cli-commit-update), to update a comment\.
-+ [post\-comment\-reply](#how-to-commit-comment-cli-commit-reply), to reply to a comment\.
++ To view the comments on the comparison between two commits, run [get\-comments\-for\-compared\-commit](#how-to-commit-comment-cli-get-comments)\.
++ To view details on a comment, run [get\-comment](#how-to-commit-comment-cli-get-comment-info)\.
++ To delete the contents of a comment that you created, run [delete\-comment\-content](#how-to-commit-comment-cli-commit-delete)\.
++ To create a comment on the comparison between two commits, run [post\-comment\-for\-compared\-commit](#how-to-commit-comment-cli-comment)\.
++ To update a comment, run [update\-comment](#how-to-commit-comment-cli-commit-update)\.
++ To reply to a comment, [post\-comment\-reply](#how-to-commit-comment-cli-commit-reply)\.
 
 ### To view comments on a commit<a name="how-to-commit-comment-cli-get-comments"></a>
 
 1. Run the get\-comments\-for\-compared\-commit command, specifying:
-   + The name of the AWS CodeCommit repository \(with the `--repository-name` option\)\.
-   + The full commit ID of the 'after' commit, to establish the directionality of the comparison \(with the `--after-commit-id option`\)\.
-   + The full commit ID of the 'before' commit, to establish the directionality of the comparison \(with the `--before-commit-id` option\)\. 
+   + The name of the CodeCommit repository \(with the `--repository-name` option\)\.
+   + The full commit ID of the after commit, to establish the directionality of the comparison \(with the `--after-commit-id option`\)\.
+   + The full commit ID of the before commit, to establish the directionality of the comparison \(with the `--before-commit-id` option\)\. 
    + \(Optional\) An enumeration token to return the next batch of the results \(with the `--next-token` option\)\.
    + \(Optional\) A non\-negative integer to limit the number of returned results \(with the `--max-results` option\)\.
 
@@ -208,15 +202,15 @@ You can only delete the content of a comment that you created\.
 ### To create a comment on a commit<a name="how-to-commit-comment-cli-comment"></a>
 
 1. Run the post\-comment\-for\-compared\-commit command, specifying:
-   + The AWS CodeCommit repository's name \(with the `--repository-name` option\)\.
-   + The full commit ID of the 'after' commit, to establish the directionality of the comparison \(with the `--after-commit-id `option\)\.
-   + The full commit ID of the 'before' commit, to establish the directionality of the comparison \(with the `--before-commit-id` option\)\. 
+   + The name of the CodeCommit repository \(with the `--repository-name` option\)\.
+   + The full commit ID of the after commit, to establish the directionality of the comparison \(with the `--after-commit-id `option\)\.
+   + The full commit ID of the before commit, to establish the directionality of the comparison \(with the `--before-commit-id` option\)\. 
    + A unique, client\-generated idempotency token \(with the \-\-client\-request\-token option\)\.
    + The content of your comment \(with the \-\-content option\)\.
    + A list of location information about where to place the comment, including:
      + The name of the file being compared, including its extension and subdirectory, if any \(with the filePath attribute\)\.
      + The line number of the change within a compared file \(with the filePosition attribute\)\.
-     + Whether the comment on the change is "before" or "after" in the comparison between the source and destination branches \(with the relativeFileVersion attribute\)\.
+     + Whether the comment on the change is before or after in the comparison between the source and destination branches \(with the relativeFileVersion attribute\)\.
 
    For example, to add the comment *"Can you add a test case for this?"* on the change to the *cl\_sample\.js* file in the comparison between two commits in a repository named *MyDemoRepo*:
 

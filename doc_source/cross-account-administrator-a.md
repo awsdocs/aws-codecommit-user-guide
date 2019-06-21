@@ -1,9 +1,3 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Cross\-Account Repository Access: Actions for the Administrator in AccountA<a name="cross-account-administrator-a"></a>
 
 To allow users or groups in AccountB to access a repository in AccountA, an AccountA administrator must:
@@ -33,7 +27,7 @@ You can create a policy in AccountA that grants access to the repository in Acco
 
 1. Choose **Create policy**\.
 
-1. Choose the **JSON** tab, and paste the following JSON policy document into the JSON text box\. Replace *us\-east\-2* with the region for the repository, *111122223333* with the account ID for AccountA, and *MySharedDemoRepo* with the name for your AWS CodeCommit repository in AccountA:
+1. Choose the **JSON** tab, and paste the following JSON policy document into the JSON text box\. Replace *us\-east\-2* with the AWS Region for the repository, *111122223333* with the account ID for AccountA, and *MySharedDemoRepo* with the name for your CodeCommit repository in AccountA:
 
    ```
    {
@@ -64,7 +58,7 @@ You can create a policy in AccountA that grants access to the repository in Acco
    }
    ```
 
-   If you want users who assume this role to be able to view a list of repositories on the AWS CodeCommit console home page, add an additional statement to the policy, as follows:
+   If you want users who assume this role to be able to view a list of repositories on the CodeCommit console home page, add an additional statement to the policy, as follows:
 
    ```
    {
@@ -102,11 +96,11 @@ You can create a policy in AccountA that grants access to the repository in Acco
 
    This access makes it easier for users who assume this role to find the repository to which they have access\. They can choose the name of the repository from the list and be directed to the home page of the shared repository \(`Code`\)\. Users cannot access any of the other repositories they see in the list, but they can view the repositories in AccountA on the **Dashboard** page\.
 
-   If you do not want to allow users who assume the role to be able to view a list of all repositories in AccountA, use the first policy example, but make sure that you send those users a direct link to the home page of the shared repository in the AWS CodeCommit console\.
+   If you do not want to allow users who assume the role to be able to view a list of all repositories in AccountA, use the first policy example, but make sure that you send those users a direct link to the home page of the shared repository in the CodeCommit console\.
 
 1. Choose **Review policy**\. The policy validator reports syntax errors \(for example, if you forget to replace the example AWS account ID and repository name with your AWS account ID and repository name\)\.
 
-1. On the **Review policy** page, type a name for the policy \(for example, *CrossAccountAccessForMySharedDemoRepo*\)\. You can also provide an optional description for this policy\. Choose **Create policy**\. 
+1. On the **Review policy** page, enter a name for the policy \(for example, *CrossAccountAccessForMySharedDemoRepo*\)\. You can also provide an optional description for this policy\. Choose **Create policy**\. 
 
 ## Step 2: Create a Role for Repository Access in AccountA<a name="cross-account-create-role-a"></a>
 
@@ -120,11 +114,11 @@ After you have configured a policy, create a role that IAM users and groups in A
 
 1. Choose **Another AWS account**\.
 
-1. In **Account ID**, type the AWS account ID for AccountB \(for example, *888888888888*\)\. Choose **Next: Permissions**\.
+1. In **Account ID**, enter the AWS account ID for AccountB \(for example, *888888888888*\)\. Choose **Next: Permissions**\.
 
 1. In **Attach permissions policies**, select the policy you created in the previous procedure \(*CrossAccountAccessForMySharedDemoRepo*\)\. Choose **Next: Review**\.
 
-1. In **Role name**, type a name for the role\. For example, you could name this role *MyCrossAccountRepositoryContributorRole*\. You can also type an optional description for the role to help others understand the purpose of the role\.
+1. In **Role name**, enter a name for the role \(for example, *MyCrossAccountRepositoryContributorRole*\)\. You can also enter an optional description to help others understand the purpose of the role\.
 
 1. Choose **Create role**\.
 

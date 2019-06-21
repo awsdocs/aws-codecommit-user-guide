@@ -1,16 +1,10 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Configuring Notifications for Events in an AWS CodeCommit Repository<a name="how-to-repository-email"></a>
 
-You can set up notifications for a repository so that repository users receive emails about the repository event types you specify\. When you configure notifications, AWS CodeCommit creates an Amazon CloudWatch Events rule for your repository\. This rule responds to the event types you select from the preconfigured options in the AWS CodeCommit console\. Notifications are sent when events match the rule settings\. You can create an Amazon SNS topic to use for notifications or use an existing one in your AWS account\. 
+You can set up notifications for a repository so that repository users receive emails about the repository event types you specify\. When you configure notifications, CodeCommit creates an Amazon CloudWatch Events rule for your repository\. This rule responds to the event types you select from the preconfigured options in the CodeCommit console\. Notifications are sent when events match the rule settings\. You can create an Amazon SNS topic to use for notifications or use an existing one in your AWS account\. 
 
- You use the AWS CodeCommit console to configure notifications\.
+ You use the CodeCommit console to configure notifications\.
 
-![\[Notifications configured in AWS CodeCommit repository\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-notifications-configured.png)
+![\[Notifications configured in CodeCommit repository\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-notifications-configured.png)
 
 **Topics**
 + [Using Repository Notifications](#how-to-repository-email-using)

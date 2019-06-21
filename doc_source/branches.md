@@ -1,18 +1,12 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Working with Branches in AWS CodeCommit Repositories<a name="branches"></a>
 
 What is a branch? In Git, branches are simply pointers or references to a commit\. In development, they're a convenient way to organize your work\. You can use branches to separate work on a new or different version of files without impacting work in other branches\. You can use branches to develop new features, store a specific version of your project from a particular commit, and more\.
 
-In AWS CodeCommit, you can change the default branch for your repository\. This default branch is the one used as the base or default branch in local repos when users clone the repository\. You can also create and delete branches and view details about a branch\. You can quickly compare differences between a branch and the default branch \(or any two branches\)\. To view the history of branches and merges in your repository, you can use the [Commit Visualizer](how-to-view-commit-details.md#how-to-view-commit-details-console-visualizer)\.
+In CodeCommit, you can change the default branch for your repository\. This default branch is the one used as the base or default branch in local repos when users clone the repository\. You can also create and delete branches and view details about a branch\. You can quickly compare differences between a branch and the default branch \(or any two branches\)\. To view the history of branches and merges in your repository, you can use the [Commit Visualizer](how-to-view-commit-details.md#how-to-view-commit-details-console-visualizer)\.
 
 ![\[A view of branches in a repository\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-branches.png)
 
-For information about working with other aspects of your repository in AWS CodeCommit, see [Working with Repositories](repositories.md), [Working with Files](files.md), [Working with Pull Requests](pull-requests.md), [Working with Commits](commits.md), and [Working with User Preferences](user-preferences.md)\. 
+For information about working with other aspects of your repository in CodeCommit, see [Working with Repositories](repositories.md), [Working with Files](files.md), [Working with Pull Requests](pull-requests.md), [Working with Commits](commits.md), and [Working with User Preferences](user-preferences.md)\. 
 
 **Topics**
 + [Create a Branch in AWS CodeCommit](how-to-create-branch.md)

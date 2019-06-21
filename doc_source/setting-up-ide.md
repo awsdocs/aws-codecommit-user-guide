@@ -1,31 +1,25 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Set Up Connections from Development Tools Using Git Credentials<a name="setting-up-ide"></a>
 
-After you have configured Git credentials for AWS CodeCommit in the IAM console, you can use those credentials with any development tool that supports Git credentials\. For example, you can configure access to your AWS CodeCommit repository in AWS Cloud9, Visual Studio, Eclipse, Xcode, IntelliJ, or any integrated development environment \(IDE\) that integrates Git credentials\. After configuring access, you can edit your code, commit your changes, and push directly from the IDE or other development tool\. 
+After you have configured Git credentials for AWS CodeCommit in the IAM console, you can use those credentials with any development tool that supports Git credentials\. For example, you can configure access to your CodeCommit repository in AWS Cloud9, Visual Studio, Eclipse, Xcode, IntelliJ, or any integrated development environment \(IDE\) that integrates Git credentials\. After you configure access, you can edit your code, commit your changes, and push directly from the IDE or other development tool\. 
 
 **Topics**
 + [Integrate AWS Cloud9 with AWS CodeCommit](setting-up-ide-c9.md)
 + [Integrate Visual Studio with AWS CodeCommit](setting-up-ide-vs.md)
 + [Integrate Eclipse with AWS CodeCommit](setting-up-ide-ec.md)
 
-When prompted by your IDE or development tool for the user name and password used to connect to the AWS CodeCommit repository, provide the Git credentials for **User name** and **Password** you created in IAM\. For example, if you are prompted for a user name and password in Eclipse, you would provide your Git credentials as follows:
+When prompted by your IDE or development tool for the user name and password used to connect to the CodeCommit repository, provide the Git credentials for **User name** and **Password** you created in IAM\. For example, if you are prompted for a user name and password in Eclipse, you would provide your Git credentials as follows:
 
-![\[Providing Git credentials for an AWS CodeCommit repository in Eclipse\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-ide-ec1.png)
+![\[Providing Git credentials for a CodeCommit repository in Eclipse\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-ide-ec1.png)
 
-For more information about regions and endpoints for AWS CodeCommit, see [Regions and Git Connection Endpoints](regions.md)\.
+For more information about AWS Regions and endpoints for CodeCommit, see [Regions and Git Connection Endpoints](regions.md)\.
 
 You might also see a prompt from your operating system to store your user name and password\. For example, in Windows, you would provide your Git credentials as follows:
 
 ![\[A security prompt in Windows\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-ide-vs2.png)
 
-For more information about configuring Git credentials for a particular software program or development tool, consult the product documentation\. 
+For information about configuring Git credentials for a particular software program or development tool, consult the product documentation\. 
 
-The following is not a comprehensive list of IDEs\. AWS is not responsible for the content of any of these topics\. The links are provided solely to help you learn more about these tools\.
+The following is not a comprehensive list of IDEs\. The links are provided solely to help you learn more about these tools\. AWS is not responsible for the content of any of these topics\. 
 + [AWS Cloud9](setting-up-ide-c9.md)  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-ide-c9-clone.png)
 + [Visual Studio](https://www.visualstudio.com/en-us/docs/git/tutorial/creatingrepo#clone-an-existing-git-repo)

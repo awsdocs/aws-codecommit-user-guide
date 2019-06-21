@@ -1,23 +1,17 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Configure Repository Notifications<a name="how-to-repository-email-create"></a>
 
 You can keep repository users informed of repository events by configuring notifications\. When you configure notifications, subscribed users receive emails about the events that you specify, such as when someone comments on a commit\. For more information, see [Using Repository Notifications](how-to-repository-email.md#how-to-repository-email-using)\. 
 
-To use the AWS CodeCommit console  to configure notifications for a repository in AWS CodeCommit, you must have the following managed policies or the equivalent permissions attached to your IAM user:
+To use the AWS CodeCommit console  to configure notifications for a repository in CodeCommit, you must have the following managed policies or the equivalent permissions attached to your IAM user:
 + **CloudWatchEventsFullAccess**
 + **AmazonSNSFullAccess**
 
 **Note**  
-Equivalent permissions are included in the **AWSCodeCommitFullAccess** policy, which is required to configure repository notifications\. If you have this policy applied, you do not need the other two policies\. If you have a customized policy applied, you might need to modify it to include the required permissions for CloudWatch Events and Amazon SNS\.<a name="how-to-repository-email-create-configure-console"></a>
+Equivalent permissions are included in the **AWSCodeCommitFullAccess** policy, which is required to configure repository notifications\. If you have this policy applied, you do not need the other two policies\. If you have a customized policy applied, you might need to modify it to include the permissions required for CloudWatch Events and Amazon SNS\.<a name="how-to-repository-email-create-configure-console"></a>
 
 **To configure notifications for a repository**
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
+1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. In **Repositories**, choose the name of the repository where you want to configure notifications\. 
 
@@ -26,13 +20,13 @@ Equivalent permissions are included in the **AWSCodeCommitFullAccess** policy, w
 1. Choose **Set up**\.
 
 1. Select the event types you want included in the CloudWatch Events rule for the repository\.  
-![\[Configuring notifications in an AWS CodeCommit repository\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-notifications-configuring.png)
+![\[Configuring notifications in a CodeCommit repository\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-notifications-configuring.png)
 
 1. In **SNS topic**, either choose a topic from the list of Amazon SNS topics in your AWS account, or create one to use for this repository\. 
 **Note**  
-If you create a topic, you can manage subscriptions for that policy from the AWS CodeCommit console\. If you use an existing topic, you cannot manage subscriptions for that topic unless you have permissions to manage subscriptions for all topics in Amazon SNS\. For more information, see [Amazon Simple Notification Service Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/)\.
+If you create a topic, you can manage subscriptions for that policy from the CodeCommit console\. If you use an existing topic, you cannot manage subscriptions for that topic unless you have permissions to manage subscriptions for all topics in Amazon SNS\. For more information, see [Amazon Simple Notification Service Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/)\.
 
-   If you create a topic, in **Topic name**, enter a name for the topic after the underscore\. \(The first part of the topic name is populated for you\. Keep this first part of the name\.\) Optionally, in **Display name**, enter a short name\. Choose **Create**\.
+   If you create a topic, in **Topic name**, enter a name for the topic after the underscore\. \(The first part of the topic name is populated for you\. Keep this first part of the name\.\) In **Display name**, enter an optional short name\. Choose **Create**\.
 
 1. To add email addresses of the repository users, in **Subscribers**, choose **Add**\. In **Add email subscriber**, enter the email address of a repository user, and then choose **Save**\. You can add only one email address at a time\.
 **Note**  
@@ -47,7 +41,7 @@ Amazon SNS coordinates and manages the delivery and sending of messages to subsc
 After you have configured notifications for a repository, you can view the CloudWatch Events rule automatically created for the repository\.
 
 **Important**  
-Do not edit or delete this rule\. Changing or deleting the rule might cause operational issues\. For example, emails might not be sent to subscribers or you might not be able to change notification settings for a repository in AWS CodeCommit\.<a name="how-to-repository-email-view-rule"></a>
+Do not edit or delete this rule\. Changing or deleting the rule might cause operational issues\. For example, emails might not be sent to subscribers or you might not be able to change notification settings for a repository in CodeCommit\.<a name="how-to-repository-email-view-rule"></a>
 
 **To view the CloudWatch Events rule for a repository**
 

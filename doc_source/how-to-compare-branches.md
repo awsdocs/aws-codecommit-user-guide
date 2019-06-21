@@ -1,12 +1,6 @@
---------
-
- The procedures in this guide support the new console design\. If you choose to use the older version of the console, you will find many of the concepts and basic procedures in this guide still apply\. To access help in the new console, choose the information icon\.
-
---------
-
 # Compare Branches in AWS CodeCommit<a name="how-to-compare-branches"></a>
 
-You can use the AWS CodeCommit console to compare branches in an AWS CodeCommit repository\. Comparing branches helps you quickly view the differences between a branch and the default branch, or view the differences between any two branches\.
+You can use the CodeCommit console to compare branches in a CodeCommit repository\. Comparing branches helps you quickly view the differences between a branch and the default branch, or view the differences between any two branches\.
 
 **Topics**
 + [Compare a Branch to the Default Branch](#how-to-compare-branches-default)
@@ -14,9 +8,9 @@ You can use the AWS CodeCommit console to compare branches in an AWS CodeCommit 
 
 ## Compare a Branch to the Default Branch<a name="how-to-compare-branches-default"></a>
 
-Use the AWS CodeCommit console to quickly view the differences between a branch and the default branch for your repository\.
+Use the CodeCommit console to quickly view the differences between a branch and the default branch for your repository\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
+1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. In **Repositories**, choose the name of the repository where you want to compare branches\. 
 
@@ -26,9 +20,9 @@ Use the AWS CodeCommit console to quickly view the differences between a branch 
 
 ## Compare Two Specific Branches<a name="how-to-compare-branches-two"></a>
 
-Use the AWS CodeCommit console to view the differences between two branches that you want to compare\.
+Use the CodeCommit console to view the differences between two branches that you want to compare\.
 
-1. Open the AWS CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
+1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. In **Repositories**, choose the name of the repository where you want to compare branches\. 
 
