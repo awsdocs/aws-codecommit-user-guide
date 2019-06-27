@@ -37,7 +37,7 @@ Follow these steps to use the AWS CLI to view the AWS tags for a CodeCommit repo
 At the terminal or command line, run the list\-tags\-for\-resource command\. For example, to view a list of tag keys and tag values for a repository named *MyDemoRepo* with the ARN *arn:aws:codecommit:us\-east\-2:111111111111:MyDemoRepo*:
 
 ```
-aws codecommit list-tag-for-resource --resource-arn arn:aws:codecommit:us-west-2:111111111111:MyDemoRepo
+aws codecommit list-tags-for-resource --resource-arn arn:aws:codecommit:us-west-2:111111111111:MyDemoRepo
 ```
 
 If successful, this command returns information similar to the following:
