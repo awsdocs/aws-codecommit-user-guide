@@ -80,4 +80,4 @@ When you add binary files, make sure that you use `fileb://` to specify the loca
 
 ## Add a File \(Git\)<a name="how-to-create-file-git"></a>
 
-You can add files in a local repo and push your changes to a CodeCommit repository\. For more information, see [Git with AWS CodeCommit Tutorial](getting-started.md)\.
+You can add files in a local repo and push your changes to a CodeCommit repository\. For more information, see [Getting Started with Git and AWS CodeCommit](getting-started.md)\.

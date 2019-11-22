@@ -1,6 +1,6 @@
 # Create an AWS CodeCommit Repository<a name="how-to-create-repository"></a>
 
-Use AWS CLI or the CodeCommit console to create an empty CodeCommit repository\. If you use the AWS CLI to create a CodeCommit repository, you can add tags to the repository as part of creating it\. To add tags to a respository after you create it, see [Add a Tag to a Repository](how-to-tag-repository.md#how-to-tag-repository-add)\.
+Use AWS CLI or the CodeCommit console to create an empty CodeCommit repository\. If you use the AWS CLI to create a CodeCommit repository, you can add tags to the repository as part of creating it\. To add tags to a respository after you create it, see [Add a Tag to a Repository](how-to-tag-repository-add.md)\.
 
 These instructions are written with the assumption that you have already completed the steps in [Setting Up ](setting-up.md)\. 
 
@@ -23,11 +23,13 @@ Depending on your usage, you might be charged for creating or accessing a reposi
 
 1. On the **Create repository** page, in **Repository name**, enter a name for the repository\.
 **Note**  
-This name must be unique in the AWS Region for your AWS account\.
+Repository names are case sensitive\. The name must be unique in the AWS Region for your AWS account\.
 
 1. \(Optional\) In **Description**, enter a description for the repository\. This can help you and other users identify the purpose of the repository\. 
 **Note**  
 The description field displays Markdown in the console and accepts all HTML characters and valid Unicode characters\. If you are an application developer who is using the `GetRepository` or `BatchGetRepositories` APIs and you plan to display the repository description field in a web browser, see the [CodeCommit API Reference](https://docs.aws.amazon.com/codecommit/latest/APIReference/)\.
+
+1. \(Optional\) Choose **Add tag** to add one or more repository tags \(a custom attribute label that helps you organize and manage your AWS resources\) to your repository\. For more information, see [Tagging Repositories in AWS CodeCommit](how-to-tag-repository.md)\.
 
 1. Choose **Create**\. 
 
@@ -88,7 +90,7 @@ The description field displays Markdown in the console and accepts all HTML char
    }
    ```
 **Note**  
-Tags that were added when the repository was created are not returned in the output\. To view a list of tags associated with a repository, run the [list\-tags\-for\-resource](how-to-tag-repository.md#how-to-tag-repository-list) command\.
+Tags that were added when the repository was created are not returned in the output\. To view a list of tags associated with a repository, run the [list\-tags\-for\-resource](how-to-tag-repository-list.md) command\.
 
 1. Make a note of the name and ID of the CodeCommit repository\. You need them to monitor and change information about the CodeCommit repository, especially if you use AWS CLI\.
 

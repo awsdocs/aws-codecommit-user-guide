@@ -102,4 +102,4 @@ You can find the Clone URL for your repository in the CodeCommit console, both i
 
 ## Next Steps<a name="setting-up-ide-c9-next"></a>
 
-For more information, see the [AWS Cloud9 User Guide](https://docs.aws.amazon.com/cloud9/latest/user-guide/welcome.html)\. For more information about using Git with CodeCommit, see [Git with AWS CodeCommit Tutorial](getting-started.md)\.
+For more information, see the [AWS Cloud9 User Guide](https://docs.aws.amazon.com/cloud9/latest/user-guide/welcome.html)\. For more information about using Git with CodeCommit, see [Getting Started with Git and AWS CodeCommit](getting-started.md)\.

@@ -3,7 +3,7 @@
 The following examples of identity\-based policies demonstrate how an account administrator can attach permissions policies to IAM identities \(users, groups, and roles\) to grant permissions to perform operations on CodeCommit resources\.
 
 **Important**  
-We recommend that you first review the introductory topics that explain the basic concepts and options available to manage access to your CodeCommit resources\. For more information, see [Overview of Managing Access Permissions to Your CodeCommit Resources](auth-and-access-control-iam-access-control-identity-based.md)\.
+We recommend that you first review the introductory topics that explain the basic concepts and options available to manage access to your CodeCommit resources\. For more information, see [Overview of Managing Access Permissions to Your CodeCommit Resources](auth-and-access-control.md#auth-and-access-control-iam-access-control-identity-based)\.
 
 **Topics**
 + [Permissions Required to Use the CodeCommit Console](#console-permissions)
@@ -37,7 +37,48 @@ This policy has one statement that allows a user to get information about the Co
 
 To see the required permissions for each CodeCommit API operation, and for more information about CodeCommit operations, see [CodeCommit Permissions Reference](auth-and-access-control-permissions-reference.md)\.
 
-To allow users to use the CodeCommit console, the administrator must grant them permissions for CodeCommit actions\. For example, you could attach the AWSCodeCommitPowerUser managed policy or its equivalent to a user or group, as shown in the following permissions policy:
+To allow users to use the CodeCommit console, the administrator must grant them permissions for CodeCommit actions\. For example, you could attach the [AWSCodeCommitPowerUser](#managed-policies-poweruser) managed policy or its equivalent to a user or group\.
+
+In addition to permissions granted to users by identity\-based policies, CodeCommit requires permissions for AWS Key Management Service \(AWS KMS\) actions\. An IAM user does not need explicit `Allow` permissions for these actions, but the user must not have any policies attached that set the following permissions to `Deny`:
+
+```
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:ReEncrypt",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:DescribeKey"
+```
+
+For more information about encryption and CodeCommit, see [AWS KMS and Encryption](encryption.md)\.
+
+## Viewing Resources in the Console<a name="console-resources"></a>
+
+The CodeCommit console requires the `ListRepositories` permission to display a list of repositories for your AWS account in the AWS Region where you are signed in\. The console also includes a **Go to resource** function to quickly perform a case insensitive search for resources\. This search is performed in your AWS account in the AWS Region where you are signed in\. The following resources are displayed across the following services:
++ AWS CodeBuild: Build projects
++ AWS CodeCommit: Repositories
++ AWS CodeDeploy: Applications
++ AWS CodePipeline: Pipelines
+
+To perform this search across resources in all services, you must have the following permissions:
++ CodeBuild: `ListProjects`
++ CodeCommit: `ListRepositories`
++ CodeDeploy: `ListApplications`
++ CodePipeline: `ListPipelines`
+
+Results are not returned for a service's resources if you do not have permissions for that service\. Even if you have permissions for viewing resources, specific resources will not be returned if there is an explicit `Deny` to view those resources\.
+
+## AWS Managed \(Predefined\) Policies for CodeCommit<a name="managed-policies"></a>
+
+AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These AWS managed policies grant required permissions for common use cases\. The managed policies for CodeCommit also provide permissions to perform operations in other services, such as IAM, Amazon SNS, and Amazon CloudWatch Events, as required for the responsibilities for the users who have been granted the policy in question\. For example, the AWSCodeCommitFullAccess policy is an administrative\-level user policy that allows users with this policy to create and manage CloudWatch Events rules for repositories \(rules whose names are prefixed with `codecommit`\) and Amazon SNS topics for notifications about repository\-related events \(topics whose names are prefixed with `codecommit`\), as well as administer repositories in CodeCommit\. 
+
+The following AWS managed policies, which you can attach to users in your account, are specific to CodeCommit\.
+
+### AWSCodeCommitFullAccess<a name="managed-policies-full"></a>
+
+**AWSCodeCommitFullAccess** – Grants full access to CodeCommit\. Apply this policy only to administrative\-level users to whom you want to grant full control over CodeCommit repositories and related resources in your AWS account, including the ability to delete repositories\.
+
+The AWSCodeCommitFullAccess policy contains the following policy statement:
 
 ```
 {
@@ -46,21 +87,7 @@ To allow users to use the CodeCommit console, the administrator must grant them 
     {
       "Effect": "Allow",
       "Action": [
-        "codecommit:BatchGet*",
-        "codecommit:Get*",
-        "codecommit:List*",
-        "codecommit:Create*",
-        "codecommit:DeleteBranch",
-        "codecommit:Describe*",
-        "codecommit:Put*",
-        "codecommit:Post*",
-        "codecommit:Merge*",
-        "codecommit:TagResource",
-        "codecommit:Test*",
-        "codecommit:UntagResource",
-        "codecommit:Update*",
-        "codecommit:GitPull",
-        "codecommit:GitPush"
+        "codecommit:*"
       ],
       "Resource": "*"
     },
@@ -83,8 +110,11 @@ To allow users to use the CodeCommit console, the administrator must grant them 
       "Sid": "SNSTopicAndSubscriptionAccess",
       "Effect": "Allow",
       "Action": [
+        "sns:CreateTopic",
+        "sns:DeleteTopic",
         "sns:Subscribe",
-        "sns:Unsubscribe"
+        "sns:Unsubscribe",
+        "sns:SetTopicAttributes"
       ],
       "Resource": "arn:aws:sns:*:*:codecommit*"
     },
@@ -148,337 +178,425 @@ To allow users to use the CodeCommit console, the administrator must grant them 
         "iam:ResetServiceSpecificCredential"
       ],
       "Resource": "arn:aws:iam::*:user/${aws:username}"
+    },
+    {
+        "Sid": "CodeStarNotificationsReadWriteAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:CreateNotificationRule",
+            "codestar-notifications:DescribeNotificationRule",
+            "codestar-notifications:UpdateNotificationRule",
+            "codestar-notifications:DeleteNotificationRule",
+            "codestar-notifications:Subscribe",
+            "codestar-notifications:Unsubscribe"
+        ],
+        "Resource": "*",
+        "Condition" : {
+            "StringLike" : {"codestar-notifications:NotificationsForResource" : "arn:aws:codecommit:*"} 
+        }
+    },    
+    {
+        "Sid": "CodeStarNotificationsListAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:ListNotificationRules",
+            "codestar-notifications:ListTargets",
+            "codestar-notifications:ListTagsforResource"
+        ],
+        "Resource": "*"
+    },
+    {
+        "Sid": "CodeStarNotificationsSNSTopicCreateAccess",
+        "Effect": "Allow",
+        "Action": [
+            "sns:CreateTopic",
+            "sns:SetTopicAttributes"
+        ],
+        "Resource": "arn:aws:sns:*:*:codestar-notifications*"
+    },
+    {
+        "Sid": "SNSTopicListAccess",
+        "Effect": "Allow",
+        "Action": [
+            "sns:ListTopics"
+        ],
+        "Resource": "*"
     }
   ]
 }
 ```
 
-In addition to permissions granted to users by identity\-based policies, CodeCommit requires permissions for AWS Key Management Service \(AWS KMS\) actions\. An IAM user does not need explicit `Allow` permissions for these actions, but the user must not have any policies attached that set the following permissions to `Deny`:
+### AWSCodeCommitPowerUser<a name="managed-policies-poweruser"></a>
+
+**AWSCodeCommitPowerUser** – Allows users access to all of the functionality of CodeCommit and repository\-related resources, except it does not allow them to delete CodeCommit repositories or create or delete repository\-related resources in other AWS services, such as Amazon CloudWatch Events\. We recommend that you apply this policy to most users\.
+
+The AWSCodeCommitPowerUser policy contains the following policy statement:
 
 ```
-        "kms:Encrypt",
-        "kms:Decrypt",
-        "kms:ReEncrypt",
-        "kms:GenerateDataKey",
-        "kms:GenerateDataKeyWithoutPlaintext",
-        "kms:DescribeKey"
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "codecommit:AssociateApprovalRuleTemplateWithRepository",
+                "codecommit:BatchAssociateApprovalRuleTemplateWithRepositories",
+                "codecommit:BatchDisassociateApprovalRuleTemplateFromRepositories",
+                "codecommit:BatchGet*",
+                "codecommit:BatchDescribe*",
+                "codecommit:Get*",
+                "codecommit:List*",
+                "codecommit:Create*",
+                "codecommit:DeleteBranch",
+                "codecommit:DeleteFile",
+                "codecommit:Describe*",
+                "codecommit:DisassociateApprovalRuleTemplateFromRepository",
+                "codecommit:EvaluatePullRequestApprovalRules",
+                "codecommit:OverridePullRequestApprovalRules",
+                "codecommit:Put*",
+                "codecommit:Post*",
+                "codecommit:Merge*",
+                "codecommit:TagResource",
+                "codecommit:Test*",
+                "codecommit:UntagResource",
+                "codecommit:Update*",
+                "codecommit:GitPull",
+                "codecommit:GitPush"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "CloudWatchEventsCodeCommitRulesAccess",
+            "Effect": "Allow",
+            "Action": [
+                "events:DeleteRule",
+                "events:DescribeRule",
+                "events:DisableRule",
+                "events:EnableRule",
+                "events:PutRule",
+                "events:PutTargets",
+                "events:RemoveTargets",
+                "events:ListTargetsByRule"
+            ],
+            "Resource": "arn:aws:events:*:*:rule/codecommit*"
+        },
+        {
+            "Sid": "SNSTopicAndSubscriptionAccess",
+            "Effect": "Allow",
+            "Action": [
+                "sns:Subscribe",
+                "sns:Unsubscribe"
+            ],
+            "Resource": "arn:aws:sns:*:*:codecommit*"
+        },
+        {
+            "Sid": "SNSTopicAndSubscriptionReadAccess",
+            "Effect": "Allow",
+            "Action": [
+                "sns:ListTopics",
+                "sns:ListSubscriptionsByTopic",
+                "sns:GetTopicAttributes"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "LambdaReadOnlyListAccess",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:ListFunctions"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "IAMReadOnlyListAccess",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListUsers"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "IAMReadOnlyConsoleAccess",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListAccessKeys",
+                "iam:ListSSHPublicKeys",
+                "iam:ListServiceSpecificCredentials"
+            ],
+            "Resource": "arn:aws:iam::*:user/${aws:username}"
+        },
+        {
+            "Sid": "IAMUserSSHKeys",
+            "Effect": "Allow",
+            "Action": [
+                "iam:DeleteSSHPublicKey",
+                "iam:GetSSHPublicKey",
+                "iam:ListSSHPublicKeys",
+                "iam:UpdateSSHPublicKey",
+                "iam:UploadSSHPublicKey"
+            ],
+            "Resource": "arn:aws:iam::*:user/${aws:username}"
+        },
+        {
+            "Sid": "IAMSelfManageServiceSpecificCredentials",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateServiceSpecificCredential",
+                "iam:UpdateServiceSpecificCredential",
+                "iam:DeleteServiceSpecificCredential",
+                "iam:ResetServiceSpecificCredential"
+            ],
+            "Resource": "arn:aws:iam::*:user/${aws:username}"
+        },
+        {
+            "Sid": "CodeStarNotificationsReadWriteAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codestar-notifications:CreateNotificationRule",
+                "codestar-notifications:DescribeNotificationRule",
+                "codestar-notifications:UpdateNotificationRule",
+                "codestar-notifications:Subscribe",
+                "codestar-notifications:Unsubscribe"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "codestar-notifications:NotificationsForResource": "arn:aws:codecommit:*"
+                }
+            }
+        },
+        {
+            "Sid": "CodeStarNotificationsListAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codestar-notifications:ListNotificationRules",
+                "codestar-notifications:ListTargets",
+                "codestar-notifications:ListTagsforResource",
+                "codestar-notifications:ListEventTypes"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
 ```
 
-For more information about encryption and CodeCommit, see [AWS KMS and Encryption](encryption.md)\.
+### AWSCodeCommitReadOnly<a name="managed-policies-read"></a>
 
-## Viewing Resources in the Console<a name="console-resources"></a>
+**AWSCodeCommitReadOnly** – Grants read\-only access to CodeCommit and repository\-related resources in other AWS services, as well as the ability to create and manage their own CodeCommit\-related resources \(such as Git credentials and SSH keys for their IAM user to use when accessing repositories\)\. Apply this policy to users to whom you want to grant the ability to read the contents of a repository, but not make any changes to its contents\.
 
-The CodeCommit console requires the `ListRepositories` permission to display a list of repositories for your AWS account in the AWS Region where you are signed in\. The console also includes a **Go to resource** function to quickly perform a case insensitive search for resources\. This search is performed in your AWS account in the AWS Region where you are signed in\. The following resources are displayed across the following services:
-+ AWS CodeBuild: Build projects
-+ AWS CodeCommit: Repositories
-+ AWS CodeDeploy: Applications
-+ AWS CodePipeline: Pipelines
+The AWSCodeCommitReadOnly policy contains the following policy statement:
 
-To perform this search across resources in all services, you must have the following permissions:
-+ CodeBuild: `ListProjects`
-+ CodeCommit: `ListRepositories`
-+ CodeDeploy: `ListApplications`
-+ CodePipeline: `ListPipelines`
-
-Results are not returned for a service's resources if you do not have permissions for that service\. Even if you have permissions for viewing resources, specific resources will not be returned if there is an explicit `Deny` to view those resources\.
-
-## AWS Managed \(Predefined\) Policies for CodeCommit<a name="managed-policies"></a>
-
-AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These AWS managed policies grant required permissions for common use cases\. The managed policies for CodeCommit also provide permissions to perform operations in other services, such as IAM, Amazon SNS, and Amazon CloudWatch Events, as required for the responsibilities for the users who have been granted the policy in question\. For example, the AWSCodeCommitFullAccess policy is an administrative\-level user policy that allows users with this policy to create and manage CloudWatch Events rules for repositories \(rules whose names are prefixed with `codecommit`\) and Amazon SNS topics for notifications about repository\-related events \(topics whose names are prefixed with `codecommit`\), as well as administer repositories in CodeCommit\. 
-
-The following AWS managed policies, which you can attach to users in your account, are specific to CodeCommit:
-+ **AWSCodeCommitFullAccess** – Grants full access to CodeCommit\. Apply this policy only to administrative\-level users to whom you want to grant full control over CodeCommit repositories and related resources in your AWS account, including the ability to delete repositories\.
-
-  The AWSCodeCommitFullAccess policy contains the following policy statement:
-
-  ```
-  {
+```
+{
     "Version": "2012-10-17",
     "Statement": [
-      {
-        "Effect": "Allow",
-        "Action": [
-          "codecommit:*"
-        ],
-        "Resource": "*"
-      },
-      {
-        "Sid": "CloudWatchEventsCodeCommitRulesAccess",
-        "Effect": "Allow",
-        "Action": [
-          "events:DeleteRule",
-          "events:DescribeRule",
-          "events:DisableRule",
-          "events:EnableRule",
-          "events:PutRule",
-          "events:PutTargets",
-          "events:RemoveTargets",
-          "events:ListTargetsByRule"
-        ],
-        "Resource": "arn:aws:events:*:*:rule/codecommit*"
-      },
-      {
-        "Sid": "SNSTopicAndSubscriptionAccess",
-        "Effect": "Allow",
-        "Action": [
-          "sns:CreateTopic",
-          "sns:DeleteTopic",
-          "sns:Subscribe",
-          "sns:Unsubscribe",
-          "sns:SetTopicAttributes"
-        ],
-        "Resource": "arn:aws:sns:*:*:codecommit*"
-      },
-      {
-        "Sid": "SNSTopicAndSubscriptionReadAccess",
-        "Effect": "Allow",
-        "Action": [
-          "sns:ListTopics",
-          "sns:ListSubscriptionsByTopic",
-          "sns:GetTopicAttributes"
-        ],
-        "Resource": "*"
-      },
-      {
-        "Sid": "LambdaReadOnlyListAccess",
-        "Effect": "Allow",
-        "Action": [
-          "lambda:ListFunctions"
-        ],
-        "Resource": "*"
-      },
-      {
-        "Sid": "IAMReadOnlyListAccess",
-        "Effect": "Allow",
-        "Action": [
-          "iam:ListUsers"
-        ],
-        "Resource": "*"
-      },
-      {
-        "Sid": "IAMReadOnlyConsoleAccess",
-        "Effect": "Allow",
-        "Action": [
-          "iam:ListAccessKeys",
-          "iam:ListSSHPublicKeys",
-          "iam:ListServiceSpecificCredentials",
-          "iam:ListAccessKeys",
-          "iam:GetSSHPublicKey"
-        ],
-        "Resource": "arn:aws:iam::*:user/${aws:username}"
-      },
-      {
-        "Sid": "IAMUserSSHKeys",
-        "Effect": "Allow",
-        "Action": [
-          "iam:DeleteSSHPublicKey",
-          "iam:GetSSHPublicKey",
-          "iam:ListSSHPublicKeys",
-          "iam:UpdateSSHPublicKey",
-          "iam:UploadSSHPublicKey"
-        ],
-        "Resource": "arn:aws:iam::*:user/${aws:username}"
-      },
-      {
-        "Sid": "IAMSelfManageServiceSpecificCredentials",
-        "Effect": "Allow",
-        "Action": [
-          "iam:CreateServiceSpecificCredential",
-          "iam:UpdateServiceSpecificCredential",
-          "iam:DeleteServiceSpecificCredential",
-          "iam:ResetServiceSpecificCredential"
-        ],
-        "Resource": "arn:aws:iam::*:user/${aws:username}"
-      }
+        {
+            "Effect": "Allow",
+            "Action": [
+                "codecommit:BatchGet*",
+                "codecommit:BatchDescribe*",
+                "codecommit:EvaluatePullRequestApprovalRules",
+                "codecommit:Get*",
+                "codecommit:Describe*",
+                "codecommit:List*",
+                "codecommit:GitPull"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "CloudWatchEventsCodeCommitRulesReadOnlyAccess",
+            "Effect": "Allow",
+            "Action": [
+                "events:DescribeRule",
+                "events:ListTargetsByRule"
+            ],
+            "Resource": "arn:aws:events:*:*:rule/codecommit*"
+        },
+        {
+            "Sid": "SNSSubscriptionAccess",
+            "Effect": "Allow",
+            "Action": [
+                "sns:ListTopics",
+                "sns:ListSubscriptionsByTopic",
+                "sns:GetTopicAttributes"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "LambdaReadOnlyListAccess",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:ListFunctions"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "IAMReadOnlyListAccess",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListUsers"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "IAMReadOnlyConsoleAccess",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListAccessKeys",
+                "iam:ListSSHPublicKeys",
+                "iam:ListServiceSpecificCredentials",
+                "iam:ListAccessKeys",
+                "iam:GetSSHPublicKey"
+            ],
+            "Resource": "arn:aws:iam::*:user/${aws:username}"
+        },
+        {
+            "Sid": "CodeStarNotificationsReadOnlyAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codestar-notifications:DescribeNotificationRule"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "codestar-notifications:NotificationsForResource": "arn:aws:codecommit:*"
+                }
+            }
+        },
+        {
+            "Sid": "CodeStarNotificationsListAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codestar-notifications:ListNotificationRules",
+                "codestar-notifications:ListEventTypes"
+            ],
+            "Resource": "*"
+        }
     ]
-  }
-  ```
-+ **AWSCodeCommitPowerUser** – Allows users access to all of the functionality of CodeCommit and repository\-related resources, except it does not allow them to delete CodeCommit repositories or create or delete repository\-related resources in other AWS services, such as Amazon CloudWatch Events\. We recommend that you apply this policy to most users\.
+}
+```
 
-  The AWSCodeCommitPowerUser policy contains the following policy statement:
+### CodeCommit Managed Policies and Notifications<a name="notifications-permissions"></a>
 
-  ```
-  {
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        "Effect": "Allow",
-        "Action": [
-          "codecommit:BatchGet*",
-          "codecommit:Get*",
-          "codecommit:List*",
-          "codecommit:Create*",
-          "codecommit:DeleteBranch",
-          "codecommit:Describe*",
-          "codecommit:Put*",
-          "codecommit:Post*",
-          "codecommit:Merge*",
-          "codecommit:TagResource",
-          "codecommit:Test*",
-          "codecommit:UntagResource",
-          "codecommit:Update*",
-          "codecommit:GitPull",
-          "codecommit:GitPush"
-        ],
-        "Resource": "*"
-      },
-      {
-        "Sid": "CloudWatchEventsCodeCommitRulesAccess",
-        "Effect": "Allow",
-        "Action": [
-          "events:DeleteRule",
-          "events:DescribeRule",
-          "events:DisableRule",
-          "events:EnableRule",
-          "events:PutRule",
-          "events:PutTargets",
-          "events:RemoveTargets",
-          "events:ListTargetsByRule"
-        ],
-        "Resource": "arn:aws:events:*:*:rule/codecommit*"
-      },
-      {
-        "Sid": "SNSTopicAndSubscriptionAccess",
-        "Effect": "Allow",
-        "Action": [
-          "sns:Subscribe",
-          "sns:Unsubscribe"
-        ],
-        "Resource": "arn:aws:sns:*:*:codecommit*"
-      },
-      {
-        "Sid": "SNSTopicAndSubscriptionReadAccess",
-        "Effect": "Allow",
-        "Action": [
-          "sns:ListTopics",
-          "sns:ListSubscriptionsByTopic",
-          "sns:GetTopicAttributes"
-        ],
-        "Resource": "*"
-      },
-      {
-        "Sid": "LambdaReadOnlyListAccess",
-        "Effect": "Allow",
-        "Action": [
-          "lambda:ListFunctions"
-        ],
-        "Resource": "*"
-      },
-      {
-        "Sid": "IAMReadOnlyListAccess",
-        "Effect": "Allow",
-        "Action": [
-          "iam:ListUsers"
-        ],
-        "Resource": "*"
-      },
-      {
-        "Sid": "IAMReadOnlyConsoleAccess",
-        "Effect": "Allow",
-        "Action": [
-          "iam:ListAccessKeys",
-          "iam:ListSSHPublicKeys",
-          "iam:ListServiceSpecificCredentials",
-          "iam:ListAccessKeys",
-          "iam:GetSSHPublicKey"
-        ],
-        "Resource": "arn:aws:iam::*:user/${aws:username}"
-      },
-      {
-        "Sid": "IAMUserSSHKeys",
-        "Effect": "Allow",
-        "Action": [
-          "iam:DeleteSSHPublicKey",
-          "iam:GetSSHPublicKey",
-          "iam:ListSSHPublicKeys",
-          "iam:UpdateSSHPublicKey",
-          "iam:UploadSSHPublicKey"
-        ],
-        "Resource": "arn:aws:iam::*:user/${aws:username}"
-      },
-      {
-        "Sid": "IAMSelfManageServiceSpecificCredentials",
-        "Effect": "Allow",
-        "Action": [
-          "iam:CreateServiceSpecificCredential",
-          "iam:UpdateServiceSpecificCredential",
-          "iam:DeleteServiceSpecificCredential",
-          "iam:ResetServiceSpecificCredential"
-        ],
-        "Resource": "arn:aws:iam::*:user/${aws:username}"
-      }
-    ]
-  }
-  ```
-+ **AWSCodeCommitReadOnly** – Grants read\-only access to CodeCommit and repository\-related resources in other AWS services, as well as the ability to create and manage their own CodeCommit\-related resources \(such as Git credentials and SSH keys for their IAM user to use when accessing repositories\)\. Apply this policy to users to whom you want to grant the ability to read the contents of a repository, but not make any changes to its contents\.
+CodeCommit supports notifications, which can notify users of important changes to repositories\.  Managed policies for CodeCommit include policy statements for notification functionality\. For more information, see [What are notifications?](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/welcome.html)\.
 
-  The AWSCodeCommitReadOnly policy contains the following policy statement:
+#### Permissions Related to Notifications in Full Access Managed Policies<a name="notifications-fullaccess"></a>
 
-  ```
-  {
-    "Version": "2012-10-17",
-    "Statement": [
-      {
+The `AWSCodeCommitFullAccess` managed policy include the following statements to allow full access to notifications\. Users with this managed policy applied can also create and manage Amazon SNS topics for notifications, subscribe and unsubscribe users to topics, and list topics to choose as targets for notification rules\.
+
+```
+    {
+        "Sid": "CodeStarNotificationsReadWriteAccess",
         "Effect": "Allow",
         "Action": [
-          "codecommit:BatchGet*",
-          "codecommit:Get*",
-          "codecommit:Describe*",
-          "codecommit:List*",
-         "codecommit:GitPull"
+            "codestar-notifications:CreateNotificationRule",
+            "codestar-notifications:DescribeNotificationRule",
+            "codestar-notifications:UpdateNotificationRule",
+            "codestar-notifications:DeleteNotificationRule",
+            "codestar-notifications:Subscribe",
+            "codestar-notifications:Unsubscribe"
+        ],
+        "Resource": "*",
+        "Condition" : {
+            "StringLike" : {"codestar-notifications:NotificationsForResource" : "arn:aws:codecommit:*"} 
+        }
+    },    
+    {
+        "Sid": "CodeStarNotificationsListAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:ListNotificationRules",
+            "codestar-notifications:ListTargets",
+            "codestar-notifications:ListTagsforResource"
         ],
         "Resource": "*"
-      },
-      {
-        "Sid": "CloudWatchEventsCodeCommitRulesReadOnlyAccess",
+    },
+    {
+        "Sid": "CodeStarNotificationsSNSTopicCreateAccess",
         "Effect": "Allow",
         "Action": [
-          "events:DescribeRule",
-          "events:ListTargetsByRule"
+            "sns:CreateTopic",
+            "sns:SetTopicAttributes"
         ],
-        "Resource": "arn:aws:events:*:*:rule/codecommit*"
-      },
-      {
-        "Sid": "SNSSubscriptionAccess",
+        "Resource": "arn:aws:sns:*:*:codestar-notifications*"
+    },
+    {
+        "Sid": "SNSTopicListAccess",
         "Effect": "Allow",
         "Action": [
-          "sns:ListTopics",
-          "sns:ListSubscriptionsByTopic",
-          "sns:GetTopicAttributes"
+            "sns:ListTopics"
         ],
         "Resource": "*"
-      },
-      {
-        "Sid": "LambdaReadOnlyListAccess",
+    }
+```
+
+#### Permissions Related to Notifications in Read\-Only Managed Policies<a name="notifications-readonly"></a>
+
+The `AWSCodeCommitReadOnlyAccess` managed policy includes the following statements to allow read\-only access to notifications\. Users with this managed policy applied can view notifications for resources, but cannot create, manage, or subscribe to them\. 
+
+```
+   {
+        "Sid": "CodeStarNotificationsPowerUserAccess",
         "Effect": "Allow",
         "Action": [
-          "lambda:ListFunctions"
+            "codestar-notifications:DescribeNotificationRule"
         ],
-        "Resource": "*"
-      },
-      {
-        "Sid": "IAMReadOnlyListAccess",
-        "Effect": "Allow",
-       "Action": [
-          "iam:ListUsers"
-        ],
-        "Resource": "*"
-      },
-      {
-        "Sid": "IAMReadOnlyConsoleAccess",
+        "Resource": "*",
+        "Condition" : {
+            "StringLike" : {"codestar-notifications:NotificationsForResource" : "arn:aws:codecommit:*"} 
+        }
+    },    
+    {
+        "Sid": "CodeStarNotificationsListAccess",
         "Effect": "Allow",
         "Action": [
-          "iam:ListAccessKeys",
-          "iam:ListSSHPublicKeys",
-          "iam:ListServiceSpecificCredentials",
-          "iam:ListAccessKeys",
-          "iam:GetSSHPublicKey"
+            "codestar-notifications:ListNotificationRules"
         ],
-        "Resource": "arn:aws:iam::*:user/${aws:username}"
-      }
-    ]
-  }
-  ```
+        "Resource": "*"
+    }
+```
+
+#### Permissions Related to Notifications in Other Managed Policies<a name="notifications-otheraccess"></a>
+
+The `AWSCodeCommitPowerUser` managed policy includes the following statements to allow users to create, edit, and subscribe to notifications\. Users cannot delete notification rules or manage tags for resources\.
+
+```
+    {
+        "Sid": "CodeStarNotificationsReadWriteAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:CreateNotificationRule",
+            "codestar-notifications:DescribeNotificationRule",
+            "codestar-notifications:UpdateNotificationRule",
+            "codestar-notifications:Subscribe",
+            "codestar-notifications:Unsubscribe"
+        ],
+        "Resource": "*",
+        "Condition" : {
+            "StringLike" : {"codestar-notifications:NotificationsForResource" : "arn:aws:codecommit*"} 
+        }
+    },    
+    {
+        "Sid": "CodeStarNotificationsListAccess",
+        "Effect": "Allow",
+        "Action": [
+            "codestar-notifications:ListNotificationRules",
+            "codestar-notifications:ListTargets",
+            "codestar-notifications:ListTagsforResource"
+        ],
+        "Resource": "*"
+    },
+    {
+        "Sid": "SNSTopicListAccess",
+        "Effect": "Allow",
+        "Action": [
+            "sns:ListTopics"
+        ],
+        "Resource": "*"
+    }
+```
+
+For more information about IAM and notifications, see [Identity and Access Management for AWS CodeStar Notifications](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/security-iam.html)\.
 
 For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
 
@@ -700,7 +818,7 @@ The following example denies all CodeCommit actions on repositories tagged with 
       "Action" : "codecommit:*"
       "Resource" : "*",
       "Condition" : {
-         "StringEquals" : "ec2ResourceTag/Status": "Secret"
+         "StringEquals" : "aws:ResourceTag/Status": "Secret"
         }
     }
   ]
@@ -732,8 +850,8 @@ You can further refine this strategy by specifying specific repositories, rather
          "Resource": "*",
          "Condition": {
             "StringNotEquals": {
-               "ec2ResourceTag/Status": "Secret",
-               "ec2ResourceTag/Team": "Saanvi"
+               "aws:ResourceTag/Status": "Secret",
+               "aws:ResourceTag/Team": "Saanvi"
             }
          }
       }

@@ -1,6 +1,6 @@
-# Git with AWS CodeCommit Tutorial<a name="getting-started"></a>
+# Getting Started with Git and AWS CodeCommit<a name="getting-started"></a>
 
-If you are new to Git and CodeCommit, this tutorial helps you learn some simple commands to get you started\. If you are already familiar with Git, you can skip this tutorial and go to [CodeCommit Tutorial](getting-started-cc.md)\.
+If you are new to Git and CodeCommit, this tutorial helps you learn some simple commands to get you started\. If you are already familiar with Git, you can skip this tutorial and go to [Getting Started with CodeCommit ](getting-started-cc.md)\.
 
 In this tutorial, you create a repository that represents a local copy of the CodeCommit repository, which we refer to as a local repo\. 
 
@@ -41,20 +41,22 @@ Depending on your usage, you might be charged for creating or accessing a reposi
 
 1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In the region selector, choose the AWS Region where you want to create the repository\. For more information, see [Regions and Git Connection Endpoints](regions.md)\.
+1. Use the region selector to choose the AWS Region where you want to create the repository\. For more information, see [Regions and Git Connection Endpoints](regions.md)\.
 
 1. On the **Repositories** page, choose **Create repository**\. 
 
 1. On the **Create repository** page, in **Repository name**, enter a name for your repository \(for example, **MyDemoRepo**\)\.
 **Note**  
-Repository names can be no longer than 100 characters\. For more information, see [Limits](limits.md#limits-repository-names)\.
+Repository names are case sensitive and can be no longer than 100 characters\. For more information, see [Limits](limits.md#limits-repository-names)\.
 
 1. \(Optional\) In **Description**, enter a description \(for example, **My demonstration repository**\)\. This can help you and other users identify the purpose of the repository\.
+
+1. \(Optional\) Choose **Add tag** to add one or more repository tags \(a custom attribute label that helps you organize and manage your AWS resources\) to your repository\. For more information, see [Tagging Repositories in AWS CodeCommit](how-to-tag-repository.md)\.
 
 1. Choose **Create**\. 
 
 **Note**  
-The remaining steps in this tutorial use `MyDemoRepo` for the name of your CodeCommit repository\. If you choose a different name, be sure to use it throughout this tutorial\.
+The remaining steps in this tutorial use `MyDemoRepo` for the name of the CodeCommit repository\. If you choose a different name, be sure to use it throughout this tutorial\.
 
 For more information about creating repositories, including how to create a repository from the terminal or command line, see [Create a Repository](how-to-create-repository.md)\.
 
@@ -70,9 +72,9 @@ In this step, you set up a local repo on your local machine to connect to your r
 
 1. On the **Code** page, choose **Clone URL**, and then choose the protocol you want your users to use\. 
 
-1. Copy the displayed URL for the connection protocol your users will use when connecting to your CodeCommit repository\. 
+1. Copy the displayed URL for the connection protocol your users use to connect to your CodeCommit repository\. 
 
-1. Send your users the connection information along with any other instructions, such as installing the AWS CLI, configuring a profile, or installing Git\. Make sure to include the configuration information for the connection protocol \(for example, for HTTPS, configuring the credential helper for Git\)\. 
+1. Send your users the connection information and any other instructions, such as information about installing the AWS CLI, configuring a profile, or installing Git\. Make sure to include the configuration information for the connection protocol \(for example, for HTTPS, configuring the credential helper for Git\)\. 
 
 ## Step 3: Create Your First Commit<a name="getting-started-create-commit"></a>
 
@@ -123,7 +125,7 @@ After you have pushed files to your CodeCommit repository, you can use the CodeC
 
 In this step, you share information about the CodeCommit repository with a fellow team member\. The team member uses this information to get a local copy, make some changes to it, and then push the modified local copy to your CodeCommit repository\. You then pull the changes from the CodeCommit repository to your local repo\. 
 
-In this tutorial, you simulate the fellow user by having Git create a directory separate from the one you created in [step 2](#getting-started-set-up-folders)\. \(Typically, this directory would be on a different machine\.\) This new directory is a copy of your CodeCommit repository\. Any changes you make to the existing directory or this new directory are made independently\. The only way to identify changes to these directories is to pull from the CodeCommit repository\. 
+In this tutorial, you simulate the fellow user by having Git create a directory separate from the one you created in [step 2](#getting-started-set-up-folders)\. \(Typically, this directory is on a different machine\.\) This new directory is a copy of your CodeCommit repository\. Any changes you make to the existing directory or this new directory are made independently\. The only way to identify changes to these directories is to pull from the CodeCommit repository\. 
 
 Even though they're on the same local machine, we call the existing directory your *local repo* and the new directory the *shared repo*\.
 
@@ -262,9 +264,9 @@ You use Git to create the branch and then point it to the first commit you made\
 
 In this step, you create two tags in your local repo, associate the tags with commits, and then push the tags to your CodeCommit repository\. You then pull the changes from the CodeCommit repository to the shared repo\. 
 
-A tag is used to give a human\-readable name to a commit \(or branch or even another tag\)\. You would do this, for example, if you want to tag a commit as "v2\.1\." A commit, branch, or tag can have any number of tags associated with it, but an individual tag can be associated with only one commit, branch, or tag\. In this tutorial, you tag one commit as release and one as beta\.
+A tag is used to give a human\-readable name to a commit \(or branch or even another tag\)\. You would do this, for example, if you want to tag a commit as `v2.1`\. A commit, branch, or tag can have any number of tags associated with it, but an individual tag can be associated with only one commit, branch, or tag\. In this tutorial, you tag one commit as `release` and one as `beta`\.
 
-You use Git to create the tags, pointing the release tag to the first commit you made and the beta tag to the commit made by the other user\. You then use Git to push the tags to the CodeCommit repository\. Then you switch to your shared repo and use Git to pull the tags into your shared local repo and explore the tags\.
+You use Git to create the tags, pointing the `release` tag to the first commit you made and the `beta` tag to the commit made by the other user\. You then use Git to push the tags to the CodeCommit repository\. Then you switch to your shared repo and use Git to pull the tags into your shared local repo and explore the tags\.
 
 1. From your local repo, run git tag, specifying the name of the new tag \(`release`\) and the ID of the first commit you made in the local repo\. 
 
@@ -314,7 +316,7 @@ In this step, you give a user permission to synchronize the shared repo with the
 
 To do this, you use the IAM console to create an IAM user, who, by default, does not have permissions to synchronize the shared repo with the CodeCommit repository\. You can run git pull to verify this\. If the new user doesn't have permission to synchronize, the command doesn't work\. Then you go back to the IAM console and apply a policy that allows the user to use git pull\. Again, you can run git pull to verify this\. 
 
-This step assumes you have permissions to create IAM users in your AWS account\. If you don't have these permissions, then you can't perform the procedures in this step\. Skip ahead to [Step 9: Clean Up](#getting-started-clean-up) to clean up the resources you used for your tutorial\.
+This step is written with the assumption you have permissions to create IAM users in your AWS account\. If you don't have these permissions, you can't perform the procedures in this step\. Skip ahead to [Step 9: Clean Up](#getting-started-clean-up) to clean up the resources you used for your tutorial\.
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -411,7 +413,7 @@ You also remove the local repo and shared repo on your local machine because the
 **Important**  
 After you delete this repository, you won't be able to clone it to any local repo or shared repo\. You also won't be able to pull data from it, or push data to it, from any local repo or shared repo\. This action cannot be undone\.
 
-### To delete the CodeCommit repository \(console\)<a name="w4aac13c16c37b8"></a>
+### To delete the CodeCommit repository \(console\)<a name="getting-started-clean-up-console"></a>
 
 1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
@@ -421,9 +423,9 @@ After you delete this repository, you won't be able to clone it to any local rep
 
 1. On the **Settings** page, in **Delete repository**, choose **Delete repository**\.
 
-1. In the box next to **Type the name of the repository to confirm deletion**, type **MyDemoRepo**, and then choose **Delete**\. 
+1. In the box next to **Type the name of the repository to confirm deletion**, enter **MyDemoRepo**, and then choose **Delete**\. 
 
-### To delete the CodeCommit repository \(AWS CLI\)<a name="w4aac13c16c37c10"></a>
+### To delete the CodeCommit repository \(AWS CLI\)<a name="getting-started-clean-up-cli"></a>
 
 Run the [delete\-repository](how-to-delete-repository.md#how-to-delete-repository-cli) command:
 
@@ -431,7 +433,7 @@ Run the [delete\-repository](how-to-delete-repository.md#how-to-delete-repositor
 aws codecommit delete-repository --repository-name MyDemoRepo
 ```
 
-### To delete the local repo and shared repo<a name="w4aac13c16c37c12"></a>
+### To delete the local repo and shared repo<a name="getting-started-delete-repos"></a>
 
 For Linux, macOS, or Unix: 
 

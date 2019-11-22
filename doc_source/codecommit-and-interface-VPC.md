@@ -31,6 +31,9 @@ CodeCommit currently supports VPC endpoints in the following AWS Regions:
 + Asia Pacific \(Mumbai\)
 + South America \(São Paulo\)
 + Canada \(Central\)
++ AWS GovCloud \(US\-West\)
++ EU \(Stockholm\)
++ Middle East \(Bahrain\)
 
 ## Create VPC Endpoints for CodeCommit<a name="create-vpc-endpoint-for-codecommit"></a>
 

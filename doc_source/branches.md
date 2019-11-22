@@ -12,6 +12,6 @@ For information about working with other aspects of your repository in CodeCommi
 + [Create a Branch in AWS CodeCommit](how-to-create-branch.md)
 + [Limit Pushes and Merges to Branches in AWS CodeCommit](how-to-conditional-branch.md)
 + [View Branch Details in AWS CodeCommit](how-to-view-branch-details.md)
-+ [Compare Branches in AWS CodeCommit](how-to-compare-branches.md)
++ [Compare and Merge Branches in AWS CodeCommit](how-to-compare-branches.md)
 + [Change Branch Settings in AWS CodeCommit](how-to-change-branch.md)
 + [Delete a Branch in AWS CodeCommit](how-to-delete-branch.md)

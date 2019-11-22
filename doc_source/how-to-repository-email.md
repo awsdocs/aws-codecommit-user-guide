@@ -1,32 +1,21 @@
 # Configuring Notifications for Events in an AWS CodeCommit Repository<a name="how-to-repository-email"></a>
 
-You can set up notifications for a repository so that repository users receive emails about the repository event types you specify\. When you configure notifications, CodeCommit creates an Amazon CloudWatch Events rule for your repository\. This rule responds to the event types you select from the preconfigured options in the CodeCommit console\. Notifications are sent when events match the rule settings\. You can create an Amazon SNS topic to use for notifications or use an existing one in your AWS account\. 
+You can set up notification rules for a repository so that repository users receive emails about the repository event types you specify\. Notifications are sent when events match the notification rule settings\. You can create an Amazon SNS topic to use for notifications or use an existing one in your AWS account\. 
 
- You use the CodeCommit console to configure notifications\.
+ You use the CodeCommit console and the AWS CLI to configure notifications\.
 
-![\[Notifications configured in CodeCommit repository\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-notifications-configured.png)
+![\[A notification rule configured in an CodeCommit repository\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/create-notification-rule-repository.png)
 
 **Topics**
-+ [Using Repository Notifications](#how-to-repository-email-using)
-+ [Configure Repository Notifications](how-to-repository-email-create.md)
-+ [Change, Disable, or Enable Notifications](how-to-repository-email-console-edit.md)
-+ [Delete Notification Settings for a Repository](how-to-repository-email-delete.md)
++ [Using Repository Notification Rules](#how-to-repository-email-using)
++ [Create a Notification Rule](notification-rule-create.md)
++ [Change or Disable Notifications](how-to-repository-email-console-edit.md)
++ [Delete Notifications](how-to-repository-email-delete.md)
 
-## Using Repository Notifications<a name="how-to-repository-email-using"></a>
+## Using Repository Notification Rules<a name="how-to-repository-email-using"></a>
 
-Configuring notifications helps your repository users by sending emails when someone takes an action that affects another user\. For example, you can configure a repository to send notifications when comments are made on commits\. In this configuration, when a repository user comments on a line of code in a commit, other repository users receive an email\. They can sign in and view the comment\. Responses to comments also generate emails, so repository users stay informed\.
+Configuring notification rules helps your repository users by sending emails when someone takes an action that affects another user\. For example, you can configure a notification rule to send notifications when comments are made on commits\. In this configuration, when a repository user comments on a line of code in a commit, other repository users receive an email\. They can sign in and view the comment\. Responses to comments also generate emails, so repository users stay informed\.
 
-Notification event types are grouped into the following categories:
-+ **Pull request update events**: If you select this option, users receive emails when:
-  + A pull request is created or closed\.
-  + A pull request is updated with code changes\.
-  + The title or description of the pull request changes\.
-+ **Pull request comment events**: If you select this option, users receive emails when someone comments or replies to a comment in a pull request\.
-+ **Commit comment events**: If you select this option, users receive emails when someone comments on a commit outside of a pull request\. This includes comments on:
-  + Lines of code in a commit\.
-  + Files in a commit\.
-  + The commit itself\.
-
-  For more information, see [Comment on a Commit](how-to-commit-comment.md)\.
-
-Repository notifications are different from repository triggers\. Although you can configure a trigger to use Amazon SNS to send emails about some repository events, those events are limited to operational events, such as creating branches and pushing code to a branch\. Triggers do not use CloudWatch Events rules to evaluate repository events\. They are more limited in scope\. For more information about using triggers, see [Manage Triggers for a Repository](how-to-notify.md)\.
+Notification rules are different from repository triggers, and they are also different than the notifications you could configure in the CodeCommit console before November 5, 2019\. 
++ Although you can configure a trigger to use Amazon SNS to send emails about some repository events, those events are limited to operational events, such as creating branches and pushing code to a branch\. Triggers do not use CloudWatch Events rules to evaluate repository events\. They are more limited in scope\. For more information about using triggers, see [Manage Triggers for a Repository](how-to-notify.md)\.
++ Notifications configured before November 5, 2019 had fewer event types available, and could not be configured for integration with Amazon Chime chatrooms or Slack channels\. You can continue to use notifications configured before November 5, 2019, but you cannot create notifications of this type\. Instead, create and use notification rules\. We recommend using notification rules and disabling or deleting notifications created before November 5, 2019\. For more information, see [Create a Notification Rule](notification-rule-create.md) and [Delete Notifications](how-to-repository-email-delete.md)\. 

@@ -59,38 +59,73 @@ Follow these steps to use the AWS CLI to view pull requests in an CodeCommit rep
 
    Pull request IDs are displayed in the order of most recent activity\.
 
-1. To view details of a pull request, run the get\-pull\-request command with the \-\-pull\-request\-id option, specifying the ID of the pull request\. For example, to view information about a pull request with the ID of *42*:
+1. To view details of a pull request, run the get\-pull\-request command with the \-\-pull\-request\-id option, specifying the ID of the pull request\. For example, to view information about a pull request with the ID of *27*:
 
    ```
-   aws codecommit get-pull-request --pull-request-id 42
+   aws codecommit get-pull-request --pull-request-id 27
    ```
 
    If successful, this command produces output similar to the following:
 
    ```
    {
-      "pullRequest": { 
-         "authorArn": "arn:aws:iam::111111111111:user/Jane_Doe",
-         "title": "Pronunciation difficulty analyzer"
-         "pullRequestTargets": [ 
-            { 
-               "destinationReference": "refs/heads/master",
-               "destinationCommit": "5d036259EXAMPLE",
-               "sourceReference": "refs/heads/jane-branch"
-               "sourceCommit": "317f8570EXAMPLE",
-               "repositoryName": "MyDemoRepo",
-               "mergeMetadata": { 
-                  "isMerged": false,
-               }, 
-            }
-         ],
-         "lastActivityDate": 1508442444,
-         "pullRequestId": "42", 
-         "clientRequestToken": "123Example",
-         "pullRequestStatus": "OPEN",
-         "creationDate": 1508962823,
-         "description": "A code review of the new feature I just added to the service.",
-      }
+       "pullRequest": {
+           "approvalRules": [
+               {
+                   "approvalRuleContent": "{\"Version\": \"2018-11-08\",\"Statements\": [{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\": 2,\"ApprovalPoolMembers\": [\"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]}]}",
+                   "approvalRuleId": "dd8b17fe-EXAMPLE",
+                   "approvalRuleName": "2-approver-rule-for-master",
+                   "creationDate": 1571356106.936,
+                   "lastModifiedDate": 571356106.936,
+                   "lastModifiedUser": "arn:aws:iam::123456789012:user/Mary_Major",
+                   "ruleContentSha256": "4711b576EXAMPLE"
+               }
+           ],
+           "lastActivityDate": 1562619583.565,
+           "pullRequestTargets": [
+               {
+                   "sourceCommit": "ca45e279EXAMPLE",
+                   "sourceReference": "refs/heads/bugfix-1234",
+                   "mergeBase": "a99f5ddbEXAMPLE",
+                   "destinationReference": "refs/heads/master",
+                   "mergeMetadata": {
+                       "isMerged": false
+                   },
+                   "destinationCommit": "2abfc6beEXAMPLE",
+                   "repositoryName": "MyDemoRepo"
+               }
+           ],
+           "revisionId": "e47def21EXAMPLE",
+           "title": "Quick fix for bug 1234",
+           "authorArn": "arn:aws:iam::123456789012:user/Nikhil_Jayashankar",
+           "clientRequestToken": "d8d7612e-EXAMPLE",
+           "creationDate": 1562619583.565,
+           "pullRequestId": "27",
+           "pullRequestStatus": "OPEN"
+       }
+   }
+   ```
+
+1. <a name="get-pull-request-approval-state"></a>To view approvals on a pull request, run the get\-pull\-request\-approval\-state command, specifying:
+   + The ID of the pull request \(using the \-\-pull\-request\-id option\)\.
+   + The revision ID of the pull request \(using the \-\-revision\-id option\)\. You can get the current revision ID for a pull request by using the [get\-pull\-request](#get-pull-request) command\.
+
+   For example, to view approvals on a pull request with an ID of *8* and a revision ID of *9f29d167EXAMPLE*:
+
+   ```
+   aws codecommit get-pull-request-approval-state --pull-request-id 8 --revision-id 9f29d167EXAMPLE
+   ```
+
+   If successful, this command produces output similar to the following:
+
+   ```
+   {
+       "approvals": [
+           {
+               "userArn": "arn:aws:iam::123456789012:user/Mary_Major",
+               "approvalState": "APPROVE"
+           }
+       ]
    }
    ```
 

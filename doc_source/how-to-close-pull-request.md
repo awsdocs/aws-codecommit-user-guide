@@ -43,27 +43,38 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
 
   ```
   {
-     "pullRequest": { 
-        "authorArn": "arn:aws:iam::111111111111:user/Jane_Doe",
-        "clientRequestToken": "123Example",
-        "creationDate": 1508962823.165,
-        "description": "A code review of the new feature I just added to the service.",
-        "lastActivityDate": 1508442444.12,
-        "pullRequestId": "42",
-        "pullRequestStatus": "CLOSED",
-        "pullRequestTargets": [ 
-           { 
-              "destinationCommit": "5d036259EXAMPLE",
-              "destinationReference": "refs/heads/master",
-              "mergeMetadata": { 
-                 "isMerged": false,
-              },
-              "repositoryName": "MyDemoRepo",
-              "sourceCommit": "317f8570EXAMPLE",
-              "sourceReference": "refs/heads/jane-branch"
-           }
-        ],
-        "title": "Pronunciation difficulty analyzer"
-     }
+      "pullRequest": {
+          "approvalRules": [
+              {
+                  "approvalRuleContent": "{\"Version\": \"2018-11-08\",\"Statements\": [{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\": 2,\"ApprovalPoolMembers\": [\"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]}]}",
+                  "approvalRuleId": "dd8b17fe-EXAMPLE",
+                  "approvalRuleName": "2-approvers-needed-for-this-change",
+                  "creationDate": 1571356106.936,
+                  "lastModifiedDate": 571356106.936,
+                  "lastModifiedUser": "arn:aws:iam::123456789012:user/Mary_Major",
+                  "ruleContentSha256": "4711b576EXAMPLE"
+              }
+          ],
+          "authorArn": "arn:aws:iam::123456789012:user/Li_Juan",
+          "clientRequestToken": "",
+          "creationDate": 1508530823.165,
+          "description": "Updated the pull request to remove unused global variable.",
+          "lastActivityDate": 1508372423.12,
+          "pullRequestId": "47",
+          "pullRequestStatus": "CLOSED",
+          "pullRequestTargets": [
+              {
+                  "destinationCommit": "9f31c968EXAMPLE",
+                  "destinationReference": "refs/heads/master",
+                  "mergeMetadata": {
+                      "isMerged": false,
+                  },
+                  "repositoryName": "MyDemoRepo",
+                  "sourceCommit": "99132ab0EXAMPLE",
+                  "sourceReference": "refs/heads/variables-branch"
+              }
+          ],
+          "title": "Consolidation of global variables"
+      }
   }
   ```

@@ -1,22 +1,22 @@
-# Change, Disable, or Enable Notifications<a name="how-to-repository-email-console-edit"></a>
+# Change or Disable Notifications<a name="how-to-repository-email-console-edit"></a>
 
-You can use the AWS CodeCommit console to change how notifications are configured, including the event types that send emails to users and the Amazon SNS topic used to send emails about the repository\. You can also use the CodeCommit console to manage the list of email addresses and endpoints subscribed to the topic or to temporarily disable notifications\. <a name="how-to-repository-email-change-console"></a>
+You can use the AWS CodeCommit console to change how notifications created before November 5, 2019 are configured, including the event types that send emails to users and the Amazon SNS topic used to send emails about the repository\. You can also use the CodeCommit console to manage the list of email addresses and endpoints subscribed to the topic or to disable notifications\. <a name="how-to-repository-email-change-console"></a>
 
 **To change notification settings**
 
 1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In **Repositories**, choose the name of the repository where you want to configure notifications\. 
+1. In **Repositories**, choose the name of the repository where you want to configure notifications created before November 5, 2019\. 
 
-1. In the navigation pane, choose **Settings**, and then choose **Notifications**\.
+1. In the navigation pane, choose **Settings**, and then choose **Notifications**\. If you see a banner informing you that you have notifications instead of notification rules, choose **Manage existing notifications**\.
 
 1. Choose **Edit**\.
 
 1. Make your changes, and then choose **Save**\.
 
-Disabling notifications is an easy way to temporarily prevent users from receiving emails about repository events\. For example, you might want to disable notifications while you are performing repository maintenance\. Because the configuration is preserved, you can quickly enable notifications when you are ready\.
+Disabling notifications is an easy way to temporarily prevent users from receiving emails about repository events from notifications created before November 5, 2019\. For example, you might want to disable notifications while you create and configure notification rules to use instead of notifications\.
 
-To permanently delete the notification settings, follow the steps in [Delete Notification Settings for a Repository](how-to-repository-email-delete.md)\. <a name="how-to-repository-email-disable-console"></a>
+To permanently delete a notification created before November 5, 2019, follow the steps in [Delete Notifications](how-to-repository-email-delete.md)\. <a name="how-to-repository-email-disable-console"></a>
 
 **To disable notifications**
 
@@ -24,20 +24,8 @@ To permanently delete the notification settings, follow the steps in [Delete Not
 
 1. In **Repositories**, choose the name of the repository where you want to disable notifications\. 
 
-1. In the navigation pane, choose **Settings**, and then choose **Notifications**\.
+1. In the navigation pane, choose **Settings**, and then choose **Notifications**\. If you see a banner informing you that you have notifications instead of notification rules, choose **Manage existing notifications**\.
 
-1. Choose **Disable**\. 
+1. Choose **Edit**, and in **Event status**, use the slider to turn off **Enable notifications**\. Choose **Save**\. 
 
-1. The notification state changes to **Disabled**\. No emails about events are sent\. When you disable notifications, the CloudWatch Events rule for the repository is disabled automatically\. Do not manually change its status in the CloudWatch Events console\.<a name="how-to-repository-email-enable-console"></a>
-
-**To enable notifications**
-
-1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
-
-1. In **Repositories**, choose the name of the repository where notifications are disabled\. 
-
-1. In the navigation pane, choose **Settings**, and then choose **Notifications**\.
-
-1. Choose **Enable**\. 
-
-1. The notification state changes to **Enabled**\. Emails about events are sent\. The CloudWatch Events rule for the repository is enabled automatically\.
+1. The event status changes to **Disabled**\. No emails about events are sent\. When you disable notifications, the CloudWatch Events rule for the repository is disabled automatically\. Do not manually change its status in the CloudWatch Events console\.

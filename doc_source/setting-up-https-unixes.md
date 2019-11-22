@@ -82,6 +82,8 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
    + ca\-central\-1
    + us\-gov\-west\-1
    + us\-gov\-east\-1
+   + eu\-north\-1
+   + me\-south\-1
 
    For more information about CodeCommit and AWS Regions, see [Regions and Git Connection Endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\.
 
@@ -156,7 +158,7 @@ If an administrator has already sent you the name and connection details for the
 
 1. Choose the repository you want to connect to from the list\. This opens the **Code** page for that repository\.
 
-    If you see a **Welcome** page instead of a list of repositories, there are no repositories associated with your AWS account\. To create a repository, see [Create an AWS CodeCommit Repository](how-to-create-repository.md) or follow the steps in the [Git with CodeCommit Tutorial](getting-started.md) tutorial\.
+    If you see a **Welcome** page instead of a list of repositories, there are no repositories associated with your AWS account\. To create a repository, see [Create an AWS CodeCommit Repository](how-to-create-repository.md) or follow the steps in the [Getting Started with Git and CodeCommit](getting-started.md) tutorial\.
 
 1. Copy the HTTPS URL to use when connecting to the repository\.
 
@@ -170,4 +172,4 @@ If an administrator has already sent you the name and connection details for the
 
 ## Next Steps<a name="setting-up-https-unixes-next-step"></a>
 
-You have completed the prerequisites\. Follow the steps in [CodeCommit Tutorial](getting-started-cc.md) to start using CodeCommit\.
+You have completed the prerequisites\. Follow the steps in [Getting Started with CodeCommit ](getting-started-cc.md) to start using CodeCommit\.

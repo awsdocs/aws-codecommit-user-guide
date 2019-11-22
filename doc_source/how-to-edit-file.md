@@ -93,4 +93,4 @@ If successful, this command returns output similar to the following:
 
 ## Edit a File \(Git\)<a name="how-to-edit-file-git"></a>
 
-You can edit files in a local repo and push your changes to a CodeCommit repository\. For more information, see [Git with AWS CodeCommit Tutorial](getting-started.md)\.
+You can edit files in a local repo and push your changes to a CodeCommit repository\. For more information, see [Getting Started with Git and AWS CodeCommit](getting-started.md)\.

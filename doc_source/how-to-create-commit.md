@@ -111,10 +111,10 @@ For more options, see your Git documentation\.
 
 ## Create a Commit Using the AWS CLI<a name="how-to-create-commit-cli"></a>
 
-You can use the AWS CLI and the `create-commit` command to create a commit for a repository on the tip of a specified branch\.
+You can use the AWS CLI and the `create-commit` command to create a commit for a repository on the tip of a specified branch\. You can also create an unreferenced merge commit to represent the results of merging two commit specifiers\. For more information, see [Create an unreferenced commit](how-to-resolve-conflict-pull-request.md#create-unreferenced-merge-commit)\.
 
 **Note**  
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. <a name="create-commit"></a>
 
 **To create a commit**
 

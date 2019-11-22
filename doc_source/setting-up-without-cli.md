@@ -66,6 +66,6 @@ If you have more than one SSH configuration, make sure you include the blank lin
 
 ## Next Steps<a name="setting-up-without-cli-next-step"></a>
 
-You have completed the prerequisites\. Follow the steps in [CodeCommit Tutorial](getting-started-cc.md) to start using CodeCommit\.
+You have completed the prerequisites\. Follow the steps in [Getting Started with CodeCommit ](getting-started-cc.md) to start using CodeCommit\.
 
 To connect to a repository, follow the steps in [Connect to a Repository](how-to-connect.md)\. To create a repository, follow the steps in [Create a Repository](how-to-create-repository.md)\.

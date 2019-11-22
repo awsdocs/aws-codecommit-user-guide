@@ -80,7 +80,7 @@ If an administrator has already sent you the name and connection details for the
 
 1. Choose the repository you want to connect to from the list\. This opens the **Code** page for that repository\.
 
-    If you see a **Welcome** page instead of a list of repositories, there are no repositories associated with your AWS account\. To create a repository, see [Create an AWS CodeCommit Repository](how-to-create-repository.md) or follow the steps in the [Git with CodeCommit Tutorial](getting-started.md) tutorial\.
+    If you see a **Welcome** page instead of a list of repositories, there are no repositories associated with your AWS account\. To create a repository, see [Create an AWS CodeCommit Repository](how-to-create-repository.md) or follow the steps in the [Getting Started with Git and CodeCommit](getting-started.md) tutorial\.
 
 1. Choose **Connect**\. Review the instructions and copy the URL to use when connecting to the repository\.
 
@@ -98,4 +98,4 @@ If an administrator has already sent you the name and connection details for the
 
 ## Next Steps<a name="setting-up-gc-next-step"></a>
 
-You have completed the prerequisites\. Follow the steps in [CodeCommit Tutorial](getting-started-cc.md) to start using CodeCommit\.
+You have completed the prerequisites\. Follow the steps in [Getting Started with CodeCommit ](getting-started-cc.md) to start using CodeCommit\.

@@ -55,37 +55,52 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
      + \(Optional\) The name of the branch where you intend to merge your code changes, also known as the destination branch, if you do not want to merge to the default branch \(with the destinationReference attribute\)\.
    + A unique, client\-generated idempotency token \(with the \-\-client\-request\-token option\)\. 
 
-   For example, to create a pull request named *My Pull Request* with a description of *Please review these changes by Tuesday* that targets the *MyNewBranch* source branch and is to be merged to the default branch *master* in a CodeCommit repository named `MyDemoRepo`:
+   This example creates a pull request named *Pronunciation difficulty analyzer* with a description of *Please review these changes by Tuesday* that targets the *jane\-branch* source branch\. The pull request is to be merged into the default branch *master* in a CodeCommit repository named `MyDemoRepo`:
 
    ```
-   aws codecommit create-pull-request --title "My Pull Request" --description "Please review these changes by Tuesday" --client-request-token 123Example --targets repositoryName=MyDemoRepo,sourceReference=MyNewBranch 
+   aws codecommit create-pull-request --title "Pronunciation difficulty analyzer" --description "Please review these changes by Tuesday" --client-request-token 123Example --targets repositoryName=MyDemoRepo,sourceReference=jane-branch 
    ```
 
 1. If successful, this command produces output similar to the following:
 
    ```
    {
-      "pullRequest": { 
-         "authorArn": "arn:aws:iam::111111111111:user/Jane_Doe",
-         "clientRequestToken": "123Example",
-         "creationDate": 1508962823.285,
-         "description": "Please review these changes by Tuesday",
-         "lastActivityDate": 1508962823.285,
-         "pullRequestId": "42",
-         "pullRequestStatus": "OPEN",
-         "pullRequestTargets": [ 
-            { 
-               "destinationCommit": "5d036259EXAMPLE",
-               "destinationReference": "refs/heads/master",
-               "mergeMetadata": { 
-                  "isMerged": false,
-               },
-               "repositoryName": "MyDemoRepo",
-               "sourceCommit": "317f8570EXAMPLE",
-               "sourceReference": "refs/heads/MyNewBranch"
-            }
-         ],
-         "title": "My Pull Request"
-      }
+       "pullRequest": {
+           "approvalRules": [
+               {
+                   "approvalRuleContent": "{\"Version\": \"2018-11-08\",\"DestinationReferences\": [\"refs/heads/master\"],\"Statements\": [{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\": 2,\"ApprovalPoolMembers\": [\"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]}]}",
+                   "approvalRuleId": "dd8b17fe-EXAMPLE",
+                   "approvalRuleName": "2-approver-rule-for-master",
+                   "creationDate": 1571356106.936,
+                   "lastModifiedDate": 571356106.936,
+                   "lastModifiedUser": "arn:aws:iam::123456789012:user/Mary_Major",
+                   "originApprovalRuleTemplate": {
+                       "approvalRuleTemplateId": "dd3d22fe-EXAMPLE",
+                       "approvalRuleTemplateName": "2-approver-rule-for-master"
+                   },
+                   "ruleContentSha256": "4711b576EXAMPLE"
+               }
+           ],
+           "authorArn": "arn:aws:iam::111111111111:user/Jane_Doe",
+           "description": "Please review these changes by Tuesday",
+           "title": "Pronunciation difficulty analyzer",
+           "pullRequestTargets": [
+               {
+                   "destinationCommit": "5d036259EXAMPLE",
+                   "destinationReference": "refs/heads/master",
+                   "repositoryName": "MyDemoRepo",
+                   "sourceCommit": "317f8570EXAMPLE",
+                   "sourceReference": "refs/heads/jane-branch",
+                   "mergeMetadata": {
+                       "isMerged": false
+                   }
+               }
+           ],
+           "lastActivityDate": 1508962823.285,
+           "pullRequestId": "42",
+           "clientRequestToken": "123Example",
+           "pullRequestStatus": "OPEN",
+           "creationDate": 1508962823.285
+       }
    }
    ```

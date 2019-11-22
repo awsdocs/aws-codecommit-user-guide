@@ -66,6 +66,8 @@ By pasting a full commit ID into the search box to render the graph from that co
 
 Git lets you view details about commits\. You can also use the AWS CLI to view details about the commits in a local repo or in a CodeCommit repository by running the following commands:
 + To view information about a commit, run [aws codecommit get\-commit](#how-to-view-commit-details-cli-commit)\.
++ To view information about multiple commits, run [aws codecommit batch\-get\-commits](#how-to-view-commit-details-cli-batch-get-commits)\.
++ To view information about a merge commit, run [aws codecommit get\-merge\-commit](#how-to-view-commit-details-cli-merge-commit)\.
 + To view information about changes for a commit specifier \(branch, tag, HEAD, or other fully qualified references, such as commit IDs\), run [aws codecommit get\-differences](#how-to-view-commit-details-cli-differences)\.
 + To view the base64\-encoded content of a Git blob object in a repository, run [aws codecommit get\-blob](#how-to-view-commit-details-cli-blob)\.
 
@@ -110,6 +112,96 @@ Git lets you view details about commits\. You can also use the AWS CLI to view d
            ],
            "message": "Fix incorrect variable name"
        }
+   }
+   ```
+
+### To view information about a merge commit<a name="how-to-view-commit-details-cli-merge-commit"></a>
+
+1. Run the get\-merge\-commit command, specifying:
+   + A commit specifier for the source of the merge \(with the \-\-source\-commit\-specifier option\)\.
+   + A commit specifier for the destination for the merge \(with the \-\-destination\-commit\-specifier option\)\. 
+   + The merge option you want to use \(with the \-\-merge\-option option\)\.
+   + The name of the repository \(with the \-\-repository\-name option\)\.
+
+   For example, to view information about a merge commit for the source branch named *bugfix\-bug1234* with a destination branch named *master* using the *THREE\_WAY\_MERGE* strategy in a repository named *MyDemoRepo*:
+
+   ```
+   aws codecommit get-merge-commit --source-commit-specifier bugfix-bug1234 --destination-commit-specifier master --merge-option THREE_WAY_MERGE --repository-name MyDemoRepo
+   ```
+
+1. If successful, the output of this command returns information similar to the following:
+
+   ```
+   {
+       "sourceCommitId": "c5709475EXAMPLE", 
+       "destinationCommitId": "317f8570EXAMPLE", 
+       "baseCommitId": "fb12a539EXAMPLE",
+       "mergeCommitId": "ffc4d608eEXAMPLE"
+   }
+   ```
+
+### To view information about multiple commits<a name="how-to-view-commit-details-cli-batch-get-commits"></a>
+
+1. Run the batch\-get\-commits command, specifying:
+   + The name of the CodeCommit repository \(with the `--repository-name` option\)\.
+   + A list of full commit IDs for every commit about which you want to view information\. 
+
+   For example, to view information about commits with the IDs `317f8570EXAMPLE` and `4c925148EXAMPLE` in a CodeCommit repository named `MyDemoRepo`:
+
+   ```
+   aws codecommit batch-get-commits  --repository-name MyDemoRepo  --commit-ids 317f8570EXAMPLE 4c925148EXAMPLE
+   ```
+
+1. If successful, the output of this command includes the following:
+   + Information about the authors of the commits \(as configured in Git\), including the date in timestamp format and the coordinated universal time \(UTC\) offset\.
+   + Information about the committers \(as configured in Git\) including the date in timestamp format and the UTC offset\.
+   + The IDs of the Git tree where the commit exists\.
+   + The commit IDs of the parent commit\.
+   + The commit messages\.
+
+   Here is some example output, based on the preceding example command:
+
+   ```
+   {
+       "commits": [
+         {
+           "additionalData": "",
+           "committer": {
+               "date": "1508280564 -0800",
+               "name": "Mary Major",
+               "email": "mary_major@example.com"
+           },
+           "author": {
+               "date": "1508280564 -0800",
+               "name": "Mary Major",
+               "email": "mary_major@example.com"
+           },
+           "commitId": "317f8570EXAMPLE",
+           "treeId": "1f330709EXAMPLE",
+           "parents": [
+               "6e147360EXAMPLE"
+           ],
+           "message": "Change variable name and add new response element"
+       },
+       {
+           "additionalData": "",
+           "committer": {
+               "date": "1508280542 -0800",
+               "name": "Li Juan",
+               "email": "li_juan@example.com"
+           },
+           "author": {
+               "date": "1508280542 -0800",
+               "name": "Li Juan",
+               "email": "li_juan@example.com"
+           },
+           "commitId": "4c925148EXAMPLE",
+           "treeId": "1f330709EXAMPLE",
+           "parents": [
+               "317f8570EXAMPLE"
+           ],
+           "message": "Added new class"
+       }   
    }
    ```
 

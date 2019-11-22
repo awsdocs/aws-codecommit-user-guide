@@ -88,7 +88,7 @@ If you have already installed the AWS CLI and configured a profile, you can skip
 1. Run the git config command twice: once to configure Git to use the AWS CLI credential helper with the AWS CLI profile you just created, and again to use HTTP\. For example:
 
    ```
-   git config --global credential.helper --profile MyCrossAccountAccessProfile '!aws codecommit credential-helper $@'
+   git config --global credential.helper '!aws --profile MyCrossAccountAccessProfile codecommit credential-helper $@'
    ```
 
    ```
@@ -148,7 +148,7 @@ https://console.aws.amazon.com/codecommit/home?region=us-east-2#/repository/MySh
    git push
    ```
 
-   For more information, see [Git with AWS CodeCommit Tutorial](getting-started.md)\.
+   For more information, see [Getting Started with Git and AWS CodeCommit](getting-started.md)\.
 
 Now that you've added a file, go to the CodeCommit console to view your commit, review other users' changes to the repo, participate in pull requests, and more\.<a name="cross-account-console"></a>
 
@@ -177,4 +177,4 @@ If this is the first time you have selected this option, review the information 
 
 1. In **Code**, find the name of the file you added from your local computer\. Choose it to browse the code in the file, and then browse the rest of the repository and start using its features\. 
 
-   For more information, see [Getting Started with AWS CodeCommit Tutorial](getting-started-cc.md)\.
+   For more information, see [Getting Started with AWS CodeCommit ](getting-started-cc.md)\.

@@ -1,51 +1,8 @@
 # Update a Pull Request<a name="how-to-update-pull-request"></a>
 
-You can use your local Git client to push commits to the source branch, which updates the pull request with code changes\. You might update the pull request with more commits because:
-+ You want users to review code changes you made to the source branch code in response to comments in the pull request\.
-+ One or more commits have been made to the destination branch since the pull request was created\. You want to incorporate those changes into the source branch \(forward integration\)\. This changes the state of the pull request to **Mergeable** and enables the merging and closing of the pull request from the console\.
-
 You can use the AWS CodeCommit console or the AWS CLI to update the title or description of a pull request\. You might want to update the pull request because:
 + Other users don't understand the description, or the original title is misleading\.
 + You want the title or description to reflect changes made to the source branch of an open pull request\.
-
-**Topics**
-+ [Update a Pull Request \(Git\)](#how-to-update-pull-request-git)
-+ [Update a Pull Request \(Console\)](#how-to-update-pull-request-console)
-+ [Update Pull Requests \(AWS CLI\)](#how-to-update-pull-request-cli)
-
-## Update a Pull Request \(Git\)<a name="how-to-update-pull-request-git"></a>
-
-You can use Git to update the source branch of a pull request with changes to the code to:
-+ Add more code to the review\.
-+ Incorporate changes suggested in review comments\.
-+ Forward\-integrate changes made in the destination branch into the source branch\.
-+ Make sure that all the changes to be merged into the destination branch have been reviewed in the pull request\.
-
-You make the changes on your local computer, and then commit and push them to the source branch\. If [notifications are configured for the repository](how-to-repository-email.md), users subscribed to the topic receive emails when you push changes to the source branch of an open pull request\.
-
-**To update the source branch with code changes**
-
-1. From the local repo on your computer, at the terminal or command line, make sure you have pulled the latest changes to the repository, and then run the git checkout command, specifying the source branch of the pull request\. For example, to check out a source branch of a pull request named *pullrequestbranch*:
-
-   ```
-   git checkout pullrequestbranch
-   ```
-
-1. Make any changes you want reviewed\. For example, if you want to change the code in the source branch in responses to user comments, edit the files with those changes\. If you want to integrate changes that have been made to the destination branch into the source branch \(forward integration\), run the git merge command, specifying the destination branch, to merge those changes into the source branch\. 
-**Tip**  
-You might want to use diff tool or merge tool software to help view and choose the changes you want integrated into a source branch\.
-
-1. After you have made your changes, run the git add and git commit commands to stage and commit them\. 
-**Tip**  
-You can run these commands separately, or you can use the `-a` option to add changed files to a commit automatically\. For example, you could run a command similar to the following:   
-
-   ```
-   git commit -am "This is an example commit message."
-   ```
-
-   For more information, see [Basic Git Commands](how-to-basic-git.md) or consult your Git documentation\.
-
-1. Run the **git push **command to push your changes to CodeCommit\. Your pull request is updated with the changes you made to the source branch\.
 
 ## Update a Pull Request \(Console\)<a name="how-to-update-pull-request-console"></a>
 
@@ -67,6 +24,11 @@ You cannot update the title or description of a closed or merged pull request\.
 
 To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
 
+You might also be interested in the following commands:
++ [update\-pull\-request\-approval\-state](how-to-review-pull-request.md#update-pull-request-approval-state), to approve or revoke approval on a pull request\.
++ [create\-pull\-request\-approval\-rule](how-to-create-pull-request-approval-rule.md#how-to-create-pull-request-approval-rule-cli), to create an approval rule for a pull request\.
++ [delete\-pull\-request\-approval\-rule](how-to-edit-delete-pull-request-approval-rule.md#delete-pull-request-approval-rule), to delete an approval rule for a pull request\.
+
 **To use the AWS CLI to update pull requests in a CodeCommit repository**
 
 1.  To update the title of a pull request in a repository, run the update\-pull\-request\-title command, specifying:
@@ -83,28 +45,43 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
 
    ```
    {
-      "pullRequest": { 
-         "authorArn": "arn:aws:iam::111111111111:user/Li_Juan",
-         "clientRequestToken": "",
-         "creationDate": 1508530823.12,
-         "description": "Review the latest changes and updates to the global variables. I have updated this request with some changes, including removing some unused variables.",
-         "lastActivityDate": 1508372657.188,
-         "pullRequestId": "47",
-         "pullRequestStatus": "OPEN",
-         "pullRequestTargets": [ 
-            { 
-               "destinationCommit": "9f31c968EXAMPLE",
-               "destinationReference": "refs/heads/master",
-               "mergeMetadata": { 
-                  "isMerged": false,
-               },
-               "repositoryName": "MyDemoRepo",
-               "sourceCommit": "99132ab0EXAMPLE",
-               "sourceReference": "refs/heads/variables-branch"
-            }
-         ],
-         "title": "Consolidation of global variables - updated review"
-      }
+       "pullRequest": {
+           "approvalRules": [
+               {
+                   "approvalRuleContent": "{\"Version\": \"2018-11-08\",\"DestinationReferences\": [\"refs/heads/master\"],\"Statements\": [{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\": 2,\"ApprovalPoolMembers\": [\"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]}]}",
+                   "approvalRuleId": "dd8b17fe-EXAMPLE",
+                   "approvalRuleName": "2-approver-rule-for-master",
+                   "creationDate": 1571356106.936,
+                   "lastModifiedDate": 571356106.936,
+                   "lastModifiedUser": "arn:aws:iam::123456789012:user/Mary_Major",
+                   "originApprovalRuleTemplate": {
+                       "approvalRuleTemplateId": "dd8b26gr-EXAMPLE",
+                       "approvalRuleTemplateName": "2-approver-rule-for-master"
+                   },
+                   "ruleContentSha256": "4711b576EXAMPLE"
+               }
+           ],
+           "authorArn": "arn:aws:iam::123456789012:user/Li_Juan",
+           "clientRequestToken": "",
+           "creationDate": 1508530823.12,
+           "description": "Review the latest changes and updates to the global variables. I have updated this request with some changes, including removing some unused variables.",
+           "lastActivityDate": 1508372657.188,
+           "pullRequestId": "47",
+           "pullRequestStatus": "OPEN",
+           "pullRequestTargets": [
+               {
+                   "destinationCommit": "9f31c968EXAMPLE",
+                   "destinationReference": "refs/heads/master",
+                   "mergeMetadata": {
+                       "isMerged": false,
+                   },
+                   "repositoryName": "MyDemoRepo",
+                   "sourceCommit": "99132ab0EXAMPLE",
+                   "sourceReference": "refs/heads/variables-branch"
+               }
+           ],
+           "title": "Consolidation of global variables - updated review"
+       }
    }
    ```
 

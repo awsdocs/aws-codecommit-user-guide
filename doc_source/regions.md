@@ -20,12 +20,14 @@ You can create and use CodeCommit repositories in the following AWS Regions:
 + EU \(London\)
 + EU \(Paris\)
 + EU \(Frankfurt\)
++ EU \(Stockholm\)
 + Asia Pacific \(Tokyo\)
 + Asia Pacific \(Singapore\)
 + Asia Pacific \(Sydney\)
 + Asia Pacific \(Seoul\)
 + Asia Pacific \(Mumbai\)
 + South America \(São Paulo\)
++ Middle East \(Bahrain\)
 + Canada \(Central\)
 + AWS GovCloud \(US\-West\)
 + AWS GovCloud \(US\-East\)
@@ -81,6 +83,13 @@ Use the following URLs when you configure Git connections to CodeCommit reposito
 | AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | https://git\-codecommit\.us\-gov\-west\-1\.amazonaws\.com | HTTPS | 
 | AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | ssh://git\-codecommit\.us\-gov\-west\-1\.amazonaws\.com | SSH | 
 | AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | https://git\-codecommit\-fips\.us\-gov\-west\-1\.amazonaws\.com | HTTPS | 
+| AWS GovCloud \(US\-East\) | us\-gov\-east\-1 | https://git\-codecommit\.us\-gov\-east\-1\.amazonaws\.com | HTTPS | 
+| AWS GovCloud \(US\-East\) | us\-gov\-east\-1 | ssh://git\-codecommit\.us\-gov\-east\-1\.amazonaws\.com | SSH | 
+| AWS GovCloud \(US\-East\) | us\-gov\-east\-1 | https://git\-codecommit\-fips\.us\-gov\-east\-1\.amazonaws\.com | HTTPS | 
+| EU \(Stockholm\) | eu\-north\-1 | https://git\-codecommit\.eu\-north\-1\.amazonaws\.com | HTTPS | 
+| EU \(Stockholm\) | eu\-north\-1 | ssh://git\-codecommit\.eu\-north\-1\.amazonaws\.com | SSH | 
+| Middle East \(Bahrain\) | me\-south\-1 | https://git\-codecommit\.me\-south\-1\.amazonaws\.com | HTTPS | 
+| Middle East \(Bahrain\) | me\-south\-1 | ssh://git\-codecommit\.me\-south\-1\.amazonaws\.com | SSH | 
 
 ## Server Fingerprints for CodeCommit<a name="regions-fingerprints"></a>
 
@@ -125,3 +134,7 @@ The following table lists the public fingerprints for Git connection endpoints i
 | git\-codecommit\.us\-gov\-west\-1\.amazonaws\.com | SHA256 | djXQoSIFcg8vHe0KVH1xW/gOF9X37tWTqu4Hkng75x4 | 
 | git\-codecommit\.us\-gov\-east\-1\.amazonaws\.com | MD5 | 00:8d:b5:55:6f:05:78:05:ed:ea:cb:3f:e6:f0:62:f2 | 
 | git\-codecommit\.us\-gov\-east\-1\.amazonaws\.com | SHA256 | fVb\+R0z7qW7minenW\+rUpAABRCRBTCzmETAJEQrg98 | 
+| git\-codecommit\.eu\-north\-1\.amazonaws\.com | MD5 | 8e:53:d8:59:35:88:82:fd:73:4b:60:8a:50:70:38:f4 | 
+| git\-codecommit\.eu\-north\-1\.amazonaws\.com | SHA256 | b6KSK7xKq\+V8jl7iuAcjqXsG7zkqoUZZmmhYYFBq1wQ | 
+| git\-codecommit\.me\-south\-1\.amazonaws\.com | MD5 | 0e:39:28:56:d5:41:e6:8d:fa:81:45:37:fb:f3:cd:f7 | 
+| git\-codecommit\.me\-south\-1\.amazonaws\.com | SHA256 | O\+NToCGgjrHekiBuOl0ad7ROGEsz\+DBLXOd/c9wc0JU | 

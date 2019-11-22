@@ -84,6 +84,8 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
    + ca\-central\-1
    + us\-gov\-west\-1
    + us\-gov\-east\-1
+   + eu\-north\-1
+   + me\-south\-1
 
    For more information about CodeCommit and AWS Regions, see [Regions and Git Connection Endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\.
 
@@ -92,7 +94,7 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
 To work with files, commits, and other information in CodeCommit repositories, you must install Git on your local machine\. CodeCommit supports Git versions 1\.7\.9 and later\.
 
 To install Git, we recommend websites such as [Git for Windows](https://gitforwindows.org/)\. If you use this link to install Git, you can accept all of the installation default settings except for the following: 
-+ When prompted during the **Adjusting your PATH environment** step, select the **Use Git from the Windows Command Prompt** option\.
++ When prompted during the **Adjusting your PATH environment** step, choose the option to use Git from the command line\.
 + \(Optional\) If you intend to use HTTPS with the credential helper that is included in the AWS CLI instead of configuring Git credentials for CodeCommit, on the **Configuring extra options** page, make sure the **Enable Git Credential Manager** option is cleared\. The Git Credential Manager is only compatible with CodeCommit if IAM users configure Git credentials\. For more information, see [For HTTPS Users Using Git Credentials](setting-up-gc.md) and [Git for Windows: I installed Git for Windows, but I am denied access to my repository \(403\)](troubleshooting-ch.md#troubleshooting-windowshttps)\.
 
 **Note**  
@@ -159,7 +161,7 @@ If an administrator has already sent you the name and connection details for the
 
 1. Choose the repository you want to connect to from the list\. This opens the **Code** page for that repository\.
 
-    If you see a **Welcome** page instead of a list of repositories, there are no repositories associated with your AWS account\. To create a repository, see [Create an AWS CodeCommit Repository](how-to-create-repository.md) or follow the steps in the [Git with CodeCommit Tutorial](getting-started.md) tutorial\.
+    If you see a **Welcome** page instead of a list of repositories, there are no repositories associated with your AWS account\. To create a repository, see [Create an AWS CodeCommit Repository](how-to-create-repository.md) or follow the steps in the [Getting Started with Git and CodeCommit](getting-started.md) tutorial\.
 
 1. Copy the HTTPS URL to use when connecting to the repository\.
 
@@ -175,4 +177,4 @@ If an administrator has already sent you the name and connection details for the
 
 ## Next Steps<a name="setting-up-https-windows-next-step"></a>
 
-You have completed the prerequisites\. Follow the steps in [CodeCommit Tutorial](getting-started-cc.md) to start using CodeCommit\.
+You have completed the prerequisites\. Follow the steps in [Getting Started with CodeCommit ](getting-started-cc.md) to start using CodeCommit\.
