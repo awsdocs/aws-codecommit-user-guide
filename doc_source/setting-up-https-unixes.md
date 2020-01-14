@@ -144,7 +144,7 @@ If you are using macOS, use the following steps to ensure the credential helper 
 After you remove `git-credential-osxkeychain` from the list, you see a pop\-up message whenever you run a Git command\. Choose **Deny** to continue\. If you find the pop\-ups too disruptive, here are some other options:  
 Connect to CodeCommit using SSH instead of HTTPS\. For more information, see [For SSH Connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md)\. 
 In the Keychain Access utility, on the **Access Control** tab for `git-codecommit.us-east-2.amazonaws.com`, choose the **Allow all applications to access this item \(access to this item is not restricted\)** option\. This prevents the pop\-ups, but the credentials eventually expire \(on average, in about 15 minutes\) and you see a 403 error message\. When this happens, you must delete the keychain item to restore functionality\.
-Install a version of Git that does not use the keychain by default\.
+You can also configure git to stop using osxkeychain as the credential helper by following this [Troubleshooting section](troubleshooting-ch.md#troubleshooting-macoshttps)\.
 
 ## Step 4: Connect to the CodeCommit Console and Clone the Repository<a name="setting-up-https-unixes-connect-console"></a>
 
