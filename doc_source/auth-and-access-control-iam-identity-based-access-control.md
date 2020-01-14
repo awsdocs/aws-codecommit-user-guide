@@ -74,6 +74,13 @@ AWS addresses many common use cases by providing standalone IAM policies that ar
 
 The following AWS managed policies, which you can attach to users in your account, are specific to CodeCommit\.
 
+**Topics**
++ [AWSCodeCommitFullAccess](#managed-policies-full)
++ [AWSCodeCommitPowerUser](#managed-policies-poweruser)
++ [AWSCodeCommitReadOnly](#managed-policies-read)
++ [CodeCommit Managed Policies and Notifications](#notifications-permissions)
++ [AWS CodeCommit Managed Policies and Amazon CodeGuru Reviewer](#codeguru-permissions)
+
 ### AWSCodeCommitFullAccess<a name="managed-policies-full"></a>
 
 **AWSCodeCommitFullAccess** – Grants full access to CodeCommit\. Apply this policy only to administrative\-level users to whom you want to grant full control over CodeCommit repositories and related resources in your AWS account, including the ability to delete repositories\.
@@ -82,147 +89,178 @@ The AWSCodeCommitFullAccess policy contains the following policy statement:
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "codecommit:*"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Sid": "CloudWatchEventsCodeCommitRulesAccess",
-      "Effect": "Allow",
-      "Action": [
-        "events:DeleteRule",
-        "events:DescribeRule",
-        "events:DisableRule",
-        "events:EnableRule",
-        "events:PutRule",
-        "events:PutTargets",
-        "events:RemoveTargets",
-        "events:ListTargetsByRule"
-      ],
-      "Resource": "arn:aws:events:*:*:rule/codecommit*"
-    },
-    {
-      "Sid": "SNSTopicAndSubscriptionAccess",
-      "Effect": "Allow",
-      "Action": [
-        "sns:CreateTopic",
-        "sns:DeleteTopic",
-        "sns:Subscribe",
-        "sns:Unsubscribe",
-        "sns:SetTopicAttributes"
-      ],
-      "Resource": "arn:aws:sns:*:*:codecommit*"
-    },
-    {
-      "Sid": "SNSTopicAndSubscriptionReadAccess",
-      "Effect": "Allow",
-      "Action": [
-        "sns:ListTopics",
-        "sns:ListSubscriptionsByTopic",
-        "sns:GetTopicAttributes"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Sid": "LambdaReadOnlyListAccess",
-      "Effect": "Allow",
-      "Action": [
-        "lambda:ListFunctions"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Sid": "IAMReadOnlyListAccess",
-      "Effect": "Allow",
-      "Action": [
-        "iam:ListUsers"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Sid": "IAMReadOnlyConsoleAccess",
-      "Effect": "Allow",
-      "Action": [
-        "iam:ListAccessKeys",
-        "iam:ListSSHPublicKeys",
-        "iam:ListServiceSpecificCredentials",
-        "iam:ListAccessKeys",
-        "iam:GetSSHPublicKey"
-      ],
-      "Resource": "arn:aws:iam::*:user/${aws:username}"
-    },
-    {
-      "Sid": "IAMUserSSHKeys",
-      "Effect": "Allow",
-      "Action": [
-        "iam:DeleteSSHPublicKey",
-        "iam:GetSSHPublicKey",
-        "iam:ListSSHPublicKeys",
-        "iam:UpdateSSHPublicKey",
-        "iam:UploadSSHPublicKey"
-      ],
-      "Resource": "arn:aws:iam::*:user/${aws:username}"
-    },
-    {
-      "Sid": "IAMSelfManageServiceSpecificCredentials",
-      "Effect": "Allow",
-      "Action": [
-        "iam:CreateServiceSpecificCredential",
-        "iam:UpdateServiceSpecificCredential",
-        "iam:DeleteServiceSpecificCredential",
-        "iam:ResetServiceSpecificCredential"
-      ],
-      "Resource": "arn:aws:iam::*:user/${aws:username}"
-    },
-    {
-        "Sid": "CodeStarNotificationsReadWriteAccess",
-        "Effect": "Allow",
-        "Action": [
-            "codestar-notifications:CreateNotificationRule",
-            "codestar-notifications:DescribeNotificationRule",
-            "codestar-notifications:UpdateNotificationRule",
-            "codestar-notifications:DeleteNotificationRule",
-            "codestar-notifications:Subscribe",
-            "codestar-notifications:Unsubscribe"
-        ],
-        "Resource": "*",
-        "Condition" : {
-            "StringLike" : {"codestar-notifications:NotificationsForResource" : "arn:aws:codecommit:*"} 
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "codecommit:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "CloudWatchEventsCodeCommitRulesAccess",
+            "Effect": "Allow",
+            "Action": [
+                "events:DeleteRule",
+                "events:DescribeRule",
+                "events:DisableRule",
+                "events:EnableRule",
+                "events:PutRule",
+                "events:PutTargets",
+                "events:RemoveTargets",
+                "events:ListTargetsByRule"
+            ],
+            "Resource": "arn:aws:events:*:*:rule/codecommit*"
+        },
+        {
+            "Sid": "SNSTopicAndSubscriptionAccess",
+            "Effect": "Allow",
+            "Action": [
+                "sns:CreateTopic",
+                "sns:DeleteTopic",
+                "sns:Subscribe",
+                "sns:Unsubscribe",
+                "sns:SetTopicAttributes"
+            ],
+            "Resource": "arn:aws:sns:*:*:codecommit*"
+        },
+        {
+            "Sid": "SNSTopicAndSubscriptionReadAccess",
+            "Effect": "Allow",
+            "Action": [
+                "sns:ListTopics",
+                "sns:ListSubscriptionsByTopic",
+                "sns:GetTopicAttributes"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "LambdaReadOnlyListAccess",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:ListFunctions"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "IAMReadOnlyListAccess",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListUsers"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "IAMReadOnlyConsoleAccess",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListAccessKeys",
+                "iam:ListSSHPublicKeys",
+                "iam:ListServiceSpecificCredentials"
+            ],
+            "Resource": "arn:aws:iam::*:user/${aws:username}"
+        },
+        {
+            "Sid": "IAMUserSSHKeys",
+            "Effect": "Allow",
+            "Action": [
+                "iam:DeleteSSHPublicKey",
+                "iam:GetSSHPublicKey",
+                "iam:ListSSHPublicKeys",
+                "iam:UpdateSSHPublicKey",
+                "iam:UploadSSHPublicKey"
+            ],
+            "Resource": "arn:aws:iam::*:user/${aws:username}"
+        },
+        {
+            "Sid": "IAMSelfManageServiceSpecificCredentials",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateServiceSpecificCredential",
+                "iam:UpdateServiceSpecificCredential",
+                "iam:DeleteServiceSpecificCredential",
+                "iam:ResetServiceSpecificCredential"
+            ],
+            "Resource": "arn:aws:iam::*:user/${aws:username}"
+        },
+        {
+            "Sid": "CodeStarNotificationsReadWriteAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codestar-notifications:CreateNotificationRule",
+                "codestar-notifications:DescribeNotificationRule",
+                "codestar-notifications:UpdateNotificationRule",
+                "codestar-notifications:DeleteNotificationRule",
+                "codestar-notifications:Subscribe",
+                "codestar-notifications:Unsubscribe"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "codestar-notifications:NotificationsForResource": "arn:aws:codecommit:*"
+                }
+            }
+        },
+        {
+            "Sid": "CodeStarNotificationsListAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codestar-notifications:ListNotificationRules",
+                "codestar-notifications:ListTargets",
+                "codestar-notifications:ListTagsforResource,"
+				"codestar-notifications:ListEventTypes"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "CodeStarNotificationsSNSTopicCreateAccess",
+            "Effect": "Allow",
+            "Action": [
+                "sns:CreateTopic",
+                "sns:SetTopicAttributes"
+            ],
+            "Resource": "arn:aws:sns:*:*:codestar-notifications*"
+        },
+        {
+            "Sid": "AmazonCodeGuruReviewerFullAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codeguru-reviewer:AssociateRepository",
+                "codeguru-reviewer:DescribeRepositoryAssociation",
+                "codeguru-reviewer:ListRepositoryAssociations",
+                "codeguru-reviewer:DisassociateRepository"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AmazonCodeGuruReviewerSLRCreation",
+            "Action": "iam:CreateServiceLinkedRole",
+            "Effect": "Allow",
+            "Resource": "arn:aws:iam::*:role/aws-service-role/codeguru-reviewer.amazonaws.com/AWSServiceRoleForAmazonCodeGuruReviewer",
+            "Condition": {
+                "StringLike": {
+                    "iam:AWSServiceName": "codeguru-reviewer.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "CloudWatchEventsManagedRules",
+            "Effect": "Allow",
+            "Action": [
+                "events:PutRule",
+                "events:PutTargets",
+                "events:DeleteRule",
+                "events:RemoveTargets"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "events:ManagedBy": "codeguru-reviewer.amazonaws.com"
+                }
+            }
         }
-    },    
-    {
-        "Sid": "CodeStarNotificationsListAccess",
-        "Effect": "Allow",
-        "Action": [
-            "codestar-notifications:ListNotificationRules",
-            "codestar-notifications:ListTargets",
-            "codestar-notifications:ListTagsforResource"
-        ],
-        "Resource": "*"
-    },
-    {
-        "Sid": "CodeStarNotificationsSNSTopicCreateAccess",
-        "Effect": "Allow",
-        "Action": [
-            "sns:CreateTopic",
-            "sns:SetTopicAttributes"
-        ],
-        "Resource": "arn:aws:sns:*:*:codestar-notifications*"
-    },
-    {
-        "Sid": "SNSTopicListAccess",
-        "Effect": "Allow",
-        "Action": [
-            "sns:ListTopics"
-        ],
-        "Resource": "*"
-    }
-  ]
+    ]
 }
 ```
 
@@ -375,8 +413,46 @@ The AWSCodeCommitPowerUser policy contains the following policy statement:
                 "codestar-notifications:ListEventTypes"
             ],
             "Resource": "*"
+        },
+        {
+            "Sid": "AmazonCodeGuruReviewerFullAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codeguru-reviewer:AssociateRepository",
+                "codeguru-reviewer:DescribeRepositoryAssociation",
+                "codeguru-reviewer:ListRepositoryAssociations",
+                "codeguru-reviewer:DisassociateRepository"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AmazonCodeGuruReviewerSLRCreation",
+            "Action": "iam:CreateServiceLinkedRole",
+            "Effect": "Allow",
+            "Resource": "arn:aws:iam::*:role/aws-service-role/codeguru-reviewer.amazonaws.com/AWSServiceRoleForAmazonCodeGuruReviewer",
+            "Condition": {
+                "StringLike": {
+                    "iam:AWSServiceName": "codeguru-reviewer.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "CloudWatchEventsManagedRules",
+            "Effect": "Allow",
+            "Action": [
+                "events:PutRule",
+                "events:PutTargets",
+                "events:DeleteRule",
+                "events:RemoveTargets"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "events:ManagedBy": "codeguru-reviewer.amazonaws.com"
+                }
+            }
         }
-    ]
+     ]
 }
 ```
 
@@ -471,8 +547,17 @@ The AWSCodeCommitReadOnly policy contains the following policy statement:
                 "codestar-notifications:ListEventTypes"
             ],
             "Resource": "*"
-        }
-    ]
+        },
+        {
+      "Sid": "AmazonCodeGuruReviewerReadOnlyAccess",
+      "Effect": "Allow",
+      "Action": [
+        "codeguru-reviewer:DescribeRepositoryAssociation",
+        "codeguru-reviewer:ListRepositoryAssociations"
+      ],
+      "Resource": "*"
+    }
+  ]
 }
 ```
 
@@ -507,7 +592,8 @@ The `AWSCodeCommitFullAccess` managed policy include the following statements to
         "Action": [
             "codestar-notifications:ListNotificationRules",
             "codestar-notifications:ListTargets",
-            "codestar-notifications:ListTagsforResource"
+            "codestar-notifications:ListTagsforResource,"
+            "codestar-notifications:ListEventTypes"
         ],
         "Resource": "*"
     },
@@ -519,14 +605,6 @@ The `AWSCodeCommitFullAccess` managed policy include the following statements to
             "sns:SetTopicAttributes"
         ],
         "Resource": "arn:aws:sns:*:*:codestar-notifications*"
-    },
-    {
-        "Sid": "SNSTopicListAccess",
-        "Effect": "Allow",
-        "Action": [
-            "sns:ListTopics"
-        ],
-        "Resource": "*"
     }
 ```
 
@@ -597,6 +675,120 @@ The `AWSCodeCommitPowerUser` managed policy includes the following statements to
 ```
 
 For more information about IAM and notifications, see [Identity and Access Management for AWS CodeStar Notifications](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/security-iam.html)\.
+
+### AWS CodeCommit Managed Policies and Amazon CodeGuru Reviewer<a name="codeguru-permissions"></a>
+
+CodeCommit supports Amazon CodeGuru Reviewer, an automated code review service that uses program analysis and machine learning to detect common issues and recommend fixes in your Java code\. Managed policies for CodeCommit include policy statements for CodeGuru Reviewer functionality\. For more information, see [What Is Amazon CodeGuru Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html)\.
+
+#### Permissions Related to CodeGuru Reviewer in AWSCodeCommitFullAccess<a name="codeguru-fullaccess"></a>
+
+The `AWSCodeCommitFullAccess` managed policy includes the following statements to allow CodeGuru Reviewer to be associated and disassociated with CodeCommit repositories\. Users with this managed policy applied can also view the association status between CodeCommit repositories and CodeGuru Reviewer\.
+
+```
+{
+            "Sid": "AmazonCodeGuruReviewerFullAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codeguru-reviewer:AssociateRepository",
+                "codeguru-reviewer:DescribeRepositoryAssociation",
+                "codeguru-reviewer:ListRepositoryAssociations",
+                "codeguru-reviewer:DisassociateRepository"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AmazonCodeGuruReviewerSLRCreation",
+            "Action": "iam:CreateServiceLinkedRole",
+            "Effect": "Allow",
+            "Resource": "arn:aws:iam::*:role/aws-service-role/codeguru-reviewer.amazonaws.com/AWSServiceRoleForAmazonCodeGuruReviewer",
+            "Condition": {
+                "StringLike": {
+                    "iam:AWSServiceName": "codeguru-reviewer.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "CloudWatchEventsManagedRules",
+            "Effect": "Allow",
+            "Action": [
+                "events:PutRule",
+                "events:PutTargets",
+                "events:DeleteRule",
+                "events:RemoveTargets"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "events:ManagedBy": "codeguru-reviewer.amazonaws.com"
+                }
+        }
+}
+```
+
+#### Permissions Related to CodeGuru Reviewer in AWSCodeCommitPowerUser<a name="codeguru-poweruser"></a>
+
+The `AWSCodeCommitPowerUser` managed policy includes the following statements to allow users to associate and disassociate repositories with CodeGuru Reviewer and view association status\.
+
+```
+{
+            "Sid": "AmazonCodeGuruReviewerFullAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codeguru-reviewer:AssociateRepository",
+                "codeguru-reviewer:DescribeRepositoryAssociation",
+                "codeguru-reviewer:ListRepositoryAssociations",
+                "codeguru-reviewer:DisassociateRepository"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AmazonCodeGuruReviewerSLRCreation",
+            "Action": "iam:CreateServiceLinkedRole",
+            "Effect": "Allow",
+            "Resource": "arn:aws:iam::*:role/aws-service-role/codeguru-reviewer.amazonaws.com/AWSServiceRoleForAmazonCodeGuruReviewer",
+            "Condition": {
+                "StringLike": {
+                    "iam:AWSServiceName": "codeguru-reviewer.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "CloudWatchEventsManagedRules",
+            "Effect": "Allow",
+            "Action": [
+                "events:PutRule",
+                "events:PutTargets",
+                "events:DeleteRule",
+                "events:RemoveTargets"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "events:ManagedBy": "codeguru-reviewer.amazonaws.com"
+                }
+        }
+}
+```
+
+#### Permissions Related to CodeGuru Reviewer in AWSCodeCommitReadOnly<a name="codeguru-readonly"></a>
+
+The `AWSCodeCommitReadOnlyAccess` managed policy includes the following statements to allow read\-only access to CodeGuru Reviewer association status\. Users with this managed policy applied cannot associate or disassociate repositories\. 
+
+```
+{
+      "Sid": "AmazonCodeGuruReviewerReadOnlyAccess",
+      "Effect": "Allow",
+      "Action": [
+        "codeguru-reviewer:DescribeRepositoryAssociation",
+        "codeguru-reviewer:ListRepositoryAssociations"
+      ],
+      "Resource": "*"
+}
+```
+
+#### Amazon CodeGuru Reviewer Service\-Linked Role<a name="codeguru-slr"></a>
+
+When you associate a repository with CodeGuru Reviewer, a service\-linked role is created so that CodeGuru Reviewer can detect issues and recommend fixes for Java code in pull requests\. The service\-linked role is named AWSServiceRoleForAmazonCodeGuruReviewer\. For more information, see [Using Service\-Linked Roles for Amazon CodeGuru Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/using-service-linked-roles.html)\.
 
 For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
 
@@ -778,7 +970,7 @@ If you want to create a policy that applies to all branches named *master* in al
 }
 ```
 
-The following example policy allows a user to make changes to a branch named master in all repositories in an AWS account\. You might use this policy with the AWSCodeCommitReadOnly managed policy to allow automated pushes to the repository\. Because the Effect is `Allow`, this example policy would not work with managed policies such as AWSCodeCommitPowerUser\.
+The following example policy allows a user to make changes to a branch named master in all repositories in an AWS account\. It will not allow changes to any other branches\. You might use this policy with the AWSCodeCommitReadOnly managed policy to allow automated pushes to the repository in the master branch\. Because the Effect is `Allow`, this example policy would not work with managed policies such as AWSCodeCommitPowerUser\.
 
 ```
 {
@@ -792,7 +984,7 @@ The following example policy allows a user to make changes to a branch named mas
             ],
             "Resource": "*",
             "Condition": {
-                "StringNotEqualsIfExists": {
+                "StringEqualsIfExists": {
                     "codecommit:References": [
                         "refs/heads/master"
                     ]

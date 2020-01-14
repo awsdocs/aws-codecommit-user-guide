@@ -16,16 +16,17 @@ You can create and use CodeCommit repositories in the following AWS Regions:
 + US East \(N\. Virginia\)
 + US West \(N\. California\)
 + US West \(Oregon\)
-+ EU \(Ireland\)
-+ EU \(London\)
-+ EU \(Paris\)
-+ EU \(Frankfurt\)
-+ EU \(Stockholm\)
++ Europe \(Ireland\)
++ Europe \(London\)
++ Europe \(Paris\)
++ Europe \(Frankfurt\)
++ Europe \(Stockholm\)
 + Asia Pacific \(Tokyo\)
 + Asia Pacific \(Singapore\)
 + Asia Pacific \(Sydney\)
 + Asia Pacific \(Seoul\)
 + Asia Pacific \(Mumbai\)
++ Asia Pacific \(Hong Kong\)
 + South America \(São Paulo\)
 + Middle East \(Bahrain\)
 + Canada \(Central\)
@@ -34,7 +35,7 @@ You can create and use CodeCommit repositories in the following AWS Regions:
 
 CodeCommit has added support for the Federal Information Processing Standard \(FIPS\) Publication 140\-2 government standard in some regions\. For more information about FIPS and FIPS endpoints, see [Federal Information Processing Standard \(FIPS\) 140\-2 Overview](https://aws.amazon.com/compliance/fips/)\. For Git connection endpoints that support FIPS, see [Git Connection Endpoints](#regions-git)\.
 
-For more information about regional endpoints for AWS CLI, service, and API calls to CodeCommit, see [AWS Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region)\.
+For more information about regional endpoints for AWS CLI, service, and API calls to CodeCommit, see [AWS CodeCommit Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/codecommit.html)\.
 
 ## Git Connection Endpoints<a name="regions-git"></a>
 
@@ -57,39 +58,41 @@ Use the following URLs when you configure Git connections to CodeCommit reposito
 | US West \(N\. California\) | us\-west\-1 | https://git\-codecommit\.us\-west\-1\.amazonaws\.com | HTTPS | 
 | US West \(N\. California\) | us\-west\-1 | ssh://git\-codecommit\.us\-west\-1\.amazonaws\.com  | SSH | 
 | US West \(N\. California\) | us\-west\-1 | https://git\-codecommit\-fips\.us\-west\-1\.amazonaws\.com | HTTPS | 
-| EU \(Ireland\) | eu\-west\-1 | https://git\-codecommit\.eu\-west\-1\.amazonaws\.com | HTTPS | 
-| EU \(Ireland\) | eu\-west\-1 | ssh://git\-codecommit\.eu\-west\-1\.amazonaws\.com | SSH | 
+| Europe \(Ireland\) | eu\-west\-1 | https://git\-codecommit\.eu\-west\-1\.amazonaws\.com | HTTPS | 
+| Europe \(Ireland\) | eu\-west\-1 | ssh://git\-codecommit\.eu\-west\-1\.amazonaws\.com | SSH | 
 | Asia Pacific \(Tokyo\) | ap\-northeast\-1 | https://git\-codecommit\.ap\-northeast\-1\.amazonaws\.com | HTTPS | 
 | Asia Pacific \(Tokyo\) | ap\-northeast\-1 | ssh://git\-codecommit\.ap\-northeast\-1\.amazonaws\.com  | SSH | 
 | Asia Pacific \(Singapore\) | ap\-southeast\-1 | https://git\-codecommit\.ap\-southeast\-1\.amazonaws\.com | HTTPS | 
 | Asia Pacific \(Singapore\) | ap\-southeast\-1 | ssh://git\-codecommit\.ap\-southeast\-1\.amazonaws\.com  | SSH | 
 | Asia Pacific \(Sydney\) | ap\-southeast\-2 | https://git\-codecommit\.ap\-southeast\-2\.amazonaws\.com | HTTPS | 
 | Asia Pacific \(Sydney\) | ap\-southeast\-2 | ssh://git\-codecommit\.ap\-southeast\-2\.amazonaws\.com  | SSH | 
-| EU \(Frankfurt\) | eu\-central\-1 | https://git\-codecommit\.eu\-central\-1\.amazonaws\.com | HTTPS | 
-| EU \(Frankfurt\) | eu\-central\-1 | ssh://git\-codecommit\.eu\-central\-1\.amazonaws\.com  | SSH | 
+| Europe \(Frankfurt\) | eu\-central\-1 | https://git\-codecommit\.eu\-central\-1\.amazonaws\.com | HTTPS | 
+| Europe \(Frankfurt\) | eu\-central\-1 | ssh://git\-codecommit\.eu\-central\-1\.amazonaws\.com  | SSH | 
 | Asia Pacific \(Seoul\) | ap\-northeast\-2 | https://git\-codecommit\.ap\-northeast\-2\.amazonaws\.com | HTTPS | 
 | Asia Pacific \(Seoul\) | ap\-northeast\-2 | ssh://git\-codecommit\.ap\-northeast\-2\.amazonaws\.com  | SSH | 
 | South America \(São Paulo\) | sa\-east\-1 | https://git\-codecommit\.sa\-east\-1\.amazonaws\.com | HTTPS | 
 | South America \(São Paulo\) | sa\-east\-1 | ssh://git\-codecommit\.sa\-east\-1\.amazonaws\.com  | SSH | 
-| EU \(London\) | eu\-west\-2 | https://git\-codecommit\.eu\-west\-2\.amazonaws\.com | HTTPS | 
-| EU \(London\) | eu\-west\-2 | ssh://git\-codecommit\.eu\-west\-2\.amazonaws\.com  | SSH | 
+| Europe \(London\) | eu\-west\-2 | https://git\-codecommit\.eu\-west\-2\.amazonaws\.com | HTTPS | 
+| Europe \(London\) | eu\-west\-2 | ssh://git\-codecommit\.eu\-west\-2\.amazonaws\.com  | SSH | 
 | Asia Pacific \(Mumbai\) | ap\-south\-1 | https://git\-codecommit\.ap\-south\-1\.amazonaws\.com | HTTPS | 
 | Asia Pacific \(Mumbai\) | ap\-south\-1 | ssh://git\-codecommit\.ap\-south\-1\.amazonaws\.com | SSH | 
 | Canada \(Central\) | ca\-central\-1 | https://git\-codecommit\.ca\-central\-1\.amazonaws\.com | HTTPS | 
 | Canada \(Central\) | ca\-central\-1 | ssh://git\-codecommit\.ca\-central\-1\.amazonaws\.com | SSH | 
 | Canada \(Central\) | ca\-central\-1 | https://git\-codecommit\-fips\.ca\-central\-1\.amazonaws\.com | HTTPS | 
-| EU \(Paris\) | eu\-west\-3 | https://git\-codecommit\.eu\-west\-3\.amazonaws\.com | HTTPS | 
-| EU \(Paris\) | eu\-west\-3 | ssh://git\-codecommit\.eu\-west\-3\.amazonaws\.com | SSH | 
+| Europe \(Paris\) | eu\-west\-3 | https://git\-codecommit\.eu\-west\-3\.amazonaws\.com | HTTPS | 
+| Europe \(Paris\) | eu\-west\-3 | ssh://git\-codecommit\.eu\-west\-3\.amazonaws\.com | SSH | 
 | AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | https://git\-codecommit\.us\-gov\-west\-1\.amazonaws\.com | HTTPS | 
 | AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | ssh://git\-codecommit\.us\-gov\-west\-1\.amazonaws\.com | SSH | 
 | AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | https://git\-codecommit\-fips\.us\-gov\-west\-1\.amazonaws\.com | HTTPS | 
 | AWS GovCloud \(US\-East\) | us\-gov\-east\-1 | https://git\-codecommit\.us\-gov\-east\-1\.amazonaws\.com | HTTPS | 
 | AWS GovCloud \(US\-East\) | us\-gov\-east\-1 | ssh://git\-codecommit\.us\-gov\-east\-1\.amazonaws\.com | SSH | 
 | AWS GovCloud \(US\-East\) | us\-gov\-east\-1 | https://git\-codecommit\-fips\.us\-gov\-east\-1\.amazonaws\.com | HTTPS | 
-| EU \(Stockholm\) | eu\-north\-1 | https://git\-codecommit\.eu\-north\-1\.amazonaws\.com | HTTPS | 
-| EU \(Stockholm\) | eu\-north\-1 | ssh://git\-codecommit\.eu\-north\-1\.amazonaws\.com | SSH | 
+| Europe \(Stockholm\) | eu\-north\-1 | https://git\-codecommit\.eu\-north\-1\.amazonaws\.com | HTTPS | 
+| Europe \(Stockholm\) | eu\-north\-1 | ssh://git\-codecommit\.eu\-north\-1\.amazonaws\.com | SSH | 
 | Middle East \(Bahrain\) | me\-south\-1 | https://git\-codecommit\.me\-south\-1\.amazonaws\.com | HTTPS | 
 | Middle East \(Bahrain\) | me\-south\-1 | ssh://git\-codecommit\.me\-south\-1\.amazonaws\.com | SSH | 
+| Asia Pacific \(Hong Kong\) | ap\-east\-1 | https://git\-codecommit\.ap\-east\-1\.amazonaws\.com | HTTPS | 
+| Asia Pacific \(Hong Kong\) | ap\-east\-1 | ssh://git\-codecommit\.ap\-east\-1\.amazonaws\.com | SSH | 
 
 ## Server Fingerprints for CodeCommit<a name="regions-fingerprints"></a>
 
@@ -138,3 +141,5 @@ The following table lists the public fingerprints for Git connection endpoints i
 | git\-codecommit\.eu\-north\-1\.amazonaws\.com | SHA256 | b6KSK7xKq\+V8jl7iuAcjqXsG7zkqoUZZmmhYYFBq1wQ | 
 | git\-codecommit\.me\-south\-1\.amazonaws\.com | MD5 | 0e:39:28:56:d5:41:e6:8d:fa:81:45:37:fb:f3:cd:f7 | 
 | git\-codecommit\.me\-south\-1\.amazonaws\.com | SHA256 | O\+NToCGgjrHekiBuOl0ad7ROGEsz\+DBLXOd/c9wc0JU | 
+| git\-codecommit\.ap\-east\-1\.amazonaws\.com | MD5 | a8:00:3d:24:52:9d:61:0e:f6:e3:88:c8:96:01:1c:fe | 
+| git\-codecommit\.ap\-east\-1\.amazonaws\.com | SHA256 | LafadYwUYW8hONoTRpojbjNs9IRnbEwHtezD3aAIBX0 | 

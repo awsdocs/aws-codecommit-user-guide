@@ -15,6 +15,7 @@ For information about working with other aspects of your repository in CodeCommi
 + [Configuring Notifications for Events in an AWS CodeCommit Repository](how-to-repository-email.md)
 + [Tagging Repositories in AWS CodeCommit](how-to-tag-repository.md)
 + [Manage Triggers for an AWS CodeCommit Repository](how-to-notify.md)
++ [Associate or Disassociate an AWS CodeCommit Repository with Amazon CodeGuru Reviewer](how-to-amazon-codeguru-reviewer.md)
 + [View CodeCommit Repository Details](how-to-view-repository-details.md)
 + [Change AWS CodeCommit Repository Settings](how-to-change-repository.md)
 + [Synchronize Changes Between a Local Repo and an AWS CodeCommit Repository](how-to-sync-changes.md)

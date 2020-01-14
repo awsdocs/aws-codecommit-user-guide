@@ -53,6 +53,8 @@ Repository names are case sensitive and can be no longer than 100 characters\. F
 
 1. \(Optional\) Choose **Add tag** to add one or more repository tags \(a custom attribute label that helps you organize and manage your AWS resources\) to your repository\. For more information, see [Tagging Repositories in AWS CodeCommit](how-to-tag-repository.md)\.
 
+1. \(Optional\) Select **Enable Amazon CodeGuru Reviewer for Java** if this repository will contain Java code, and you want to have CodeGuru Reviewer analyze that Java code\. CodeGuru Reviewer uses multiple machine learning models to find Java code defects and to automatically suggest improvements and fixes in pull requests\. For more information, see the Amazon CodeGuru Reviewer User Guide\.
+
 1. Choose **Create**\. 
 
 **Note**  

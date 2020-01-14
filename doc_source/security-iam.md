@@ -100,6 +100,93 @@ CodeCommit does not support resource\-based policies\.
 
 You can attach tags to CodeCommit resources or pass tags in a request to CodeCommit\. To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `codecommit:ResourceTag/key-name`, `aws:RequestTag/key-name`, or `aws:TagKeys` condition keys\. For more information about tagging CodeCommit resources, see [Example 5: Deny or Allow Actions on Repositories with Tags](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-5)\.
 
+CodeCommit also supports policies based on session tags\. For more information, see [Session Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html)\. 
+
+### Using Tags to Provide Identity Information in CodeCommit<a name="security-iam_service-with-iam-tags-identity"></a>
+
+CodeCommit supports the use of session tags, which are key\-value pair attributes that you pass when you assume an IAM role, use temporary credentials, or federate a user in AWS Security Token Service \(AWS STS\)\. You can also associate tags with an IAM user\. You can use the information provided in these tags to make it easier to identify who made a change or caused an event\. CodeCommit includes the values for tags with the following key names in CodeCommit events:
+
+
+****  
+
+| Key name | Value | 
+| --- | --- | 
+| displayName | The human\-readable name to display and associate with the user \(for example, Mary Major or Saanvi Sarkar\)\. | 
+| emailAddress | The email address you want displayed for and associated with the user \(for example, mary\_major@example\.com or saanvi\_sarkar@example\.com\)\. | 
+
+If this information is provided, CodeCommit includes it in events sent to Amazon EventBridge and Amazon CloudWatch Events\. For more information, see [Monitoring CodeCommit Events in Amazon EventBridge and Amazon CloudWatch Events](monitoring-events.md)\.
+
+To use session tagging, roles must have policies that include the `sts:TagSession` permission set to `Allow`\. If you are using federated access, you can configure display name and email tag information as part of your setup\. For example, if you're using Azure Active Directory, you might provide the following claim information:
+
+
+****  
+
+| Claim name | Value | 
+| --- | --- | 
+| https://aws\.amazon\.com/SAML/Attributes/PrincipalTag:displayName | user\.displayname | 
+| https://aws\.amazon\.com/SAML/Attributes/PrincipalTag:emailAddress | user\.mail | 
+
+You can use the AWS CLI to pass session tags for `displayName` and `emailAddress` using AssumeRole\. For example, a user who wants to assume a role named *Developer* who wants to associate her name *Mary Major* might use the assume\-role command similar to the following:
+
+```
+aws sts assume-role \
+--role-arn arn:aws:iam::123456789012:role/Developer \
+--role-session-name Mary-Major \
+–-tags Key=displayName,Value="Mary Major" Key=emailAddress,Value="mary_major@example.com" \
+--external-id Example987
+```
+
+For more information, see [AssumeRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_adding-assume-role)\.
+
+You can use the `AssumeRoleWithSAML` operation to return a set of temporary credentials that include `displayName` and `emailAddress` tags\. You can use these tags when you access CodeCommit repositories\. This requires that your company or group has already integrated your third\-party SAML solution with AWS\. If so, you can pass SAML attributes as session tags\. For example, if you wanted to pass identity attributes for a display name and email address for a user named *Saanvi Sarkar* as session tags:
+
+```
+<Attribute Name="https://aws.amazon.com/SAML/Attributes/PrincipalTag:displayName">
+  <AttributeValue>Saanvi Sarkar</AttributeValue>
+</Attribute>
+<Attribute Name="https://aws.amazon.com/SAML/Attributes/PrincipalTag:emailAddress">
+  <AttributeValue>saanvi_sarkar@example.com</AttributeValue>
+</Attribute>
+```
+
+For more information, see [Passing Session Tags using AssumeRoleWithSAML](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_adding-assume-role-saml)\.
+
+You can use the `AssumeRoleWithIdentity` operation to return a set of temporary credentials that include `displayName` and `emailAddress` tags\. You can use these tags when you access CodeCommit repositories\. To pass session tags from OpenID Connect \(OIDC\), you must include the session tags in the JSON Web Token \(JWT\)\. For example, the decoded JWP token used to call `AssumeRoleWithWebIdentity` that includes the `displayName` and `emailAddress` session tags for a user named *Li Juan*:
+
+```
+{
+    "sub": "lijuan",
+    "aud": "ac_oic_client",
+    "jti": "ZYUCeREXAMPLE",
+    "iss": "https://xyz.com",
+    "iat": 1566583294,
+    "exp": 1566583354,
+    "auth_time": 1566583292,
+    "https://aws.amazon.com/tags": {
+        "principal_tags": {
+            "displayName": ["Li Juan"],
+            "emailAddress": ["li_juan@example.com"],
+        },
+        "transitive_tag_keys": [
+            "displayName",
+            "emailAddress"
+        ]
+    }
+}
+```
+
+For more information, see [Passing Session Tags using AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_adding-assume-role-idp)\.
+
+You can use the `GetFederationToken` operation to return a set of temporary credentials that include `displayName` and `emailAddress` tags\. You can use these tags when you access CodeCommit repositories\. For example, to use the AWS CLI to get a federation token that includes the `displayName` and `emailAddress` tags:
+
+```
+aws sts get-federation-token \
+--name my-federated-user \
+–-tags key=displayName,value="Nikhil Jayashankar" key=emailAddress,value=nikhil_jayashankar@example.com
+```
+
+For more information, see [Passing Session Tags using GetFederationToken](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_adding-getfederationtoken)\.
+
 ## CodeCommit IAM Roles<a name="security_iam_service-with-iam-roles"></a>
 
 An [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) is an entity within your AWS account that has specific permissions\.

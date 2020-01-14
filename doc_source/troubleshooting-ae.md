@@ -40,7 +40,7 @@ The following information might help you troubleshoot access errors when connect
   Rather than polling, use an event\-based architecture so that calls are only made when an event occurs\. Consider using CloudWatch Events notifications for [AWS CodeCommit events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#codecommit_event_type) to trigger your workflow\.
 + **Implement error retries and exponential backoffs for APIs and automated Git actions**
 
-  Error retries and exponential backoffs can help limit the rate of calls\. Each AWS SDK impements automatic retry logic and exponential backoff alorithms\. For automated Git push and Git pull, you might need to implement your own retry logic\. For more information, see [Error Retries and Exponential Backoff in AWS](https://docs.aws.amazon.com/general/latest/gr/api-retries.html)\.
+  Error retries and exponential backoffs can help limit the rate of calls\. Each AWS SDK implements automatic retry logic and exponential backoff algorithms\. For automated Git push and Git pull, you might need to implement your own retry logic\. For more information, see [Error Retries and Exponential Backoff in AWS](https://docs.aws.amazon.com/general/latest/gr/api-retries.html)\.
 + **Request a CodeCommit service limit increase in the AWS Support Center**
 
   To receive a service limit increase, you must confirm that you have already followed the suggestions offered here, including implementation of error retries or exponential backoff methods\. In your request, you must also provide the AWS Region, AWS account, and timeframe affected by the throttling issues\. 

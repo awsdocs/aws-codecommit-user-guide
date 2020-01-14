@@ -111,6 +111,8 @@ Make sure the fingerprint and public key for CodeCommit connections match those 
 | git\-codecommit\.eu\-north\-1\.amazonaws\.com | SHA256 | b6KSK7xKq\+V8jl7iuAcjqXsG7zkqoUZZmmhYYFBq1wQ | 
 | git\-codecommit\.me\-south\-1\.amazonaws\.com | MD5 | 0e:39:28:56:d5:41:e6:8d:fa:81:45:37:fb:f3:cd:f7 | 
 | git\-codecommit\.me\-south\-1\.amazonaws\.com | SHA256 | O\+NToCGgjrHekiBuOl0ad7ROGEsz\+DBLXOd/c9wc0JU | 
+| git\-codecommit\.ap\-east\-1\.amazonaws\.com | MD5 | a8:00:3d:24:52:9d:61:0e:f6:e3:88:c8:96:01:1c:fe | 
+| git\-codecommit\.ap\-east\-1\.amazonaws\.com | SHA256 | LafadYwUYW8hONoTRpojbjNs9IRnbEwHtezD3aAIBX0 | 
 
 ## IAM error: 'Invalid format' when attempting to add a public key to IAM<a name="troubleshooting-iam1"></a>
 

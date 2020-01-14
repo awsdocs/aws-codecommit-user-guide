@@ -17,7 +17,7 @@ You can use the AWS CodeCommit console to view a list of pull requests in a Code
 1. In the navigation pane, choose **Pull Requests**\.
 
 1. By default, a list of all open pull requests is displayed\.   
-![\[Pull requests displayed in the AWS CodeCommit console.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
+![\[Pull requests displayed in the AWS CodeCommit console.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view-list.png)
 
 1. To change the display filter, choose from the list of available filters:
    + **Open pull requests** \(default\): Displays all pull requests with a status of **Open**\.

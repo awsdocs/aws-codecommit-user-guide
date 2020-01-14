@@ -11,6 +11,5 @@ This documentation helps you understand how to apply the shared responsibility m
 **Topics**
 + [Data Protection in AWS CodeCommit](data-protection.md)
 + [Identity and Access Management for AWS CodeCommit](security-iam.md)
-+ [Logging AWS CodeCommit API Calls with AWS CloudTrail](integ-cloudtrail.md)
 + [Resilience in AWS CodeCommit](disaster-recovery-resiliency.md)
 + [Infrastructure Security in AWS CodeCommit](infrastructure-security.md)

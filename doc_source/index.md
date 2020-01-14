@@ -1,7 +1,7 @@
 # AWS CodeCommit User Guide
 
 -----
-*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -50,6 +50,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Edit Triggers for a AWS CodeCommit Repository](how-to-notify-edit.md)
       + [Test Triggers for an AWS CodeCommit Repository](how-to-notify-test.md)
       + [Delete Triggers from an AWS CodeCommit Repository](how-to-notify-delete.md)
+   + [Associate or Disassociate an AWS CodeCommit Repository with Amazon CodeGuru Reviewer](how-to-amazon-codeguru-reviewer.md)
    + [View CodeCommit Repository Details](how-to-view-repository-details.md)
    + [Change AWS CodeCommit Repository Settings](how-to-change-repository.md)
    + [Synchronize Changes Between a Local Repo and an AWS CodeCommit Repository](how-to-sync-changes.md)
@@ -109,9 +110,11 @@ Amazon's trademarks and trade dress may not be used in
          + [Using Identity-Based Policies (IAM Policies) for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md)
          + [CodeCommit Permissions Reference](auth-and-access-control-permissions-reference.md)
       + [How AWS CodeCommit Works with IAM](security_iam_service-with-iam.md)
-   + [Logging AWS CodeCommit API Calls with AWS CloudTrail](integ-cloudtrail.md)
    + [Resilience in AWS CodeCommit](disaster-recovery-resiliency.md)
    + [Infrastructure Security in AWS CodeCommit](infrastructure-security.md)
++ [Monitoring AWS CodeCommit](monitoring-overview.md)
+   + [Monitoring CodeCommit Events in Amazon EventBridge and Amazon CloudWatch Events](monitoring-events.md)
+   + [Logging AWS CodeCommit API Calls with AWS CloudTrail](integ-cloudtrail.md)
 + [Troubleshooting AWS CodeCommit](troubleshooting.md)
    + [Troubleshooting Git Credentials and HTTPS Connections to AWS CodeCommit](troubleshooting-gc.md)
    + [Troubleshooting SSH Connections to AWS CodeCommit](troubleshooting-ssh.md)

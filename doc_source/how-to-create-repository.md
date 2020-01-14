@@ -1,8 +1,8 @@
 # Create an AWS CodeCommit Repository<a name="how-to-create-repository"></a>
 
-Use AWS CLI or the CodeCommit console to create an empty CodeCommit repository\. If you use the AWS CLI to create a CodeCommit repository, you can add tags to the repository as part of creating it\. To add tags to a respository after you create it, see [Add a Tag to a Repository](how-to-tag-repository-add.md)\.
+Use the AWS CodeCommit console or the AWS Command Line Interface \(AWS CLI\) to create an empty CodeCommit repository\. To add tags to a respository after you create it, see [Add a Tag to a Repository](how-to-tag-repository-add.md)\.
 
-These instructions are written with the assumption that you have already completed the steps in [Setting Up ](setting-up.md)\. 
+These instructions assume that you have completed the steps in [Setting Up ](setting-up.md)\. 
 
 **Note**  
 Depending on your usage, you might be charged for creating or accessing a repository\. For more information, see [Pricing](http://aws.amazon.com/codecommit/pricing) on the CodeCommit product information page\.
@@ -31,6 +31,8 @@ The description field displays Markdown in the console and accepts all HTML char
 
 1. \(Optional\) Choose **Add tag** to add one or more repository tags \(a custom attribute label that helps you organize and manage your AWS resources\) to your repository\. For more information, see [Tagging Repositories in AWS CodeCommit](how-to-tag-repository.md)\.
 
+1. \(Optional\) Select **Enable Amazon CodeGuru Reviewer for Java** if this repository will contain Java code, and you want CodeGuru Reviewer to analyze that Java code\. CodeGuru Reviewer uses multiple machine learning models to find Java code defects and to automatically suggest improvements and fixes in pull requests\. For more information, see the [https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/Welcome.html](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/Welcome.html)\.
+
 1. Choose **Create**\. 
 
 After you create a repository, you can connect to it and start adding code either through the CodeCommit console or a local Git client, or by integrating your CodeCommit repository with your favorite IDE\. For more information, see [Setting Up for AWS CodeCommit ](setting-up.md)\. You can also add your repository to a continuous delivery pipeline\. For more information, see [Simple Pipeline Walkthrough](https://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-cc.html)\.
@@ -43,7 +45,7 @@ To share this repository with others, you must send them the HTTPS or SSH link t
 
 You can use the AWS CLI to create a CodeCommit repository\. Unlike the console, you can add tags to a repository if you create it using the AWS CLI\.
 
-1. Make sure that you have configured the AWS CLI with the AWS Region where the repository exists\. To verify the AWS Region, run the following command at the command line or terminal and review the information for default region name:
+1. Make sure that you have configured the AWS CLI with the AWS Region where the repository exists\. To verify the Region, run the following command at the command line or terminal and review the information for default region name\.
 
    ```
    aws configure
@@ -58,7 +60,7 @@ This name must be unique across an AWS account\.
    + An optional comment about the CodeCommit repository \(with the `--repository-description` option\)\.
    + An optional key\-value pair or pairs to use as tags for the CodeCommit repository \(with the `--tags` option\)\.
 
-   For example, to create a CodeCommit repository named `MyDemoRepo` with the description `"My demonstration repository"` and a tag with a key named *Team* with the value of *Saanvi*:
+   For example, to create a CodeCommit repository named `MyDemoRepo` with the description `"My demonstration repository"` and a tag with a key named *Team* with the value of *Saanvi*, use this command\.
 
    ```
    aws codecommit create-repository --repository-name MyDemoRepo --repository-description "My demonstration repository" --tags Team=Saanvi
@@ -72,7 +74,7 @@ The description field displays Markdown in the console and accepts all HTML char
    + The name \(`repositoryName`\)\.
    + The ID of the AWS account associated with the CodeCommit repository \(`accountId`\)\.
 
-   Here is some example output, based on the preceding example command:
+   The following is example output, based on the preceding example command\.
 
    ```
    {

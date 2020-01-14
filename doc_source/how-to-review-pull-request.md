@@ -19,22 +19,27 @@ You can use the CodeCommit console to review a pull request in a CodeCommit repo
 1. In the navigation pane, choose **Pull requests**\.
 
 1. By default, a list of all open pull requests is displayed\. Choose the open pull request you want to review\.   
-![\[Open pull requests displayed in the CodeCommit console.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
+![\[Open pull requests displayed in the CodeCommit console.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view-list.png)
 **Note**  
 You can comment on a closed or merged pull request, but you cannot merge or reopen it\.
 
 1. In the pull request, choose **Changes**\.
 
 1. Do one of the following:
-   + To add a general comment for the entire pull request, in **Comments on changes**, in **New comment**, enter a comment and then choose **Save**\. You can use [Markdown](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html), or you can enter your comment in plaintext\.  
+   + To add a general comment for the entire pull request, in **Comments on changes**, in **New comment**, enter a comment, and then choose **Save**\. You can use [Markdown](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html), or you can enter your comment in plaintext\.  
 ![\[A general comment on the changes in a pull request.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-changecomment.png)
-   + To add a comment to a file in the commit, in **Changes**, find the name of the file\. Choose the comment bubble that appears next to the file name ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png), enter a comment, and then choose **Save**\.   
+   + To add a comment to a file in the commit, in **Changes**, find the name of the file\. Choose the comment icon ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png) that appears next to the file name, enter a comment, and then choose **Save**\.   
 ![\[Adding a comment on a file in a pull request.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-addfilecomment.png)
-   + To add a comment to a changed line in the pull request, in **Changes**, go to the line you want to comment on\. Choose the comment bubble ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png) that appears for that line, enter a comment, and then choose **Save**\.   
+   + To add a comment to a changed line in the pull request, in **Changes**, go to the line you want to comment on\. Choose the comment icon ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png) that appears for that line, enter a comment, and then choose **Save**\.   
 ![\[Adding a comment on a line in a pull request.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-comment.png)
 
 1. To reply to comments on a commit, in **Changes** or **Activity**, choose **Reply**\.   
 ![\[Adding a reply to a comment in a pull request.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-reply-activity.png)
+
+1. \(Optional\) To reply to a recommendation created by Amazon CodeGuru Reviewer, including providing feedback on the recommendation's quality, choose **Reply**\. Use the reaction buttons to provide general information about whether you approve or disapprove the recommendation\. Use the comment field to provide more details about your reaction\.  
+![\[Replying to a recommendation created by Amazon CodeGuru Reviewer.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-reply-bot.png)
+**Note**  
+You will only see CodeGuru Reviewer comments if you have associated the repository with CodeGuru Reviewer, if the analysis is complete, and if the code in the pull request is Java code\. For more information, see [Associate or Disassociate an AWS CodeCommit Repository with Amazon CodeGuru Reviewer](how-to-amazon-codeguru-reviewer.md)\.
 
 1. To approve the changes made in a pull request, choose **Approve**\. You can view approvals, approval rules for a pull request, and approval rules created by approval rule templates in **Approvals**\. If you decide you do not want to approve the pull request after all, you can choose **Revoke approval**\.
 **Note**  
@@ -59,13 +64,13 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
      + The line number of the change in a compared file \(with the filePosition attribute\)\.
      + Whether the comment on the change is "before" or "after" in the comparison between the source and destination branches \(with the relativeFileVersion attribute\)\.
 
-   For example, to add the comment *"These don't appear to be used anywhere\. Can we remove them?"* on the change to the *ahs\_count\.py* file in a pull request with the ID of *47* in a repository named *MyDemoRepo*:
+   For example, use this command to add the comment *"These don't appear to be used anywhere\. Can we remove them?"* on the change to the *ahs\_count\.py* file in a pull request with the ID of *47* in a repository named *MyDemoRepo*\.
 
    ```
    aws codecommit post-comment-for-pull-request --pull-request-id "47" --repository-name MyDemoRepo --before-commit-id 317f8570EXAMPLE --after-commit-id 5d036259EXAMPLE --client-request-token 123Example --content "These don't appear to be used anywhere. Can we remove them?" --location filePath=ahs_count.py,filePosition=367,relativeFileVersion=AFTER   
    ```
 
-   If successful, this command produces output similar to the following:
+   If successful, this command produces output similar to the following\.
 
    ```
    { 
@@ -98,13 +103,13 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
    + \(Optional\) An enumeration token to return the next batch of the results \(with the `--next-token` option\)\.
    + \(Optional\) A non\-negative integer to limit the number of returned results \(with the `--max-results` option\)\.
 
-   For example, to view comments for a pull request with an ID of 42:
+   For example, use this command to view comments for a pull request with an ID of 42\.
 
    ```
    aws codecommit get-comments-for-pull-request --pull-request-id 42
    ```
 
-   If successful, this command produces output similar to the following:
+   If successful, this command produces output similar to the following\.
 
    ```
    {
@@ -152,7 +157,7 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
    + The revision ID of the pull request \(using the \-\-revision\-id option\)\. You can get the current revision ID for a pull request by using the [get\-pull\-request](how-to-view-pull-request.md#get-pull-request) command\.
    + The approval state you want to apply \(using the \-\-approval\-state\) option\. Valid approval states include `APPROVE` and `REVOKE`\.
 
-   For example, to approve a pull request with the ID of *27* and a revision ID of *9f29d167EXAMPLE*:
+   For example, use this command to approve a pull request with the ID of *27* and a revision ID of *9f29d167EXAMPLE*\.
 
    ```
    aws codecommit update-pull-request-approval-state --pull-request-id 27 --revision-id 9f29d167EXAMPLE --approval-state "APPROVE"
@@ -165,13 +170,13 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
    + A unique, client\-generated idempotency token \(with the \-\-client\-request\-token option\)\.
    + The content of your reply \(with the \-\-content option\)\. 
 
-    For example, to add the reply *"Good catch\. I'll remove them\."* to the comment with the system\-generated ID of *abcd1234EXAMPLEb5678efgh*: 
+    For example, use this command to add the reply *"Good catch\. I'll remove them\."* to the comment with the system\-generated ID of *abcd1234EXAMPLEb5678efgh*\. 
 
    ```
    aws codecommit post-comment-reply --in-reply-to abcd1234EXAMPLEb5678efgh --content "Good catch. I'll remove them." --client-request-token 123Example
    ```
 
-   If successful, this command produces output similar to the following:
+   If successful, this command produces output similar to the following\.
 
    ```
    { 

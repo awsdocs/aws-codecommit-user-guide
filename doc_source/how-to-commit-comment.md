@@ -35,7 +35,7 @@ You can use the CodeCommit console to add comments to the comparison of a commit
 
 ### Add and Reply to Comments on a Commit \(Console\)<a name="how-to-commit-comment-add-cpage"></a>
 
-You can add and reply to comments to a commit\. Your comments are marked as those belonging to the IAM user or role you used to sign in to the console\.
+You can add and reply to comments to a commit\. Your comments are marked as belonging to the IAM user or role you used to sign in to the console\.
 
 **To add and reply to comments on a commit**
 
@@ -55,7 +55,7 @@ You can add and reply to comments to a commit\. Your comments are marked as thos
    + To add a comment to a changed line in the commit, go to the line where the change appears\. Choose the comment bubble ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png), enter your comment, and then choose **Save**\.   
 ![\[Adding a comment on a line in a commit.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-addlinecomment.png)
 **Note**  
-You can edit your comment after you have saved it, but you cannot delete it from the CodeCommit console\. Consider using the **Preview markdown** mode for your comment before you save it\.
+You can edit your comment after you have saved it\. You can also delete its contents\. The comment will remain with a message saying that the contents have been deleted\. Consider using the **Preview markdown** mode for your comment before you save it\.
 
 1. To reply to comments on a commit, choose **Reply**\.   
 ![\[Choose Reply to add a comment to an existing comment on a commit.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)

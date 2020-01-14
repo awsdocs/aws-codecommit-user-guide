@@ -94,7 +94,7 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
    + eu\-north\-1
    + me\-south\-1
 
-   For more information about CodeCommit and AWS Regions, see [Regions and Git Connection Endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\.
+   For more information about CodeCommit and AWS Regions, see [Regions and Git Connection Endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\. For more information about the AWS CLI and profiles, see [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)\.
 
 Next, you must install Git\. 
 + **For Linux, macOS, or Unix**:
@@ -141,16 +141,18 @@ The description field displays Markdown in the console and accepts all HTML char
 
 1. \(Optional\) Choose **Add tag** to add one or more repository tags \(a custom attribute label that helps you organize and manage your AWS resources\) to your repository\. For more information, see [Tagging Repositories in AWS CodeCommit](how-to-tag-repository.md)\.
 
+1. \(Optional\) Select **Enable Amazon CodeGuru Reviewer for Java** if this repository will contain Java code, and you want CodeGuru Reviewer to analyze that Java code\. CodeGuru Reviewer uses multiple machine learning models to find Java code defects and to automatically suggest improvements and fixes in pull requests\. For more information, see the [https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/Welcome.html](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/Welcome.html)\.
+
 1. Choose **Create**\. 
 
 ![\[Creating a repository for migrating a Git repository to CodeCommit\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-create-repo-migrate-existing.png)
 
 After it is created, the repository appears in the **Repositories** list\. In the URL column, choose the copy icon, and then choose the protocol \(SSH or HTTPS\) to be used to connect to CodeCommit\. Copy the URL\.
 
-For example, if you named your repository *MyClonedRepository* and you are using Git credentials with HTTPS in the US West \(Oregon\) Region, the URL looks like the following:
+For example, if you named your repository *MyClonedRepository* and you are using Git credentials with HTTPS in the US East \(Ohio\) Region, the URL looks like the following:
 
 ```
-https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyClonedRepository
+https://git-codecommit.us-east-2.amazonaws.com/MyClonedRepository
 ```
 
 You need this URL later in [Step 2: Clone the Repository and Push to the CodeCommit Repository](#how-to-migrate-existing-clone)\.
@@ -178,7 +180,7 @@ In this section, you clone a Git repository to your local computer, creating wha
    For example, if you named your repository *MyClonedRepository* and you are set up to use HTTPS, you would run the following command:
 
    ```
-   git push https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyClonedRepository --all
+   git push https://git-codecommit.us-east-2.amazonaws.comMyClonedRepository --all
    ```
 **Note**  
 The \-\-all option only pushes all branches for the repository\. It does not push other references, such as tags\. If you want to push tags, wait until the initial push is complete, and then push again, this time using the \-\-tags option:  
@@ -191,7 +193,7 @@ For more information, see [Git push](https://git-scm.com/docs/git-push) on the G
 You can delete the *aws\-codecommit\-demo* folder and its contents after you have migrated the repository to CodeCommit\. To create a local repo with all the correct references for working with the repository in CodeCommit, run the `git clone` command without the `--mirror` option:
 
 ```
-git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyClonedRepository
+git clone https://git-codecommit.us-east-2.amazonaws.comMyClonedRepository
 ```
 
 ## Step 3: View Files in CodeCommit<a name="how-to-migrate-existing-view"></a>
