@@ -305,7 +305,7 @@ In this example event, a pull request was created in a repository named `MyDemoR
     "creationDate": "Tue Feb 9 2019 10:18:42 PDT ",
     "description": "An example description.",
     "destinationCommit": "12241970EXAMPLE",
-    "destinationReference": "master",
+    "destinationReference": "refs/heads/master",
     "event": "pullRequestCreated",
     "isMerged": "False",
     "lastModifiedDate": "Tue Feb 9 2019 10:18:42 PDT",
@@ -315,7 +315,7 @@ In this example event, a pull request was created in a repository named `MyDemoR
     "repositoryNames": ["MyDemoRepo"],
     "revisionId": "bdc0cb9bEXAMPLE",
     "sourceCommit": "2774290EXAMPLE",
-    "sourceReference": "test-branch",
+    "sourceReference": "refs/heads/test-branch",
     "title": "My Example Pull Request"
   }
 }
@@ -343,7 +343,7 @@ In this example event, a user who assumed a role named `Admin` with a session na
     "creationDate": "Tue Feb 9 2019 10:18:42 PDT",
     "description": "An example description.",
     "destinationCommit": "7644990EXAMPLE",
-    "destinationReference": "master",
+    "destinationReference": "refs/heads/master",
     "event": "pullRequestSourceBranchUpdated",
     "isMerged": "False",
     "lastModifiedDate": "Tue Feb 9 2019 10:18:42 PDT",
@@ -353,7 +353,7 @@ In this example event, a user who assumed a role named `Admin` with a session na
     "repositoryNames": ["MyDemoRepo"],
     "revisionId": "bdc0cb9b4EXAMPLE",
     "sourceCommit": "64875001EXAMPLE",
-    "sourceReference": "test-branch",
+    "sourceReference": "refs/heads/test-branch",
     "title": "My Example Pull Request"
   }
 }
@@ -381,7 +381,7 @@ In this example event, a user who assumed a role named `Admin` with a session na
     "creationDate": "Tue Jun 18 10:34:20 PDT 2019",
     "description": "An example description.",
     "destinationCommit": "95149731EXAMPLE",
-    "destinationReference": "master",
+    "destinationReference": "refs/heads/master",
     "event": "pullRequestStatusChanged",
     "isMerged": "False",
     "lastModifiedDate": "Tue Jun 18 10:34:20 PDT 2019",
@@ -391,7 +391,7 @@ In this example event, a user who assumed a role named `Admin` with a session na
     "repositoryNames": ["MyDemoRepo"],
     "revisionId": "bdc0cb9bEXAMPLE",
     "sourceCommit": "4409936EXAMPLE",
-    "sourceReference": "test-branch",
+    "sourceReference": "refs/heads/test-branch",
     "title": "My Example Pull Request"
   }
 }
@@ -419,7 +419,7 @@ In this example event, a user who assumed a role named `Admin` with a session na
     "creationDate": "Mon Mar 11 14:42:31 PDT 2019",
     "description": "An example description.",
     "destinationCommit": "4376719EXAMPLE",
-    "destinationReference": "master",
+    "destinationReference": "refs/heads/master",
     "event": "pullRequestMergeStatusUpdated",
     "isMerged": "True",
     "lastModifiedDate": "Mon Mar 11 14:42:31 PDT 2019",
@@ -430,7 +430,7 @@ In this example event, a user who assumed a role named `Admin` with a session na
     "repositoryNames": ["MyDemoRepo"],
     "revisionId": "bdc0cb9beEXAMPLE",
     "sourceCommit": "0701696EXAMPLE",
-    "sourceReference": "test-branch",
+    "sourceReference": "refs/heads/test-branch",
     "title": "My Example Pull Request"
   }
 }
