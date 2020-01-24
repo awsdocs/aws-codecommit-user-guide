@@ -135,33 +135,33 @@ If you are using macOS, use the following steps to ensure the credential helper 
   1. Open the Keychain Access utility\. \(You can use Finder to locate it\.\)
   2. Search for `git-codecommit`\. Highlight the row, right click, and select "Delete ..."\.
   3. Do one of the following:
-   + Modify or remove the default git credential configurations specifying osxkeychain as the helper\.
-     1. Find where osxkeychain is specified as a helper:
-     ```shell
-     git config --show-origin --list | grep credential
-     ```
-     2. Check for results like:
-     ```shell
-     file:/usr/local/etc/gitconfig   credential.helper=osxkeychain
-     ```
-     3. Modify the configuration using one of the following strategies:
-        - Remove the credential section with "helper = osxkeychain"
-        - Update both the aws credential helper and osxkeychain credential helper to have a contexts\. For example, if it is used to authenticate to github:
-        ```
-        [credential "https://git-codecommit\.us-east-1\.amazonaws\.com"]
-            helper = !aws --profile CodeCommitProfile codecommit credential-helper $@
-            UseHttpPath = true
-        [credential "https://github\.com"]
-           helper = osxkeychain
-        ```
-        This will cause git to use the osxkeychain helper when the remote host matches the "https://github\.com" context, and aws codecommit credential-helper when the remote host matches the codecommit host\.
-   + Include an empty string helper before the aws git credential helper like so:
-     ```
-     [credential]
-         helper =
-         helper = !aws --profile CodeCommitProfile codecommit credential-helper $@
-         UseHttpPath = true
-     ```
+     + Modify or remove the default git credential configurations specifying osxkeychain as the helper\.
+       1. Find where osxkeychain is specified as a helper:
+       ```shell
+       git config --show-origin --list | grep credential
+       ```
+       2. Check for results like:
+       ```shell
+       file:/usr/local/etc/gitconfig   credential.helper=osxkeychain
+       ```
+       3. Modify the configuration using one of the following strategies:
+          - Remove the credential section with "helper = osxkeychain"
+          - Update both the aws credential helper and osxkeychain credential helper to have a contexts\. For example, if it is used to authenticate to github:
+          ```
+          [credential "https://git-codecommit\.us-east-1\.amazonaws\.com"]
+              helper = !aws --profile CodeCommitProfile codecommit credential-helper $@
+              UseHttpPath = true
+          [credential "https://github\.com"]
+              helper = osxkeychain
+          ```
+          This will cause git to use the osxkeychain helper when the remote host matches the "https://github\.com" context, and aws codecommit credential-helper when the remote host matches the codecommit host\.
+     + Include an empty string helper before the aws git credential helper like so:
+       ```
+       [credential]
+           helper =
+           helper = !aws --profile CodeCommitProfile codecommit credential-helper $@
+           UseHttpPath = true
+       ```
 **Note**
 For more information on git credential contexts and options, see (https://git-scm.com/docs/gitcredentials#_credential_contexts)\.
 For more information on the credential helper, see [Git for macOS: I configured the credential helper successfully, but now I am denied access to my repository \(403\)](troubleshooting-ch.md#troubleshooting-macoshttps)\.
