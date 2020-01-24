@@ -164,6 +164,7 @@ If you are using macOS, use the following steps to ensure the credential helper 
        ```
 **Note**
 For more information on git credential contexts and options, see (https://git-scm.com/docs/gitcredentials#_credential_contexts)\.
+
 For more information on the credential helper, see [Git for macOS: I configured the credential helper successfully, but now I am denied access to my repository \(403\)](troubleshooting-ch.md#troubleshooting-macoshttps)\.
 
 ## Step 4: Connect to the CodeCommit Console and Clone the Repository<a name="setting-up-https-unixes-connect-console"></a>
