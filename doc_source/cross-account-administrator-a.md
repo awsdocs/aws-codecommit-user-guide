@@ -17,7 +17,7 @@ You can create a policy in AccountA that grants access to the repository in Acco
 + Configure the policy to allow AccountB users access to a specific repository, but do not allow them to view a list of all repositories in AccountA\.
 + Configure additional access to allow AccountB users to choose the repository from a list of all repositories in AccountA\.<a name="cross-account-create-policy-a-procedure"></a>
 
-**To create a role for repository access**
+**To create a policy for repository access**
 
 1. Sign in to the AWS Management Console as an IAM user with permissions to create roles in AccountA\.
 
@@ -106,7 +106,7 @@ You can create a policy in AccountA that grants access to the repository in Acco
 
 After you have configured a policy, create a role that IAM users and groups in AccountB can assume, and attach the policy to that role\.<a name="cross-account-create-role-a-procedure"></a>
 
-**To create a policy for repository access**
+**To create a role for repository access**
 
 1. In the IAM console, choose **Roles**\.
 
