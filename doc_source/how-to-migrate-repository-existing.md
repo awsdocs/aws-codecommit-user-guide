@@ -180,7 +180,7 @@ In this section, you clone a Git repository to your local computer, creating wha
    For example, if you named your repository *MyClonedRepository* and you are set up to use HTTPS, you would run the following command:
 
    ```
-   git push https://git-codecommit.us-east-2.amazonaws.comMyClonedRepository --all
+   git push https://git-codecommit.us-east-2.amazonaws.com/MyClonedRepository --all
    ```
 **Note**  
 The \-\-all option only pushes all branches for the repository\. It does not push other references, such as tags\. If you want to push tags, wait until the initial push is complete, and then push again, this time using the \-\-tags option:  
@@ -193,7 +193,7 @@ For more information, see [Git push](https://git-scm.com/docs/git-push) on the G
 You can delete the *aws\-codecommit\-demo* folder and its contents after you have migrated the repository to CodeCommit\. To create a local repo with all the correct references for working with the repository in CodeCommit, run the `git clone` command without the `--mirror` option:
 
 ```
-git clone https://git-codecommit.us-east-2.amazonaws.comMyClonedRepository
+git clone https://git-codecommit.us-east-2.amazonaws.com/MyClonedRepository
 ```
 
 ## Step 3: View Files in CodeCommit<a name="how-to-migrate-existing-view"></a>
