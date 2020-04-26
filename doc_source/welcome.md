@@ -33,7 +33,7 @@ With CodeCommit, you can:
 
 ## CodeCommit, Git, and Choosing the Right AWS Service for Your Needs<a name="welcome-alternate-services"></a>
 
-As a Git\-based service, CodeCommit is well suited to most version control needs\. There are no arbitrary limits on file size, file type, and repository size\. However, there are inherent limitations to Git that can negatively affect the performance of certain kinds of operations, particularly over time\. You can avoid potential degredation of CodeCommit repository performance by avoiding using it for use cases where other AWS services are better suited to the task\. You can also optimize Git performance for complex repositories\. Here are some use cases where Git, and therefore CodeCommit, might not be the best solution for you, or where you might need to take additional steps to optimize for Git\.
+As a Git\-based service, CodeCommit is well suited to most version control needs\. There are no arbitrary limits on file size, file type, and repository size\. However, there are inherent limitations to Git that can negatively affect the performance of certain kinds of operations, particularly over time\. You can avoid potential degradation of CodeCommit repository performance by avoiding using it for use cases where other AWS services are better suited to the task\. You can also optimize Git performance for complex repositories\. Here are some use cases where Git, and therefore CodeCommit, might not be the best solution for you, or where you might need to take additional steps to optimize for Git\.
 
 
 ****  
