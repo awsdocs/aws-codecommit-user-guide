@@ -1,19 +1,19 @@
-# Create a Commit in AWS CodeCommit<a name="how-to-create-commit"></a>
+# Create a commit in AWS CodeCommit<a name="how-to-create-commit"></a>
 
-You can use Git or the AWS CLI to create a commit in a CodeCommit repository\. If the local repo is connected to a CodeCommit repository, you use Git to push the commit from the local repo to the CodeCommit repository\. To create a commit directly in the CodeCommit console, see [Create or Add a File to an AWS CodeCommit Repository](how-to-create-file.md) and [Edit the Contents of a File in an AWS CodeCommit Repository](how-to-edit-file.md)\. 
+You can use Git or the AWS CLI to create a commit in a CodeCommit repository\. If the local repo is connected to a CodeCommit repository, you use Git to push the commit from the local repo to the CodeCommit repository\. To create a commit directly in the CodeCommit console, see [Create or add a file to an AWS CodeCommit repository](how-to-create-file.md) and [Edit the contents of a file in an AWS CodeCommit repository](how-to-edit-file.md)\. 
 
 **Note**  
 If using the AWS CLI, make sure that you have a recent version installed to ensure that you are using a version that contains the `create-commit` command\.
 
 **Topics**
-+ [Create a Commit Using a Git Client](#how-to-create-commit-git)
-+ [Create a Commit Using the AWS CLI](#how-to-create-commit-cli)
++ [Create a commit using a Git client](#how-to-create-commit-git)
++ [Create a commit using the AWS CLI](#how-to-create-commit-cli)
 
-## Create a Commit Using a Git Client<a name="how-to-create-commit-git"></a>
+## Create a commit using a Git client<a name="how-to-create-commit-git"></a>
 
 You can create commits using a Git client installed on your local computer, and then push those commits to your CodeCommit repository\.
 
-1. Complete the prerequisites, including [Setting Up ](setting-up.md)\.
+1. Complete the prerequisites, including [Setting up ](setting-up.md)\.
 **Important**  
 If you have not completed setup, you cannot connect or commit to the repository using Git\.
 
@@ -73,7 +73,7 @@ If you cloned the repository, from the perspective of the local repo, *remote\-n
    1 file changed, 1 insertion(+)
    ```
 
-   Of course, the output assumes you have already connected the local repo to the CodeCommit repository\. \(For instructions, see [Connect to a Repository](how-to-connect.md)\.\)
+   Of course, the output assumes you have already connected the local repo to the CodeCommit repository\. \(For instructions, see [Connect to a repository](how-to-connect.md)\.\)
 
 1. When you're ready to push the commit from the local repo to the CodeCommit repository, run git push *remote\-name* *branch\-name*, where *remote\-name* is the nickname the local repo uses for the CodeCommit repository and *branch\-name* is the name of the branch to push to the CodeCommit repository\.
 
@@ -109,12 +109,12 @@ If you add the `-u` option to git push \(for example, git push \-u origin master
 
 For more options, see your Git documentation\.
 
-## Create a Commit Using the AWS CLI<a name="how-to-create-commit-cli"></a>
+## Create a commit using the AWS CLI<a name="how-to-create-commit-cli"></a>
 
 You can use the AWS CLI and the `create-commit` command to create a commit for a repository on the tip of a specified branch\. You can also create an unreferenced merge commit to represent the results of merging two commit specifiers\. For more information, see [Create an unreferenced commit](how-to-resolve-conflict-pull-request.md#create-unreferenced-merge-commit)\.
 
 **Note**  
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. <a name="create-commit"></a>
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. <a name="create-commit"></a>
 
 **To create a commit**
 

@@ -1,13 +1,13 @@
-# Create a Branch in AWS CodeCommit<a name="how-to-create-branch"></a>
+# Create a branch in AWS CodeCommit<a name="how-to-create-branch"></a>
 
 You can use the CodeCommit console or the AWS CLI to create branches for your repository\. This is a quick way to separate work on a new or different version of files without impacting work in the default branch\. After you create a branch in the CodeCommit console, you must pull that change to your local repo\. Alternatively, you can create a branch locally and then use Git from a local repo connected to the CodeCommit repository to push that change\. 
 
 **Topics**
-+ [Create a Branch \(Console\)](#how-to-create-branch-console)
-+ [Create a Branch \(Git\)](#how-to-create-branch-git)
-+ [Create a Branch \(AWS CLI\)](#how-to-create-branch-cli)
++ [Create a branch \(console\)](#how-to-create-branch-console)
++ [Create a branch \(Git\)](#how-to-create-branch-git)
++ [Create a branch \(AWS CLI\)](#how-to-create-branch-cli)
 
-## Create a Branch \(Console\)<a name="how-to-create-branch-console"></a>
+## Create a branch \(console\)<a name="how-to-create-branch-console"></a>
 
 You can use the CodeCommit console to create a branch in a CodeCommit repository\. The next time users pull changes from the repository, they see the new branch\.
 
@@ -22,11 +22,11 @@ You can use the CodeCommit console to create a branch in a CodeCommit repository
 
    In **Branch name**, enter a name for the branch\. In **Branch from**, choose a branch or tag from the list, or paste a commit ID\. Choose **Create branch**\.
 
-## Create a Branch \(Git\)<a name="how-to-create-branch-git"></a>
+## Create a branch \(Git\)<a name="how-to-create-branch-git"></a>
 
 Follow these steps to use Git from a local repo to create a branch in a local repo and then push that branch to the CodeCommit repository\.
 
-These steps are written with the assumption that you have already connected the local repo to the CodeCommit repository\. For instructions, see [Connect to a Repository](how-to-connect.md)\.
+These steps are written with the assumption that you have already connected the local repo to the CodeCommit repository\. For instructions, see [Connect to a repository](how-to-connect.md)\.
 
 1. Create a branch in your local repo by running the git checkout \-b *new\-branch\-name* command, where *new\-branch\-name* is the name of the new branch\.
 
@@ -51,9 +51,9 @@ To set up a branch in the local repo that is connected to a branch in the CodeCo
 
 For more options, see your Git documentation\.
 
-## Create a Branch \(AWS CLI\)<a name="how-to-create-branch-cli"></a>
+## Create a branch \(AWS CLI\)<a name="how-to-create-branch-cli"></a>
 
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 
 
 Follow these steps to use the AWS CLI to create a branch in a CodeCommit repository and then push that branch to the CodeCommit repository\.
 

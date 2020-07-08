@@ -1,12 +1,12 @@
-# Example: Create an AWS CodeCommit Trigger for an AWS Lambda Function<a name="how-to-notify-lambda"></a>
+# Example: Create an AWS CodeCommit trigger for an AWS Lambda function<a name="how-to-notify-lambda"></a>
 
 You can create a trigger for a CodeCommit repository so that events in the repository invoke a Lambda function\. In this example, you create a Lambda function that returns the URL used to clone the repository to an Amazon CloudWatch log\.   
 
 **Topics**
-+ [Create the Lambda Function](#how-to-notify-lambda-create-function)
-+ [View the Trigger for the Lambda Function in the AWS CodeCommit Repository](#how-to-notify-lam-view)
++ [Create the Lambda function](#how-to-notify-lambda-create-function)
++ [View the trigger for the Lambda function in the AWS CodeCommit repository](#how-to-notify-lam-view)
 
-## Create the Lambda Function<a name="how-to-notify-lambda-create-function"></a>
+## Create the Lambda function<a name="how-to-notify-lambda-create-function"></a>
 
 When you use the Lambda console to create the function, you can also create a CodeCommit trigger for the Lambda function\. The following steps include a sample Lambda function\. The sample is available in two languages: JavaScript and Python\. The function returns the URLs used for cloning a repository to a CloudWatch log\.
 
@@ -14,11 +14,13 @@ When you use the Lambda console to create the function, you can also create a Co
 
 1. Sign in to the AWS Management Console and open the AWS Lambda console at [https://console\.aws\.amazon\.com/lambda/](https://console.aws.amazon.com/lambda/)\.
 
-1. On the **Lambda Functions** page, choose **Create a Lambda function**\. \(If you have not used Lambda before, choose **Get Started Now**\.\)
+1. On the **Lambda Functions** page, choose **Create function**\. \(If you have not used Lambda before, choose **Get Started Now**\.\)
 
-1. On the **Select blueprint** page, choose **Blank function**\.
+1. On the **Create function** page, choose **Author from scratch**\. In **Function Name**, provide a name for the function, for example *MyLambdaFunctionforCodeCommit*\. In **Runtime**, choose the language you want to use to write your function, and then choose **Create function**\.
 
-1. On the **Configure triggers** page, choose AWS CodeCommit from the services drop\-down list\.   
+1. On the **Configuration** tab, choose **Add trigger**\.
+
+1.  In **Trigger configuration**, choose **CodeCommit** from the services drop\-down list\.   
 ![\[Creating a repository from the console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-lambda-trigger.png)![\[Creating a repository from the console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/)
    + In **Repository name**, choose the name of the repository where you want to configure a trigger that uses the Lambda function in response to repository events\.
    + In **Trigger name**, enter a name for the trigger \(for example, *MyLambdaFunctionTrigger*\)\.
@@ -26,9 +28,9 @@ When you use the Lambda console to create the function, you can also create a Co
    + If you want the trigger to apply to all branches of the repository, in **Branches**, choose **All branches**\. Otherwise, choose **Specific branches**\. The default branch for the repository is added by default\. You can keep or delete this branch from the list\. Choose up to 10 branch names from the list of repository branches\.
    + \(Optional\) In **Custom data**, enter information you want included in the Lambda function \(for example, the name of the IRC channel used by developers to discuss development in the repository\)\. This field is a string\. It cannot be used to pass any dynamic parameters\.
 
-   Choose **Next**\.
+   Choose **Add**\.
 
-1. On the **Configure function** page, in **Name**, enter a name for the function \(for example, *MyCodeCommitFunction*\)\. In **Description**, enter an optional description for the function\. If you want to create a sample JavaScript function, in **Runtime**, choose **Node\.js**\. If you want to create a sample Python function, choose **Python 2\.7**\.
+1. On the **Configuration** page, in **Function Code**, in Code entry type, choose Edit code inline\.\. In  **Runtime**, choose **Node\.js**\. If you want to create a sample Python function, choose **Python**\.
 
 1. In **Code entry type**, choose **Edit code inline**, and then replace the hello world code with one of the two following samples\.
 
@@ -88,20 +90,9 @@ When you use the Lambda console to create the function, you can also create a Co
            raise e
    ```
 
-1. In **Lambda function handler and role**, do the following:
-   + In **Handler**, leave the default value as derived from the function \(`index.handler` for the Node\.js sample or `lambda_function.lambda_handler` for the Python sample\)\. 
-   + In **Role**, choose **Create a custom role**\. In the IAM console, do the following:
-     + In **IAM Role**, choose **lambda\_basic\_execution**\.
-     + In **Policy Name**, choose **Create a new role policy**\.
-     + Choose **Allow** to create the role and then return to the Lambda console\. A value of `lambda_basic_execution` should now be displayed for **Role**\. 
-**Note**  
-If you choose a different role or a different name for the role, be sure to use it in the steps in this topic\.
+1. In the **Permissions** tab, in **Execution role**, choose the role to open it in the IAM console\. Edit the attached policy to add `GetRepository` permission for the repository you want to use the trigger\.
 
-   Choose **Next**\.
-
-1. On the **Review** page, review the settings for the function, and then choose **Create function**\.
-
-## View the Trigger for the Lambda Function in the AWS CodeCommit Repository<a name="how-to-notify-lam-view"></a>
+## View the trigger for the Lambda function in the AWS CodeCommit repository<a name="how-to-notify-lam-view"></a>
 
 After you have created the Lambda function, you can view and test the trigger in AWS CodeCommit\. Testing the trigger runs the function in response to the repository events you specify\.
 

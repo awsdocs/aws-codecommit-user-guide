@@ -9,7 +9,7 @@ Security is a shared responsibility between AWS and you\. The [shared responsibi
 This documentation helps you understand how to apply the shared responsibility model when using CodeCommit\. The following topics show you how to configure CodeCommit to meet your security and compliance objectives\. You also learn how to use other AWS services that help you to monitor and secure your CodeCommit resources\. 
 
 **Topics**
-+ [Data Protection in AWS CodeCommit](data-protection.md)
++ [Data protection in AWS CodeCommit](data-protection.md)
 + [Identity and Access Management for AWS CodeCommit](security-iam.md)
 + [Resilience in AWS CodeCommit](disaster-recovery-resiliency.md)
-+ [Infrastructure Security in AWS CodeCommit](infrastructure-security.md)
++ [Infrastructure security in AWS CodeCommit](infrastructure-security.md)

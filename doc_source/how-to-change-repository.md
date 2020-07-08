@@ -1,4 +1,4 @@
-# Change AWS CodeCommit Repository Settings<a name="how-to-change-repository"></a>
+# Change AWS CodeCommit repository settings<a name="how-to-change-repository"></a>
 
 You can use the AWS CLI and the AWS CodeCommit console to change the settings of an CodeCommit repository, such as its description or name\.
 
@@ -6,10 +6,10 @@ You can use the AWS CLI and the AWS CodeCommit console to change the settings of
 Changing a repository's name may break any local repos that use the old name in their remote URL\. Run the git remote set\-url command to update the remote URL to use the new repository's name\.
 
 **Topics**
-+ [Change Repository Settings \(Console\)](#how-to-change-repository-console)
-+ [Change AWS CodeCommit Repository Settings \(AWS CLI\)](#how-to-change-repository-cli)
++ [Change repository settings \(console\)](#how-to-change-repository-console)
++ [Change AWS CodeCommit repository settings \(AWS CLI\)](#how-to-change-repository-cli)
 
-## Change Repository Settings \(Console\)<a name="how-to-change-repository-console"></a>
+## Change repository settings \(console\)<a name="how-to-change-repository-console"></a>
 
 To use the AWS CodeCommit console to change a CodeCommit repository's settings in AWS CodeCommit, follow these steps\.
 
@@ -44,9 +44,9 @@ The description field displays Markdown in the console and accepts all HTML char
 **Important**  
 After you delete this repository in AWS CodeCommit, you will no longer be able to clone it to any local repo or shared repo\. You will also no longer be able to pull data from it, or push data to it, from any local repo or shared repo\. This action cannot be undone\.
 
-## Change AWS CodeCommit Repository Settings \(AWS CLI\)<a name="how-to-change-repository-cli"></a>
+## Change AWS CodeCommit repository settings \(AWS CLI\)<a name="how-to-change-repository-cli"></a>
 
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 
 
 To use AWS CLI to change a CodeCommit repository's settings in AWS CodeCommit, run one or more of the following commands:
 + [update\-repository\-description](#how-to-change-repository-cli-description) to change the description of an CodeCommit repository\.

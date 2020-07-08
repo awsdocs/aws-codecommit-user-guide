@@ -1,12 +1,12 @@
-# View Pull Requests in an AWS CodeCommit Repository<a name="how-to-view-pull-request"></a>
+# View pull requests in an AWS CodeCommit repository<a name="how-to-view-pull-request"></a>
 
 You can use the AWS CodeCommit console or the AWS CLI to view pull requests for your repository\. By default, you see only open pull requests, but you can change the filter to view all pull requests, only closed requests, only pull requests that you created, and more\. 
 
 **Topics**
-+ [View Pull Requests \(Console\)](#how-to-view-pull-request-console)
-+ [View Pull Requests \(AWS CLI\)](#how-to-view-pull-request-cli)
++ [View pull requests \(console\)](#how-to-view-pull-request-console)
++ [View pull requests \(AWS CLI\)](#how-to-view-pull-request-cli)
 
-## View Pull Requests \(Console\)<a name="how-to-view-pull-request-console"></a>
+## View pull requests \(console\)<a name="how-to-view-pull-request-console"></a>
 
 You can use the AWS CodeCommit console to view a list of pull requests in a CodeCommit repository\. By changing the filter, you can change the list display to only show you a certain set of pull requests\. For example, you can view a list of pull requests you created with a status of **Open**, or you can choose a different filter and view pull requests you created with a status of **Closed**\.
 
@@ -29,9 +29,9 @@ You can use the AWS CodeCommit console to view a list of pull requests in a Code
 
 1. When you find a pull request in the displayed list that you would like to view, choose it\.
 
-## View Pull Requests \(AWS CLI\)<a name="how-to-view-pull-request-cli"></a>
+## View pull requests \(AWS CLI\)<a name="how-to-view-pull-request-cli"></a>
 
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 
 
 Follow these steps to use the AWS CLI to view pull requests in an CodeCommit repository\.
 

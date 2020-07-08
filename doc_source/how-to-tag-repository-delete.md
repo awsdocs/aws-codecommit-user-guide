@@ -1,11 +1,11 @@
-# Remove a Tag from a Repository<a name="how-to-tag-repository-delete"></a>
+# Remove a tag from a repository<a name="how-to-tag-repository-delete"></a>
 
 You can remove one or more tags associated with a repository\. Removing a tag does not delete the tag from other AWS resources that are associated with that tag\.
 
 **Important**  
-Removing tags for a repository can impact access to that repository\. Before you remove a tag from a repository, make sure to review any IAM policies that might use the key or value for a tag to control access to resources such as repositories\. For examples of tag\-based access policies, see [Example 5: Deny or Allow Actions on Repositories with Tags](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-5)\.
+Removing tags for a repository can impact access to that repository\. Before you remove a tag from a repository, make sure to review any IAM policies that might use the key or value for a tag to control access to resources such as repositories\. For examples of tag\-based access policies, see [Example 5: Deny or allow actions on repositories with tags](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-5)\.
 
-## Remove a Tag From a Repository \(Console\)<a name="how-to-tag-repository-delete-console"></a>
+## Remove a tag from a repository \(console\)<a name="how-to-tag-repository-delete-console"></a>
 
 You can use the CodeCommit console to remove the association between a tag and a CodeCommit repository\. 
 
@@ -21,7 +21,7 @@ You can use the CodeCommit console to remove the association between a tag and a
 
 1. When you have finished removing tags, choose **Submit**\.
 
-## Remove a Tag from a Repository \(AWS CLI\)<a name="how-to-tag-repository-delete-cli"></a>
+## Remove a tag from a repository \(AWS CLI\)<a name="how-to-tag-repository-delete-cli"></a>
 
 Follow these steps to use the AWS CLI to remove a tag from a CodeCommit repository\. Removing a tag does not delete it, but simply removes the association between the tag and the repository\. 
 

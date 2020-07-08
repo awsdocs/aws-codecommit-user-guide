@@ -1,14 +1,14 @@
-# Create a Git Tag in AWS CodeCommit<a name="how-to-create-tag"></a>
+# Create a Git tag in AWS CodeCommit<a name="how-to-create-tag"></a>
 
 You can use a Git tag to mark a commit with a label that helps other repository users understand its importance\. To create a Git tag in a CodeCommit repository, you can use Git from a local repo connected to the CodeCommit repository\. After you have created a Git tag in the local repo, you can use git push \-\-tags to push it to the CodeCommit repository\. 
 
-For more information, see [View Tag Details](how-to-view-tag-details.md)\.
+For more information, see [View tag details](how-to-view-tag-details.md)\.
 
-## Use Git to Create a Tag<a name="how-to-create-tag-git"></a>
+## Use Git to create a tag<a name="how-to-create-tag-git"></a>
 
 Follow these steps to use Git from a local repo to create a Git tag in a CodeCommit repository\.
 
-In these steps, we assume that you have already connected the local repo to the CodeCommit repository\. For instructions, see [Connect to a Repository](how-to-connect.md)\.
+In these steps, we assume that you have already connected the local repo to the CodeCommit repository\. For instructions, see [Connect to a repository](how-to-connect.md)\.
 
 1. Run the git tag *new\-tag\-name* *commit\-id* command, where *new\-tag\-name* is the new Git tag's name and *commit\-id* is the ID of the commit to associate with the Git tag\.
 

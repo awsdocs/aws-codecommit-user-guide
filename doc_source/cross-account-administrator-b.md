@@ -1,14 +1,14 @@
-# Cross\-Account Repository Access: Actions for the Administrator in AccountB<a name="cross-account-administrator-b"></a>
+# Cross\-account repository access: Actions for the administrator in AccountB<a name="cross-account-administrator-b"></a>
 
 To allow users or groups in AccountB to access a repository in AccountA, the AccountB administrator must create a group in AccountB\. This group must be configured with a policy that allows group members to assume the role created by the AccountA administrator\. 
 
 The following sections provide steps and examples\.
 
 **Topics**
-+ [Step 1: Create an IAM Group for Repository Access for AccountB Users](#cross-account-create-group-b)
-+ [Step 2: Create a Policy and Add Users to the IAM Group](#cross-account-create-policy-b)
++ [Step 1: Create an IAM group for repository access for AccountB users](#cross-account-create-group-b)
++ [Step 2: Create a policy and add users to the IAM group](#cross-account-create-policy-b)
 
-## Step 1: Create an IAM Group for Repository Access for AccountB Users<a name="cross-account-create-group-b"></a>
+## Step 1: Create an IAM group for repository access for AccountB users<a name="cross-account-create-group-b"></a>
 
 The simplest way to manage which IAM users in AccountB can access the AccountA repository is to create an IAM group in AccountB that has permission to assume the role in AccountA, and then add the IAM users to that group\.<a name="cross-account-create-group-b-procedure"></a>
 
@@ -26,7 +26,7 @@ The simplest way to manage which IAM users in AccountB can access the AccountA r
 
 1. In **Attach Policy**, choose **Next Step**\. You create the cross\-account policy in the next procedure\. Finish creating the group\.
 
-## Step 2: Create a Policy and Add Users to the IAM Group<a name="cross-account-create-policy-b"></a>
+## Step 2: Create a policy and add users to the IAM group<a name="cross-account-create-policy-b"></a>
 
 Now that you have a group, create the policy that allows members of this group to assume the role that gives them access to the repository in AccountA\. Then add to the group the IAM users in AccountB that you want to allow access in AccountA\.<a name="cross-account-create-policy-for-group"></a>
 
@@ -40,7 +40,7 @@ Now that you have a group, create the policy that allows members of this group t
 
 1. In **Policy Name**, enter a name for the policy \(for example, *AccessPolicyForSharedRepository*\)\.
 
-1. In **Policy Document**, paste the following policy\. In `Resource`, replace the ARN with the ARN of the policy created by the administrator in AccountA \(for example, arn:aws:iam::*111122223333*:role/*MyCrossAccountRepositoryContributorRole*\), and then choose **Apply Policy**\. For more information about the policy created by the administrator in AccountA, see [Step 1: Create a Policy for Repository Access in AccountA](cross-account-administrator-a.md#cross-account-create-policy-a)\.
+1. In **Policy Document**, paste the following policy\. In `Resource`, replace the ARN with the ARN of the policy created by the administrator in AccountA \(for example, arn:aws:iam::*111122223333*:role/*MyCrossAccountRepositoryContributorRole*\), and then choose **Apply Policy**\. For more information about the policy created by the administrator in AccountA, see [Step 1: Create a policy for repository access in AccountA](cross-account-administrator-a.md#cross-account-create-policy-a)\.
 
    ```
    {

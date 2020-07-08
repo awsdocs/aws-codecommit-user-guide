@@ -1,10 +1,10 @@
-# Update a Pull Request<a name="how-to-update-pull-request"></a>
+# Update a pull request<a name="how-to-update-pull-request"></a>
 
 You can use the AWS CodeCommit console or the AWS CLI to update the title or description of a pull request\. You might want to update the pull request because:
 + Other users don't understand the description, or the original title is misleading\.
 + You want the title or description to reflect changes made to the source branch of an open pull request\.
 
-## Update a Pull Request \(Console\)<a name="how-to-update-pull-request-console"></a>
+## Update a pull request \(console\)<a name="how-to-update-pull-request-console"></a>
 
 You can use the CodeCommit console to update the title and description of a pull request in an CodeCommit repository\. 
 
@@ -20,9 +20,9 @@ You can use the CodeCommit console to update the title and description of a pull
 **Note**  
 You cannot update the title or description of a closed or merged pull request\.
 
-## Update Pull Requests \(AWS CLI\)<a name="how-to-update-pull-request-cli"></a>
+## Update pull requests \(AWS CLI\)<a name="how-to-update-pull-request-cli"></a>
 
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 
 
 You might also be interested in the following commands:
 + [update\-pull\-request\-approval\-state](how-to-review-pull-request.md#update-pull-request-approval-state), to approve or revoke approval on a pull request\.

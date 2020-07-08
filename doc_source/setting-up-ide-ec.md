@@ -12,17 +12,17 @@ To use Toolkit for Eclipse with CodeCommit, you need the following:
 
   If the IAM user already has Git credentials configured, one of the CodeCommit managed policies or equivalent permissions\.
 
-  For more information, see [AWS Managed \(Predefined\) Policies for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md#managed-policies) and [Understanding and Getting Your Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)\.
-+ An active set of Git credentials configured for the user in IAM\. For more information, see [Step 3: Create Git Credentials for HTTPS Connections to CodeCommit](setting-up-gc.md#setting-up-gc-iam)\.
+  For more information, see [AWS managed \(predefined\) policies for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md#managed-policies) and [Understanding and Getting Your Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)\.
++ An active set of Git credentials configured for the user in IAM\. For more information, see [Step 3: Create Git credentials for HTTPS connections to CodeCommit](setting-up-gc.md#setting-up-gc-iam)\.
 
 **Topics**
-+ [Step 1: Get an Access Key and Secret Key for Your IAM User](#setting-up-ide-ec-profile)
-+ [Step 2: Install AWS Toolkit for Eclipse and Connect to CodeCommit](#setting-up-ide-ec-connect)
-+ [Clone a CodeCommit Repository from Eclipse](#setting-up-ide-ec-checkout)
-+ [Create a CodeCommit Repository from Eclipse](#setting-up-ide-ec-create)
-+ [Working with CodeCommit Repositories](#setting-up-ide-ec-work)
++ [Step 1: Get an access key and secret key for your IAM user](#setting-up-ide-ec-profile)
++ [Step 2: Install AWS Toolkit for Eclipse and connect to CodeCommit](#setting-up-ide-ec-connect)
++ [Clone a CodeCommit repository from Eclipse](#setting-up-ide-ec-checkout)
++ [Create a CodeCommit repository from Eclipse](#setting-up-ide-ec-create)
++ [Working with CodeCommit repositories](#setting-up-ide-ec-work)
 
-## Step 1: Get an Access Key and Secret Key for Your IAM User<a name="setting-up-ide-ec-profile"></a>
+## Step 1: Get an access key and secret key for your IAM user<a name="setting-up-ide-ec-profile"></a>
 
 If you do not already have a credential profile set up on the computer where Eclipse is installed, you can [configure one with the AWS CLI and the aws configure command](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-quick-configuration)\. Alternatively, you can follow the steps in this procedure to create and download your credentials\. Provide them to the Toolkit for Eclipse when prompted\. 
 
@@ -54,7 +54,7 @@ The only time that you can view or download the secret access key is when you cr
 + [What Is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*
 + [AWS Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) in *AWS General Reference* 
 
-## Step 2: Install AWS Toolkit for Eclipse and Connect to CodeCommit<a name="setting-up-ide-ec-connect"></a>
+## Step 2: Install AWS Toolkit for Eclipse and connect to CodeCommit<a name="setting-up-ide-ec-connect"></a>
 
 The Toolkit for Eclipse is a software package you can add to Eclipse\. After you've installed it and configured it with your AWS credential profile, you can connect to CodeCommit from the AWS Explorer in Eclipse\. 
 
@@ -77,7 +77,7 @@ After you are signed in with a profile, the AWS CodeCommit connection panel appe
 
  If you don't have any repositories, or want to create a repository, choose **Create**\. 
 
-## Clone a CodeCommit Repository from Eclipse<a name="setting-up-ide-ec-checkout"></a>
+## Clone a CodeCommit repository from Eclipse<a name="setting-up-ide-ec-checkout"></a>
 
 After you've configured your credentials, you can clone a repository to a local repo on your computer by checking it out in Eclipse\. Then you can start working with the code\.
 
@@ -90,7 +90,7 @@ If you do not see your repository, choose the flag icon to open the AWS Regions 
 
 1. When you have finished cloning the project, you're ready to start editing your code in Eclipse and staging, committing, and pushing your changes to your project's repository in CodeCommit\. 
 
-## Create a CodeCommit Repository from Eclipse<a name="setting-up-ide-ec-create"></a>
+## Create a CodeCommit repository from Eclipse<a name="setting-up-ide-ec-create"></a>
 
 You can create CodeCommit repositories from Eclipse with the Toolkit for Eclipse\. As part of creating the repository, you also clone it to a local repo on your computer, so you can start working with it right away\.
 
@@ -98,11 +98,11 @@ You can create CodeCommit repositories from Eclipse with the Toolkit for Eclipse
 **Note**  
 Repositories are region\-specific\. Before you create the repository, make sure you have selected the correct AWS Region\. You cannot choose the AWS Region after you have started the repository creation process\.
 
-1. In **Repository Name**, enter a name for this repository\. Repository names must be unique within an AWS account\. There are character and length limits\. For more information, see [Limits](limits.md)\. In **Repository Description**, enter an optional description for this repository\. This helps others understand what this repository is for, and helps distinguish it from other repositories in the region\. Choose **OK**\.
+1. In **Repository Name**, enter a name for this repository\. Repository names must be unique within an AWS account\. There are character and length limits\. For more information, see [Quotas](limits.md)\. In **Repository Description**, enter an optional description for this repository\. This helps others understand what this repository is for, and helps distinguish it from other repositories in the region\. Choose **OK**\.
 
 1. In AWS Explorer, expand **AWS CodeCommit**, and then choose the CodeCommit repository you just created\. You see that this repository has no commit history\. Choose **Check out**, and follow the instructions to clone the repository to your local computer\.
 
-## Working with CodeCommit Repositories<a name="setting-up-ide-ec-work"></a>
+## Working with CodeCommit repositories<a name="setting-up-ide-ec-work"></a>
 
 After you have connected to CodeCommit, you can see a list of repositories associated with your account, by AWS Region, in AWS Explorer\. Choose the flag menu to change the region\. 
 

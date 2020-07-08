@@ -7,15 +7,15 @@ To use AWS Cloud9 with CodeCommit, you need the following:
 + The AWS Cloud9 IDE open in a web browser\.
 + An IAM user with one of the CodeCommit managed policies and one of the AWS Cloud9 managed policies applied to it\.
 
-  For more information, see [AWS Managed \(Predefined\) Policies for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md#managed-policies) and [Understanding and Getting Your Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)\.
+  For more information, see [AWS managed \(predefined\) policies for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md#managed-policies) and [Understanding and Getting Your Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)\.
 
 **Topics**
-+ [Step 1: Create an AWS Cloud9 Development Environment](#setting-up-ide-c9-connect)
-+ [Step 2: Configure the AWS CLI Credential Helper on Your AWS Cloud9 EC2 Development Environment](#setting-up-ide-c9-credentials)
-+ [Step 3: Clone a CodeCommit Repository into Your AWS Cloud9 EC2 Development Environment](#setting-up-ide-c9-checkout)
-+ [Next Steps](#setting-up-ide-c9-next)
++ [Step 1: Create an AWS Cloud9 development environment](#setting-up-ide-c9-connect)
++ [Step 2: Configure the AWS CLI credential helper on your AWS Cloud9 EC2 development environment](#setting-up-ide-c9-credentials)
++ [Step 3: Clone a CodeCommit repository into your AWS Cloud9 EC2 development environment](#setting-up-ide-c9-checkout)
++ [Next steps](#setting-up-ide-c9-next)
 
-## Step 1: Create an AWS Cloud9 Development Environment<a name="setting-up-ide-c9-connect"></a>
+## Step 1: Create an AWS Cloud9 development environment<a name="setting-up-ide-c9-connect"></a>
 
 AWS Cloud9 hosts your development environment on an Amazon EC2 instance\. This is the easiest way to integrate, because you can use the AWS managed temporary credentials for the instance to connect to your CodeCommit repository\. If you want to use your own server instead, see the [AWS Cloud9 User Guide](https://docs.aws.amazon.com/cloud9/latest/user-guide/)\. 
 
@@ -39,7 +39,7 @@ AWS Cloud9 hosts your development environment on an Amazon EC2 instance\. This i
 1. After you are connected to your environment, check to see if Git is already installed and is a supported version by running the git \-\-version command in the terminal window\.  
 ![\[Verifying that Git is installed and that it is a supported version in the AWS Cloud9 development environment.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-c9-git.png)
 
-   If Git is not installed, or if it is not a supported version, install a supported version\. CodeCommit supports Git versions 1\.7\.9 and later\. To install Git, we recommend websites such as [Git Downloads](http://git-scm.com/downloads)\. 
+   If Git is not installed, or if it is not a supported version, install a supported version\. CodeCommit supports Git versions 1\.7\.9 and later\. We recommend using a recent version of Git\. To install Git, we recommend websites such as [Git Downloads](http://git-scm.com/downloads)\. 
 **Tip**  
 Depending on the operating system of your environment, you might be able to use the yum command with the sudo option to install updates, including Git\. For example, an administrative command sequence might resemble the following three commands:  
 
@@ -56,7 +56,7 @@ Depending on the operating system of your environment, you might be able to use 
        git config --global user.email mary.major@example.com
    ```
 
-## Step 2: Configure the AWS CLI Credential Helper on Your AWS Cloud9 EC2 Development Environment<a name="setting-up-ide-c9-credentials"></a>
+## Step 2: Configure the AWS CLI credential helper on your AWS Cloud9 EC2 development environment<a name="setting-up-ide-c9-credentials"></a>
 
 After you've created an AWS Cloud9 environment, you can configure the AWS CLI credential helper to manage the credentials for connections to your CodeCommit repository\. The AWS Cloud9 development environment comes with AWS managed temporary credentials that are associated with your IAM user\. You use these credentials with the AWS CLI credential helper\.
 
@@ -77,7 +77,7 @@ After you've created an AWS Cloud9 environment, you can configure the AWS CLI cr
 **Tip**  
 The credential helper uses the default Amazon EC2 instance role for your development environment\. If you intend to use the development environment to connect to repositories that are not hosted in CodeCommit, either configure SSH connections to those repositories, or configure a local `.gitconfig` file to use an alternative credential management system when connecting to those other repositories\. For more information, see [Git Tools \- Credential Storage](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage) on the Git website\.
 
-## Step 3: Clone a CodeCommit Repository into Your AWS Cloud9 EC2 Development Environment<a name="setting-up-ide-c9-checkout"></a>
+## Step 3: Clone a CodeCommit repository into your AWS Cloud9 EC2 development environment<a name="setting-up-ide-c9-checkout"></a>
 
 After you've configured the AWS CLI credential helper, you can clone your CodeCommit repository onto it\. Then you can start working with the code\.
 
@@ -87,7 +87,7 @@ After you've configured the AWS CLI credential helper, you can clone your CodeCo
    git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo
    ```
 **Tip**  
-You can find the Clone URL for your repository in the CodeCommit console, both in **Repositories** and in the **Clone URL** information on the **Code** page of the repository\.
+You can find the Clone URL for your repository in the CodeCommit console by choosing **Clone URL**\.
 
 1. When the cloning is complete, in the side navigation, expand the folder for your repository, and choose the file you want to open for editing\. Alternatively, choose **File** and then choose **New File** to create a file\.
 
@@ -100,6 +100,6 @@ You can find the Clone URL for your repository in the CodeCommit console, both i
    git push
    ```
 
-## Next Steps<a name="setting-up-ide-c9-next"></a>
+## Next steps<a name="setting-up-ide-c9-next"></a>
 
-For more information, see the [AWS Cloud9 User Guide](https://docs.aws.amazon.com/cloud9/latest/user-guide/welcome.html)\. For more information about using Git with CodeCommit, see [Getting Started with Git and AWS CodeCommit](getting-started.md)\.
+For more information, see the [AWS Cloud9 User Guide](https://docs.aws.amazon.com/cloud9/latest/user-guide/welcome.html)\. For more information about using Git with CodeCommit, see [Getting started with Git and AWS CodeCommit](getting-started.md)\.

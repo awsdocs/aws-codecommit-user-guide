@@ -1,4 +1,4 @@
-# Product and Service Integrations with AWS CodeCommit<a name="integrations"></a>
+# Product and service integrations with AWS CodeCommit<a name="integrations"></a>
 
 By default, CodeCommit is integrated with a number of AWS services\. You can also use CodeCommit with products and services outside of AWS\. The following information can help you configure CodeCommit to integrate with the products and services you use\.
 
@@ -6,10 +6,10 @@ By default, CodeCommit is integrated with a number of AWS services\. You can als
 You can automatically build and deploy commits to a CodeCommit repository by integrating with CodePipeline\. To learn more, follow the steps in the [AWS for DevOps Getting Started Guide](https://docs.aws.amazon.com/devops/latest/gsg/welcome.html)\. 
 
 **Topics**
-+ [Integration with Other AWS Services](#integrations-aws)
-+ [Integration Examples from the Community](#integrations-community)
++ [Integration with other AWS services](#integrations-aws)
++ [Integration examples from the community](#integrations-community)
 
-## Integration with Other AWS Services<a name="integrations-aws"></a>
+## Integration with other AWS services<a name="integrations-aws"></a>
 
 CodeCommit is integrated with the following AWS services:
 
@@ -30,7 +30,7 @@ CodeCommit is integrated with the following AWS services:
 | AWS Lambda |  [Lambda](https://docs.aws.amazon.com/lambda/latest/dg/) lets you run code without provisioning or managing servers\. You can configure triggers for CodeCommit repositories that invoke Lambda functions in response to repository events\.  Learn more: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codecommit/latest/userguide/integrations.html)  | 
 | Amazon Simple Notification Service |  [Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/) is a web service that enables applications, end users, and devices to instantly send and receive notifications from the cloud\. You can configure triggers for CodeCommit repositories that send Amazon SNS notifications in response to repository events\. You can also use Amazon SNS notifications to integrate with other AWS services\. For example, you can use an Amazon SNS notification to send messages to an Amazon Simple Queue Service queue\. Learn more: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codecommit/latest/userguide/integrations.html)  | 
 
-## Integration Examples from the Community<a name="integrations-community"></a>
+## Integration examples from the community<a name="integrations-community"></a>
 
 The following sections provide links to blog posts, articles, and community\-provided examples\.
 
@@ -38,10 +38,10 @@ The following sections provide links to blog posts, articles, and community\-pro
 These links are provided for informational purposes only, and should not be considered either a comprehensive list or an endorsement of the content of the examples\. AWS is not responsible for the content or accuracy of external content\.
 
 **Topics**
-+ [Blog Posts](#integrations-community-blogposts)
-+ [Code Samples](#integrations-community-code)
++ [Blog posts](#integrations-community-blogposts)
++ [Code samples](#integrations-community-code)
 
-### Blog Posts<a name="integrations-community-blogposts"></a>
+### Blog posts<a name="integrations-community-blogposts"></a>
 + **[Integrating SonarQube as a Pull Request Approver on AWS CodeCommit](https://aws.amazon.com/blogs/devops/integrating-sonarqube-as-a-pull-request-approver-on-aws-codecommit/)**
 
   Learn how to create a CodeCommit repository that requires a successful SonarQube quality analysis before pull requests can be merged\. 
@@ -158,7 +158,7 @@ These links are provided for informational purposes only, and should not be cons
 
   Published July 2015
 
-### Code Samples<a name="integrations-community-code"></a>
+### Code samples<a name="integrations-community-code"></a>
 
 The following are code samples that might be of interest to CodeCommit users\.
 + **[Mac OS X Script to Periodically Delete Cached Credentials in the OS X Certificate Store](https://github.com/nicc777/macaws-codecommit-pwdel)**

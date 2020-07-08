@@ -1,4 +1,4 @@
-# AWS CodeCommit Command Line Reference<a name="cmd-ref"></a>
+# AWS CodeCommit command line reference<a name="cmd-ref"></a>
 
 This reference helps you learn how to use the AWS CLI\.
 
@@ -6,7 +6,7 @@ This reference helps you learn how to use the AWS CLI\.
 
 1. On your local machine, download and install the AWS CLI\. This is a prerequisite for interacting with CodeCommit from the command line\. For more information, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html)\.
 **Note**  
-CodeCommit works only with AWS CLI versions 1\.7\.38 and later\. To determine which version of the AWS CLI you have installed, run the aws \-\-version command\.  
+CodeCommit works only with AWS CLI versions 1\.7\.38 and later\. As a best practice, install or upgrade the AWS CLI to the latest version available\. To determine which version of the AWS CLI you have installed, run the aws \-\-version command\.  
 To upgrade an older version of the AWS CLI to the latest version, see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)\.
 
 1.  Run this command to verify the CodeCommit commands for the AWS CLI are installed:
@@ -17,7 +17,7 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
 
    This command should return a list of CodeCommit commands\.
 
-1. Configure the AWS CLI with the configure command, as follows:
+1. Configure the AWS CLI with a profile by using the configure command, as follows:
 
    ```
    aws configure
@@ -31,6 +31,12 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
    Default region name [None]: Type a supported region for CodeCommit here, and then press Enter
    Default output format [None]: Type json here, and then press Enter
    ```
+
+   For more information about creating and configuring profiles to use with the AWS CLI, see the following:
+   + [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
+   + [Using an IAM Role in the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html)
+   + [Set command](https://docs.aws.amazon.com/cli/latest/reference/set.html)
+   + [Connecting to AWS CodeCommit repositories with rotating credentials](temporary-access.md)
 
    To connect to a repository or a resource in another AWS Region, you must reconfigure the AWS CLI with the default Region name\. Supported default Region names for CodeCommit include:
    + us\-east\-2
@@ -50,9 +56,12 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
    + us\-gov\-west\-1
    + us\-gov\-east\-1
    + eu\-north\-1
+   + ap\-east\-1
    + me\-south\-1
+   + cn\-north\-1
+   + cn\-northwest\-1
 
-   For more information about CodeCommit and AWS Regions, see [Regions and Git Connection Endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\. For more information about the AWS CLI and profiles, see [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)\.
+   For more information about CodeCommit and AWS Regions, see [Regions and Git connection endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\. For more information about the AWS CLI and profiles, see [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)\.
 
 To view a list of all available CodeCommit commands, run the following command:
 
@@ -94,6 +103,7 @@ See the following for descriptions and example usage of the commands in the AWS 
 + [get\-blob](how-to-view-commit-details.md#how-to-view-commit-details-cli-blob)
 + [get\-branch](how-to-view-branch-details.md#how-to-view-branch-details-cli-details)
 + [get\-comment](how-to-commit-comment.md#how-to-commit-comment-cli-get-comment-info)
++ [get\-comment\-reactions](how-to-commit-comment.md#how-to-commit-comment-cli-commit-emoji-view)
 + [get\-comments\-for\-compared\-commit](how-to-commit-comment.md#how-to-commit-comment-cli-get-comments)
 + [get\-comments\-for\-pull\-request](how-to-review-pull-request.md#get-comments-for-pull-request)
 + [get\-commit](how-to-view-commit-details.md#how-to-view-commit-details-cli-commit)
@@ -123,6 +133,7 @@ See the following for descriptions and example usage of the commands in the AWS 
 + [post\-comment\-for\-compared\-commit](how-to-commit-comment.md#how-to-commit-comment-cli-comment)
 + [post\-comment\-for\-pull\-request](how-to-review-pull-request.md#post-comment-for-pull-request)
 + [post\-comment\-reply](how-to-commit-comment.md#how-to-commit-comment-cli-commit-reply)
++ [put\-comment\-reaction](how-to-commit-comment.md#how-to-commit-comment-cli-commit-reply-emoji)
 + [put\-file](how-to-create-file.md#how-to-create-file-cli)
 + [put\-repository\-triggers](how-to-notify-edit.md#how-to-notify-edit-cli)
 + [tag\-resource](how-to-tag-repository-add.md)

@@ -1,4 +1,4 @@
-# Working with Pull Requests in AWS CodeCommit Repositories<a name="pull-requests"></a>
+# Working with pull requests in AWS CodeCommit repositories<a name="pull-requests"></a>
 
 A pull request is the primary way you and other repository users can review, comment on, and merge code changes from one branch to another\. You can use pull requests to collaboratively review code changes for minor changes or fixes, major feature additions, or new versions of your released software\. Here is one possible workflow for a pull request:
 
@@ -6,7 +6,7 @@ Li Juan, a developer working in a repo named MyDemoRepo, wants to work on a new 
 
 ![\[Creating a pull request\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-create.png)
 
-Pull requests require two branches: a source branch that contains the code you want reviewed, and a destination branch, where you merge the reviewed code\. The source branch contains the AFTER commit, which is the commit that contains the changes you want to merge into the destination branch\. The destination branch contains the BEFORE commit, which represents the state of the code before the pull request branch is merged into the destination branch\. The choice of merge strategy affects the details of how commits are merged between the source and destination branches in the CodeCommit console\. For more information about merge strategies in CodeCommit, see [Merge a Pull Request \(Console\)](how-to-merge-pull-request.md#how-to-merge-pull-request-console)\.
+Pull requests require two branches: a source branch that contains the code you want reviewed, and a destination branch, where you merge the reviewed code\. The source branch contains the AFTER commit, which is the commit that contains the changes you want to merge into the destination branch\. The destination branch contains the BEFORE commit, which represents the state of the code before the pull request branch is merged into the destination branch\. The choice of merge strategy affects the details of how commits are merged between the source and destination branches in the CodeCommit console\. For more information about merge strategies in CodeCommit, see [Merge a pull request \(console\)](how-to-merge-pull-request.md#how-to-merge-pull-request-console)\.
 
 ![\[The source and destination branches for a pull requests, showing the relationship between before and after commits\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-concepts.png)
 
@@ -22,20 +22,20 @@ When your code has been reviewed, and the approval rule requirements \(if any\) 
 Before you create a pull request:
 + Make sure that you have committed and pushed the code changes you want reviewed to a branch \(the source branch\)\.
 + Set up notifications for your repository, so other users can be notified about the pull request and changes to it\. \(This step is optional, but recommended\.\)
-+ Create and associate approval rule templates with your repository, so that approval rules are automatically created for pull requests to help ensure code quality\. For more information, see [Working with Approval Rule Templates](approval-rule-templates.md)\.
++ Create and associate approval rule templates with your repository, so that approval rules are automatically created for pull requests to help ensure code quality\. For more information, see [Working with approval rule templates](approval-rule-templates.md)\.
 
-Pull requests are more effective when you've set up IAM users for your repository users in your AWS account\. It's easier to identify which user made which comment\. The other advantage is that IAM users can use Git credentials for repository access\. For more information, see [Step 1: Initial Configuration for CodeCommit](setting-up-gc.md#setting-up-gc-account)\. You can use pull requests with other kinds of users, including federated access users\.
+Pull requests are more effective when you've set up IAM users for your repository users in your AWS account\. It's easier to identify which user made which comment\. The other advantage is that IAM users can use Git credentials for repository access\. For more information, see [Step 1: Initial configuration for CodeCommit](setting-up-gc.md#setting-up-gc-account)\. You can use pull requests with other kinds of users, including federated access users\.
 
-For information about working with other aspects of your repository in CodeCommit, see [Working with Repositories](repositories.md), [Working with Approval Rule Templates](approval-rule-templates.md), [Working with Files](files.md), [Working with Commits](commits.md), [Working with Branches](branches.md), and [Working with User Preferences](user-preferences.md)\. 
+For information about working with other aspects of your repository in CodeCommit, see [Working with repositories](repositories.md), [Working with approval rule templates](approval-rule-templates.md), [Working with files](files.md), [Working with commits](commits.md), [Working with branches](branches.md), and [Working with user preferences](user-preferences.md)\. 
 
 **Topics**
-+ [Create a Pull Request](how-to-create-pull-request.md)
-+ [Create an Approval Rule for a Pull Request](how-to-create-pull-request-approval-rule.md)
-+ [View Pull Requests in an AWS CodeCommit Repository](how-to-view-pull-request.md)
-+ [Review a Pull Request](how-to-review-pull-request.md)
-+ [Update a Pull Request](how-to-update-pull-request.md)
-+ [Edit or Delete an Approval Rule for a Pull Request](how-to-edit-delete-pull-request-approval-rule.md)
-+ [Override Approval Rules on a Pull Request](how-to-override-approval-rules.md)
-+ [Merge a Pull Request in an AWS CodeCommit Repository](how-to-merge-pull-request.md)
-+ [Resolve Conflicts in a Pull Request in an AWS CodeCommit Repository](how-to-resolve-conflict-pull-request.md)
-+ [Close a Pull Request in an AWS CodeCommit Repository](how-to-close-pull-request.md)
++ [Create a pull request](how-to-create-pull-request.md)
++ [Create an approval rule for a pull request](how-to-create-pull-request-approval-rule.md)
++ [View pull requests in an AWS CodeCommit repository](how-to-view-pull-request.md)
++ [Review a pull request](how-to-review-pull-request.md)
++ [Update a pull request](how-to-update-pull-request.md)
++ [Edit or delete an approval rule for a pull request](how-to-edit-delete-pull-request-approval-rule.md)
++ [Override approval rules on a pull request](how-to-override-approval-rules.md)
++ [Merge a pull request in an AWS CodeCommit repository](how-to-merge-pull-request.md)
++ [Resolve conflicts in a pull request in an AWS CodeCommit repository](how-to-resolve-conflict-pull-request.md)
++ [Close a pull request in an AWS CodeCommit repository](how-to-close-pull-request.md)

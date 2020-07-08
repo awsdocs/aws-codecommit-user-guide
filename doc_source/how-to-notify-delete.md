@@ -1,4 +1,4 @@
-# Delete Triggers from an AWS CodeCommit Repository<a name="how-to-notify-delete"></a>
+# Delete triggers from an AWS CodeCommit repository<a name="how-to-notify-delete"></a>
 
 You might want to delete triggers if they are no longer being used\. You cannot undo the deletion of a trigger, but you can create one again\.
 
@@ -6,10 +6,10 @@ You might want to delete triggers if they are no longer being used\. You cannot 
 If you configured one or more triggers for your repository, deleting the repository does not delete the Amazon SNS topics or Lambda functions you configured as the targets of those triggers\. Be sure to delete those resources, too, if they are no longer needed\.
 
 **Topics**
-+ [Delete a Trigger from a Repository \(Console\)](#how-to-notify-delete-console)
-+ [Delete a Trigger from a Repository \(AWS CLI\)](#how-to-notify-delete-cli)
++ [Delete a trigger from a repository \(console\)](#how-to-notify-delete-console)
++ [Delete a trigger from a repository \(AWS CLI\)](#how-to-notify-delete-cli)
 
-## Delete a Trigger from a Repository \(Console\)<a name="how-to-notify-delete-console"></a>
+## Delete a trigger from a repository \(console\)<a name="how-to-notify-delete-console"></a>
 
 1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
@@ -21,7 +21,7 @@ If you configured one or more triggers for your repository, deleting the reposit
 
 1. In the dialog box, type **delete** to confirm\.
 
-## Delete a Trigger from a Repository \(AWS CLI\)<a name="how-to-notify-delete-cli"></a>
+## Delete a trigger from a repository \(AWS CLI\)<a name="how-to-notify-delete-cli"></a>
 
 1. At a terminal \(Linux, macOS, or Unix\) or command prompt \(Windows\), run the get\-repository\-triggers command to create a JSON file with the structure of all of the triggers configured for your repository\. For example, to create a JSON file named *MyTriggers\.json* with the structure of all of the triggers configured for a repository named MyDemoRepo:
 

@@ -1,12 +1,12 @@
-# Edit Triggers for a AWS CodeCommit Repository<a name="how-to-notify-edit"></a>
+# Edit triggers for an AWS CodeCommit repository<a name="how-to-notify-edit"></a>
 
 You can edit the triggers that have been created for a CodeCommit repository\. You can change the events and branches for the trigger, the action taken in response to the event, and other settings\. 
 
 **Topics**
-+ [Edit a Trigger for a Repository \(Console\)](#how-to-notify-edit-console)
-+ [Edit a Trigger for a Repository \(AWS CLI\)](#how-to-notify-edit-cli)
++ [Edit a trigger for a repository \(console\)](#how-to-notify-edit-console)
++ [Edit a trigger for a repository \(AWS CLI\)](#how-to-notify-edit-cli)
 
-## Edit a Trigger for a Repository \(Console\)<a name="how-to-notify-edit-console"></a>
+## Edit a trigger for a repository \(console\)<a name="how-to-notify-edit-console"></a>
 
 1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
@@ -18,7 +18,7 @@ You can edit the triggers that have been created for a CodeCommit repository\. Y
 
 1. Make the changes you want to the trigger, and then choose **Save**\.
 
-## Edit a Trigger for a Repository \(AWS CLI\)<a name="how-to-notify-edit-cli"></a>
+## Edit a trigger for a repository \(AWS CLI\)<a name="how-to-notify-edit-cli"></a>
 
 1. At a terminal \(Linux, macOS, or Unix\) or command prompt \(Windows\), run the get\-repository\-triggers command to create a JSON file with the structure of all of the triggers configured for your repository\. For example, to create a JSON file named *MyTriggers\.json* with the structure of all of the triggers configured for a repository named *MyDemoRepo*:
 

@@ -1,4 +1,4 @@
-# Resolve Conflicts in a Pull Request in an AWS CodeCommit Repository<a name="how-to-resolve-conflict-pull-request"></a>
+# Resolve conflicts in a pull request in an AWS CodeCommit repository<a name="how-to-resolve-conflict-pull-request"></a>
 
 If your pull request has conflicts and cannot be merged, you can try to resolve the conflicts in one of several ways:
 + On your local computer, you can use the git diff command to find the conflicts between the two branches and make changes to resolve them\. You can also use a difference tool or other software to help you find and resolve differences\. Once you have resolved them to your satisfaction, you can push your source branch with the changes that contain the resolved conflicts, which will update the pull request\. For more information about git diff and git difftool, see your Git documentation\.
@@ -6,10 +6,10 @@ If your pull request has conflicts and cannot be merged, you can try to resolve 
 + In the AWS CLI, you can use the AWS CLI to get information about merge conflicts and create an unreferenced merge commit to test a merge\. 
 
 **Topics**
-+ [Resolve Conflicts in a Pull Request \(Console\)](#how-to-resolve-conflict-pull-request-console)
-+ [Resolve Conflicts in a Pull Request \(AWS CLI\)](#how-to-resolve-conflict-pull-request-cli)
++ [Resolve conflicts in a pull request \(console\)](#how-to-resolve-conflict-pull-request-console)
++ [Resolve conflicts in a pull request \(AWS CLI\)](#how-to-resolve-conflict-pull-request-cli)
 
-## Resolve Conflicts in a Pull Request \(Console\)<a name="how-to-resolve-conflict-pull-request-console"></a>
+## Resolve conflicts in a pull request \(console\)<a name="how-to-resolve-conflict-pull-request-console"></a>
 
 You can use the CodeCommit console to resolve conflicts in a pull request in a CodeCommit repository\. 
 
@@ -37,9 +37,9 @@ You must resolve all conflicts in all files before you can successfully update t
 
 1. The pull request is updated with your changes and mergeable\. You will see the merge page\. You can choose to merge the pull request at this time, or you can return to the list of pull requests\. 
 
-## Resolve Conflicts in a Pull Request \(AWS CLI\)<a name="how-to-resolve-conflict-pull-request-cli"></a>
+## Resolve conflicts in a pull request \(AWS CLI\)<a name="how-to-resolve-conflict-pull-request-cli"></a>
 
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 
 
 No single AWS CLI command will enable you to resolve conflicts in a pull request and merge that request\. However, you can use individual commands to discover conflicts, attempt to resolve them, and test whether a pull request is mergeable\. You can use:
 + get\-merge\-options, to find out what merge options are available for a merge between two commit specifiers\.

@@ -1,14 +1,14 @@
-# Associate an Approval Rule Template with a Repository<a name="how-to-associate-template"></a>
+# Associate an approval rule template with a repository<a name="how-to-associate-template"></a>
 
 Approval rule templates are created in a specific AWS Region, but they do not affect any repositores in that AWS Region until they are associated\. To apply a template to one or more repositories, you must associate the template with the repository or repositories\. You can apply a single template to multiple repositories in an AWS Region\. This helps you automate and standardize the development workflow in your repositories by creating consistent conditions for approving and merging pull requests\.
 
 You can only associate an approval rule template with repositories in the AWS Region where the approval rule template was created\.
 
 **Topics**
-+ [Associate an Approval Rule Template \(Console\)](#how-to-associate-template-console)
-+ [Associate an Approval Rule Template \(AWS CLI\)](#how-to-associate-template-cli)
++ [Associate an approval rule template \(console\)](#how-to-associate-template-console)
++ [Associate an approval rule template \(AWS CLI\)](#how-to-associate-template-cli)
 
-## Associate an Approval Rule Template \(Console\)<a name="how-to-associate-template-console"></a>
+## Associate an approval rule template \(console\)<a name="how-to-associate-template-console"></a>
 
 You might have associated repositories with an approval rule template when you created it\. \(That step is optional\.\) You can add or remove associations by editing the template\.<a name="associate-template-console"></a>
 
@@ -22,7 +22,7 @@ You might have associated repositories with an approval rule template when you c
 
 1. Choose **Save**\. Approval rules are now applied to any pull requests created in those associated repositories\.
 
-## Associate an Approval Rule Template \(AWS CLI\)<a name="how-to-associate-template-cli"></a>
+## Associate an approval rule template \(AWS CLI\)<a name="how-to-associate-template-cli"></a>
 
 You can use the AWS CLI to associate an approval rule template with one or more repositories\. <a name="associate-template-repository"></a>
 

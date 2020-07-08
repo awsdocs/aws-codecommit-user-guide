@@ -1,14 +1,14 @@
-# Create a Pull Request<a name="how-to-create-pull-request"></a>
+# Create a pull request<a name="how-to-create-pull-request"></a>
 
 Creating pull requests helps other users see and review your code changes before you merge them into another branch\. First, you create a branch for your code changes\. This is referred to as the source branch for a pull request\. After you commit and push changes to the repository, you can create a pull request that compares the contents of that branch \(the source branch\) to the branch where you want to merge your changes after the pull request is closed \(the destination branch\)\. 
 
 You can use the AWS CodeCommit console or the AWS CLI to create pull requests for your repository\. 
 
 **Topics**
-+ [Create a Pull Request \(Console\)](#how-to-create-pull-request-console)
-+ [Create a Pull Request \(AWS CLI\)](#how-to-create-pull-request-cli)
++ [Create a pull request \(console\)](#how-to-create-pull-request-console)
++ [Create a pull request \(AWS CLI\)](#how-to-create-pull-request-cli)
 
-## Create a Pull Request \(Console\)<a name="how-to-create-pull-request-console"></a>
+## Create a pull request \(console\)<a name="how-to-create-pull-request-console"></a>
 
 You can use the CodeCommit console to create a pull request in a CodeCommit repository\. If your repository is [configured with notifications](how-to-repository-email.md), subscribed users receive an email when you create a pull request\.
 
@@ -40,9 +40,9 @@ You can also create pull requests from **Branches** and **Code**\.
 
 Your pull request appears in the list of pull requests for the repository\. If you [configured notifications](how-to-repository-email.md), subscribers to the Amazon SNS topic receive an email to inform them of the newly created pull request\.
 
-## Create a Pull Request \(AWS CLI\)<a name="how-to-create-pull-request-cli"></a>
+## Create a pull request \(AWS CLI\)<a name="how-to-create-pull-request-cli"></a>
 
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 
 
 **To use the AWS CLI to create a pull request in a CodeCommit repository**
 

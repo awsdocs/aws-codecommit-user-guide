@@ -1,13 +1,13 @@
-# Compare and Merge Branches in AWS CodeCommit<a name="how-to-compare-branches"></a>
+# Compare and merge branches in AWS CodeCommit<a name="how-to-compare-branches"></a>
 
 You can use the CodeCommit console to compare branches in a CodeCommit repository\. Comparing branches helps you quickly view the differences between a branch and the default branch, or view the differences between any two branches\.
 
 **Topics**
-+ [Compare a Branch to the Default Branch](#how-to-compare-branches-default)
-+ [Compare Two Specific Branches](#how-to-compare-branches-two)
-+ [Merge Two Branches \(AWS CLI\)](#how-to-merge-branches-cli)
++ [Compare a branch to the default branch](#how-to-compare-branches-default)
++ [Compare two specific branches](#how-to-compare-branches-two)
++ [Merge two branches \(AWS CLI\)](#how-to-merge-branches-cli)
 
-## Compare a Branch to the Default Branch<a name="how-to-compare-branches-default"></a>
+## Compare a branch to the default branch<a name="how-to-compare-branches-default"></a>
 
 Use the CodeCommit console to quickly view the differences between a branch and the default branch for your repository\.
 
@@ -19,7 +19,7 @@ Use the CodeCommit console to quickly view the differences between a branch and 
 
 1. In **Destination**, choose the name of the default branch\. In **Source**, choose the branch you want to compare to the default branch\. Choose **Compare**\.
 
-## Compare Two Specific Branches<a name="how-to-compare-branches-two"></a>
+## Compare two specific branches<a name="how-to-compare-branches-two"></a>
 
 Use the CodeCommit console to view the differences between two branches that you want to compare\.
 
@@ -31,10 +31,10 @@ Use the CodeCommit console to view the differences between two branches that you
 
 1. In **Destination** and **Source**, choose the two branches to compare, and then choose **Compare**\. To view the list of changed files, expand the changed files list\. You can view changes in files side by side \(Split view\) or inline \(Unified view\)\.
 **Note**  
-If you are signed in as an IAM user, you can configure and save your preferences for viewing code and other console settings\. For more information, see [Working with User Preferences](user-preferences.md)\.  
+If you are signed in as an IAM user, you can configure and save your preferences for viewing code and other console settings\. For more information, see [Working with user preferences](user-preferences.md)\.  
 ![\[An abbreviated view of the differences between two branches.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-branches.png)
 
-## Merge Two Branches \(AWS CLI\)<a name="how-to-merge-branches-cli"></a>
+## Merge two branches \(AWS CLI\)<a name="how-to-merge-branches-cli"></a>
 
 You can merge two branches in a CodeCommit repository using the AWS CLI using one of the available merge strategies by running one of the following commands:
 + To merge two branches using the fast\-forward merge strategy, run the [merge\-branches\-by\-fast\-forward](#merge-branches-by-fast-forward) command\.
@@ -44,7 +44,7 @@ You can merge two branches in a CodeCommit repository using the AWS CLI using on
 You can also test merges by running the create\-unreferenced\-merge\-commit command\. For more information, see [Resolve Conflicts in a Pull Request](how-to-resolve-conflict-pull-request.md#create-unreferenced-merge-commit)\.
 
 **Note**  
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 
 
 **To use the AWS CLI to merge two branches in a CodeCommit repository**
 

@@ -1,17 +1,17 @@
-# Edit or Delete an Approval Rule for a Pull Request<a name="how-to-edit-delete-pull-request-approval-rule"></a>
+# Edit or delete an approval rule for a pull request<a name="how-to-edit-delete-pull-request-approval-rule"></a>
 
 When you have an approval rule on a pull request, you cannot merge that pull request until its conditions have been met\. You can change the approval rules for pull requests to make it easier to satisfy their conditions, or to increase the rigor of reviews\. You can change the number of users who must approve a pull request\. You can also add, remove, or change the membership in an approval pool of users for the rule\. Lastly, if you no longer want to use an approval rule for a pull request, you can delete it\.
 
 **Note**  
-You can also override approval rules for a pull request\. For more information, see [Override Approval Rules on a Pull Request](how-to-override-approval-rules.md)\.
+You can also override approval rules for a pull request\. For more information, see [Override approval rules on a pull request](how-to-override-approval-rules.md)\.
 
 You can use the AWS CodeCommit console or the AWS CLI to edit and delete approval rules for your repository\. 
 
 **Topics**
-+ [Edit or Delete an Approval Rule for a Pull Request \(Console\)](#how-to-edit-delete-pull-request-approval-rule-console)
-+ [Edit or Delete an Approval Rule for a Pull Request \(AWS CLI\)](#how-to-edit-delete-pull-request-approval-rule-cli)
++ [Edit or delete an approval rule for a pull request \(console\)](#how-to-edit-delete-pull-request-approval-rule-console)
++ [Edit or delete an approval rule for a pull request \(AWS CLI\)](#how-to-edit-delete-pull-request-approval-rule-cli)
 
-## Edit or Delete an Approval Rule for a Pull Request \(Console\)<a name="how-to-edit-delete-pull-request-approval-rule-console"></a>
+## Edit or delete an approval rule for a pull request \(console\)<a name="how-to-edit-delete-pull-request-approval-rule-console"></a>
 
 You can use the CodeCommit console to edit or delete an approval rule for a pull request in a CodeCommit repository\. 
 
@@ -33,9 +33,9 @@ You can use the CodeCommit console to edit or delete an approval rule for a pull
 
 1. When you have finished configuring the approval rule, choose **Submit**\.
 
-## Edit or Delete an Approval Rule for a Pull Request \(AWS CLI\)<a name="how-to-edit-delete-pull-request-approval-rule-cli"></a>
+## Edit or delete an approval rule for a pull request \(AWS CLI\)<a name="how-to-edit-delete-pull-request-approval-rule-cli"></a>
 
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 
 
 You can use the AWS CLI to edit the content of an approval rule and to delete an approval rule\. 
 

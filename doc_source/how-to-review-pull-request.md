@@ -1,14 +1,14 @@
-# Review a Pull Request<a name="how-to-review-pull-request"></a>
+# Review a pull request<a name="how-to-review-pull-request"></a>
 
 You can use the AWS CodeCommit console to review the changes included in a pull request\. You can add comments to the request, files, and individual lines of code\. You can also reply to comments made by other users\. If your repository is [configured with notifications](how-to-repository-email.md), you receive emails when users reply to your comments or when users comment on a pull request\.
 
 You can use the AWS CLI to comment on a pull request and reply to comments\. To review the changes, you must use the CodeCommit console, the git diff command, or a diff tool\.
 
 **Topics**
-+ [Review a Pull Request \(Console\)](#how-to-review-pull-request-console)
-+ [Review Pull Requests \(AWS CLI\)](#how-to-review-pull-request-cli)
++ [Review a pull request \(console\)](#how-to-review-pull-request-console)
++ [Review pull requests \(AWS CLI\)](#how-to-review-pull-request-cli)
 
-## Review a Pull Request \(Console\)<a name="how-to-review-pull-request-console"></a>
+## Review a pull request \(console\)<a name="how-to-review-pull-request-console"></a>
 
 You can use the CodeCommit console to review a pull request in a CodeCommit repository\. 
 
@@ -33,22 +33,44 @@ You can comment on a closed or merged pull request, but you cannot merge or reop
    + To add a comment to a changed line in the pull request, in **Changes**, go to the line you want to comment on\. Choose the comment icon ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png) that appears for that line, enter a comment, and then choose **Save**\.   
 ![\[Adding a comment on a line in a pull request.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-comment.png)
 
-1. To reply to comments on a commit, in **Changes** or **Activity**, choose **Reply**\.   
-![\[Adding a reply to a comment in a pull request.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-reply-activity.png)
+1. To reply to comments on a commit, in **Changes** or **Activity**, choose **Reply**\. You can reply with text and with emojis\.   
+![\[Adding replies and emoji reactions to a comment.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)
 
-1. \(Optional\) To reply to a recommendation created by Amazon CodeGuru Reviewer, including providing feedback on the recommendation's quality, choose **Reply**\. Use the reaction buttons to provide general information about whether you approve or disapprove the recommendation\. Use the comment field to provide more details about your reaction\.  
-![\[Replying to a recommendation created by Amazon CodeGuru Reviewer.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-reply-bot.png)
+   You can view the names of those who responded with a particular emoji reaction reply by choosing it\. To view all emoji reactions and information about who responded with what emojis, choose **View all reactions**\. If you've responded with an emoji to a comment, your response is shown in the icon for the emoji reaction button\.
 **Note**  
-You will only see CodeGuru Reviewer comments if you have associated the repository with CodeGuru Reviewer, if the analysis is complete, and if the code in the pull request is Java code\. For more information, see [Associate or Disassociate an AWS CodeCommit Repository with Amazon CodeGuru Reviewer](how-to-amazon-codeguru-reviewer.md)\.
+Reaction counts displayed in the console are accurate as of the time the page was loaded\. For the most current information about emoji reaction counts, either refresh the page, or choose **View all reactions**\.  
+![\[Viewing information about users who responded to a comment with an emoji reaction.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-comment-view-reaction.png)
 
-1. To approve the changes made in a pull request, choose **Approve**\. You can view approvals, approval rules for a pull request, and approval rules created by approval rule templates in **Approvals**\. If you decide you do not want to approve the pull request after all, you can choose **Revoke approval**\.
+1. \(Optional\) To reply to a recommendation created by Amazon CodeGuru Reviewer, including providing feedback on the recommendation's quality, choose **Reply**\. Use the reaction buttons to provide general information about whether you approve or disapprove the recommendation\. Use the comment field to provide more details about your reaction\.
+**Note**  
+Amazon CodeGuru Reviewer is an automated code review service that uses program analysis and machine learning to detect common issues and recommend fixes in your Java code\.  
+You will only see Amazon CodeGuru Reviewer comments if you have associated the repository with Amazon CodeGuru Reviewer, if the analysis is complete, and if the code in the pull request is Java code\. For more information, see [Associate or disassociate an AWS CodeCommit repository with Amazon CodeGuru Reviewer](how-to-amazon-codeguru-reviewer.md)\.
+Amazon CodeGuru Reviewer comments only appear in the **Changes** tab if the comments were made on the most recent revision of the pull request\. They always appear in the **Activity** tab\.
+While you can respond with any of the available emoji reactions to Amazon CodeGuru Reviewer recommendations, only thumbs up and thumbs down emoji reactions are used to evaluate the usefulness of the recommendation\.   
+![\[A recommendation created by Amazon CodeGuru Reviewer with a review job in progress.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-reply-bot.png)
+
+1. To approve the changes made in a pull request, choose **Approve**\. 
+**Note**  
+You cannot approve a pull request that you created\.
+
+   You can view approvals, approval rules for a pull request, and approval rules created by approval rule templates in **Approvals**\. If you decide you do not want to approve the pull request after all, you can choose **Revoke approval**\.
 **Note**  
 You can only approve or revoke approval on an open pull request\. You cannot approve or revoke approval on a pull request whose status is Merged or Closed\.  
 ![\[Approvals and approval rules in a pull request.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-approval-rule-met.png)
 
-## Review Pull Requests \(AWS CLI\)<a name="how-to-review-pull-request-cli"></a>
+## Review pull requests \(AWS CLI\)<a name="how-to-review-pull-request-cli"></a>
 
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 
+
+You can review pull requests with the following AWS CLI commands:
++ [post\-comment\-for\-pull\-request](#post-comment-reply), to add a comment to a pull request
++ [get\-comments\-for\-pull\-request](#get-comments-for-pull-request), to view comments left on a pull request
++ [update\-pull\-request\-approval\-state](#update-pull-request-approval-state), to approve or revoke approval for a pull request
++ [post\-comment\-reply](#post-comment-reply), to reply to a comment in a pull request
+
+You can also use emojis with comments in a pull request with the following commands: 
++ To reply to a comment with an emoji, run [put\-comment\-reaction](how-to-commit-comment.md#how-to-commit-comment-cli-commit-reply-emoji)\.
++ To view emoji reactions to a comment, run [get\-comment\-reactions](how-to-commit-comment.md#how-to-commit-comment-cli-commit-emoji-view)\.
 
 **To use the AWS CLI to review pull requests in an CodeCommit repository**
 
@@ -85,7 +107,9 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
                   "content": "These don't appear to be used anywhere. Can we remove them?",
                   "creationDate": 1508369622.123,
                   "deleted": false,
-                  "lastModifiedDate": 1508369622.123
+                  "lastModifiedDate": 1508369622.123,
+                  "callerReactions": [],
+                  "reactionCounts": []
                }
                 "location": { 
                   "filePath": "ahs_count.py",
@@ -127,7 +151,13 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
                   "content": "These don't appear to be used anywhere. Can we remove them?",
                   "creationDate": 1508369622.123,
                   "deleted": false,
-                  "lastModifiedDate": 1508369622.123
+                  "lastModifiedDate": 1508369622.123,
+                  "callerReactions": [],
+                  "reactionCounts": 
+                   {
+                     "THUMBSUP" : 6,
+                     "CONFUSED" : 1
+                   }
                },
                {
                   "authorArn": "arn:aws:iam::111111111111:user/Li_Juan",
@@ -136,7 +166,12 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
                   "content": "Good catch. I'll remove them.",
                   "creationDate": 1508369829.104,
                   "deleted": false,
-                  "lastModifiedDate": 150836912.273
+                  "lastModifiedDate": 150836912.273,
+                  "callerReactions": ["THUMBSUP"]
+                  "reactionCounts": 
+                   {
+                     "THUMBSUP" : 14
+                   }
                 }
             ],
             "location": { 
@@ -187,7 +222,9 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
            "content": "Good catch. I'll remove them.",
            "creationDate": 1508369829.136,
            "deleted": false,
-           "lastModifiedDate": 150836912.221
+           "lastModifiedDate": 150836912.221,
+           "callerReactions": [],
+           "reactionCounts": []
        }
     }
    ```

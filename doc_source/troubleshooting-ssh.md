@@ -1,4 +1,4 @@
-# Troubleshooting SSH Connections to AWS CodeCommit<a name="troubleshooting-ssh"></a>
+# Troubleshooting SSH connections to AWS CodeCommit<a name="troubleshooting-ssh"></a>
 
 The following information might help you troubleshoot common issues when using SSH to connect to CodeCommit repositories\.
 
@@ -34,7 +34,7 @@ If you see a success message after confirming the connection, your SSH key ID is
 git clone ssh://Your-SSH-Key-ID@git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo
 ```
 
-For more information, see [For SSH Connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md)\. 
+For more information, see [For SSH connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md)\. 
 
 ## Access error: Public key is uploaded successfully to IAM and SSH tested successfully but connection fails on Windows systems<a name="troubleshooting-ae5"></a>
 
@@ -58,7 +58,7 @@ git clone ssh://Your-SSH-Key-ID@git-codecommit.us-east-2.amazonaws.com/v1/repos/
 
 **Problem:** When you try to use an SSH endpoint to communicate with a CodeCommit repository, a warning message appears containing the phrase `The authenticity of host 'host-name' can't be established.`
 
-**Possible fixes:** Your credentials might not be set up correctly\. Follow the instructions in [For SSH Connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md) or [For SSH Connections on Windows](setting-up-ssh-windows.md)\. 
+**Possible fixes:** Your credentials might not be set up correctly\. Follow the instructions in [For SSH connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md) or [For SSH connections on Windows](setting-up-ssh-windows.md)\. 
 
 If you have followed those steps and the problem persists, someone might be attempting a man\-in\-the\-middle attack\. When you see the following message, type `no`, and press Enter\.
 
@@ -113,12 +113,20 @@ Make sure the fingerprint and public key for CodeCommit connections match those 
 | git\-codecommit\.me\-south\-1\.amazonaws\.com | SHA256 | O\+NToCGgjrHekiBuOl0ad7ROGEsz\+DBLXOd/c9wc0JU | 
 | git\-codecommit\.ap\-east\-1\.amazonaws\.com | MD5 | a8:00:3d:24:52:9d:61:0e:f6:e3:88:c8:96:01:1c:fe | 
 | git\-codecommit\.ap\-east\-1\.amazonaws\.com | SHA256 | LafadYwUYW8hONoTRpojbjNs9IRnbEwHtezD3aAIBX0 | 
+| git\-codecommit\.cn\-north\-1\.amazonaws\.com\.cn | MD5 | 11:7e:2d:74:9e:3b:94:a2:69:14:75:6f:5e:22:3b:b3 | 
+| git\-codecommit\.cn\-north\-1\.amazonaws\.com\.cn | SHA256 | IYUXxH2OpTDsyYMLIp\+JY8CTLS4UX\+ZC5JVZXPRaxc8 | 
+| git\-codecommit\.cn\-northwest\-1\.amazonaws\.com\.cn | MD5 | 2e:a7:fb:4c:33:ac:6c:f9:aa:f2:bc:fb:0a:7b:1e:b6 | 
+| git\-codecommit\.cn\-northwest\-1\.amazonaws\.com\.cn | SHA256 | wqjd6eHd0\+mOBx\+dCNuL0omUoCNjaDtZiEpWj5TmCfQ | 
 
 ## IAM error: 'Invalid format' when attempting to add a public key to IAM<a name="troubleshooting-iam1"></a>
 
 **Problem:** In IAM, when attempting to set up to use SSH with CodeCommit, an error message appears containing the phrase `Invalid format` when you attempt to add your public key\.
 
-**Possible fixes:** IAM accepts public keys in the OpenSSH format only\. If you provide your public key in another format, or if the key does not contain the required number of bits, you see this error\. This problem most commonly occurs when the public\-private key pairs are generated on Windows computers\. To generate a key pair and copy the OpenSSH format required by IAM, see [SSH and Windows: Set Up the Public and Private Keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
+**Possible fixes:** IAM accepts public keys in the OpenSSH format only\. If you provide your public key in another format, or if the key does not contain the required number of bits, you see this error\. 
++ When you copied the SSH public key, your operating system might have introduced line breaks\. Make sure that there are no line breaks in the public key that you add to IAM\.
++ Some Windows operating systems do not use the OpenSSH format\. To generate a key pair and copy the OpenSSH format required by IAM, see [SSH and Windows: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
+
+For more information about the requirements for SSH keys in IAM, see [Use SSH Keys with CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#ssh-keys-code-commit) in the *IAM User Guide*\.
 
 ## Git on Windows: Bash emulator or command line freezes when attempting to connect using SSH<a name="troubleshooting-gw2"></a>
 

@@ -16,17 +16,17 @@ To use Visual Studio with CodeCommit, you need the following:
 
   If the IAM user already has Git credentials configured, one of the CodeCommit managed policies or equivalent permissions\.
 
-   For more information, see [AWS Managed \(Predefined\) Policies for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md#managed-policies) and [Understanding and Getting Your Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)\.
+   For more information, see [AWS managed \(predefined\) policies for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md#managed-policies) and [Understanding and Getting Your Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)\.
 + The AWS Toolkit for Visual Studio installed on the computer where you've installed Visual Studio\. For more information, see [Setting Up the AWS Toolkit for Visual Studio](https://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/getting-set-up.html)\.
 
 **Topics**
-+ [Step 1: Get an Access Key and Secret Key for Your IAM User](#setting-up-ide-vs-profile)
-+ [Step 2: Install AWS Toolkit for Visual Studio and Connect to CodeCommit](#setting-up-ide-vs-connect)
-+ [Clone a CodeCommit Repository from Visual Studio](#setting-up-ide-vs-clone)
-+ [Create a CodeCommit Repository from Visual Studio](#setting-up-ide-vs-create)
-+ [Working with CodeCommit Repositories](#setting-up-ide-vs-work)
++ [Step 1: Get an access key and secret key for your IAM user](#setting-up-ide-vs-profile)
++ [Step 2: Install AWS Toolkit for Visual Studio and connect to CodeCommit](#setting-up-ide-vs-connect)
++ [Clone a CodeCommit repository from Visual Studio](#setting-up-ide-vs-clone)
++ [Create a CodeCommit repository from Visual Studio](#setting-up-ide-vs-create)
++ [Working with CodeCommit repositories](#setting-up-ide-vs-work)
 
-## Step 1: Get an Access Key and Secret Key for Your IAM User<a name="setting-up-ide-vs-profile"></a>
+## Step 1: Get an access key and secret key for your IAM user<a name="setting-up-ide-vs-profile"></a>
 
 If you do not already have a credential profile set up on the computer where Visual Studio is installed, you can [configure one with the AWS CLI and the aws configure command](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-quick-configuration)\. Alternatively, you can follow the steps in this procedure to create and download your credentials\. Provide them to the Toolkit for Visual Studio when prompted\. 
 
@@ -58,7 +58,7 @@ The only time that you can view or download the secret access key is when you cr
 + [What Is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*
 + [AWS Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) in *AWS General Reference* 
 
-## Step 2: Install AWS Toolkit for Visual Studio and Connect to CodeCommit<a name="setting-up-ide-vs-connect"></a>
+## Step 2: Install AWS Toolkit for Visual Studio and connect to CodeCommit<a name="setting-up-ide-vs-connect"></a>
 
 The Toolkit for Visual Studio is a software package you can add to Visual Studio\. After you've installed it, you can connect to CodeCommit from Team Explorer in Visual Studio\. 
 
@@ -78,9 +78,9 @@ The Toolkit for Visual Studio is a software package you can add to Visual Studio
 
 After you are signed in with a profile, the AWS CodeCommit connection panel appears in Team Explorer with options to clone, create, or sign out\. Choosing **Clone** clones an existing CodeCommit repository to your local computer, so you can start working on code\. This is the most frequently used option\. 
 
- If you don't have repositories, or want to create a repository, choose **Create**\. For more information, see [Create a CodeCommit Repository from Visual Studio](#setting-up-ide-vs-create)\. 
+ If you don't have repositories, or want to create a repository, choose **Create**\. For more information, see [Create a CodeCommit repository from Visual Studio](#setting-up-ide-vs-create)\. 
 
-## Clone a CodeCommit Repository from Visual Studio<a name="setting-up-ide-vs-clone"></a>
+## Clone a CodeCommit repository from Visual Studio<a name="setting-up-ide-vs-clone"></a>
 
 After you're connected to CodeCommit, you can clone a repository to a local repo on your computer\. Then you can start working with the code\.
 
@@ -88,11 +88,11 @@ After you're connected to CodeCommit, you can clone a repository to a local repo
 
 1. If you are prompted to create Git credentials, choose **Yes**\. The toolkit attempts to create credentials on your behalf\. You must have the IAMSelfManageServiceSpecificCredentials applied to your IAM user, or the equivalent permissions\. When prompted, save the credentials file in a secure location\. This is the only opportunity you have to save these Git credentials\.
 
-   If the toolkit cannot create Git credentials on your behalf, or if you chose **No**, you must create and provide your own Git credentials\. For more information, see [For HTTPS Users Using Git Credentials](setting-up-gc.md), or follow the online directions\.
+   If the toolkit cannot create Git credentials on your behalf, or if you chose **No**, you must create and provide your own Git credentials\. For more information, see [For HTTPS users using Git credentials](setting-up-gc.md), or follow the online directions\.
 
 1. When you have finished cloning the project, you're ready to start editing your code in Visual Studio and committing and pushing your changes to your project's repository in CodeCommit\. 
 
-## Create a CodeCommit Repository from Visual Studio<a name="setting-up-ide-vs-create"></a>
+## Create a CodeCommit repository from Visual Studio<a name="setting-up-ide-vs-create"></a>
 
 You can create CodeCommit repositories from Visual Studio with the Toolkit for Visual Studio\. As part of creating the repository, you also clone it to a local repo on your computer, so you can start working with it right away\.
 
@@ -100,7 +100,7 @@ You can create CodeCommit repositories from Visual Studio with the Toolkit for V
 
 1. In **Region**, choose the AWS Region where you want to create the repository\. CodeCommit repositories are organized by AWS Region\. 
 
-1. In **Name**, enter a name for this repository\. Repository names must be unique within an AWS account\. There are character and length limits\. For more information, see [Limits](limits.md)\. In **Description**, enter an optional description for this repository\. This helps others understand what the repository is for, and helps distinguish it from other repositories in the region\.
+1. In **Name**, enter a name for this repository\. Repository names must be unique within an AWS account\. There are character and length limits\. For more information, see [Quotas](limits.md)\. In **Description**, enter an optional description for this repository\. This helps others understand what the repository is for, and helps distinguish it from other repositories in the region\.
 
 1. In **Clone into**, enter or browse to the folder or directory where you want to clone this repository on your local computer\. Visual Studio automatically clones the repository after it's created and creates the local repo in the location you choose\. 
 
@@ -108,9 +108,9 @@ You can create CodeCommit repositories from Visual Studio with the Toolkit for V
 
 1. If prompted to create Git credentials, choose **Yes**\. The toolkit attempts to create credentials on your behalf\. You must have the IAMSelfManageServiceSpecificCredentials applied to your IAM user, or the equivalent permissions\. When prompted, save the credentials file in a secure location\. This is the only opportunity you have to save these Git credentials\.
 
-   If the toolkit cannot create Git credentials on your behalf, or if you chose **No**, you must create and provide your own Git credentials\. For more information, see [For HTTPS Users Using Git Credentials](setting-up-gc.md), or follow the online directions\.
+   If the toolkit cannot create Git credentials on your behalf, or if you chose **No**, you must create and provide your own Git credentials\. For more information, see [For HTTPS users using Git credentials](setting-up-gc.md), or follow the online directions\.
 
-## Working with CodeCommit Repositories<a name="setting-up-ide-vs-work"></a>
+## Working with CodeCommit repositories<a name="setting-up-ide-vs-work"></a>
 
 After you have connected to CodeCommit, you can see a list of repositories associated with your AWS account\. You can browse the contents of these repositories in Visual Studio\. Open the context menu for the repository you're interested in, and choose **Browse in Console**\.
 

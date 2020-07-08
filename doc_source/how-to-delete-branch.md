@@ -1,18 +1,18 @@
-# Delete a Branch in AWS CodeCommit<a name="how-to-delete-branch"></a>
+# Delete a branch in AWS CodeCommit<a name="how-to-delete-branch"></a>
 
 You can use the CodeCommit console to delete a branch in a repository\. Deleting a branch in CodeCommit does not delete that branch in a local repo, so users might continue to have copies of that branch until the next time they pull changes\. To delete a branch locally and push that change to the CodeCommit repository, use Git from a local repo connected to the CodeCommit repository\. 
 
 Deleting a branch does not delete any commits, but it does delete all references to the commits in that branch\. If you delete a branch that contains commits that have not been merged into another branch in the repository, you cannot retrieve those commits unless you have their full commit IDs\. 
 
 **Note**  
-You cannot use the instructions in this topic to delete a repository's default branch\. If you want to delete the default branch, you must create a branch, make the new branch the default branch, and then delete the old branch\. For more information, see [Create a Branch](how-to-create-branch.md) and [Change Branch Settings](how-to-change-branch.md)\.
+You cannot use the instructions in this topic to delete a repository's default branch\. If you want to delete the default branch, you must create a branch, make the new branch the default branch, and then delete the old branch\. For more information, see [Create a branch](how-to-create-branch.md) and [Change branch settings](how-to-change-branch.md)\.
 
 **Topics**
-+ [Delete a Branch \(Console\)](#how-to-delete-branch-console)
-+ [Delete a Branch \(AWS CLI\)](#how-to-delete-branch-cli)
-+ [Delete a Branch \(Git\)](#how-to-delete-branch-git)
++ [Delete a branch \(console\)](#how-to-delete-branch-console)
++ [Delete a branch \(AWS CLI\)](#how-to-delete-branch-cli)
++ [Delete a branch \(Git\)](#how-to-delete-branch-git)
 
-## Delete a Branch \(Console\)<a name="how-to-delete-branch-console"></a>
+## Delete a branch \(console\)<a name="how-to-delete-branch-console"></a>
 
 You can use the CodeCommit console to delete a branch in a CodeCommit repository\. 
 
@@ -24,9 +24,9 @@ You can use the CodeCommit console to delete a branch in a CodeCommit repository
 
 1. Find the name of the branch that you want to delete, choose **Delete branch**, and confirm your choice\.
 
-## Delete a Branch \(AWS CLI\)<a name="how-to-delete-branch-cli"></a>
+## Delete a branch \(AWS CLI\)<a name="how-to-delete-branch-cli"></a>
 
-You can use the AWS CLI to delete a branch in a CodeCommit repository, if that branch is not the default branch for the repository\. For more information about installing and using the AWS CLI, see [Command Line Reference](cmd-ref.md)\. 
+You can use the AWS CLI to delete a branch in a CodeCommit repository, if that branch is not the default branch for the repository\. For more information about installing and using the AWS CLI, see [Command line reference](cmd-ref.md)\. 
 
 1. At the terminal or command line, run the delete\-branch command, specifying:
    + The name of the CodeCommit repository where the branch is to deleted \(with the \-\-repository\-name option\)\.
@@ -51,11 +51,11 @@ To get the name of the branch, run the [list\-branches](how-to-view-branch-detai
    }
    ```
 
-## Delete a Branch \(Git\)<a name="how-to-delete-branch-git"></a>
+## Delete a branch \(Git\)<a name="how-to-delete-branch-git"></a>
 
 Follow these steps to use Git from a local repo to delete a branch in a CodeCommit repository\.
 
-These steps are written with the assumption that you have already connected the local repo to the CodeCommit repository\. For instructions, see [Connect to a Repository](how-to-connect.md)\.
+These steps are written with the assumption that you have already connected the local repo to the CodeCommit repository\. For instructions, see [Connect to a repository](how-to-connect.md)\.
 
 1. To delete the branch from the local repo, run the git branch \-D *branch\-name* command where *branch\-name* is the name of the branch you want to delete\.
 **Tip**  

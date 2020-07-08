@@ -1,17 +1,17 @@
-# Create an Approval Rule for a Pull Request<a name="how-to-create-pull-request-approval-rule"></a>
+# Create an approval rule for a pull request<a name="how-to-create-pull-request-approval-rule"></a>
 
 Creating approval rules for your pull requests helps ensure the quality of your code by requiring users to approve the pull request before the code can be merged into the destination branch\. You can specify the number of users who must approve a pull request\. You can also specify an approval pool of users for the rule\. If you do so, only approvals from those users count toward the number of required approvals for the rule\. 
 
 **Note**  
-You can also create approval rule templates, which can help you automate the creation of approval rules across repositories\. For more information, see [Working with Approval Rule Templates](approval-rule-templates.md)\.
+You can also create approval rule templates, which can help you automate the creation of approval rules across repositories\. For more information, see [Working with approval rule templates](approval-rule-templates.md)\.
 
 You can use the AWS CodeCommit console or the AWS CLI to create approval rules for your repository\. 
 
 **Topics**
-+ [Create an Approval Rule for a Pull Request \(Console\)](#how-to-create-pull-request-approval-rule-console)
-+ [Create an Approval Rule for a Pull Request \(AWS CLI\)](#how-to-create-pull-request-approval-rule-cli)
++ [Create an approval rule for a pull request \(console\)](#how-to-create-pull-request-approval-rule-console)
++ [Create an approval rule for a pull request \(AWS CLI\)](#how-to-create-pull-request-approval-rule-cli)
 
-## Create an Approval Rule for a Pull Request \(Console\)<a name="how-to-create-pull-request-approval-rule-console"></a>
+## Create an approval rule for a pull request \(console\)<a name="how-to-create-pull-request-approval-rule-console"></a>
 
 You can use the CodeCommit console to create an approval rule for a pull request in a CodeCommit repository\. 
 
@@ -38,8 +38,8 @@ You cannot change the name of an approval rule after you create it\.
      + An IAM user in the account \(`arn:aws:iam::123456789012:user/Mary_Major`\)
      + A federated user identified in IAM as Mary\_Major \(`arn:aws:sts::123456789012:federated-user/Mary_Major`\)
 
-     This option would not recognize an active session of someone assuming the role of **CodeCommitReview** with a role session name of Mary\_Major \(`arn:aws:sts::123456789012:assumed-role/CodeCommitReview/Mary_Major`\) unless you include a wildcard \(`*Mary_Major`\)\.
-   + **Fully qualified ARN**: This option allows you to specify the fully qualified Amazon Resource Name \(ARN\) of the IAM user or role\. 
+     This option would not recognize an active session of someone assuming the role of **CodeCommitReview** with a role session name of Mary\_Major \(`arn:aws:sts::123456789012:assumed-role/CodeCommitReview/Mary_Major`\) unless you include a wildcard \(`*Mary_Major`\)\. You can also specify the role name explicitly \(`CodeCommitReview/Mary_Major`\)\.
+   + **Fully qualified ARN**: This option allows you to specify the fully qualified Amazon Resource Name \(ARN\) of the IAM user or role\. This option also supports assumed roles used by other AWS services, such as AWS Lambda and AWS CodeBuild\. For assumed roles, the ARN format should be `arn:aws:sts::AccountID:assumed-role/RoleName` for roles and `arn:aws:sts::AccountID:assumed-role/FunctionName` for functions\.
 
    If you chose **IAM user name or assumed role** as the approver type, in **Value**, enter the name of the IAM user or role or the fully qualified ARN of the user or role\. Choose **Add** again to add more users or roles, until you have added all the users or roles whose approvals count toward the number of required approvals\. 
 
@@ -49,9 +49,9 @@ Approval rules do not support cross\-account approvals\.
 
 1. When you have finished configuring the approval rule, choose **Submit**\.
 
-## Create an Approval Rule for a Pull Request \(AWS CLI\)<a name="how-to-create-pull-request-approval-rule-cli"></a>
+## Create an approval rule for a pull request \(AWS CLI\)<a name="how-to-create-pull-request-approval-rule-cli"></a>
 
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 
 
 ## To create an approval rule for a pull request in a CodeCommit repository
 

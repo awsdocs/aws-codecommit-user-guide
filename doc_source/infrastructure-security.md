@@ -1,4 +1,4 @@
-# Infrastructure Security in AWS CodeCommit<a name="infrastructure-security"></a>
+# Infrastructure security in AWS CodeCommit<a name="infrastructure-security"></a>
 
 As a managed service, AWS CodeCommit is protected by the AWS global network security procedures that are described in the [Amazon Web Services: Overview of Security Processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf) whitepaper\.
 
@@ -9,6 +9,6 @@ Requests must be signed by using an access key ID and a secret access key that i
 You can call these API operations from any network location, but CodeCommit does support restrictions based on the source IP address\. You can also use CodeCommit policies to control access from specific Amazon Virtual Private Cloud \(Amazon VPC\) endpoints or specific VPCs\. Effectively, this isolates network access to a given CodeCommit resource from only the specific VPC in the AWS network\.
 
 For more information, see the following:
-+ [Example 1: Allow a User to Perform CodeCommit Operations in a Single Region](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-1)
-+ [Example 3: Allow a User Connecting from a Specified IP Address Range Access to a Repository ](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-3)
-+ [Using AWS CodeCommit with Interface VPC Endpoints](codecommit-and-interface-VPC.md)
++ [Example 1: Allow a user to perform CodeCommit operations in a single AWS Region](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-1)
++ [Example 3: Allow a user connecting from a specified IP address range access to a repository ](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-3)
++ [Using AWS CodeCommit with interface VPC endpoints](codecommit-and-interface-VPC.md)

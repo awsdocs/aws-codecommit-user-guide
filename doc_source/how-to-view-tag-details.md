@@ -1,16 +1,16 @@
-# View Git Tag Details in AWS CodeCommit<a name="how-to-view-tag-details"></a>
+# View Git tag details in AWS CodeCommit<a name="how-to-view-tag-details"></a>
 
-In Git, a tag is a label you can apply to a reference like a commit to mark it with information that might be important to other repository users\. For example, you might tag the commit that was the beta release point for a project with the tag **beta**\. For more information, see [Use Git to Create a Tag](how-to-create-tag.md#how-to-create-tag-git)\. Git tags are different from repository tags\. For more information about how to use repository tags, see [Add a Tag to a Repository](how-to-tag-repository-add.md)\.
+In Git, a tag is a label you can apply to a reference like a commit to mark it with information that might be important to other repository users\. For example, you might tag the commit that was the beta release point for a project with the tag **beta**\. For more information, see [Use Git to create a tag](how-to-create-tag.md#how-to-create-tag-git)\. Git tags are different from repository tags\. For more information about how to use repository tags, see [Add a tag to a repository](how-to-tag-repository-add.md)\.
 
 You can use the AWS CodeCommit console to view information about Git tags in your repository, including the date and commit message of the commit referenced by each Git tag\. From the console, you can compare the commit referenced by the tag with the head of the default branch of your repository\. Like any other commit, you can also view the code at the point of that Git tag\.
 
 You can also use Git from your terminal or command line to view details about Git tags in a local repo\. 
 
 **Topics**
-+ [View Tag Details \(Console\)](#how-to-view-tag-details-console)
-+ [View Git Tag Details \(Git\)](#how-to-view-tag-details-git)
++ [View tag details \(console\)](#how-to-view-tag-details-console)
++ [View Git tag details \(Git\)](#how-to-view-tag-details-git)
 
-## View Tag Details \(Console\)<a name="how-to-view-tag-details-console"></a>
+## View tag details \(console\)<a name="how-to-view-tag-details-console"></a>
 
 Use the AWS CodeCommit console to quickly view a list of Git tags for your repository and details about the commits referenced by the Git tags\.
 
@@ -25,7 +25,7 @@ Use the AWS CodeCommit console to quickly view a list of Git tags for your repos
    + To view the code as it was at that commit, choose the Git tag name\.
    + To view details of the commit, including the full commit message, committer, and author, choose the abbreviated commit ID\.
 
-## View Git Tag Details \(Git\)<a name="how-to-view-tag-details-git"></a>
+## View Git tag details \(Git\)<a name="how-to-view-tag-details-git"></a>
 
 To use Git to view details about Git tags in a local repo, run one of the following commands:
 + [git tag](#how-to-view-tag-details-git-tag) to view a list of Git tag names\.
@@ -35,7 +35,7 @@ To use Git to view details about Git tags in a local repo, run one of the follow
 **Note**  
 To ensure that your local repo is updated with all of the Git tags in the CodeCommit repository, run git fetch followed by git fetch \-\-tags\.
 
-In the following steps, we assume that you have already connected the local repo to a CodeCommit repository\. For instructions, see [Connect to a Repository](how-to-connect.md)\.
+In the following steps, we assume that you have already connected the local repo to a CodeCommit repository\. For instructions, see [Connect to a repository](how-to-connect.md)\.
 
 ### To view a list of Git tags in a local repo<a name="how-to-view-tag-details-git-tag"></a>
 

@@ -1,17 +1,17 @@
-# Add a Tag to a Repository<a name="how-to-tag-repository-add"></a>
+# Add a tag to a repository<a name="how-to-tag-repository-add"></a>
 
 Adding tags to a repository can help you identify and organize your AWS resources and manage access to them\. First, you add one or more tags \(key\-value pairs\) to a repository\. Keep in mind that there are limits on the number of tags you can have on a repository\. There are restrictions on the characters you can use in the key and value fields\. For more information, see [Limits](limits.md#limits-tags)\. After you have tags, you can create IAM policies to manage access to the repository based on these tags\. You can use the the CodeCommit console or the AWS CLI to add tags to a repository\. 
 
 **Important**  
-Adding tags to a repository can impact access to that repository\. Before you add a tag to a repository, make sure to review any IAM policies that might use tags to control access to resources such as repositories\. For examples of tag\-based access policies, see [Example 5: Deny or Allow Actions on Repositories with Tags](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-5)\.
+Adding tags to a repository can impact access to that repository\. Before you add a tag to a repository, make sure to review any IAM policies that might use tags to control access to resources such as repositories\. For examples of tag\-based access policies, see [Example 5: Deny or allow actions on repositories with tags](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-5)\.
 
-For more information about adding tags to a repository when you create it, see [Create a Repository \(Console\)](how-to-create-repository.md#how-to-create-repository-console)\.
+For more information about adding tags to a repository when you create it, see [Create a repository \(console\)](how-to-create-repository.md#how-to-create-repository-console)\.
 
 **Topics**
-+ [Add a Tag to a Repository \(Console\)](#how-to-tag-repository-add-console)
-+ [Add a Tag to a Repository \(AWS CLI\)](#how-to-tag-repository-add-cli)
++ [Add a tag to a repository \(console\)](#how-to-tag-repository-add-console)
++ [Add a tag to a repository \(AWS CLI\)](#how-to-tag-repository-add-cli)
 
-## Add a Tag to a Repository \(Console\)<a name="how-to-tag-repository-add-console"></a>
+## Add a tag to a repository \(console\)<a name="how-to-tag-repository-add-console"></a>
 
 You can use the CodeCommit console to add one or more tags to a CodeCommit repository\. 
 
@@ -30,9 +30,9 @@ You can use the CodeCommit console to add one or more tags to a CodeCommit repos
 
 1. When you have finished adding tags, choose **Submit**\.
 
-## Add a Tag to a Repository \(AWS CLI\)<a name="how-to-tag-repository-add-cli"></a>
+## Add a tag to a repository \(AWS CLI\)<a name="how-to-tag-repository-add-cli"></a>
 
-Follow these steps to use the AWS CLI to add a tag to a CodeCommit repository\. To add a tag to a repository when you create it, see [Create a Repository \(AWS CLI\)](how-to-create-repository.md#how-to-create-repository-cli)\.
+Follow these steps to use the AWS CLI to add a tag to a CodeCommit repository\. To add a tag to a repository when you create it, see [Create a repository \(AWS CLI\)](how-to-create-repository.md#how-to-create-repository-cli)\.
 
 In these steps, we assume that you have already installed a recent version of the AWS CLI or updated to the current version\. For more information, see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)\.
 

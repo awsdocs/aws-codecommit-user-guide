@@ -1,15 +1,15 @@
-# Example: Create a Trigger in AWS CodeCommit for an Existing AWS Lambda Function<a name="how-to-notify-lambda-cc"></a>
+# Example: Create a trigger in AWS CodeCommit for an existing AWS Lambda function<a name="how-to-notify-lambda-cc"></a>
 
-The easiest way to create a trigger that invokes a Lambda function is to create that trigger in the Lambda console\. This built\-in integration ensures that CodeCommit has the permissions required to run the function\. To add a trigger for an existing Lambda function, go to the Lambda console, and choose the function\. On the **Triggers** tab for the function, follow the steps in **Add trigger**\. These steps are similar to the ones in [Create the Lambda Function](how-to-notify-lambda.md#how-to-notify-lambda-create-function)\.
+The easiest way to create a trigger that invokes a Lambda function is to create that trigger in the Lambda console\. This built\-in integration ensures that CodeCommit has the permissions required to run the function\. To add a trigger for an existing Lambda function, go to the Lambda console, and choose the function\. On the **Triggers** tab for the function, follow the steps in **Add trigger**\. These steps are similar to the ones in [Create the Lambda function](how-to-notify-lambda.md#how-to-notify-lambda-create-function)\.
 
 You can also create a trigger for a Lambda function in a CodeCommit repository\. Doing so requires that you choose an existing Lambda function to invoke\. It also requires that you manually configure the permissions required for CodeCommit to run the function\.
 
 **Topics**
-+ [Manually Configure Permissions to Allow CodeCommit to Run a Lambda Function](#how-to-notify-lam-perm)
-+ [Create a Trigger for the Lambda Function in a CodeCommit Repository \(Console\)](#how-to-notify-lam-console)
-+ [Create a Trigger to a Lambda Function for a CodeCommit Repository \(AWS CLI\)](#how-to-notify-lam-cli)
++ [Manually configure permissions to allow CodeCommit to run a Lambda function](#how-to-notify-lam-perm)
++ [Create a trigger for the Lambda function in a CodeCommit repository \(console\)](#how-to-notify-lam-console)
++ [Create a trigger to a Lambda function for a CodeCommit repository \(AWS CLI\)](#how-to-notify-lam-cli)
 
-## Manually Configure Permissions to Allow CodeCommit to Run a Lambda Function<a name="how-to-notify-lam-perm"></a>
+## Manually configure permissions to allow CodeCommit to run a Lambda function<a name="how-to-notify-lam-perm"></a>
 
 If you create a trigger in CodeCommit that invokes a Lambda function, you must manually configure the permissions that allow CodeCommit to run the Lambda function\. To avoid this manual configuration, consider creating the trigger for the function in the Lambda console instead\.<a name="how-to-notify-lambda-create-function-perm"></a>
 
@@ -84,7 +84,7 @@ If you create a trigger in CodeCommit that invokes a Lambda function, you must m
    }
    ```
 
-## Create a Trigger for the Lambda Function in a CodeCommit Repository \(Console\)<a name="how-to-notify-lam-console"></a>
+## Create a trigger for the Lambda function in a CodeCommit repository \(console\)<a name="how-to-notify-lam-console"></a>
 
 After you have created the Lambda function, you can create a trigger in CodeCommit that runs the function in response to the repository events you specify\.
 
@@ -117,7 +117,7 @@ Before you can successfully test or run the trigger for the example, you must co
 
 1. To verify the functionality of the trigger, make and push a commit to the repository where you configured the trigger\. You should see a response from the Lambda function on the **Monitoring** tab for that function in the Lambda console\. 
 
-## Create a Trigger to a Lambda Function for a CodeCommit Repository \(AWS CLI\)<a name="how-to-notify-lam-cli"></a>
+## Create a trigger to a Lambda function for a CodeCommit repository \(AWS CLI\)<a name="how-to-notify-lam-cli"></a>
 
 You can also use the command line to create a trigger for a Lambda function in response to CodeCommit repository events, such as when someone pushes a commit to your repository\. 
 

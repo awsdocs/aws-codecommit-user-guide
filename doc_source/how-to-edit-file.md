@@ -1,15 +1,15 @@
-# Edit the Contents of a File in an AWS CodeCommit Repository<a name="how-to-edit-file"></a>
+# Edit the contents of a file in an AWS CodeCommit repository<a name="how-to-edit-file"></a>
 
 You can use the CodeCommit console, AWS CLI, or a Git client to edit the contents of a file in a CodeCommit repository\. 
 
 ![\[A view of editing a file in the CodeCommit console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-edit-file.png)
 
 **Topics**
-+ [Edit a File \(Console\)](#how-to-edit-file-console)
-+ [Edit or Delete a File \(AWS CLI\)](#how-to-edit-file-cli)
-+ [Edit a File \(Git\)](#how-to-edit-file-git)
++ [Edit a file \(console\)](#how-to-edit-file-console)
++ [Edit or delete a file \(AWS CLI\)](#how-to-edit-file-cli)
++ [Edit a file \(Git\)](#how-to-edit-file-git)
 
-## Edit a File \(Console\)<a name="how-to-edit-file-console"></a>
+## Edit a file \(console\)<a name="how-to-edit-file-console"></a>
 
 You can use the CodeCommit console to edit a file that has been added to a branch in a CodeCommit repository\. As part of editing the file, you can provide your user name and an email address\. You can also add a commit message so other users understand who made the change and why\.
 
@@ -34,12 +34,12 @@ If you choose a binary file, a warning message appears asking you to confirm tha
 
 1. Choose **Commit changes** to save your changes to the file and commit the changes to the repository\.
 
-## Edit or Delete a File \(AWS CLI\)<a name="how-to-edit-file-cli"></a>
+## Edit or delete a file \(AWS CLI\)<a name="how-to-edit-file-cli"></a>
 
 You can use the AWS CLI and the put\-file command to make changes to a file in a CodeCommit repository\. You can also use the put\-file command to add a directory or path structure for the changed file, if you want to store the changed file in a location different from the original\. If you want to delete a file entirely, you can use the delete\-file command\.
 
 **Note**  
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 
 
 **To edit a file in a repository**
 
@@ -91,6 +91,6 @@ If successful, this command returns output similar to the following:
 }
 ```
 
-## Edit a File \(Git\)<a name="how-to-edit-file-git"></a>
+## Edit a file \(Git\)<a name="how-to-edit-file-git"></a>
 
-You can edit files in a local repo and push your changes to a CodeCommit repository\. For more information, see [Getting Started with Git and AWS CodeCommit](getting-started.md)\.
+You can edit files in a local repo and push your changes to a CodeCommit repository\. For more information, see [Getting started with Git and AWS CodeCommit](getting-started.md)\.

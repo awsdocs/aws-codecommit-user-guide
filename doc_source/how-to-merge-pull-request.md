@@ -1,4 +1,4 @@
-# Merge a Pull Request in an AWS CodeCommit Repository<a name="how-to-merge-pull-request"></a>
+# Merge a pull request in an AWS CodeCommit repository<a name="how-to-merge-pull-request"></a>
 
 After your code has been reviewed and all approval rules \(if any\) on the pull request have been satisfied, you can merge a pull request in one of several ways:
 + <a name="is-mergable"></a>You can use the console to merge your source branch to the destination branch using one of the available merge strategies, which also closes the pull request\. You can also resolve any merge conflicts in the console\. The console displays a message that indicates if the pull request is mergeable or if conflicts must be resolved\. When all conflicts are resolved and you choose **Merge**, the merge is performed using the merge strategy that you choose\. Fast\-forward is the default merge strategy, which is the default option for Git\. Depending on the state of the code in the source and destination branches, that strategy might not be available, but other options might be, such as squash or 3\-way\.
@@ -8,10 +8,10 @@ After your code has been reviewed and all approval rules \(if any\) on the pull 
 CodeCommit closes a pull request automatically if either the source or destination branch of the pull request is deleted\.
 
 **Topics**
-+ [Merge a Pull Request \(Console\)](#how-to-merge-pull-request-console)
-+ [Merge a Pull Request \(AWS CLI\)](#how-to-merge-pull-request-cli)
++ [Merge a pull request \(console\)](#how-to-merge-pull-request-console)
++ [Merge a pull request \(AWS CLI\)](#how-to-merge-pull-request-cli)
 
-## Merge a Pull Request \(Console\)<a name="how-to-merge-pull-request-console"></a>
+## Merge a pull request \(console\)<a name="how-to-merge-pull-request-console"></a>
 
 You can use the CodeCommit console to merge a pull request in a CodeCommit repository\. After the status of a pull request is changed to **Merged**, it no longer appears in the list of open pull requests\. A merged pull request is categorized as closed\. It cannot be changed back to **Open**, but users can still comment on the changes and reply to comments\. After a pull request is merged or closed, you cannot approve it, revoke approval for it, or override the approval rules applied to the pull request\.
 
@@ -25,12 +25,12 @@ You can use the CodeCommit console to merge a pull request in a CodeCommit repos
 
 1. In the pull request, choose **Approvals**\. Review the list of approvers, and verify that all approval rules \(if any\) have had their conditions satisfied\. You cannot merge a pull request if one or more approval rules have the status of **Rule not satisfied**\. If no one has approved the pull request, consider whether you want to merge it, or whether you want to wait for approvals\.
 **Note**  
-If an approval rule was created for a pull request, you can edit it or delete it to unblock the merge\. If the approval rule was created with an approval rule template, you cannot edit or delete it\. You can only choose to override the requirements\. For more information, see [Override Approval Rules on a Pull Request](how-to-override-approval-rules.md)\.  
+If an approval rule was created for a pull request, you can edit it or delete it to unblock the merge\. If the approval rule was created with an approval rule template, you cannot edit or delete it\. You can only choose to override the requirements\. For more information, see [Override approval rules on a pull request](how-to-override-approval-rules.md)\.  
 ![\[A pull request showing an approval rule whose condititions have not been satisfied and an empty list of approvers.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-approval-rule-not-met.png)
 
 1. Choose **Merge**\.
 
-1. In the pull request, choose between the available merge strategies\. Merge strategies that cannot be applied appear greyed out\. If no merge strategies are available, you can choose to manually resolve conflicts in the CodeCommit console, or you can resolve them locally using your Git client\. For more information, see [Resolve Conflicts in a Pull Request in an AWS CodeCommit Repository](how-to-resolve-conflict-pull-request.md)\.  
+1. In the pull request, choose between the available merge strategies\. Merge strategies that cannot be applied appear greyed out\. If no merge strategies are available, you can choose to manually resolve conflicts in the CodeCommit console, or you can resolve them locally using your Git client\. For more information, see [Resolve conflicts in a pull request in an AWS CodeCommit repository](how-to-resolve-conflict-pull-request.md)\.  
 ![\[A pull request showing the merge strategies available for the merge in the CodeCommit console.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-merge-squash.png)
    + A fast\-forward merge moves the reference for the destination branch forward to the most recent commit of the source branch\. This is the default behavior of Git when possible\. No merge commit is created, but all commit history from the source branch is retained as if it had occurred in the destination branch\. Fast\-forward merges do not appear as a branch merge in the commit visualizer view of the destination branch's history because no merge commit is created\. The tip of the source branch is fast\-forwarded to the tip of the destination branch\. 
    + A squash merge creates one commit that contains the changes in the source branch and applies that single squashed commit to the destination branch\. By default, the commit message for that squash commit contains all the commit messages of the changes in the source branch\. No individual commit history of the branch changes is retained\. This can help simplify your repository history while still retaining a graphical representation of the merge in the commit visualizer view of the destination branch's history\. 
@@ -42,9 +42,9 @@ If an approval rule was created for a pull request, you can edit it or delete it
 
 1. Choose **Merge pull request** to complete the merge\.
 
-## Merge a Pull Request \(AWS CLI\)<a name="how-to-merge-pull-request-cli"></a>
+## Merge a pull request \(AWS CLI\)<a name="how-to-merge-pull-request-cli"></a>
 
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 
 
 **To use the AWS CLI to merge pull requests in a CodeCommit repository**
 
@@ -73,7 +73,7 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
    }
    ```
 **Note**  
-This output indicates that a pull request is not mergable because the requirements of an approval rule have not been satisfied\. To merge this pull request, you can have reviewers approve it to meet the conditions of the rule\. Depending on your permissions and how the rule was created, you might also be able to edit, override, or delete the rule\. For more information, see [Review a Pull Request](how-to-review-pull-request.md), [Override Approval Rules on a Pull Request](how-to-override-approval-rules.md), and [Edit or Delete an Approval Rule for a Pull Request](how-to-edit-delete-pull-request-approval-rule.md)\. 
+This output indicates that a pull request is not mergable because the requirements of an approval rule have not been satisfied\. To merge this pull request, you can have reviewers approve it to meet the conditions of the rule\. Depending on your permissions and how the rule was created, you might also be able to edit, override, or delete the rule\. For more information, see [Review a pull request](how-to-review-pull-request.md), [Override approval rules on a pull request](how-to-override-approval-rules.md), and [Edit or delete an approval rule for a pull request](how-to-edit-delete-pull-request-approval-rule.md)\. 
 
 1. To merge and close a pull request using the fast\-forward merge strategy, run the merge\-pull\-request\-by\-fast\-forward command, specifying:
    + The ID of the pull request \(with the \-\-pull\-request\-id option\)\.

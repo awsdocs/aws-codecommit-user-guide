@@ -1,11 +1,11 @@
-# Monitoring CodeCommit Events in Amazon EventBridge and Amazon CloudWatch Events<a name="monitoring-events"></a>
+# Monitoring CodeCommit events in Amazon EventBridge and Amazon CloudWatch Events<a name="monitoring-events"></a>
 
 You can monitor AWS CodeCommit events in EventBridge, which delivers a stream of real\-time data from your own applications, software\-as\-a\-service \(SaaS\) applications, and AWS services\. EventBridge routes that data to targets such as AWS Lambda and Amazon Simple Notification Service\. These events are the same as those that appear in Amazon CloudWatch Events, which delivers a near real\-time stream of system events that describe changes in AWS resources\. 
 
 The following examples show events for CodeCommit\.
 
 **Note**  
-CodeCommit supports providing `displayName` and `emailAddress` information included in session tags in events, if that information is available\. For more information, see [Session Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html) and [Using Tags to Provide Identity Information in CodeCommit](security-iam.md#security-iam_service-with-iam-tags-identity)\.
+CodeCommit supports providing `displayName` and `emailAddress` information included in session tags in events, if that information is available\. For more information, see [Session Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html) and [Using tags to provide identity information in CodeCommit](security-iam.md#security-iam_service-with-iam-tags-identity)\.
 
 **Topics**
 + [referenceCreated event](#referenceCreated)
@@ -32,6 +32,8 @@ CodeCommit supports providing `displayName` and `emailAddress` information inclu
 + [pullRequestApprovalRuleOverridden event](#pullRequestApprovalRuleOverridden)
 + [pullRequestApprovalStateChanged event](#pullRequestApprovalStateChanged)
 + [pullRequestApprovalRuleUpdated event](#pullRequestApprovalRuleUpdated)
++ [reactionCreated event](#reactionCreated)
++ [reactionUpdated event](#reactionUpdated)
 
 ## referenceCreated event<a name="referenceCreated"></a>
 
@@ -300,7 +302,7 @@ In this example event, a pull request was created in a repository named `MyDemoR
     "arn:aws:codecommit:us-east-2:123456789012:MyDemoRepo"
   ],
   "detail": {
-    "author": "AKIAI44QH8DHBEXAMPLE",
+    "author": "arn:aws:sts::123456789012:assumed-role/Admin/Mary_Major",
     "callerUserArn": "arn:aws:sts::123456789012:assumed-role/Admin/Mary_Major",
     "creationDate": "Tue Feb 9 2019 10:18:42 PDT ",
     "description": "An example description.",
@@ -338,7 +340,7 @@ In this example event, a user who assumed a role named `Admin` with a session na
     "arn:aws:codecommit:us-east-2:123456789012:MyDemoRepo"
   ],
   "detail": {
-    "author": "AKIAI44QH8DHBEXAMPLE",
+    "author": "arn:aws:sts::123456789012:assumed-role/Admin/Mary_Major",
     "callerUserArn": "arn:aws:sts::123456789012:assumed-role/Admin/Mary_Major",
     "creationDate": "Tue Feb 9 2019 10:18:42 PDT",
     "description": "An example description.",
@@ -376,7 +378,7 @@ In this example event, a user who assumed a role named `Admin` with a session na
     "arn:aws:codecommit:us-east-2:123456789012:MyDemoRepo"
   ],
   "detail": {
-    "author": "AKIAI44QH8DHBEXAMPLE",
+    "author": "arn:aws:sts::123456789012:assumed-role/Admin/Mary_Major",
     "callerUserArn": "arn:aws:sts::123456789012:assumed-role/Admin/Mary_Major",
     "creationDate": "Tue Jun 18 10:34:20 PDT 2019",
     "description": "An example description.",
@@ -414,7 +416,7 @@ In this example event, a user who assumed a role named `Admin` with a session na
     "arn:aws:codecommit:us-east-2:123456789012:MyDemoRepo"
   ],
   "detail": {
-    "author": "AKIAI44QH8DHBEXAMPLE",
+    "author": "arn:aws:sts::123456789012:assumed-role/Admin/Mary_Major",
     "callerUserArn": "arn:aws:sts::123456789012:assumed-role/Admin/Mary_Major",
     "creationDate": "Mon Mar 11 14:42:31 PDT 2019",
     "description": "An example description.",
@@ -671,7 +673,7 @@ In this example event, a user with an IAM user name of `Mary_Major` created an a
         "approvalRuleContentSha256": "f742eebbEXAMPLE",
         "approvalRuleId": "0a9b5dfc-EXAMPLE",
         "approvalRuleName": "1-approver-needed",
-        "author": "AKIAI44QH8DHBEXAMPLE",
+        "author": "arn:aws:iam::123456789012:user/Mary_Major",
         "callerUserArn": "arn:aws:iam::123456789012:user/Mary_Major",
         "creationDate": "Wed Nov 06 19:10:58 UTC 2019",
         "description": "An An example description.",
@@ -696,7 +698,7 @@ In this example event, a user with an IAM user name of `Mary_Major` created an a
 
 ## pullRequestApprovalRuleDeleted event<a name="pullRequestApprovalRuleDeleted"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major` deleted an approval rule named `1-approver-needed` for a pull request with the ID of `227`\.
+In this example event, a user with an IAM user name of `Mary_Major` deleted an approval rule named `1-approver-needed` for a pull request with the ID of `227`\. An IAM user with the name `Saanvi_Sarkar` originally authored the approval rule\.
 
 ```
 {
@@ -714,7 +716,7 @@ In this example event, a user with an IAM user name of `Mary_Major` deleted an a
         "approvalRuleContentSha256": "f742eebbEXAMPLE",
         "approvalRuleId": "0a9b5dfc-EXAMPLE",
         "approvalRuleName": "1-approver-needed",
-        "author": "AKIAI44QH8DHBEXAMPLE",
+        "author": "arn:aws:iam::123456789012:user/Saanvi_Sarkar",
         "callerUserArn": "arn:aws:iam::123456789012:user/Mary_Major",
         "creationDate": "Wed Nov 06 19:10:58 UTC 2019",
         "description": "An An example description.",
@@ -739,7 +741,7 @@ In this example event, a user with an IAM user name of `Mary_Major` deleted an a
 
 ## pullRequestApprovalRuleOverridden event<a name="pullRequestApprovalRuleOverridden"></a>
 
-In this example event, the approval rule requirements for a pull request have been set aside \(OVERRIDE\) by a user with an IAM user name of `Mary_Major`\.
+In this example event, the approval rule requirements for a pull request have been set aside \(OVERRIDE\) by a user with an IAM user name of `Mary_Major`\. The pull request was authored by a user with an IAM user name of `Li_Juan`\.
 
 ```
 {
@@ -754,7 +756,7 @@ In this example event, the approval rule requirements for a pull request have be
         "arn:aws:codecommit:us-east-2:123456789012:MyDemoRepo"
     ],
     "detail": {
-        "author": "AKIAI44QH8DHBEXAMPLE",
+        "author": "arn:aws:iam::123456789012:user/Li_Juan",
         "callerUserArn": "arn:aws:iam::123456789012:user/Mary_Major",
         "creationDate": "Wed Nov 06 19:10:58 UTC 2019",
         "description": "An An example description.",
@@ -793,7 +795,7 @@ In this example event, the approval rule requirements for a pull request have be
         "arn:aws:codecommit:us-east-2:123456789012:MyDemoRepo"
     ],
     "detail": {
-        "author": "AKIAI44QH8DHBEXAMPLE",
+        "author": "arn:aws:iam::123456789012:user/Li_Juan",
         "callerUserArn": "arn:aws:iam::123456789012:user/Mary_Major",
         "creationDate": "Wed Nov 06 19:10:58 UTC 2019",
         "description": "An An example description.",
@@ -835,7 +837,7 @@ In this example event, a pull request has been approved by a user with an IAM us
     ],
     "detail": {
         "approvalStatus": "APPROVE",
-        "author": "AKIAI44QH8DHBEXAMPLE",
+        "author": "arn:aws:iam::123456789012:user/Li_Juan",
         "callerUserArn": "arn:aws:iam::123456789012:user/Mary_Major",
         "creationDate": "Wed Nov 06 19:10:58 UTC 2019",
         "description": "An An example description.",
@@ -874,7 +876,7 @@ In this example event, an approval for a pull request has been revoked by a user
     ],
     "detail": {
         "approvalStatus": "REVOKE",
-        "author": "AKIAI44QH8DHBEXAMPLE",
+        "author": "arn:aws:iam::123456789012:user/Li_Juan",
         "callerUserArn": "arn:aws:iam::123456789012:user/Mary_Major",
         "creationDate": "Wed Nov 06 19:10:58 UTC 2019",
         "description": "An An example description.",
@@ -899,7 +901,7 @@ In this example event, an approval for a pull request has been revoked by a user
 
 ## pullRequestApprovalRuleUpdated event<a name="pullRequestApprovalRuleUpdated"></a>
 
-In this example event, an approval rule for a pull request has been edited by a user with an IAM user name of `Mary_Major`\.
+In this example event, an approval rule for a pull request has been edited by a user with an IAM user name of `Mary_Major`\. She is also the user who authored the pull request\.
 
 ```
 {
@@ -917,10 +919,10 @@ In this example event, an approval rule for a pull request has been edited by a 
         "approvalRuleContentSha256": "f742eebbEXAMPLE",
         "approvalRuleId": "0a9b5dfc-EXAMPLE",
         "approvalRuleName": "1-approver-needed",
-        "author": "AKIAI44QH8DHBEXAMPLE",
+        "author": "arn:aws:iam::123456789012:user/Mary_Major",
         "callerUserArn": "arn:aws:iam::123456789012:user/Mary_Major",
         "creationDate": "Wed Nov 06 19:10:58 UTC 2019",
-        "description": "An An example description.",
+        "description": "An example description.",
         "destinationCommit": "194fdf00EXAMPLE",
         "destinationReference": "refs/heads/master",
         "event": "pullRequestApprovalRuleUpdated",
@@ -937,5 +939,71 @@ In this example event, an approval rule for a pull request has been edited by a 
         "sourceReference": "refs/heads/test-branch",
         "title": "My example pull request"
     }
+}
+```
+
+## reactionCreated event<a name="reactionCreated"></a>
+
+In this example event, a reaction to a comment has been added by a user with an IAM user name of `Mary_Major`\. 
+
+```
+{
+   "version":"0",
+   "id":"59fcccd8-217a-32ce-2b05-561ed68a1c42",
+   "detail-type":"CodeCommit Comment Reaction Change",
+   "source":"aws.codecommit",
+   "account":"123456789012",
+   "time":"2020-04-14T00:49:03Z",
+   "region":"us-east-2",
+   "resources":[
+      "arn:aws:codecommit:us-east-2:123456789012:MyDemoRepo"
+   ],
+   "detail":{
+      "callerUserArn":"arn:aws:iam::123456789012:user/Mary_Major",
+      "commentId":"28930161-EXAMPLE",
+      "event":"commentReactionCreated",
+      "notificationBody":"A comment reaction event occurred in the following AWS CodeCommit Repository: MyDemoRepo. The user: arn:aws:iam::123456789012:user/Mary_Major made a comment reaction 👎 to the comment with comment ID: 28930161-EXAMPLE",
+      "reactionEmojis":["👎"],
+      "reactionShortcodes":[":thumbsdown:"],
+      "reactionUnicodes":["U+1F44E"],
+      "repositoryId":"12345678-1234-5678-abcd-12345678abcd",
+      "repositoryName":"MyDemoRepo"
+   }
+}
+```
+
+## reactionUpdated event<a name="reactionUpdated"></a>
+
+In this example event, a reaction to a comment has been updated by a user with an IAM user name of `Mary_Major`\. Users can only update their own reactions\.
+
+```
+{
+   "version":"0",
+   "id":"0844ed99-a53f-3bdb-6048-4de315516889",
+   "detail-type":"CodeCommit Comment Reaction Change",
+   "source":"aws.codecommit",
+   "account":"123456789012",
+   "time":"2020-04-22T23:19:42Z",
+   "region":"us-east-2",
+   "resources":[
+      "arn:aws:codecommit:us-east-2:123456789012:MyDemoRepo"
+   ],
+   "detail":{
+      "callerUserArn":"arn:aws:iam::123456789012:user/Mary_Major",
+      "commentId":"28930161-EXAMPLE",
+      "event":"commentReactionUpdated",
+      "notificationBody":"A comment reaction event occurred in the following AWS CodeCommit Repository: MyDemoRepo. The user: arn:aws:iam::123456789012:user/Mary_Major updated a reaction :smile: to the comment with comment ID: 28930161-EXAMPLE",
+      "reactionEmojis":[
+         "😄"
+      ],
+      "reactionShortcodes":[
+         ":smile:"
+      ],
+      "reactionUnicodes":[
+         "U+1F604"
+      ],
+      "repositoryId":"12345678-1234-5678-abcd-12345678abcd",
+      "repositoryName":"MyDemoRepo"
+   }
 }
 ```

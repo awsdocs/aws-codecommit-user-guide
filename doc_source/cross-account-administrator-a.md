@@ -1,4 +1,4 @@
-# Cross\-Account Repository Access: Actions for the Administrator in AccountA<a name="cross-account-administrator-a"></a>
+# Cross\-account repository access: Actions for the administrator in AccountA<a name="cross-account-administrator-a"></a>
 
 To allow users or groups in AccountB to access a repository in AccountA, an AccountA administrator must:
 + Create a policy in AccountA that grants access to the repository\.
@@ -8,10 +8,10 @@ To allow users or groups in AccountB to access a repository in AccountA, an Acco
 The following sections provide steps and examples\.
 
 **Topics**
-+ [Step 1: Create a Policy for Repository Access in AccountA](#cross-account-create-policy-a)
-+ [Step 2: Create a Role for Repository Access in AccountA](#cross-account-create-role-a)
++ [Step 1: Create a policy for repository access in AccountA](#cross-account-create-policy-a)
++ [Step 2: Create a role for repository access in AccountA](#cross-account-create-role-a)
 
-## Step 1: Create a Policy for Repository Access in AccountA<a name="cross-account-create-policy-a"></a>
+## Step 1: Create a policy for repository access in AccountA<a name="cross-account-create-policy-a"></a>
 
 You can create a policy in AccountA that grants access to the repository in AccountB\. Depending on the level of access you want to allow, do one of the following:
 + Configure the policy to allow AccountB users access to a specific repository, but do not allow them to view a list of all repositories in AccountA\.
@@ -19,7 +19,7 @@ You can create a policy in AccountA that grants access to the repository in Acco
 
 **To create a policy for repository access**
 
-1. Sign in to the AWS Management Console as an IAM user with permissions to create roles in AccountA\.
+1. Sign in to the AWS Management Console as an IAM user with permissions to create policies in AccountA\.
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -94,7 +94,7 @@ You can create a policy in AccountA that grants access to the repository in Acco
    }
    ```
 
-   This access makes it easier for users who assume this role to find the repository to which they have access\. They can choose the name of the repository from the list and be directed to the home page of the shared repository \(`Code`\)\. Users cannot access any of the other repositories they see in the list, but they can view the repositories in AccountA on the **Dashboard** page\.
+   This access makes it easier for users who assume this role with this policy to find the repository to which they have access\. They can choose the name of the repository from the list and be directed to the home page of the shared repository \(`Code`\)\. Users cannot access any of the other repositories they see in the list, but they can view the repositories in AccountA on the **Dashboard** page\.
 
    If you do not want to allow users who assume the role to be able to view a list of all repositories in AccountA, use the first policy example, but make sure that you send those users a direct link to the home page of the shared repository in the CodeCommit console\.
 
@@ -102,7 +102,7 @@ You can create a policy in AccountA that grants access to the repository in Acco
 
 1. On the **Review policy** page, enter a name for the policy \(for example, *CrossAccountAccessForMySharedDemoRepo*\)\. You can also provide an optional description for this policy\. Choose **Create policy**\. 
 
-## Step 2: Create a Role for Repository Access in AccountA<a name="cross-account-create-role-a"></a>
+## Step 2: Create a role for repository access in AccountA<a name="cross-account-create-role-a"></a>
 
 After you have configured a policy, create a role that IAM users and groups in AccountB can assume, and attach the policy to that role\.<a name="cross-account-create-role-a-procedure"></a>
 

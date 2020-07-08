@@ -3,17 +3,18 @@
 The following information might help you troubleshoot common issues in AWS CodeCommit\.
 
 **Topics**
-+ [Troubleshooting Git Credentials and HTTPS Connections to AWS CodeCommit](troubleshooting-gc.md)
-+ [Troubleshooting SSH Connections to AWS CodeCommit](troubleshooting-ssh.md)
-+ [Troubleshooting the Credential Helper and HTTPS Connections to AWS CodeCommit](troubleshooting-ch.md)
-+ [Troubleshooting Git Clients and AWS CodeCommit](troubleshooting-git.md)
-+ [Troubleshooting Access Errors and AWS CodeCommit](troubleshooting-ae.md)
-+ [Troubleshooting Configuration Errors and AWS CodeCommit](troubleshooting-cf.md)
-+ [Troubleshooting Console Errors and AWS CodeCommit](troubleshooting-cs.md)
-+ [Troubleshooting Triggers and AWS CodeCommit](troubleshooting-ti.md)
-+ [Turn on Debugging](#troubleshooting-debug)
++ [Troubleshooting Git credentials and HTTPS connections to AWS CodeCommit](troubleshooting-gc.md)
++ [Troubleshooting git\-remote\-codecommit and AWS CodeCommit](troubleshooting-grc.md)
++ [Troubleshooting SSH connections to AWS CodeCommit](troubleshooting-ssh.md)
++ [Troubleshooting the credential helper and HTTPS connections to AWS CodeCommit](troubleshooting-ch.md)
++ [Troubleshooting Git clients and AWS CodeCommit](troubleshooting-git.md)
++ [Troubleshooting access errors and AWS CodeCommit](troubleshooting-ae.md)
++ [Troubleshooting configuration errors and AWS CodeCommit](troubleshooting-cf.md)
++ [Troubleshooting console errors and AWS CodeCommit](troubleshooting-cs.md)
++ [Troubleshooting triggers and AWS CodeCommit](troubleshooting-ti.md)
++ [Turn on debugging](#troubleshooting-debug)
 
-## Turn on Debugging<a name="troubleshooting-debug"></a>
+## Turn on debugging<a name="troubleshooting-debug"></a>
 
 **Problem:** I want to turn on debugging to get more information about my repository and how Git is executing commands\. 
 
@@ -69,4 +70,4 @@ Setting `GIT_CURL_VERBOSE` is useful for HTTPS connections only\. SSH does not u
    echo "Longest delta chain: $longest_delta_chain"
    ```
 
-1. If these steps do not provide enough information for you to resolve the issue on your own, ask for help on [the AWS CodeCommit forum](https://forums.aws.amazon.com///forum.jspa?forumID=189)\. Be sure to include relevant output from these steps in your post\.
+1. If these steps do not provide enough information for you to resolve the issue on your own, ask for help on [the AWS CodeCommit forum](https://forums.aws.amazon.com/forumID=189)\. Be sure to include relevant output from these steps in your post\.

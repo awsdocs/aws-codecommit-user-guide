@@ -1,28 +1,28 @@
-# Share a AWS CodeCommit Repository<a name="how-to-share-repository"></a>
+# Share a AWS CodeCommit repository<a name="how-to-share-repository"></a>
 
 After you have created a CodeCommit repository, you can share it with other users\. First, decide which protocol \(HTTPS or SSH\) to recommend to users when cloning and using a Git client or an IDE to connect to your repository\. Then send the URL and connection information to the users with whom you want to share the repository\. Depending on your security requirements, sharing a repository might also require creating an IAM group, applying managed policies to that group, and editing IAM policies to refine access\. 
 
 **Note**  
-After you have granted users console access to the repository, they can add or edit files directly in the console without having to set up a Git client or other connection\. For more information, see [Create or Add a File to an AWS CodeCommit Repository](how-to-create-file.md) and [Edit the Contents of a File in an AWS CodeCommit Repository](how-to-edit-file.md)\.
+After you have granted users console access to the repository, they can add or edit files directly in the console without having to set up a Git client or other connection\. For more information, see [Create or add a file to an AWS CodeCommit repository](how-to-create-file.md) and [Edit the contents of a file in an AWS CodeCommit repository](how-to-edit-file.md)\.
 
-These instructions are written with the assumption that you have already completed the steps in [Setting Up ](setting-up.md) and [Create a Repository](how-to-create-repository.md)\. 
+These instructions are written with the assumption that you have already completed the steps in [Setting up ](setting-up.md) and [Create a repository](how-to-create-repository.md)\. 
 
 **Note**  
 Depending on your usage, you might be charged for creating or accessing a repository\. For more information, see [Pricing](http://aws.amazon.com/codecommit/pricing) on the CodeCommit product information page\.
 
 **Topics**
-+ [Choose the Connection Protocol to Share with Your Users](#how-to-share-repo-choose)
-+ [Create IAM Policies for Your Repository](#how-to-share-repo-create-policy)
-+ [Create an IAM Group for Repository Users](#how-to-share-repository-IAMgroup)
-+ [Share the Connection Information with Your Users](#how-to-share-repository-cli)
++ [Choose the connection protocol to share with your users](#how-to-share-repo-choose)
++ [Create IAM policies for your repository](#how-to-share-repo-create-policy)
++ [Create an IAM group for repository users](#how-to-share-repository-IAMgroup)
++ [Share the connection information with your users](#how-to-share-repository-cli)
 
-## Choose the Connection Protocol to Share with Your Users<a name="how-to-share-repo-choose"></a>
+## Choose the connection protocol to share with your users<a name="how-to-share-repo-choose"></a>
 
 When you create a repository in CodeCommit, two endpoints are generated: one for HTTPS connections and one for SSH connections\. Both provide secure connections over a network\. Your users can use either protocol\. Both endpoints remain active regardless of which protocol you recommend to your users\.
 
 HTTPS connections require either: 
 + Git credentials, which IAM users can generate for themselves in IAM\. Git credentials are the easiest method for users of your repository to set up and use\. 
-+ An AWS access key, which your repository users must configure in the credential helper included in the AWS CLI\. \(This is the only method available for root account or federated users\.\) 
++ An AWS access key or role to assume, which your repository users must configure in their credential profile\. You can configure git\-remote\-codecommit \(recommended\) or the credential helper included in the AWS CLI\. These are the only methods available for root account or federated users\. 
 
 SSH connections require your users to:
 + Generate a public\-private key pair\.
@@ -33,19 +33,19 @@ SSH connections require your users to:
 
 Because this is a more complex configuration process, we recommend that you choose HTTPS and Git credentials for connections to CodeCommit\.
 
-For more information about HTTPS, SSH, Git, and remote repositories, see [Setting Up ](setting-up.md) or consult your Git documentation\. For a general overview of communication protocols and how each communicates with remote repositories, see [Git on the Server \- The Protocols](http://git-scm.com/book/ch4-1.html)\.
+For more information about HTTPS, SSH, Git, git\-remote\-codecommit, and remote repositories, see [Setting up ](setting-up.md), [Connecting to AWS CodeCommit repositories with rotating credentials](temporary-access.md), or consult your Git documentation\. For a general overview of communication protocols and how each communicates with remote repositories, see [Git on the Server \- The Protocols](http://git-scm.com/book/ch4-1.html)\.
 
 **Note**  
 Although Git supports a variety of connection protocols, CodeCommit does not support connections with unsecured protocols, such as the local protocol or generic HTTP\.
 
-## Create IAM Policies for Your Repository<a name="how-to-share-repo-create-policy"></a>
+## Create IAM policies for your repository<a name="how-to-share-repo-create-policy"></a>
 
 AWS provides three managed policies in IAM for CodeCommit\. These policies cannot be edited and apply to all repositories associated with your AWS account\. However, you can use these policies as templates to create your own custom managed policies that apply only to the repository you want to share\. Your customer managed policy can apply specifically to the repository you want to share\. For more information, see [Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_managed-vs-inline.html#aws-managed-policies) and [IAM Users and Groups](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html)\. 
 
 **Tip**  
 For more fine\-grained control over access to your repository, you can create more than one customer managed policy and apply the policies to different IAM users and groups\.
 
-For information about reviewing the contents of managed policies and using policies to create and apply permissions, see [Authentication and Access Control for AWS CodeCommit](auth-and-access-control.md)\.
+For information about reviewing the contents of managed policies and using policies to create and apply permissions, see [Authentication and access control for AWS CodeCommit](auth-and-access-control.md)\.
 
 **Create a customer managed policy for your repository**
 
@@ -67,7 +67,7 @@ For information about reviewing the contents of managed policies and using polic
     ]
    ```
 **Tip**  
-To find the ARN for the CodeCommit repository, go to the CodeCommit console and choose the repository name from the list\. For more information, see [View Repository Details](how-to-view-repository-details.md)\.
+To find the ARN for the CodeCommit repository, go to the CodeCommit console and choose the repository name from the list\. For more information, see [View repository details](how-to-view-repository-details.md)\.
 
    If you want this policy to apply to more than one repository, add each repository as a resource by specifying its ARN\. Include a comma between each resource statement, as shown here:
 
@@ -80,7 +80,7 @@ To find the ARN for the CodeCommit repository, go to the CodeCommit console and 
 
 1. Choose **Validate Policy**\. After the policy is validated, choose **Create Policy**\.
 
-## Create an IAM Group for Repository Users<a name="how-to-share-repository-IAMgroup"></a>
+## Create an IAM group for repository users<a name="how-to-share-repository-IAMgroup"></a>
 
 To manage access to your repository, create an IAM group for its users, add IAM users to that group, and then attach the customer managed policy you created in the previous step\. 
 
@@ -106,17 +106,17 @@ You can use the Search box to quickly find users by name\.
 
 1. When you have added your users, close the IAM console\.
 
-## Share the Connection Information with Your Users<a name="how-to-share-repository-cli"></a>
+## Share the connection information with your users<a name="how-to-share-repository-cli"></a>
 
 1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
-1. In the region selector, choose the AWS Region where the repository was created\. Repositories are specific to an AWS Region\. For more information, see [Regions and Git Connection Endpoints](regions.md)\.
+1. In the region selector, choose the AWS Region where the repository was created\. Repositories are specific to an AWS Region\. For more information, see [Regions and Git connection endpoints](regions.md)\.
 
-1. On the **Repositories** page, find the name of the repository you want to share\. 
+1. On the **Repositories** page, choose the repository you want to share\. 
 
-1. In **Clone URL**, choose the protocol \(HTTPS or SSH\) that you want your users to use\. This copies the clone URL for the connection protocol\. 
+1. In **Clone URL**, choose the protocol that you want your users to use\. This copies the clone URL for the connection protocol\. 
 
-1. Send your users the clone URL along with any other instructions, such as installing the AWS CLI, configuring a profile, or installing Git\. Make sure to include the configuration information for the connection protocol \(for example, for HTTPS, configuring the credential helper for Git\)\. 
+1. Send your users the clone URL along with any other instructions, such as installing the AWS CLI, configuring a profile, or installing Git\. Make sure to include the configuration information for the connection protocol \(for example, HTTPS\)\. 
 
 The following example email provides information for users connecting to the MyDemoRepo repository with the HTTPS connection protocol and Git credentials in the US East \(Ohio\) \(us\-east\-2\) Region\. This email is written with the assumption the user has already installed Git and is familiar with using it\.
 
@@ -137,4 +137,4 @@ Make sure to save your credentials in a secure location!
 That's it!  If you'd like to learn more about using CodeCommit, you can start with the tutorial [here](getting-started.md#getting-started-create-commit).
 ```
 
-You can find complete setup instructions in [Setting Up ](setting-up.md)\. 
+You can find complete setup instructions in [Setting up ](setting-up.md)\. 

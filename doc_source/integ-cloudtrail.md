@@ -1,10 +1,10 @@
-# Logging AWS CodeCommit API Calls with AWS CloudTrail<a name="integ-cloudtrail"></a>
+# Logging AWS CodeCommit API calls with AWS CloudTrail<a name="integ-cloudtrail"></a>
 
 CodeCommit is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in CodeCommit\. CloudTrail captures all API calls for CodeCommit as events, including calls from the CodeCommit console, your Git client, and from code calls to the CodeCommit APIs\. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for CodeCommit\. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**\. Using the information collected by CloudTrail, you can determine the request that was made to CodeCommit, the IP address from which the request was made, who made the request, when it was made, and additional details\. 
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/)\.
 
-## CodeCommit Information in CloudTrail<a name="service-name-info-in-cloudtrail"></a>
+## CodeCommit information in CloudTrail<a name="service-name-info-in-cloudtrail"></a>
 
 CloudTrail is enabled on your AWS account when you create the account\. When activity occurs in CodeCommit, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**\. You can view, search, and download recent events in your AWS account\. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html)\. 
 
@@ -16,7 +16,7 @@ For an ongoing record of events in your AWS account, including events for CodeCo
 
 When CloudTrail logging is enabled in your AWS account, API calls made to CodeCommit actions are tracked in CloudTrail log files, where they are written with other AWS service records\. CloudTrail determines when to create and write to a new file based on a time period and file size\.
 
-All CodeCommit actions are logged by CloudTrail, including some \(such as `GetObjectIdentifier`\) that are not currently documented in the [AWS CodeCommit API Reference](https://docs.aws.amazon.com/codecommit/latest/APIReference/) but are instead referenced as access permissions and documented in [CodeCommit Permissions Reference](auth-and-access-control-permissions-reference.md)\. For example, calls to the `ListRepositories` \(in the AWS CLI, `aws codecommit list-repositories`\), `CreateRepository` \(`aws codecommit create-repository`\) and `PutRepositoryTriggers` \(`aws codecommit put-repository-triggers`\) actions generate entries in the CloudTrail log files, as well as Git client calls to `GitPull` and `GitPush`\. In addition, if you have a CodeCommit repository configured as a source for a pipeline in CodePipeline, you will see calls to CodeCommit access permission actions such as `UploadArchive` from CodePipeline\. Since CodeCommit uses AWS Key Management Service to encrypt and decrypt repositories, you will also see calls from CodeCommit to `Encrypt` and `Decrypt` actions from AWS KMS in CloudTrail logs\.
+All CodeCommit actions are logged by CloudTrail, including some \(such as `GetObjectIdentifier`\) that are not currently documented in the [AWS CodeCommit API Reference](https://docs.aws.amazon.com/codecommit/latest/APIReference/) but are instead referenced as access permissions and documented in [CodeCommit permissions reference](auth-and-access-control-permissions-reference.md)\. For example, calls to the `ListRepositories` \(in the AWS CLI, `aws codecommit list-repositories`\), `CreateRepository` \(`aws codecommit create-repository`\) and `PutRepositoryTriggers` \(`aws codecommit put-repository-triggers`\) actions generate entries in the CloudTrail log files, as well as Git client calls to `GitPull` and `GitPush`\. In addition, if you have a CodeCommit repository configured as a source for a pipeline in CodePipeline, you will see calls to CodeCommit access permission actions such as `UploadArchive` from CodePipeline\. Since CodeCommit uses AWS Key Management Service to encrypt and decrypt repositories, you will also see calls from CodeCommit to `Encrypt` and `Decrypt` actions from AWS KMS in CloudTrail logs\.
 
 Every log entry contains information about who generated the request\. The user identity information in the log entry helps you determine the following: 
 + Whether the request was made with root or IAM user credentials
@@ -27,7 +27,7 @@ For more information, see the [CloudTrail userIdentity Element](https://docs.aws
 
 You can store your log files in your Amazon S3 bucket for as long as you want, but you can also define Amazon S3 lifecycle rules to archive or delete log files automatically\. By default, your log files are encrypted with Amazon S3 server\-side encryption \(SSE\)\.
 
-## Understanding CodeCommit Log File Entries<a name="understanding-service-name-entries"></a>
+## Understanding CodeCommit log file entries<a name="understanding-service-name-entries"></a>
 
 CloudTrail log files can contain one or more log entries\. Each entry lists multiple JSON\-formatted events\. A log event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on\. Log entries are not an ordered stack trace of the public API calls, so they do not appear in any specific order\. 
 

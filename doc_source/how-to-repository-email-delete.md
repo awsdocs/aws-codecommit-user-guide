@@ -1,4 +1,4 @@
-# Delete Notifications<a name="how-to-repository-email-delete"></a>
+# Delete notifications<a name="how-to-repository-email-delete"></a>
 
 If you no longer want to use notifications created for a repository before November 5, 2019, you can delete the Amazon CloudWatch Events rule associated with the notification\. That will automatically delete the notification\. It does not delete any subscriptions or the Amazon SNS topic used for notifications\. 
 

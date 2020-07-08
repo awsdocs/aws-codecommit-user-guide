@@ -1,4 +1,4 @@
-# Working with User Preferences<a name="user-preferences"></a>
+# Working with user preferences<a name="user-preferences"></a>
 
 You can use the AWS CodeCommit console to configure some default settings\. For example, you can change your preferences for viewing code changes either inline or in a split view\. When you make a change to one of these settings, the AWS CodeCommit console sets a cookie in your browser that stores and applies your choices every time you use the console\. These preferences are applied to all repositories in all regions any time you access the AWS CodeCommit console using that browser\. These setting preferences are not repository\-specific or region\-specific\. They do not have any effect on your interactions with the AWS CLI, AWS CodeCommit API, or other services that interact with AWS CodeCommit\.
 

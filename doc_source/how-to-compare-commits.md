@@ -1,12 +1,12 @@
-# Compare Commits in AWS CodeCommit<a name="how-to-compare-commits"></a>
+# Compare commits in AWS CodeCommit<a name="how-to-compare-commits"></a>
 
 You can use the CodeCommit console to view the differences between commit specifiers in a CodeCommit repository\. You can quickly view the difference between a commit and its parent\. You can also compare any two references, including commit IDs\. 
 
 **Topics**
-+ [Compare a Commit to Its Parent](#how-to-compare-commits-parent)
-+ [Compare Any Two Commit Specifiers](#how-to-compare-commits-compare)
++ [Compare a commit to its parent](#how-to-compare-commits-parent)
++ [Compare any two commit specifiers](#how-to-compare-commits-compare)
 
-## Compare a Commit to Its Parent<a name="how-to-compare-commits-parent"></a>
+## Compare a commit to its parent<a name="how-to-compare-commits-parent"></a>
 
 You can quickly view the difference between a commit and its parent to review the commit message, the committer, and what changed\.
 
@@ -19,9 +19,9 @@ You can quickly view the difference between a commit and its parent to review th
 1. Choose the abbreviated commit ID of any commit in the list\. The view changes to show details for this commit, including the differences between it and its parent commit\.  
 ![\[Choose the abbreviated commit ID to show differences between this commit and its parent\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commit-changes1.png)
 
-   You can show changes side by side \(**Split** view\) or inline \(**Unified** view\)\. You can also hide or show white space changes\. You can also add comments\. For more information, see [Comment on a Commit](how-to-commit-comment.md)\.
+   You can show changes side by side \(**Split** view\) or inline \(**Unified** view\)\. You can also hide or show white space changes\. You can also add comments\. For more information, see [Comment on a commit](how-to-commit-comment.md)\.
 **Note**  
-Your preferences for viewing code and other console settings are saved as browser cookies whenever you change them\. For more information, see [Working with User Preferences](user-preferences.md)\.  
+Your preferences for viewing code and other console settings are saved as browser cookies whenever you change them\. For more information, see [Working with user preferences](user-preferences.md)\.  
 ![\[Changes shown in Unified view, with white space changes hidden\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commit-changes2c.png)  
 ![\[Changes shown in Split view, with a comment on a line\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)
 **Note**  
@@ -29,7 +29,7 @@ Your preferences for viewing code and other console settings are saved as browse
 
 1. To compare a commit to its parent, from the **Commit visualizer** tab, choose the abbreviated commit ID\. The commit details, including the changes between the commit and its parent, are displayed\.
 
-## Compare Any Two Commit Specifiers<a name="how-to-compare-commits-compare"></a>
+## Compare any two commit specifiers<a name="how-to-compare-commits-compare"></a>
 
 You can view the differences between any two commit specifiers in the CodeCommit console\. Commit specifiers are references, such as branches, tags, and commit IDs\. 
 

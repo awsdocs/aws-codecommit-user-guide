@@ -1,4 +1,4 @@
-# Basic Git Commands<a name="how-to-basic-git"></a>
+# Basic Git commands<a name="how-to-basic-git"></a>
 
 You can use Git to work with a local repo and the CodeCommit repository to which you've connected the local repo\.
 
@@ -7,13 +7,13 @@ The following are some basic examples of frequently used Git commands\.
 For more options, see your Git documentation\.
 
 **Topics**
-+ [Configuration Variables](#how-to-basic-git-configuration-variables)
-+ [Remote Repositories](#how-to-basic-git-remotes)
++ [Configuration variables](#how-to-basic-git-configuration-variables)
++ [Remote repositories](#how-to-basic-git-remotes)
 + [Commits](#how-to-basic-git-commits)
 + [Branches](#how-to-basic-git-branches)
 + [Tags](#how-to-basic-git-tags)
 
-## Configuration Variables<a name="how-to-basic-git-configuration-variables"></a>
+## Configuration variables<a name="how-to-basic-git-configuration-variables"></a>
 
 
 |  |  | 
@@ -25,7 +25,7 @@ For more options, see your Git documentation\.
 |  Sets a configuration variable in the specified configuration file\.  |  `git config [--local \| --global \| --system] variable-name variable-value`  | 
 | Edits a configuration file directly\. Can also be used to discover the location of a specific configuration file\. To exit edit mode, typically you type `:q` \(to exit without saving changes\) or `:wq` \(to save changes and then exit\), and then press Enter\. | `git config [--local \| --global \| --system] --edit` | 
 
-## Remote Repositories<a name="how-to-basic-git-remotes"></a>
+## Remote repositories<a name="how-to-basic-git-remotes"></a>
 
 
 |  |  | 

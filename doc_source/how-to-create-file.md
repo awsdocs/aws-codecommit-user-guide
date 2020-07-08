@@ -1,15 +1,15 @@
-# Create or Add a File to an AWS CodeCommit Repository<a name="how-to-create-file"></a>
+# Create or add a file to an AWS CodeCommit repository<a name="how-to-create-file"></a>
 
 You can use the CodeCommit console, AWS CLI, or a Git client to add a file to a repository\. You can upload a file from your local computer to the repository, or you can use the code editor in the console to create the file\. The editor is a quick and easy way to add a simple file, such as a readme\.md file, to a branch in a repository\. 
 
 ![\[A view of uploading a file in the CodeCommit console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commit-first-file.png)
 
 **Topics**
-+ [Create or Upload a File \(Console\)](#how-to-create-file-console)
-+ [Add a File \(AWS CLI\)](#how-to-create-file-cli)
-+ [Add a File \(Git\)](#how-to-create-file-git)
++ [Create or upload a file \(console\)](#how-to-create-file-console)
++ [Add a file \(AWS CLI\)](#how-to-create-file-cli)
++ [Add a file \(Git\)](#how-to-create-file-git)
 
-## Create or Upload a File \(Console\)<a name="how-to-create-file-console"></a>
+## Create or upload a file \(console\)<a name="how-to-create-file-console"></a>
 
 You can use the CodeCommit console to create a file and add it to a branch in a CodeCommit repository\. As part of creating the file, you can provide your user name and an email address\. You can also add a commit message so other users understand who added the file and why\. You can also upload a file directly from your local computer to a branch in a repository\.
 
@@ -38,12 +38,12 @@ You can use the CodeCommit console to create a file and add it to a branch in a 
 
 1. Choose **Commit changes**\.
 
-## Add a File \(AWS CLI\)<a name="how-to-create-file-cli"></a>
+## Add a file \(AWS CLI\)<a name="how-to-create-file-cli"></a>
 
 You can use the AWS CLI and the put\-file command to add a file in an CodeCommit repository\. You can also use the put\-file command to add a directory or path structure for the file\.
 
 **Note**  
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 
 
 **To add a file to a repository**
 
@@ -78,6 +78,6 @@ When you add binary files, make sure that you use `fileb://` to specify the loca
    }
    ```
 
-## Add a File \(Git\)<a name="how-to-create-file-git"></a>
+## Add a file \(Git\)<a name="how-to-create-file-git"></a>
 
-You can add files in a local repo and push your changes to a CodeCommit repository\. For more information, see [Getting Started with Git and AWS CodeCommit](getting-started.md)\.
+You can add files in a local repo and push your changes to a CodeCommit repository\. For more information, see [Getting started with Git and AWS CodeCommit](getting-started.md)\.

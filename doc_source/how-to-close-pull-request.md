@@ -1,4 +1,4 @@
-# Close a Pull Request in an AWS CodeCommit Repository<a name="how-to-close-pull-request"></a>
+# Close a pull request in an AWS CodeCommit repository<a name="how-to-close-pull-request"></a>
 
 If you want to close a pull request without merging the code, you can do so in one of several ways:
 + In the console, you can close a pull request without merging the code\. You might want to do this if you want to use the git merge command to merge the branches manually, or if the code in the pull request source branch isn't code you want merged into the destination branch\. 
@@ -6,10 +6,10 @@ If you want to close a pull request without merging the code, you can do so in o
 + In the AWS CLI, you can update the status of a pull request from `OPEN` to `CLOSED`\. This closes the pull request without merging the code\. 
 
 **Topics**
-+ [Close a Pull Request \(Console\)](#how-to-close-pull-request-console)
-+ [Close a Pull Request \(AWS CLI\)](#how-to-close-pull-request-cli)
++ [Close a pull request \(console\)](#how-to-close-pull-request-console)
++ [Close a pull request \(AWS CLI\)](#how-to-close-pull-request-cli)
 
-## Close a Pull Request \(Console\)<a name="how-to-close-pull-request-console"></a>
+## Close a pull request \(console\)<a name="how-to-close-pull-request-console"></a>
 
 You can use the CodeCommit console to close a pull request in a CodeCommit repository\. After the status of a pull request is changed to **Closed**, it cannot be changed back to **Open**, but users can still comment on the changes and reply to comments\.
 
@@ -24,9 +24,9 @@ You can use the CodeCommit console to close a pull request in a CodeCommit repos
 
 1. In the pull request, choose **Close pull request**\. This option closes the pull request without attempting to merge the source branch into the destination branch\. This option does not provide a way to delete the source branch as part of closing the pull request, but you can do it yourself after the request is closed\.
 
-## Close a Pull Request \(AWS CLI\)<a name="how-to-close-pull-request-cli"></a>
+## Close a pull request \(AWS CLI\)<a name="how-to-close-pull-request-cli"></a>
 
-To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command Line Reference](cmd-ref.md)\. 
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 
 
 **To use the AWS CLI to close pull requests in a CodeCommit repository**
 + To update the status of a pull request in a repository from `OPEN` to `CLOSED`, run the update\-pull\-request\-status command, specifying:

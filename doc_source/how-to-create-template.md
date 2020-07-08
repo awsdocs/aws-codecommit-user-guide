@@ -1,18 +1,18 @@
-# Create an Approval Rule Template<a name="how-to-create-template"></a>
+# Create an approval rule template<a name="how-to-create-template"></a>
 
 You can create one or more approval rule templates to help you customize your development workflows across repositories\. By creating multiple templates, you can configure the automatic creation of approval rules so that different branches have appropriate levels of approvals and control\. For example, you can create different templates for production and development branches and apply these templates to one or more repositories\. When users create pull requests in those repositories, the request is evaluated against those templates\. If the request matches the conditions in the applied templates, approval rules are created for the pull request\.
 
 You can use the console or AWS CLI to create approval rule templates\.
 
 **Topics**
-+ [Create an Approval Rule Template \(Console\)](#how-to-create-template-console)
-+ [Create an Approval Rule Template \(AWS CLI\)](#how-to-create-template-cli)
++ [Create an approval rule template \(console\)](#how-to-create-template-console)
++ [Create an approval rule template \(AWS CLI\)](#how-to-create-template-cli)
 
-## Create an Approval Rule Template \(Console\)<a name="how-to-create-template-console"></a>
+## Create an approval rule template \(console\)<a name="how-to-create-template-console"></a>
 
 Approval rule templates are not associated with any repository by default\. You can make an association between a template and one or more repositories when you create the template, or you can add the associations at a later time\.<a name="create-template-console"></a>
 
-## To create an approval rule template \(Console\)<a name="create-template-console"></a>
+## To create an approval rule template<a name="create-template-console"></a>
 
 1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
@@ -29,8 +29,8 @@ Approval rule templates are not associated with any repository by default\. You 
      + An IAM user in the account \(`arn:aws:iam::123456789012:user/Mary_Major`\)
      + A federated user identified in IAM as Mary\_Major \(`arn:aws:sts::123456789012:federated-user/Mary_Major`\)
 
-     This option does not recognize an active session of someone assuming the role of **CodeCommitReview** with a role session name of Mary\_Major \(`arn:aws:sts::123456789012:assumed-role/CodeCommitReview/Mary_Major`\) unless you include a wildcard \(`*Mary_Major`\)\.
-   + **Fully qualified ARN**: This option allows you to specify the fully qualified Amazon Resource Name \(ARN\) of the IAM user or role\. 
+     This option does not recognize an active session of someone assuming the role of **CodeCommitReview** with a role session name of Mary\_Major \(`arn:aws:sts::123456789012:assumed-role/CodeCommitReview/Mary_Major`\) unless you include a wildcard \(`*Mary_Major`\)\. You can also specify the role name explicitly \(`CodeCommitReview/Mary_Major`\)\.
+   + **Fully qualified ARN**: This option allows you to specify the fully qualified Amazon Resource Name \(ARN\) of the IAM user or role\. This option also supports assumed roles used by other AWS services, such as AWS Lambda and AWS CodeBuild\. For assumed roles, the ARN format should be `arn:aws:sts::AccountID:assumed-role/RoleName` for roles and `arn:aws:sts::AccountID:assumed-role/FunctionName` for functions\.
 
    If you chose **IAM user name or assumed role** as the approver type, in **Value**, enter the name of the IAM user or role or the fully qualified ARN of the user or role\. Choose **Add** again to add more users or roles, until you have added all the users or roles whose approvals count toward the number of required approvals\. 
 
@@ -42,17 +42,17 @@ Approval rules do not support cross\-account approvals\.
 
 1. \(Optional\) In **Associated repositories**, in the **Repositories** list, choose the repositories in this AWS Region that you want to associate with this approval rule\. 
 **Note**  
-You can choose to associate repositories after creating the template\. For more information, see [Associate an Approval Rule Template with a Repository](how-to-associate-template.md)\.
+You can choose to associate repositories after creating the template\. For more information, see [Associate an approval rule template with a repository](how-to-associate-template.md)\.
 
 1. Choose **Create**\.
 
 ![\[An approval rule template that requires 1 approver from a defined approval rule if a pull request is created on the master branch, associated with two repositories\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-approval-rule-template.png)
 
-## Create an Approval Rule Template \(AWS CLI\)<a name="how-to-create-template-cli"></a>
+## Create an approval rule template \(AWS CLI\)<a name="how-to-create-template-cli"></a>
 
 You can use the AWS CLI to create approval rule templates\. When you use the AWS CLI, you can specify destination references for the template, so that it applies only to pull requests whose destination branches match those in the template\.<a name="create-template-cli"></a>
 
-## To create an approval rule template \(AWS CLI\)<a name="create-template-cli"></a>
+## To create an approval rule template<a name="create-template-cli"></a>
 
 1. At a terminal or command line, run the create\-approval\-rule\-template command, specifying:
    + The name for the approval rule template\. Consider using a name that describes its purpose\.

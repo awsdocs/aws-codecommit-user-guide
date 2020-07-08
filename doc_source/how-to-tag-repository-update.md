@@ -1,11 +1,11 @@
-# Edit Tags for a Repository<a name="how-to-tag-repository-update"></a>
+# Edit tags for a repository<a name="how-to-tag-repository-update"></a>
 
 You can change the value for a tag associated with a repository\. You can also change the name of the key, which is equivalent to removing the current tag and adding a different one with the new name and the same value as the other key\. Keep in mind that there are limits on the characters you can use in the key and value fields\. For more information, see [Limits](limits.md#limits-tags)\.
 
 **Important**  
-Editing tags for a repository can impact access to that repository\. Before you edit the name \(key\) or value of a tag for a repository, make sure to review any IAM policies that might use the key or value for a tag to control access to resources such as repositories\. For examples of tag\-based access policies, see [Example 5: Deny or Allow Actions on Repositories with Tags](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-5)\.
+Editing tags for a repository can impact access to that repository\. Before you edit the name \(key\) or value of a tag for a repository, make sure to review any IAM policies that might use the key or value for a tag to control access to resources such as repositories\. For examples of tag\-based access policies, see [Example 5: Deny or allow actions on repositories with tags](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-5)\.
 
-## Edit a Tag for a Repository \(Console\)<a name="how-to-tag-repository-update-console"></a>
+## Edit a tag for a repository \(console\)<a name="how-to-tag-repository-update-console"></a>
 
 You can use the CodeCommit console to edit the tags associated with a CodeCommit repository\. 
 
@@ -26,7 +26,7 @@ You can use the CodeCommit console to edit the tags associated with a CodeCommit
 
 1. When you have finished editing tags, choose **Submit**\.
 
-## Edit Tags for a Repository \(AWS CLI\)<a name="how-to-tag-repository-update-cli"></a>
+## Edit tags for a repository \(AWS CLI\)<a name="how-to-tag-repository-update-cli"></a>
 
 Follow these steps to use the AWS CLI to update a tag for a CodeCommit repository\. You can change the value for an existing key, or add another key\. 
 

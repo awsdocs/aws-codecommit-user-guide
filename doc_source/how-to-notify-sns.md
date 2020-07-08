@@ -1,4 +1,4 @@
-# Example: Create an AWS CodeCommit Trigger for an Amazon SNS Topic<a name="how-to-notify-sns"></a>
+# Example: Create an AWS CodeCommit trigger for an Amazon SNS topic<a name="how-to-notify-sns"></a>
 
 You can create a trigger for a CodeCommit repository so that events in that repository trigger notifications from an Amazon Simple Notification Service \(Amazon SNS\) topic\. You might want to create a trigger to an Amazon SNS topic to enable users to subscribe to notifications about repository events, such as the deletion of branches\. You can also take advantage of the integration of Amazon SNS topics with other services, such as Amazon Simple Queue Service \(Amazon SQS\) and AWS Lambda\. 
 
@@ -6,10 +6,10 @@ You can create a trigger for a CodeCommit repository so that events in that repo
 You must point the trigger to an existing Amazon SNS topic that is the action taken in response to repository events\. For more information about creating and subscribing to Amazon SNS topics, see [Getting Started with Amazon Simple Notification Service](https://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html)\. 
 
 **Topics**
-+ [Create a Trigger to an Amazon SNS Topic for a CodeCommit Repository \(Console\)](#how-to-notify-sns-console)
-+ [Create a Trigger to an Amazon SNS Topic for a CodeCommit Repository \(AWS CLI\)](#how-to-notify-sns-cli)
++ [Create a trigger to an Amazon SNS topic for a CodeCommit repository \(console\)](#how-to-notify-sns-console)
++ [Create a trigger to an Amazon SNS topic for a CodeCommit repository \(AWS CLI\)](#how-to-notify-sns-cli)
 
-## Create a Trigger to an Amazon SNS Topic for a CodeCommit Repository \(Console\)<a name="how-to-notify-sns-console"></a>
+## Create a trigger to an Amazon SNS topic for a CodeCommit repository \(console\)<a name="how-to-notify-sns-console"></a>
 
 1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
@@ -31,7 +31,7 @@ You must point the trigger to an existing Amazon SNS topic that is the action ta
 
 1. Choose **Create trigger** to finish creating the trigger\.
 
-## Create a Trigger to an Amazon SNS Topic for a CodeCommit Repository \(AWS CLI\)<a name="how-to-notify-sns-cli"></a>
+## Create a trigger to an Amazon SNS topic for a CodeCommit repository \(AWS CLI\)<a name="how-to-notify-sns-cli"></a>
 
 You can also use the command line to create a trigger for an Amazon SNS topic in response to CodeCommit repository events, such as when someone pushes a commit to your repository\. 
 
