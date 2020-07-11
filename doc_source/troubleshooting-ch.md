@@ -53,14 +53,14 @@ aws-cli/1.16.62 Python/3.6.2 Darwin/16.7.0 botocore/1.12.52
  The default version of Git released on OS X and macOS uses the Keychain Access utility to save generated credentials\. For security reasons, the password generated for access to your CodeCommit repository is temporary, so the credentials stored in the keychain stop working after about 15 minutes\. If you are only accessing Git with CodeCommit, try the following:
 
 1. In Terminal, run the git config command to find the Git configuration file \(`gitconfig`\) where the Keychain Access utility is defined\. Depending on your local system and preferences, you might have more than one `gitconfig` file\.
-   ```
-   git config -l --show-origin | grep credential
-   ```
-   Check for results like:
-   ```shell
-   file:/usr/local/etc/gitconfig   credential.helper=osxkeychain
-   ```
-   The file listed at the beginning of this line is the Git configuration file you must edit\.
+```
+git config -l --show-origin | grep credential
+```
+Check for results like:
+```shell
+file:/usr/local/etc/gitconfig   credential.helper=osxkeychain
+```
+The file listed at the beginning of this line is the Git configuration file you must edit\.
 
 2. To edit the Git configuration file, use a plain\-text editor or run the following command:
    ```
