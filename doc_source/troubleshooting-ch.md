@@ -56,11 +56,11 @@ aws-cli/1.16.62 Python/3.6.2 Darwin/16.7.0 botocore/1.12.52
    ```
    git config -l --show-origin | grep credential  
    ```  
-   Check for results like:  
+   Review the returned results and search for results similar to:  
    ```shell 
    file:/usr/local/etc/gitconfig   credential.helper=osxkeychain  
    ```  
-   The file listed at the beginning of this line is the Git configuration file you must edit\.
+   The file that appears at the beginning of this line is the Git configuration file you must edit\.
 
 2. To edit the Git configuration file, use a plain\-text editor or run the following command:
    ```
@@ -68,8 +68,8 @@ aws-cli/1.16.62 Python/3.6.2 Darwin/16.7.0 botocore/1.12.52
    ```
 
 3. Modify the configuration using one of the following strategies:
-   - Remove the credential section with "helper = osxkeychain"
-   - Update both the aws credential helper and osxkeychain credential helper to have a contexts\. For example, if it is used to authenticate to github:
+   - Comment out the credential section with "helper = osxkeychain"
+   - Update both the aws credential helper and osxkeychain credential helper sections to have context\. For example, if osxkeychain is used to authenticate to GitHub:
      ```
      [credential "https://git-codecommit\.us-east-1\.amazonaws\.com"]
        helper = !aws --profile CodeCommitProfile codecommit credential-helper $@
@@ -77,8 +77,8 @@ aws-cli/1.16.62 Python/3.6.2 Darwin/16.7.0 botocore/1.12.52
      [credential "https://github\.com"]
        helper = osxkeychain
      ```
-     This will cause git to use the osxkeychain helper when the remote host matches the "https://github\.com" context, and aws codecommit credential-helper when the remote host matches the codecommit host\.
-  -  Include an empty string helper before the aws git credential helper like so:
+     In this configuration, Git will use the osxkeychain helper when the remote host matches "https://github\.com" and the credential helper when the remote host matches "https://git-codecommit\.us-east-1\.amazonaws\.com"\.
+  -  Include an empty string helper before the credential helper. For example:
      ```
      [credential]
        helper =
@@ -86,7 +86,7 @@ aws-cli/1.16.62 Python/3.6.2 Darwin/16.7.0 botocore/1.12.52
        UseHttpPath = true
      ```
 
-Alternatively If you are accessing other repositories with Git, you can configure the Keychain Access utility so that it does not supply credentials for your CodeCommit repositories\. To configure the Keychain Access utility:
+Alternatively if you are accessing other repositories with Git, you can configure the Keychain Access utility so that it does not supply credentials for your CodeCommit repositories\. To configure the Keychain Access utility:
 
 1. Open the Keychain Access utility\. \(You can use Finder to locate it\.\)
 
