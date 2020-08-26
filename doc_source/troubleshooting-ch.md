@@ -55,40 +55,41 @@ aws-cli/1.16.62 Python/3.6.2 Darwin/16.7.0 botocore/1.12.52
 
  The default version of Git released on OS X and macOS uses the Keychain Access utility to save generated credentials\. For security reasons, the password generated for access to your CodeCommit repository is temporary, so the credentials stored in the keychain stop working after about 15 minutes\. If you are only accessing Git with CodeCommit, try the following:
 
-1. In Terminal, run the git config command to find the Git configuration file \(`gitconfig`\) where the Keychain Access utility is defined\. Depending on your local system and preferences, you might have more than one `gitconfig` file\. 
-
+1. In Terminal, run the git config command to find the Git configuration file \(`gitconfig`\) where the Keychain Access utility is defined\. Depending on your local system and preferences, you might have more than one `gitconfig` file\.  
    ```
-   $ git config -l --show-origin
+   git config -l --show-origin | grep credential  
+   ```  
+   Review the returned results and search for results similar to:  
+   ```shell 
+   file:/usr/local/etc/gitconfig   credential.helper=osxkeychain  
+   ```  
+   The file that appears at the beginning of this line is the Git configuration file you must edit\.
+
+2. To edit the Git configuration file, use a plain\-text editor or run the following command:
    ```
-
-   In the output from this command, find a line that contains the following option:
-
-   ```
-   helper = osxkeychain
-   ```
-
-   The file listed at the beginning of this line is the Git configuration file you must edit\.
-
-1. To edit the Git configuration file, use a plain\-text editor or run the following command:
-
-   ```
-   $ nano /usr/local/git/etc/gitconfig
+   nano /usr/local/git/etc/gitconfig
    ```
 
-1. Comment out the following line of text:
+3. Modify the configuration using one of the following strategies:
+   - Comment out the credential section with "helper = osxkeychain"
+   - Update both the aws credential helper and osxkeychain credential helper sections to have context\. For example, if osxkeychain is used to authenticate to GitHub:
+     ```
+     [credential "https://git-codecommit\.us-east-1\.amazonaws\.com"]
+       helper = !aws --profile CodeCommitProfile codecommit credential-helper $@
+       UseHttpPath = true
+     [credential "https://github\.com"]
+       helper = osxkeychain
+     ```
+     In this configuration, Git will use the osxkeychain helper when the remote host matches "https://github\.com" and the credential helper when the remote host matches "https://git-codecommit\.us-east-1\.amazonaws\.com"\.
+  -  Include an empty string helper before the credential helper. For example:
+     ```
+     [credential]
+       helper =
+       helper = !aws --profile CodeCommitProfile codecommit credential-helper $@
+       UseHttpPath = true
+     ```
 
-   ```
-   # helper = osxkeychain
-   ```
-
-   Alternatively, if you want to continue to use the Keychain Access utility to cache credentials for other Git repositories, modify the header instead of commenting out the line\. For example, to allow cached credentials for GitHub, you could modify the header as follows:
-
-   ```
-   [credential "https://github.com"]
-      helper = osxkeychain
-   ```
-
-If you are accessing other repositories with Git, you can configure the Keychain Access utility so that it does not supply credentials for your CodeCommit repositories\. To configure the Keychain Access utility:
+Alternatively if you are accessing other repositories with Git, you can configure the Keychain Access utility so that it does not supply credentials for your CodeCommit repositories\. To configure the Keychain Access utility:
 
 1. Open the Keychain Access utility\. \(You can use Finder to locate it\.\)
 
