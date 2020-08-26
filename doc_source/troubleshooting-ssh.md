@@ -7,6 +7,7 @@ The following information might help you troubleshoot common issues when using S
 + [Access error: Public key is uploaded successfully to IAM and SSH tested successfully but connection fails on Windows systems](#troubleshooting-ae5)
 + [Authentication challenge: Authenticity of host can't be established when connecting to a CodeCommit repository](#troubleshooting-ac1)
 + [IAM error: 'Invalid format' when attempting to add a public key to IAM](#troubleshooting-iam1)
++ [I need to access CodeCommit repositories in multiple AWS accounts with SSH credentials](#troubleshooting-ssh-multi)
 + [Git on Windows: Bash emulator or command line freezes when attempting to connect using SSH](#troubleshooting-gw2)
 
 ## Access error: Public key is uploaded successfully to IAM but connection fails on Linux, macOS, or Unix systems<a name="troubleshooting-ae4"></a>
@@ -122,11 +123,43 @@ Make sure the fingerprint and public key for CodeCommit connections match those 
 
 **Problem:** In IAM, when attempting to set up to use SSH with CodeCommit, an error message appears containing the phrase `Invalid format` when you attempt to add your public key\.
 
-**Possible fixes:** IAM accepts public keys in the OpenSSH format only\. If you provide your public key in another format, or if the key does not contain the required number of bits, you see this error\. 
+**Possible fixes:** IAM accepts public keys in the OpenSSH format only and  has additional requirements as specified in [Use SSH Keys with CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#ssh-keys-code-commit) in the *IAM User Guide*\. If you provide your public key in another format, or if the key does not contain the required number of bits, you see this error\. 
 + When you copied the SSH public key, your operating system might have introduced line breaks\. Make sure that there are no line breaks in the public key that you add to IAM\.
 + Some Windows operating systems do not use the OpenSSH format\. To generate a key pair and copy the OpenSSH format required by IAM, see [SSH and Windows: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
 
 For more information about the requirements for SSH keys in IAM, see [Use SSH Keys with CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#ssh-keys-code-commit) in the *IAM User Guide*\.
+
+## I need to access CodeCommit repositories in multiple AWS accounts with SSH credentials<a name="troubleshooting-ssh-multi"></a>
+
+**Problem:** I want to set up SSH access to CodeCommit repositories in more than one AWS account\.
+
+**Possible fixes:** You can create unique SSH public/private key pairs for each AWS account and configure IAM with each key\. You can then configure your \~/\.ssh/config file with information about each IAM User ID associated with the public key\. For example:
+
+```
+Host codecommit-1
+    Hostname git-codecommit.us-east-1.amazonaws.com
+    User SSH-KEY-ID-1 # This is the SSH Key ID you copied from IAM in AWS account 1 (for example, APKAEIBAERJR2EXAMPLE1).
+    IdentityFile ~/.ssh/codecommit_rsa # This is the path to the associated public key file, such as id_rsa.  We advise creating CodeCommit specific _rsa files.
+ 
+Host codecommit-2
+    Hostname git-codecommit.us-east-1.amazonaws.com
+    User SSH-KEY-ID-2 # This is the SSH Key ID you copied from IAM in AWS account 2 (for example, APKAEIBAERJR2EXAMPLE2).
+    IdentityFile ~/.ssh/codecommit_2_rsa # This is the path to the other associated public key file.  We advise creating CodeCommit specific _rsa files.
+```
+
+In this configuration, you will be able to replace 'git\-codecommit\.us\-east\-1\.amazonaws\.com' with 'codecommit\-2'\. For example, to clone a repository in your second AWS account:
+
+```
+git clone ssh://codecommit-2/v1/repos/YourRepositoryName
+```
+
+To set up a remote for your repository, run git remote add\. For example:
+
+```
+git remote add origin ssh://codecommit-2/v1/repos/YourRepositoryName
+```
+
+For more examples, see [this forum post](https://forums.aws.amazon.com/thread.jspa?messageID=711158) and [this contribution on GitHub](https://gist.github.com/justinpawela/3a7056cd592d688425e59de2ef6f1da0)\.
 
 ## Git on Windows: Bash emulator or command line freezes when attempting to connect using SSH<a name="troubleshooting-gw2"></a>
 

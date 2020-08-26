@@ -3,11 +3,49 @@
 You can use Git or the AWS CLI to create a commit in a CodeCommit repository\. If the local repo is connected to a CodeCommit repository, you use Git to push the commit from the local repo to the CodeCommit repository\. To create a commit directly in the CodeCommit console, see [Create or add a file to an AWS CodeCommit repository](how-to-create-file.md) and [Edit the contents of a file in an AWS CodeCommit repository](how-to-edit-file.md)\. 
 
 **Note**  
-If using the AWS CLI, make sure that you have a recent version installed to ensure that you are using a version that contains the `create-commit` command\.
+If you use the AWS CLI, make sure that you have a recent version installed to ensure that you are using a version that contains the `create-commit` command\.
 
 **Topics**
++ [Create the first commit for a repository using the AWS CLI](#how-to-create-first-commit)
 + [Create a commit using a Git client](#how-to-create-commit-git)
 + [Create a commit using the AWS CLI](#how-to-create-commit-cli)
+
+## Create the first commit for a repository using the AWS CLI<a name="how-to-create-first-commit"></a>
+
+You can use the AWS CLI and the `put-file` command to create your first commit for a repository\. Using put\-file creates a first commit that adds a file to your empty repository, and it creates a branch with the name you specify\. It designates the new branch as the default branch for your repository\. 
+
+**Note**  
+To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. <a name="create-first-commit"></a>
+
+## To create the first commit for a repository using the AWS CLI
+
+1. On your local computer, create the file you want to add as the first file to the CodeCommit repository\. A common practice is to create a `README.md` markdown file that explains the purpose of this repository to other repository users\. If you include a `README.md` file, the content of the file will be displayed automatically at the bottom of the **Code** page for your repository in the CodeCommit console\.
+
+1. At the terminal or command line, run the put\-file command, specifying:
+   + The name of the repository where you want to add the first file\.
+   + The name of the branch you want to create as the default branch\.
+   + The local location of the file\. The syntax used for this location varies, depending on your local operating system\.
+   + The name of the file you want to add, including the path where the updated file is stored in the repository\.
+   + The user name and email you want to associate with this file\.
+   + A commit message that explains why you added this file\.
+
+   The user name, email address, and commit message are optional, but can help other users know who made the change and why\. If you do not supply a user name, CodeCommit defaults to using your IAM user name or a derivation of your console login as the author name\.
+
+   For example, to add a file named *README\.md* with the content of "Welcome to our team repository\!" to a repository named *MyDemoRepo* to a branch named *development*:
+
+   ```
+   aws codecommit put-file --repository-name MyDemoRepo --branch-name development --file-path README.md --file-content "Welcome to our team repository!" --name "Mary Major" --email "mary_major@example.com" --commit-message "I added a quick readme for our new team repository."
+   ```
+
+   If successful, this command returns output similar to the following:
+
+   ```
+   {
+       "commitId": "724caa36EXAMPLE",
+       "blobId": "a8a94062EXAMPLE",
+       "treeId": "08b2fc73EXAMPLE"
+   }
+   ```
 
 ## Create a commit using a Git client<a name="how-to-create-commit-git"></a>
 
@@ -73,7 +111,7 @@ If you cloned the repository, from the perspective of the local repo, *remote\-n
    1 file changed, 1 insertion(+)
    ```
 
-   Of course, the output assumes you have already connected the local repo to the CodeCommit repository\. \(For instructions, see [Connect to a repository](how-to-connect.md)\.\)
+   The output assumes you have already connected the local repo to the CodeCommit repository\. \(For instructions, see [Connect to a repository](how-to-connect.md)\.\)
 
 1. When you're ready to push the commit from the local repo to the CodeCommit repository, run git push *remote\-name* *branch\-name*, where *remote\-name* is the nickname the local repo uses for the CodeCommit repository and *branch\-name* is the name of the branch to push to the CodeCommit repository\.
 
@@ -131,10 +169,10 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
 
    The user name, email address, and commit message are optional, but help other users know who made the changes and why\. If you do not supply a user name, CodeCommit defaults to using your IAM user name or a derivation of your console login as the author name\.
 
-   For example, to create an initial commit for a repository that adds a `readme.md` file to a repository named *MyDemoRepo* in the *master* branch:
+   For example, to create a commit for a repository that adds a `meeting.md` file to a repository named *MyDemoRepo* in the *master* branch:
 
    ```
-   aws codecommit create-commit --repository-name MyDemoRepo --branch-name master --put-files "filePath=readme.md,fileContent='Welcome to our team repository.'"
+   aws codecommit create-commit --repository-name MyDemoRepo --branch-name master --parent-commit-id a4d4d5da-EXAMPLE --put-files "filePath=meeting.md,fileContent='We will use this file for meeting notes.'"
    ```
 
    If successful, this command returns output similar to the following:
@@ -146,7 +184,7 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
        "filesAdded": [
            {
                "blobId": "5e1c309d-EXAMPLE",
-               "absolutePath": "readme.md",
+               "absolutePath": "meeting.md",
                "fileMode": "NORMAL"
            }
        ],

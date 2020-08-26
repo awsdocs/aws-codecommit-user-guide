@@ -100,3 +100,5 @@ If an administrator has already sent you the name and connection details for the
 ## Next steps<a name="setting-up-gc-next-step"></a>
 
 You have completed the prerequisites\. Follow the steps in [Getting started with CodeCommit ](getting-started-cc.md) to start using CodeCommit\.
+
+To learn how to create and push your first commit, see [Create a commit in AWS CodeCommit](how-to-create-commit.md)\. If you're new to Git, you might also want to review the information in [Where can I learn more about Git?](welcome.md#welcome-get-started-with-git) and [Getting started with Git and AWS CodeCommit](getting-started.md)\.

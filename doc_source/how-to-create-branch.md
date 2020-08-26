@@ -55,7 +55,7 @@ For more options, see your Git documentation\.
 
 To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 
 
-Follow these steps to use the AWS CLI to create a branch in a CodeCommit repository and then push that branch to the CodeCommit repository\.
+Follow these steps to use the AWS CLI to create a branch in a CodeCommit repository and then push that branch to the CodeCommit repository\. For steps to create an initial commit and specify the name of the default branch for an empty repository, see [Create the first commit for a repository using the AWS CLI](how-to-create-commit.md#create-first-commit)\.
 
 1. Run the create\-branch command, specifying:
    + The name of the CodeCommit repository where the branch is created \(with the \-\-repository\-name option\)\.

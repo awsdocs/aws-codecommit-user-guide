@@ -53,13 +53,11 @@ For information about reviewing the contents of managed policies and using polic
 
 1. In the **Dashboard** navigation area, choose **Policies**, and then choose **Create Policy**\. 
 
-1. On the **Create Policy** page, next to **Copy an AWS Managed Policy**, choose **Select**\.
+1. On the **Create Policy** page,, choose **Import managed policy**\.
 
-1. On the **Copy an AWS Managed Policy** page, in **Search Policies**, enter **AWSCodeCommitPowerUser**\. Choose **Select** next to the policy name\.
+1. On the **Import managed policies** page, in **Filter policies**, enter **AWSCodeCommitPowerUser**\. Choose the button next to the policy name and then choose **Import**\.
 
-1. On the **Review Policy** page, in **Policy Name**, enter a new name for the policy \(for example, *AWSCodeCommitPowerUser\-MyDemoRepo*\)\.
-
-   In **Policy Document**, replace the "\*" portion of the `Resource` line with the Amazon Resource Name \(ARN\) of the CodeCommit repository, as shown here:
+1. On the **Create policy** page, choose **JSON**\. Replace the "\*" portion of the `Resource` line for CodeCommit actions with the Amazon Resource Name \(ARN\) of the CodeCommit repository, as shown here:
 
    ```
    "Resource": [
@@ -78,7 +76,11 @@ To find the ARN for the CodeCommit repository, go to the CodeCommit console and 
     ]
    ```
 
-1. Choose **Validate Policy**\. After the policy is validated, choose **Create Policy**\.
+   When you are finished editing, choose **Review policy**\.
+
+1. On the **Review Policy** page, in **Name**, enter a new name for the policy \(for example, *AWSCodeCommitPowerUser\-MyDemoRepo*\)\. Optionally provide a description for this policy\.
+
+1. Choose **Create Policy**\.
 
 ## Create an IAM group for repository users<a name="how-to-share-repository-IAMgroup"></a>
 
@@ -134,7 +136,7 @@ Make sure to save your credentials in a secure location!
     git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo
 4. When prompted for user name and password, use the Git credentials you just saved.          
     
-That's it!  If you'd like to learn more about using CodeCommit, you can start with the tutorial [here](getting-started.md#getting-started-create-commit).
+That's it!  If you'd like to learn more about using CodeCommit, you can start with the tutorial here.
 ```
 
 You can find complete setup instructions in [Setting up ](setting-up.md)\. 

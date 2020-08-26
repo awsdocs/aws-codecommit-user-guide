@@ -1130,15 +1130,15 @@ However, if you want to configure your trigger to use an Amazon SNS topic in ano
         "AWS": "*"
       },
       "Action": [
-        "SNS:Subscribe",
-        "SNS:ListSubscriptionsByTopic",
-        "SNS:DeleteTopic",
-        "SNS:GetTopicAttributes",
-        "SNS:Publish",
-        "SNS:RemovePermission",
-        "SNS:AddPermission",
-        "SNS:Receive",
-        "SNS:SetTopicAttributes"
+        "sns:Subscribe",
+        "sns:ListSubscriptionsByTopic",
+        "sns:DeleteTopic",
+        "sns:GetTopicAttributes",
+        "sns:Publish",
+        "sns:RemovePermission",
+        "sns:AddPermission",
+        "sns:Receive",
+        "sns:SetTopicAttributes"
       ],
       "Resource": "arn:aws:sns:us-east-2:111111111111:NotMySNSTopic",
       "Condition": {
@@ -1153,7 +1153,7 @@ However, if you want to configure your trigger to use an Amazon SNS topic in ano
       "Principal": {
         "Service": "codecommit.amazonaws.com"
       },
-      "Action": "SNS:Publish",
+      "Action": "sns:Publish",
       "Resource": "arn:aws:sns:us-east-2:111111111111:NotMySNSTopic",
       "Condition": {
         "StringEquals": {
@@ -1179,8 +1179,8 @@ You can configure CloudWatch Events to publish to an Amazon SNS topic when event
       "Sid":"__default_statement_ID",
       "Effect":"Allow",
       "Principal":"{"AWS":"*"},
-      "Action":{
-        "SNS:Publish"
+      "Action":
+        "sns:Publish"
       ]
       "Resource":"arn:aws:sns:us-east-2:123456789012:MyTopic",
       "Condition":{
@@ -1198,7 +1198,7 @@ You can configure CloudWatch Events to publish to an Amazon SNS topic when event
 }
 ```
 
-For more information about CodeCommit and CloudWatch Events, see [CloudWatch Events Event Examples From Supported Services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#codecommit_event_type)\.
+For more information about CodeCommit and CloudWatch Events, see [CloudWatch Events Event Examples From Supported Services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#codecommit_event_type)\. For more information about IAM and policy language, see [Grammar of the IAM JSON Policy Language](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html)\.
 
 #### Example 3: Create a policy for AWS Lambda integration with a CodeCommit trigger<a name="access-permissions-lambda-int"></a>
 

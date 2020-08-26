@@ -1,6 +1,6 @@
 # Setup steps for SSH connections to AWS CodeCommit repositories on Windows<a name="setting-up-ssh-windows"></a>
 
-Before you can connect to AWS CodeCommit for the first time, you must complete the initial configuration steps\. This topic walks you through the steps for setting up your computer and AWS profile, connecting to a CodeCommit repository, and cloning that repository to your computer \(also known as creating a local repo\)\. If you're new to Git, you might also want to review the information in [Where can I learn more about Git?](welcome.md#welcome-get-started-with-git)\.
+Before you can connect to AWS CodeCommit for the first time, you must complete some initial configuration steps\. After you set up your computer and AWS profile, you can connect to a CodeCommit repository and clone that repository to your computer \(also known as creating a local repo\)\. If you're new to Git, you might also want to review the information in [Where can I learn more about Git?](welcome.md#welcome-get-started-with-git)\.
 
 **Topics**
 + [Step 1: Initial configuration for CodeCommit](#setting-up-ssh-windows-account)
@@ -50,6 +50,8 @@ Git is an evolving, regularly updated platform\. Occasionally, a feature change 
 If the version of Git you installed does not include a Bash emulator, such as Git Bash, install one\. You use this emulator instead of the Windows command line when you configure SSH connections\.
 
 ## SSH and Windows: Set up the public and private keys for Git and CodeCommit<a name="setting-up-ssh-windows-keys-windows"></a>
+
+**To set up the public and private keys for Git and CodeCommit**
 
 1. Open the Bash emulator\.
 **Note**  
@@ -136,7 +138,8 @@ If you have more than one SSH key IDs uploaded, the keys are listed alphabetical
      IdentityFile ~/.ssh/codecommit_rsa
    ```
 **Note**  
-If you gave your private key file a name other than *codecommit\_rsa*, be sure to use it here\.
+If you gave your private key file a name other than *codecommit\_rsa*, be sure to use it here\.  
+You can set up SSH access to repositories in multiple AWS accounts, For more information, see [Troubleshooting SSH connections to AWS CodeCommit](troubleshooting-ssh.md)\.
 
    Save the file as config \(not config\.txt\), and then close Notepad\.
 **Important**  
@@ -160,7 +163,7 @@ CodeCommit server fingerprints are unique for every AWS Region\. To view the ser
    ssh -v git-codecommit.us-east-2.amazonaws.com
    ```
 
-   For information to help you troubleshoot connection problems, see [Troubleshooting](troubleshooting.md)\.
+   For information to help you troubleshoot connection problems, see [Troubleshooting SSH connections to AWS CodeCommit](troubleshooting-ssh.md)\.
 
 ## Step 4: Connect to the CodeCommit console and clone the repository<a name="setting-up-ssh-windows-connect-console"></a>
 

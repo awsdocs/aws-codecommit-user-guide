@@ -3,8 +3,26 @@
 The following information might help you troubleshoot issues with git\-remote\-codecommit when connecting with AWS CodeCommit repositories\.
 
 **Topics**
++ [I see an error: git: 'remote\-codecommit' is not a git command](#troubleshooting-grc-syn1)
++ [I see an error: fatal: Unable to find remote helper for 'codecommit'](#troubleshooting-grc-syn2)
 + [Cloning error: I cannot clone a CodeCommit repository from an IDE](#troubleshooting-grc-ide1)
 + [Push or pull error: I cannot push or pull commits from an IDE to a CodeCommit repository](#troubleshooting-grc-ide2)
+
+## I see an error: git: 'remote\-codecommit' is not a git command<a name="troubleshooting-grc-syn1"></a>
+
+**Problem:** When you try to use git\-remote\-codecommit, you see an error that git\-remote\-codecommit is not a git command\. See 'git \-\-help'"\.
+
+**Possible fixes:** The most common reason for this error is a syntax error\. This can happen where a hyphen is missing between git and remote\-codecommit, or when an extra git is placed before git\-remote\-codecommit\.
+
+For more information about setting up and using git\-remote\-codecommit, see [Setup steps for HTTPS connections to AWS CodeCommit with git\-remote\-codecommit](setting-up-git-remote-codecommit.md)\.
+
+## I see an error: fatal: Unable to find remote helper for 'codecommit'<a name="troubleshooting-grc-syn2"></a>
+
+**Problem:** When you try to use git\-remote\-codecommit, you see an error stating "fatal: Unable to find remote helper for 'codecommit'"\.
+
+**Possible fixes:** The most common reason for this error is that the setup is not complete for git\-remote\-codecommit, Python is not in your path, or you are using a terminal or command line window that has not been restarted since the installation of git\-remote\-codecommit completed\.
+
+For more information about setting up and using git\-remote\-codecommit, see [Setup steps for HTTPS connections to AWS CodeCommit with git\-remote\-codecommit](setting-up-git-remote-codecommit.md)\.
 
 ## Cloning error: I cannot clone a CodeCommit repository from an IDE<a name="troubleshooting-grc-ide1"></a>
 

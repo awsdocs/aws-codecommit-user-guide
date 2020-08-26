@@ -195,4 +195,4 @@ If an administrator has already sent you the clone URL to use with git\-remote\-
 
 You have completed the prerequisites\. Follow the steps in [Getting started with CodeCommit ](getting-started-cc.md) to start using CodeCommit\.
 
-If you're new to Git, you might also want to review the information in [Where can I learn more about Git?](welcome.md#welcome-get-started-with-git) and [Getting started with Git and AWS CodeCommit](getting-started.md)\.
+To learn how to create and push your first commit, see [Create a commit in AWS CodeCommit](how-to-create-commit.md)\. If you're new to Git, you might also want to review the information in [Where can I learn more about Git?](welcome.md#welcome-get-started-with-git) and [Getting started with Git and AWS CodeCommit](getting-started.md)\.

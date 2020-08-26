@@ -110,10 +110,10 @@ This section discusses using IAM in the context of CodeCommit\. It doesn't provi
 Permissions policies that are attached to an IAM identity are referred to as identity\-based policies \(IAM policies\)\. Permissions policies that are attached to a resource are referred to as resource\-based policies\. Currently, CodeCommit supports only identity\-based policies \(IAM policies\)\.
 
 **Topics**
-+ [Identity\-pased policies \(IAM policies\)](#identity-based-policies)
++ [Identity\-based policies \(IAM policies\)](#identity-based-policies)
 + [Resource\-based policies](#resource-based-policies-overview)
 
-#### Identity\-pased policies \(IAM policies\)<a name="identity-based-policies"></a>
+#### Identity\-based policies \(IAM policies\)<a name="identity-based-policies"></a>
 
 To manage access to AWS resources, you attach permissions policies to IAM identities\. In CodeCommit, you use identity\-based policies to control access to repositories\. For example, you can do the following: 
 + **Attach a permissions policy to a user or a group in your account** – To grant a user permissions to view CodeCommit resources in the CodeCommit console, attach an identity\-based permissions policy to a user or group that the user belongs to\.
@@ -150,7 +150,7 @@ To restrict the calls and resources that users in your account have access to, c
 
 #### Resource\-based policies<a name="resource-based-policies-overview"></a>
 
-Some services, such as Amazon S3, also support resource\-based permissions policies\. For example, you can attach a resource\-based policy to an S3 bucket to manage access permissions to that bucket\. CodeCommit doesn't support resource\-based policies, but you can use tags to identify resources, which you can then use in IAM policies\. For an example of a tag\-based policy, see [Identity\-pased policies \(IAM policies\)](#identity-based-policies)\. 
+Some services, such as Amazon S3, also support resource\-based permissions policies\. For example, you can attach a resource\-based policy to an S3 bucket to manage access permissions to that bucket\. CodeCommit doesn't support resource\-based policies, but you can use tags to identify resources, which you can then use in IAM policies\. For an example of a tag\-based policy, see [Identity\-based policies \(IAM policies\)](#identity-based-policies)\. 
 
 ### Resource scoping in CodeCommit<a name="resource-scoping"></a>
 

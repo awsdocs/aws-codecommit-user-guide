@@ -190,7 +190,7 @@ In this section, you clone a Git repository to your local computer, creating wha
    For example, if you named your repository *MyClonedRepository* and you are set up to use HTTPS, you would run the following command:
 
    ```
-   git push https://git-codecommit.us-east-2.amazonaws.com/MyClonedRepository --all
+   git push https://git-codecommit.us-east-2.amazonaws.com/v1/repos//MyClonedRepository --all
    ```
 **Note**  
 The \-\-all option only pushes all branches for the repository\. It does not push other references, such as tags\. If you want to push tags, wait until the initial push is complete, and then push again, this time using the \-\-tags option:  
@@ -203,7 +203,7 @@ For more information, see [Git push](https://git-scm.com/docs/git-push) on the G
 You can delete the *aws\-codecommit\-demo* folder and its contents after you have migrated the repository to CodeCommit\. To create a local repo with all the correct references for working with the repository in CodeCommit, run the `git clone` command without the `--mirror` option:
 
 ```
-git clone https://git-codecommit.us-east-2.amazonaws.com/MyClonedRepository
+git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyClonedRepository
 ```
 
 ## Step 3: View files in CodeCommit<a name="how-to-migrate-existing-view"></a>
@@ -227,13 +227,11 @@ When you create a repository in CodeCommit, two endpoints are generated: one for
 
 1. In the **Dashboard** navigation area, choose **Policies**, and then choose **Create Policy**\. 
 
-1. On the **Create Policy** page, next to **Copy an AWS Managed Policy**, choose **Select**\.
+1. On the **Create Policy** page,, choose **Import managed policy**\.
 
-1. On the **Copy an AWS Managed Policy** page, in **Search Policies**, enter **AWSCodeCommitPowerUser**\. Choose **Select** next to the policy name\.
+1. On the **Import managed policies** page, in **Filter policies**, enter **AWSCodeCommitPowerUser**\. Choose the button next to the policy name and then choose **Import**\.
 
-1. On the **Review Policy** page, in **Policy Name**, enter a new name for the policy \(for example, *AWSCodeCommitPowerUser\-MyDemoRepo*\)\.
-
-   In **Policy Document**, replace the "\*" portion of the `Resource` line with the Amazon Resource Name \(ARN\) of the CodeCommit repository, as shown here:
+1. On the **Create policy** page, choose **JSON**\. Replace the "\*" portion of the `Resource` line for CodeCommit actions with the Amazon Resource Name \(ARN\) of the CodeCommit repository, as shown here:
 
    ```
    "Resource": [
@@ -252,7 +250,11 @@ To find the ARN for the CodeCommit repository, go to the CodeCommit console and 
     ]
    ```
 
-1. Choose **Validate Policy**\. After the policy is validated, choose **Create Policy**\.
+   When you are finished editing, choose **Review policy**\.
+
+1. On the **Review Policy** page, in **Name**, enter a new name for the policy \(for example, *AWSCodeCommitPowerUser\-MyDemoRepo*\)\. Optionally provide a description for this policy\.
+
+1. Choose **Create Policy**\.
 
 To manage access to your repository, create an IAM group for its users, add IAM users to that group, and then attach the customer managed policy you created in the previous step\. Attach any other policies required for access, such as IAMUserSSHKeys or IAMSelfManageServiceSpecificCredentials\. 
 

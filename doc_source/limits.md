@@ -1,6 +1,6 @@
 # Quotas in AWS CodeCommit<a name="limits"></a>
 
-The following table describes quotas in CodeCommit\. For information about quotas that can be changed, see [AWS CodeCommit Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/codecommit.html)\. For information about required versions of Git and other software, see [Compatibility for CodeCommit, Git, and other components](setting-up.md#setting-up-compat)\.
+The following table describes quotas in CodeCommit\. For information about quotas that can be changed, see [AWS CodeCommit Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/codecommit.html) and [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\. For information about required versions of Git and other software, see [Compatibility for CodeCommit, Git, and other components](setting-up.md#setting-up-compat)\.
 
 
 |  |  | 
@@ -23,7 +23,7 @@ The following table describes quotas in CodeCommit\. For information about quota
 | Graph display of branches in the Commit Visualizer | 35 per page\. If there are more than 35 branches on a single page, the graph is not displayed\. | 
 | Metadata for a commit  |  Maximum of 20 MB for the combined [metadata for a commit](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects) \(for example, the combination of author information, date, parent commit list, and commit messages\) when using the CodeCommit console, APIs, or the AWS CLI\.   There is no limit on the number or the total size of all files in a single commit, as long as the data does not exceed 20 MB, an individual file does not exceed 6 MB, and a single blob does not exceed 2 GB\.   | 
 | Number of references in a single push | Maximum of 4,000, including create, delete, and update\. There is no limit on the overall number of references in the repository\. | 
-| Number of repositories |  Maximum of 1,000 per AWS account\. This limit can be changed\. For more information, see [AWS CodeCommit Endpoints and Quotas](codecommit.html)\.  | 
+| Number of repositories |  Maximum of 1,000 per AWS account\. This limit can be changed\. For more information, see [AWS CodeCommit Endpoints and Quotas](codecommit.html) and [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\.   | 
 |  Number of triggers in a repository  |  Maximum of 10\.  | 
 | Regions |  CodeCommit is available in the following AWS Regions: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html) For more information, see [Regions and Git connection endpoints](regions.md)\.  | 
 | Repository descriptions | Any combination of characters between 0 and 1,000 characters in length\. Repository descriptions are optional\. | 
