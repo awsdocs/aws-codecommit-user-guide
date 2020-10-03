@@ -190,7 +190,7 @@ In this section, you clone a Git repository to your local computer, creating wha
    For example, if you named your repository *MyClonedRepository* and you are set up to use HTTPS, you would run the following command:
 
    ```
-   git push https://git-codecommit.us-east-2.amazonaws.com/v1/repos//MyClonedRepository --all
+   git push https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyClonedRepository --all
    ```
 **Note**  
 The \-\-all option only pushes all branches for the repository\. It does not push other references, such as tags\. If you want to push tags, wait until the initial push is complete, and then push again, this time using the \-\-tags option:  
