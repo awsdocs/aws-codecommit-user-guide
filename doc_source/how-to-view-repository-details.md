@@ -19,7 +19,7 @@ Use the AWS CodeCommit console to quickly view all repositories created with you
 
 1. Do one of the following:
    + To view the URL for cloning the repository, choose **Clone URL**, and then choose the protocol you want to use when cloning the repository\. This copies the clone URL\. To review it, paste it into a plain\-text editor\.
-   + To view configurable details for the repository, in the navigation pane, choose **Settings**\. 
+   + To view configurable options for the repository as well as details such as the repository ARN and repository ID, in the navigation pane, choose **Settings**\. 
 
 **Note**  
 If you are signed in as an IAM user, you can configure and save your preferences for viewing code and other console settings\. For more information, see [Working with user preferences](user-preferences.md)\.

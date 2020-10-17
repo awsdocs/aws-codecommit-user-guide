@@ -385,7 +385,7 @@ You can only delete the content of a comment if you have the AWSCodeCommitFullAc
                        "emoji": "👎",
                        "shortCode": "thumbsdown",
                        "unicode": "U+1F44E"
-                   ],
+                   },
                    "users": [
                        "arn:aws:iam::123456789012:user/Nikhil_Jayashankar"
                    ]
@@ -395,7 +395,7 @@ You can only delete the content of a comment if you have the AWSCodeCommitFullAc
                        "emoji": "😕",
                        "shortCode": "confused",
                        "unicode": "U+1F615"
-                   ],
+                   },
                    "users": [
                        "arn:aws:iam::123456789012:user/Saanvi_Sarkar"
                    ]

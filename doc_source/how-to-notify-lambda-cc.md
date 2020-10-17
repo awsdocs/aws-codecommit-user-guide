@@ -33,7 +33,7 @@ If you create a trigger in CodeCommit that invokes a Lambda function, you must m
 1. Using the JSON file you just created, at the terminal \(Linux, macOS, or Unix\) or command line \(Windows\), run the aws lambda add\-permissions command to add a permission to the resource policy associated with your Lambda function:
 
    ```
-   aws lambda add-permission - -cli-input-json file://AllowAccessfromMyDemoRepo.json
+   aws lambda add-permission --cli-input-json file://AllowAccessfromMyDemoRepo.json
    ```
 
    This command returns the JSON of the policy statement you just added, similar to the following:
@@ -212,7 +212,7 @@ You can use more than one event type in a trigger\. However, if you specify `all
 
 1. At a terminal or command prompt, run the put\-repository\-triggers command to create the trigger in CodeCommit\. For example, to use a JSON file named *trigger\.json* to create the trigger:
 
-   **aws codecommit put\-repository\-triggers \- \-cli\-input\-json file://*trigger\.json***
+   **aws codecommit put\-repository\-triggers \-\-cli\-input\-json file://*trigger\.json***
 
    This command returns a configuration ID, similar to the following:
 
@@ -224,7 +224,7 @@ You can use more than one event type in a trigger\. However, if you specify `all
 
 1. To view the configuration of the trigger, run the get\-repository\-triggers command, specifying the name of the repository:
 
-   **aws codecommit get\-repository\-triggers \- \-repository\-name *MyDemoRepo***
+   **aws codecommit get\-repository\-triggers \-\-repository\-name *MyDemoRepo***
 
    This command returns the structure of all triggers configured for the repository, similar to the following:
 

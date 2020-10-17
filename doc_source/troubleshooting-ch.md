@@ -119,7 +119,7 @@ If you are accessing other repositories with Git, you can configure the Keychain
 1. In **Confirm before allowing access**, choose `git-credential-osxkeychain`, and then choose the minus sign to remove it from the list\.
 **Note**  
 After removing `git-credential-osxkeychain` from the list, you see a dialog box whenever you run a Git command\. Choose **Deny** to continue\. If you find the pop\-ups too disruptive, here are some alternatives:  
-Connect to CodeCommit using SSH instead of HTTPS\. For more information, see [For SSH connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md)\. 
+Connect to CodeCommit using SSH or Git credentials instead of the credential helper with HTTPS\. For more information, see [For SSH connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md) and [Setup for HTTPS users using Git credentials](setting-up-gc.md)\. 
 In the Keychain Access utility, on the **Access Control** tab for `git-codecommit.us-east-2.amazonaws.com`, choose the **Allow all applications to access this item \(access to this item is not restricted\)** option\. This prevents the pop\-ups, but the credentials eventually expire \(on average, this takes about 15 minutes\) and you then see a 403 error message\. When this happens, you must delete the keychain item to restore functionality\.
 Install a version of Git that does not use the keychain by default\.
 Consider a scripting solution for deleting the keychain item\. To view a community\-generated sample of a scripted solution, see [Mac OS X Script to Periodically Delete Cached Credentials in the OS X Certificate Store](integrations.md#integrations-community-code) in [Product and service integrations](integrations.md)\.

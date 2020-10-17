@@ -21,6 +21,7 @@ You can create and use CodeCommit repositories in the following AWS Regions:
 + Europe \(Paris\)
 + Europe \(Frankfurt\)
 + Europe \(Stockholm\)
++ Europe \(Milan\)
 + Asia Pacific \(Tokyo\)
 + Asia Pacific \(Singapore\)
 + Asia Pacific \(Sydney\)
@@ -99,6 +100,8 @@ Use the following URLs when you configure Git connections to CodeCommit reposito
 | China \(Beijing\) | cn\-north\-1 | ssh://git\-codecommit\.cn\-north\-1\.amazonaws\.com\.cn | SSH | 
 | China \(Ningxia\) | cn\-northwest\-1 | https://git\-codecommit\.cn\-northwest\-1\.amazonaws\.com\.cn | HTTPS | 
 | China \(Ningxia\) | cn\-northwest\-1 | ssh://git\-codecommit\.cn\-northwest\-1\.amazonaws\.com\.cn | SSH | 
+| Europe \(Milan\) | eu\-south\-1 | https://git\-codecommit\.eu\-south\-1\.amazonaws\.com | HTTPS | 
+| Europe \(Milan\) | eu\-south\-1 | ssh://git\-codecommit\-eu\-south\-1\.amazonaws\.com | SSH | 
 
 ## Server fingerprints for CodeCommit<a name="regions-fingerprints"></a>
 
@@ -153,3 +156,5 @@ The following table lists the public fingerprints for Git connection endpoints i
 | git\-codecommit\.cn\-north\-1\.amazonaws\.com\.cn | SHA256 | IYUXxH2OpTDsyYMLIp\+JY8CTLS4UX\+ZC5JVZXPRaxc8 | 
 | git\-codecommit\.cn\-northwest\-1\.amazonaws\.com\.cn | MD5 | 2e:a7:fb:4c:33:ac:6c:f9:aa:f2:bc:fb:0a:7b:1e:b6 | 
 | git\-codecommit\.cn\-northwest\-1\.amazonaws\.com\.cn | SHA256 | wqjd6eHd0\+mOBx\+dCNuL0omUoCNjaDtZiEpWj5TmCfQ | 
+| git\-codecommit\.eu\-south\-1\.amazonaws\.com | MD5 | b9:f6:5d:e2:48:92:3f:a9:37:1e:c4:d0:32:0e:fb:11 | 
+| git\-codecommit\.eu\-south\-1\.amazonaws\.com | SHA256 | lyXrWbCg3uQmJrl1XxB/ASR7ugW1Ysf5yzYOJbudHsI | 

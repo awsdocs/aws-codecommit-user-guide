@@ -25,6 +25,7 @@ CodeCommit currently supports VPC endpoints in the following AWS Regions:
 + Europe \(Paris\)
 + Europe \(Frankfurt\)
 + Europe \(Stockholm\)
++ Europe \(Milan\)
 + Asia Pacific \(Tokyo\)
 + Asia Pacific \(Singapore\)
 + Asia Pacific \(Sydney\)

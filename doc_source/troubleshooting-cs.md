@@ -10,7 +10,7 @@ The following information might help you troubleshoot console errors when using 
 
 **Problem:** When you try to access CodeCommit from the console or the AWS CLI, an error message appears containing the phrase `EncryptionKeyAccessDeniedException` or `User is not authorized for the KMS default master key for CodeCommit 'aws/codecommit' in your account`\.
 
-**Possible fixes:** The most common cause for this error is that your AWS account is not subscribed to AWS Key Management Service, which is required for CodeCommit\. Open the IAM console, choose **Encryption Keys**, and then choose **Get Started Now**\. If you see a message that you are not currently subscribed to the AWS Key Management Service service, follow the instructions on that page to subscribe\. For more information about CodeCommit and AWS Key Management Service, see [AWS KMS and encryption](encryption.md)\. 
+**Possible fixes:** The most common cause for this error is that your AWS account is not subscribed to AWS Key Management Service, which is required for CodeCommit\. Open the AWS KMS console, choose **AWS managed keys**, and then choose **Get Started Now**\. If you see a message that you are not currently subscribed to the AWS Key Management Service service, follow the instructions on that page to subscribe\. For more information about CodeCommit and AWS Key Management Service, see [AWS KMS and encryption](encryption.md)\. 
 
 ## Console error: Cannot browse the code in a CodeCommit repository from the console<a name="troubleshooting-cs1"></a>
 

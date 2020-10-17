@@ -2,6 +2,9 @@
 
 You can use notification rules to notify users of important changes, such as when a pull request is created in a repository\. Notification rules specify both the events and the Amazon SNS topic that is used to send notifications\. For more information, see [What are notifications?](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/welcome.html)
 
+**Note**  
+This feature is not available in the Europe \(Milan\) Region\. To learn how to configure notifications in the experience available in that Region, see [Configure Repository Notifications](https://github.com/awsdocs/aws-codecommit-user-guide/blob/master/doc_source/how-to-repository-email-create.2.md)\.
+
 You can use the console or the AWS CLI to create notification rules for AWS CodeCommit\. <a name="notification-rule-create-console"></a>
 
 # To create a notification rule \(console\)<a name="notification-rule-create-console"></a>

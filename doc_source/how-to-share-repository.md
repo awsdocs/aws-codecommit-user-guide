@@ -65,7 +65,7 @@ For information about reviewing the contents of managed policies and using polic
     ]
    ```
 **Tip**  
-To find the ARN for the CodeCommit repository, go to the CodeCommit console and choose the repository name from the list\. For more information, see [View repository details](how-to-view-repository-details.md)\.
+To find the ARN for the CodeCommit repository, go to the CodeCommit console, choose the repository name from the list, and then choose **Settings**\. For more information, see [View repository details](how-to-view-repository-details.md)\.
 
    If you want this policy to apply to more than one repository, add each repository as a resource by specifying its ARN\. Include a comma between each resource statement, as shown here:
 

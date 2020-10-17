@@ -102,6 +102,7 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
    + me\-south\-1
    + cn\-north\-1
    + cn\-northwest\-1
+   + eu\-south\-1
 
    For more information about CodeCommit and AWS Regions, see [Regions and Git connection endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\. For more information about the AWS CLI and profiles, see [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)\.
 
@@ -239,7 +240,7 @@ When you create a repository in CodeCommit, two endpoints are generated: one for
     ]
    ```
 **Tip**  
-To find the ARN for the CodeCommit repository, go to the CodeCommit console and choose the repository name from the list\. For more information, see [View repository details](how-to-view-repository-details.md)\.
+To find the ARN for the CodeCommit repository, go to the CodeCommit console, choose the repository name from the list, and then choose **Settings**\. For more information, see [View repository details](how-to-view-repository-details.md)\.
 
    If you want this policy to apply to more than one repository, add each repository as a resource by specifying its ARN\. Include a comma between each resource statement, as shown here:
 

@@ -2,10 +2,11 @@
 
 The following table describes important changes to the documentation for CodeCommit\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 + **API version:** 2015\-04\-13
-+ **Latest documentation update:** June 24, 2020
++ **Latest documentation update:** September 16, 2020
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [CodeCommit is now available in Europe \(Milan\)](#history) | CodeCommit is now available in an additional AWS Region: Europe \(Milan\)\. For more information, see [Regions and Git Connection Endpoints](https://docs.aws.amazon.com/codecommit/latest/userguide/regions.html)\. | September 16, 2020 | 
 | [CodeCommit adds support for emoji reactions to comments](#history) | CodeCommit now supports reacting to comments from other users with emojis\. For more information, see [Comment on a Commit](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-commit-comment.html) and [Review a Pull Request](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-review-pull-request.html)\. | June 24, 2020 | 
 | [CodeCommit now available in China \(Beijing\) and China \(Ningxia\)](#history) | CodeCommit is now available in two additional AWS Regions: China \(Beijing\) and China \(Ningxia\)\. For more information, see [Regions and Git Connection Endpoints](https://docs.aws.amazon.com/codecommit/latest/userguide/regions.html)\. | April 23, 2020 | 
 | [CodeCommit adds support for git\-remote\-codecommit](#history) | CodeCommit supports connections to CodeCommit repositories over HTTPS with git\-remote\-codecommit, a utility that modifies Git\. This is the recommended approach for federated or temporary access connections to CodeCommit repositories\. You can also use git\-remote\-codecommit with an IAM user\. git\-remote\-codecommit does not require you to set up Git credentials for the user\. For more information, see [Setup Steps for HTTPS Connections to AWS CodeCommit with git\-remote\-codecommit](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-git-remote-codecommit.html)\. | March 4, 2020 | 
