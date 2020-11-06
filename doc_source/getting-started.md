@@ -364,7 +364,7 @@ This step is written with the assumption you have permissions to create IAM user
 
 1. Follow the instructions in [For HTTPS users using Git credentials](setting-up-gc.md)  to generate and supply the credentials of the IAM user\.
 
-   If you want to use SSH, follow the instructions in [SSH and Linux, macOS, or Unix: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes) or [SSH and Windows: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows) to set up the user with public and private keys\.
+   If you want to use SSH, follow the instructions in [SSH and Linux, macOS, or Unix: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes) or [Step 3:  Set up the public and private keys for Git and CodeCommit ](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows) to set up the user with public and private keys\.
 
 1. Run git pull\. The following error should appear:
 
@@ -434,7 +434,7 @@ For information about other CodeCommit action and resource permissions you can g
 
 1. If you are using HTTPS, switch to your original Git credentials or, if using git\-remote\-codecommit, your usual profile\. For more information, see the instructions in [Setup for HTTPS users using Git credentials](setting-up-gc.md) or [Setup steps for HTTPS connections to AWS CodeCommit with git\-remote\-codecommit](setting-up-git-remote-codecommit.md)\.
 
-   If you are using SSH, switch to your original keys\. For more information, see [SSH and Linux, macOS, or Unix: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes) or [SSH and Windows: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
+   If you are using SSH, switch to your original keys\. For more information, see [SSH and Linux, macOS, or Unix: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes) or [Step 3:  Set up the public and private keys for Git and CodeCommit ](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
 
 You've reached the end of this tutorial\. 
 

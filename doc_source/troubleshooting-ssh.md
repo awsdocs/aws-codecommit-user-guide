@@ -127,7 +127,7 @@ Make sure the fingerprint and public key for CodeCommit connections match those 
 
 **Possible fixes:** IAM accepts public keys in the OpenSSH format only and  has additional requirements as specified in [Use SSH Keys with CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#ssh-keys-code-commit) in the *IAM User Guide*\. If you provide your public key in another format, or if the key does not contain the required number of bits, you see this error\. 
 + When you copied the SSH public key, your operating system might have introduced line breaks\. Make sure that there are no line breaks in the public key that you add to IAM\.
-+ Some Windows operating systems do not use the OpenSSH format\. To generate a key pair and copy the OpenSSH format required by IAM, see [SSH and Windows: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
++ Some Windows operating systems do not use the OpenSSH format\. To generate a key pair and copy the OpenSSH format required by IAM, see [Step 3:  Set up the public and private keys for Git and CodeCommit ](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
 
 For more information about the requirements for SSH keys in IAM, see [Use SSH Keys with CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#ssh-keys-code-commit) in the *IAM User Guide*\.
 

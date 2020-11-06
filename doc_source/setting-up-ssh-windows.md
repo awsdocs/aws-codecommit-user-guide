@@ -5,7 +5,7 @@ Before you can connect to AWS CodeCommit for the first time, you must complete s
 **Topics**
 + [Step 1: Initial configuration for CodeCommit](#setting-up-ssh-windows-account)
 + [Step 2: Install Git](#setting-up-ssh-windows-install-git)
-+ [SSH and Windows: Set up the public and private keys for Git and CodeCommit](#setting-up-ssh-windows-keys-windows)
++ [Step 3: Set up the public and private keys for Git and CodeCommit](#setting-up-ssh-windows-keys-windows)
 + [Step 4: Connect to the CodeCommit console and clone the repository](#setting-up-ssh-windows-connect-console)
 + [Next steps](#setting-up-ssh-windows-next-step)
 
@@ -49,9 +49,9 @@ Git is an evolving, regularly updated platform\. Occasionally, a feature change 
 
 If the version of Git you installed does not include a Bash emulator, such as Git Bash, install one\. You use this emulator instead of the Windows command line when you configure SSH connections\.
 
-## SSH and Windows: Set up the public and private keys for Git and CodeCommit<a name="setting-up-ssh-windows-keys-windows"></a>
+## Step 3: Set up the public and private keys for Git and CodeCommit<a name="setting-up-ssh-windows-keys-windows"></a>
 
-**To set up the public and private keys for Git and CodeCommit**
+**To set up the public and private keys for Git and CodeCommit on Windows**
 
 1. Open the Bash emulator\.
 **Note**  
@@ -91,6 +91,13 @@ You might need to run the emulator with administrative permissions\.
    This generates: 
    + The *codecommit\_rsa* file, which is the private key file\.
    + The *codecommit\_rsa*\.pub file, which is the public key file\.
+**Tip**  
+By default, ssh\-keygen generates a 2048 bit key\. You can use the \-t and \-b parameters to specify the type and length of the key\. If you want a 4096 bit key in the rsa format, you would specify this by running the command with the following parameters:   
+
+   ```
+   ssh-keygen -t rsa -b 4096
+   ```
+For more information about the formats and lengths required for SSH keys, see [Using IAM with CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#ssh-keys-code-commit)\.
 
 1. Run the following commands to display the value of the public key file \(*codecommit\_rsa*\.pub\):
 

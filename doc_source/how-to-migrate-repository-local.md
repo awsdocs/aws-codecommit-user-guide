@@ -127,7 +127,7 @@ Git is an evolving, regularly updated platform\. Occasionally, a feature change 
 CodeCommit supports both HTTPS and SSH authentication\. To complete setup, you must configure Git credentials for CodeCommit \(HTTPS, recommended for most users\), an SSH key pair \(SSH\) to use when accessing CodeCommit, git\-remote\-codecommit \(recommended for users who use federated access\), or the credential helper included in the AWS CLI\. 
 + For Git credentials on all supported operating systems, see [Step 3: Create Git credentials for HTTPS connections to CodeCommit](setting-up-gc.md#setting-up-gc-iam)\.
 + For SSH on Linux, macOS, or Unix, see [SSH and Linux, macOS, or Unix: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes)\.
-+  For SSH on Windows, see [SSH and Windows: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
++  For SSH on Windows, see [Step 3:  Set up the public and private keys for Git and CodeCommit ](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
 + For git\-remote\-codecommit, see [Setup steps for HTTPS connections to AWS CodeCommit with git\-remote\-codecommit](setting-up-git-remote-codecommit.md)\.
 + For the credential helper on Linux, macOS, or Unix, see [Set Up the Credential Helper \(Linux, macOS, or Unix\)](setting-up-https-unixes.md#setting-up-https-unixes-ch-config)\.
 + For the credential helper on Windows, see [Set Up the Credential Helper \(Windows\)](setting-up-https-windows.md#setting-up-https-windows-ch-config)\.

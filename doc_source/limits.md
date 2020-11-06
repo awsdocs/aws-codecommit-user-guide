@@ -1,6 +1,6 @@
 # Quotas in AWS CodeCommit<a name="limits"></a>
 
-The following table describes quotas in CodeCommit\. For information about quotas that can be changed, see [AWS CodeCommit Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/codecommit.html) and [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)\. For information about required versions of Git and other software, see [Compatibility for CodeCommit, Git, and other components](setting-up.md#setting-up-compat)\.
+The following table describes quotas in CodeCommit\. For information about quotas that can be changed, see [AWS CodeCommit Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/codecommit.html)\. For information about requesting a service quota increase, see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) For information about required versions of Git and other software, see [Compatibility for CodeCommit, Git, and other components](setting-up.md#setting-up-compat)\.
 
 
 |  |  | 

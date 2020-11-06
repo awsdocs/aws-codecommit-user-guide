@@ -5,7 +5,7 @@ Before you can connect to CodeCommit for the first time, you must complete some 
 **Topics**
 + [Step 1: Initial configuration for CodeCommit](#setting-up-ssh-unixes-account)
 + [Step 2: Install Git](#setting-up-ssh-unixes-install-git)
-+ [Step3: Configure credentials on Linux, macOS, or Unix](#setting-up-ssh-unixes-keys)
++ [Step 3: Configure credentials on Linux, macOS, or Unix](#setting-up-ssh-unixes-keys)
 + [Step 4: Connect to the CodeCommit console and clone the repository](#setting-up-ssh-unixes-connect-console)
 + [Next steps](#setting-up-ssh-unixes-next-step)
 
@@ -47,7 +47,7 @@ To install Git, we recommend websites such as [Git Downloads](http://git-scm.com
 **Note**  
 Git is an evolving, regularly updated platform\. Occasionally, a feature change might affect the way it works with CodeCommit\. If you encounter issues with a specific version of Git and CodeCommit, review the information in [Troubleshooting](troubleshooting.md)\.
 
-## Step3: Configure credentials on Linux, macOS, or Unix<a name="setting-up-ssh-unixes-keys"></a>
+## Step 3: Configure credentials on Linux, macOS, or Unix<a name="setting-up-ssh-unixes-keys"></a>
 
 ### SSH and Linux, macOS, or Unix: Set up the public and private keys for Git and CodeCommit<a name="setting-up-ssh-unixes-keys-unixes"></a>
 
@@ -89,6 +89,13 @@ Be sure to check with your system administrator about where key files should be 
    This generates: 
    + The *codecommit\_rsa* file, which is the private key file\.
    + The *codecommit\_rsa*\.pub file, which is the public key file\.
+**Tip**  
+By default, ssh\-keygen generates a 2048 bit key\. You can use the \-t and \-b parameters to specify the type and length of the key\. If you want a 4096 bit key in the rsa format, you would specify this by running the command with the following parameters:   
+
+   ```
+   ssh-keygen -t rsa -b 4096
+   ```
+For more information about the formats and lengths required for SSH keys, see [Using IAM with CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#ssh-keys-code-commit)\.
 
 1. Run the following command to display the value of the public key file \(*codecommit\_rsa*\.pub\):
 
