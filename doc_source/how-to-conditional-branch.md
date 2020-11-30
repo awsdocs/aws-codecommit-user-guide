@@ -50,7 +50,7 @@ You can create a policy in IAM that prevents users from updating a branch, inclu
                         ]
                    },
                    "Null": {
-                       "codecommit:References": false
+                       "codecommit:References": "false"
                    }
                }
            }
