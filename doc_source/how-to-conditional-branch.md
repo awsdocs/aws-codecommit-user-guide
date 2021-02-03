@@ -22,7 +22,7 @@ You can create a policy in IAM that prevents users from updating a branch, inclu
 
 1. Choose **Create policy**\.
 
-1. Choose **JSON**, and then paste the following example policy\. Replace the value of `Resource` with the ARN of the repository that contains the branch for which you want to restrict access\. Replace the value of `codecommit:References` with a reference to the branch or branches to which you want to restrict access\. For example, this policy denies pushing commits, merging branches, merging pull requests, and adding files to a branch named *`master`* and a branch named `prod` in a repository named `MyDemoRepo`:
+1. Choose **JSON**, and then paste the following example policy\. Replace the value of `Resource` with the ARN of the repository that contains the branch for which you want to restrict access\. Replace the value of `codecommit:References` with a reference to the branch or branches to which you want to restrict access\. For example, this policy denies pushing commits, merging branches, merging pull requests, and adding files to a branch named *`main`* and a branch named `prod` in a repository named `MyDemoRepo`:
 
    ```
    {
@@ -45,7 +45,7 @@ You can create a policy in IAM that prevents users from updating a branch, inclu
                "Condition": {
                    "StringEqualsIfExists": {
                        "codecommit:References": [
-                           "refs/heads/master", 
+                           "refs/heads/main", 
                            "refs/heads/prod"
                         ]
                    },
@@ -60,12 +60,12 @@ You can create a policy in IAM that prevents users from updating a branch, inclu
 
    Branches in Git are simply pointers \(references\) to the SHA\-1 value of the head commit, which is why the condition uses `References`\. The `Null` statement is required in any policy whose effect is `Deny` and where `GitPush` is one of the actions\. This is required because of the way Git and `git-receive-pack` work when pushing changes from a local repo to CodeCommit\.
 **Tip**  
-To create a policy that applies to all branches named master in all repositories in an AWS account, change the value of `Resource` from a repository ARN to an asterisk \(`*`\)\. 
+To create a policy that applies to all branches named main in all repositories in an AWS account, change the value of `Resource` from a repository ARN to an asterisk \(`*`\)\. 
 
 1. Choose **Review policy**\. Correct any errors in your policy statement, and then continue to **Create policy**\.
 
 1. When the JSON is validated, the **Create policy** page is displayed\. A warning appears in the **Summary** section, advising you that this policy does not grant permissions\. This is expected\. 
-   + In **Name**, enter a name for this policy, such as **DenyChangesToMaster**\.
+   + In **Name**, enter a name for this policy, such as **DenyChangesToMain**\.
    + In **Description**, enter a description of the policy's purpose\. This is optional, but recommended\.
    + Choose **Create policy**\.
 

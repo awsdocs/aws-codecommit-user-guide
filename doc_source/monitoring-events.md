@@ -307,7 +307,7 @@ In this example event, a pull request was created in a repository named `MyDemoR
     "creationDate": "Tue Feb 9 2019 10:18:42 PDT ",
     "description": "An example description.",
     "destinationCommit": "12241970EXAMPLE",
-    "destinationReference": "refs/heads/master",
+    "destinationReference": "refs/heads/main",
     "event": "pullRequestCreated",
     "isMerged": "False",
     "lastModifiedDate": "Tue Feb 9 2019 10:18:42 PDT",
@@ -345,7 +345,7 @@ In this example event, a user who assumed a role named `Admin` with a session na
     "creationDate": "Tue Feb 9 2019 10:18:42 PDT",
     "description": "An example description.",
     "destinationCommit": "7644990EXAMPLE",
-    "destinationReference": "refs/heads/master",
+    "destinationReference": "refs/heads/main",
     "event": "pullRequestSourceBranchUpdated",
     "isMerged": "False",
     "lastModifiedDate": "Tue Feb 9 2019 10:18:42 PDT",
@@ -383,7 +383,7 @@ In this example event, a user who assumed a role named `Admin` with a session na
     "creationDate": "Tue Jun 18 10:34:20 PDT 2019",
     "description": "An example description.",
     "destinationCommit": "95149731EXAMPLE",
-    "destinationReference": "refs/heads/master",
+    "destinationReference": "refs/heads/main",
     "event": "pullRequestStatusChanged",
     "isMerged": "False",
     "lastModifiedDate": "Tue Jun 18 10:34:20 PDT 2019",
@@ -421,7 +421,7 @@ In this example event, a user who assumed a role named `Admin` with a session na
     "creationDate": "Mon Mar 11 14:42:31 PDT 2019",
     "description": "An example description.",
     "destinationCommit": "4376719EXAMPLE",
-    "destinationReference": "refs/heads/master",
+    "destinationReference": "refs/heads/main",
     "event": "pullRequestMergeStatusUpdated",
     "isMerged": "True",
     "lastModifiedDate": "Mon Mar 11 14:42:31 PDT 2019",
@@ -440,7 +440,7 @@ In this example event, a user who assumed a role named `Admin` with a session na
 
 ## approvalRuleTemplateCreated event<a name="approvalRuleTemplateCreated"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major` created an approval rule template named `2-approvers-required-for-master`\.
+In this example event, a user with an IAM user name of `Mary_Major` created an approval rule template named `2-approvers-required-for-main`\.
 
 ```
 {
@@ -455,12 +455,12 @@ In this example event, a user with an IAM user name of `Mary_Major` created an a
     "detail": {
         "approvalRuleTemplateContentSha256": "f742eebbEXAMPLE",
         "approvalRuleTemplateId": "d7385967-EXAMPLE",
-        "approvalRuleTemplateName": "2-approvers-required-for-master",
+        "approvalRuleTemplateName": "2-approvers-required-for-main",
         "callerUserArn": "arn:aws:iam::123456789012:user/Mary_Major",
         "creationDate": "Wed Nov 06 19:02:14 UTC 2019",
         "event": "approvalRuleTemplateCreated",
         "lastModifiedDate": "Wed Nov 06 19:02:14 UTC 2019",
-        "notificationBody": "A approval rule template event occurred in the following AWS CodeCommit account: 123456789012. User: arn:aws:iam::123456789012:user/Mary_Major.  Additional information: An approval rule template with the following name has been created: 2-approvers-required-for-master. The ID of the created template is: d7385967-EXAMPLE. For more information, go to the AWS CodeCommit console.",
+        "notificationBody": "A approval rule template event occurred in the following AWS CodeCommit account: 123456789012. User: arn:aws:iam::123456789012:user/Mary_Major.  Additional information: An approval rule template with the following name has been created: 2-approvers-required-for-main. The ID of the created template is: d7385967-EXAMPLE. For more information, go to the AWS CodeCommit console.",
         "repositories": {}
     }
 }
@@ -468,7 +468,7 @@ In this example event, a user with an IAM user name of `Mary_Major` created an a
 
 ## approvalRuleTemplateUpdated event<a name="approvalRuleTemplateUpdated"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major` edited an approval rule template named `2-approvers-required-for-master`\. The approval rule template is not associated with any repositories\.
+In this example event, a user with an IAM user name of `Mary_Major` edited an approval rule template named `2-approvers-required-for-main`\. The approval rule template is not associated with any repositories\.
 
 ```
 {
@@ -485,12 +485,12 @@ In this example event, a user with an IAM user name of `Mary_Major` edited an ap
   "detail": {
     "approvalRuleTemplateContentSha256": "f742eebbEXAMPLE",
     "approvalRuleTemplateId": "c9d2b844-EXAMPLE",
-    "approvalRuleTemplateName": "2-approvers-required-for-master",
+    "approvalRuleTemplateName": "2-approvers-required-for-main",
     "callerUserArn": "arn:aws:iam::123456789012:user\Mary_Major",
     "creationDate": "Tue Nov 12 23:03:06 UTC 2019",
     "event": "approvalRuleTemplateDeleted",
     "lastModifiedDate": "Tue Nov 12 23:03:20 UTC 2019",
-    "notificationBody": "A approval rule template event occurred in the following AWS CodeCommit account: 123456789012. User: arn:aws:iam::123456789012:user\Mary_Major. Additional information: An approval rule template with the following name has been deleted: 2-approvers-required-for-master. The ID of the updated template is: c9d2b844-EXAMPLE. For more information, go to the AWS CodeCommit console.",
+    "notificationBody": "A approval rule template event occurred in the following AWS CodeCommit account: 123456789012. User: arn:aws:iam::123456789012:user\Mary_Major. Additional information: An approval rule template with the following name has been deleted: 2-approvers-required-for-main. The ID of the updated template is: c9d2b844-EXAMPLE. For more information, go to the AWS CodeCommit console.",
     "repositories": {}
   }
 }
@@ -498,7 +498,7 @@ In this example event, a user with an IAM user name of `Mary_Major` edited an ap
 
 ## approvalRuleTemplateDeleted event<a name="approvalRuleTemplateDeleted"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major` deleted an approval rule template named `2-approvers-required-for-master`\. The approval rule template is not associated with any repositories\.
+In this example event, a user with an IAM user name of `Mary_Major` deleted an approval rule template named `2-approvers-required-for-main`\. The approval rule template is not associated with any repositories\.
 
 ```
 {
@@ -513,12 +513,12 @@ In this example event, a user with an IAM user name of `Mary_Major` deleted an a
   "detail": {
     "approvalRuleTemplateContentSha256": "4f3de6632EXAMPLE",
     "approvalRuleTemplateId": "c9d2b844-EXAMPLE",
-    "approvalRuleTemplateName": "2-approvers-required-for-master",
+    "approvalRuleTemplateName": "2-approvers-required-for-main",
     "callerUserArn": "arn:aws:iam::123456789012:user\Mary_Major",
     "creationDate": "Tue Nov 12 23:03:06 UTC 2019",
     "event": "approvalRuleTemplateUpdated",
     "lastModifiedDate": "Tue Nov 12 23:03:20 UTC 2019",
-    "notificationBody": "A approval rule template event occurred in the following AWS CodeCommit account: 123456789012. User: arn:aws:iam::123456789012:user\Mary_Major. Additional information: An approval rule template with the following name has been updated: 2-approvers-required-for-master. The ID of the updated template is: c9d2b844-EXAMPLE. The after rule template content SHA256 is 4f3de663EXAMPLE. For more information, go to the AWS CodeCommit console.",
+    "notificationBody": "A approval rule template event occurred in the following AWS CodeCommit account: 123456789012. User: arn:aws:iam::123456789012:user\Mary_Major. Additional information: An approval rule template with the following name has been updated: 2-approvers-required-for-main. The ID of the updated template is: c9d2b844-EXAMPLE. The after rule template content SHA256 is 4f3de663EXAMPLE. For more information, go to the AWS CodeCommit console.",
     "repositories": {}
   }
 }
@@ -526,7 +526,7 @@ In this example event, a user with an IAM user name of `Mary_Major` deleted an a
 
 ## approvalRuleTemplateAssociatedWithRepository event<a name="approvalRuleTemplateAssociatedWithRepository"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major` associated an approval rule template named `2-approvers-required-for-master` with a repository named `MyDemoRepo`\. 
+In this example event, a user with an IAM user name of `Mary_Major` associated an approval rule template named `2-approvers-required-for-main` with a repository named `MyDemoRepo`\. 
 
 ```
 {
@@ -543,7 +543,7 @@ In this example event, a user with an IAM user name of `Mary_Major` associated a
     "detail": {
         "approvalRuleTemplateContentSha256": "f742eebbEXAMPLE",
         "approvalRuleTemplateId": "d7385967-EXAMPLE",
-        "approvalRuleTemplateName": "2-approvers-required-for-master",
+        "approvalRuleTemplateName": "2-approvers-required-for-main",
         "callerUserArn": "arn:aws:iam::123456789012:user/Mary_Major",
         "creationDate": "Wed Nov 06 19:02:14 UTC 2019",
         "event": "approvalRuleTemplateAssociatedWithRepository",
@@ -558,7 +558,7 @@ In this example event, a user with an IAM user name of `Mary_Major` associated a
 
 ## approvalRuleTemplateDisassociatedWithRepository event<a name="approvalRuleTemplateDisassociatedWithRepository"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major` disassociated an approval rule template named `2-approvers-required-for-master` from a repository named `MyDemoRepo`\. 
+In this example event, a user with an IAM user name of `Mary_Major` disassociated an approval rule template named `2-approvers-required-for-main` from a repository named `MyDemoRepo`\. 
 
 ```
 {
@@ -575,7 +575,7 @@ In this example event, a user with an IAM user name of `Mary_Major` disassociate
     "detail": {
         "approvalRuleTemplateContentSha256": "f742eebbEXAMPLE",
         "approvalRuleTemplateId": "d7385967-EXAMPLE",
-        "approvalRuleTemplateName": "2-approvers-required-for-master",
+        "approvalRuleTemplateName": "2-approvers-required-for-main",
         "callerUserArn": "arn:aws:iam::123456789012:user/Mary_Major",
         "creationDate": "Wed Nov 06 19:02:14 UTC 2019",
         "event": "approvalRuleTemplateDisassociatedFromRepository",
@@ -590,7 +590,7 @@ In this example event, a user with an IAM user name of `Mary_Major` disassociate
 
 ## approvalRuleTemplateBatchAssociatedWithRepositories event<a name="approvalRuleTemplateBatchAssociatedWithRepositories"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major` batch associated an approval rule template named `2-approvers-required-for-master` with a repository named `MyDemoRepo` and a repository named `MyTestRepo`\. 
+In this example event, a user with an IAM user name of `Mary_Major` batch associated an approval rule template named `2-approvers-required-for-main` with a repository named `MyDemoRepo` and a repository named `MyTestRepo`\. 
 
 ```
 {
@@ -607,7 +607,7 @@ In this example event, a user with an IAM user name of `Mary_Major` batch associ
     "detail": {
         "approvalRuleTemplateContentSha256": "f742eebbEXAMPLE",
         "approvalRuleTemplateId": "c71c1fe0-EXAMPLE",
-        "approvalRuleTemplateName": "2-approvers-required-for-master",
+        "approvalRuleTemplateName": "2-approvers-required-for-main",
         "callerUserArn": "arn:aws:iam::123456789012:user/Mary_Major",
         "creationDate": "Tue Nov 12 23:38:57 UTC 2019",
         "event": "batchAssociateApprovalRuleTemplateWithRepositories",
@@ -623,7 +623,7 @@ In this example event, a user with an IAM user name of `Mary_Major` batch associ
 
 ## approvalRuleTemplateBatchDisassociatedFromRepositories event<a name="approvalRuleTemplateBatchDisassociatedFromRepositories"></a>
 
-In this example event, a user with an IAM user name of `Mary_Major` batch disassociated an approval rule template named `2-approvers-required-for-master` from a repository named `MyDemoRepo` and a repository named `MyTestRepo`\. 
+In this example event, a user with an IAM user name of `Mary_Major` batch disassociated an approval rule template named `2-approvers-required-for-main` from a repository named `MyDemoRepo` and a repository named `MyTestRepo`\. 
 
 ```
 {
@@ -640,7 +640,7 @@ In this example event, a user with an IAM user name of `Mary_Major` batch disass
     "detail": {
         "approvalRuleTemplateContentSha256": "f742eebbEXAMPLE",
         "approvalRuleTemplateId": "c71c1fe0-ff91-4db4-9a45-a86a7b6c474f",
-        "approvalRuleTemplateName": "2-approvers-required-for-master",
+        "approvalRuleTemplateName": "2-approvers-required-for-main",
         "callerUserArn": "arn:aws:iam::123456789012:user/Mary_Major",
         "creationDate": "Tue Nov 12 23:38:57 UTC 2019",
         "event": "batchDisassociateApprovalRuleTemplateFromRepositories",
@@ -678,7 +678,7 @@ In this example event, a user with an IAM user name of `Mary_Major` created an a
         "creationDate": "Wed Nov 06 19:10:58 UTC 2019",
         "description": "An An example description.",
         "destinationCommit": "194fdf00EXAMPLE",
-        "destinationReference": "refs/heads/master",
+        "destinationReference": "refs/heads/main",
         "event": "pullRequestApprovalRuleCreated",
         "isMerged": "False",
         "lastModifiedDate": "Wed Nov 06 19:10:58 UTC 2019",
@@ -721,7 +721,7 @@ In this example event, a user with an IAM user name of `Mary_Major` deleted an a
         "creationDate": "Wed Nov 06 19:10:58 UTC 2019",
         "description": "An An example description.",
         "destinationCommit": "194fdf00EXAMPLE",
-        "destinationReference": "refs/heads/master",
+        "destinationReference": "refs/heads/main",
         "event": "pullRequestApprovalRuleDeleted",
         "isMerged": "False",
         "lastModifiedDate": "Wed Nov 06 19:10:58 UTC 2019",
@@ -761,7 +761,7 @@ In this example event, the approval rule requirements for a pull request have be
         "creationDate": "Wed Nov 06 19:10:58 UTC 2019",
         "description": "An An example description.",
         "destinationCommit": "194fdf00EXAMPLE",
-        "destinationReference": "refs/heads/master",
+        "destinationReference": "refs/heads/main",
         "event": "pullRequestApprovalRuleOverridden",
         "isMerged": "False",
         "lastModifiedDate": "Wed Nov 06 19:10:58 UTC 2019",
@@ -800,7 +800,7 @@ In this example event, the approval rule requirements for a pull request have be
         "creationDate": "Wed Nov 06 19:10:58 UTC 2019",
         "description": "An An example description.",
         "destinationCommit": "194fdf00EXAMPLE",
-        "destinationReference": "refs/heads/master",
+        "destinationReference": "refs/heads/main",
         "event": "pullRequestApprovalRuleOverridden",
         "isMerged": "False",
         "lastModifiedDate": "Wed Nov 06 19:10:58 UTC 2019",
@@ -842,7 +842,7 @@ In this example event, a pull request has been approved by a user with an IAM us
         "creationDate": "Wed Nov 06 19:10:58 UTC 2019",
         "description": "An An example description.",
         "destinationCommit": "194fdf00EXAMPLE",
-        "destinationReference": "refs/heads/master",
+        "destinationReference": "refs/heads/main",
         "event": "pullRequestApprovalStateChanged",
         "isMerged": "False",
         "lastModifiedDate": "Wed Nov 06 19:10:58 UTC 2019",
@@ -881,7 +881,7 @@ In this example event, an approval for a pull request has been revoked by a user
         "creationDate": "Wed Nov 06 19:10:58 UTC 2019",
         "description": "An An example description.",
         "destinationCommit": "194fdf00EXAMPLE",
-        "destinationReference": "refs/heads/master",
+        "destinationReference": "refs/heads/main",
         "event": "pullRequestApprovalStateChanged",
         "isMerged": "False",
         "lastModifiedDate": "Wed Nov 06 19:10:58 UTC 2019",
@@ -924,7 +924,7 @@ In this example event, an approval rule for a pull request has been edited by a 
         "creationDate": "Wed Nov 06 19:10:58 UTC 2019",
         "description": "An example description.",
         "destinationCommit": "194fdf00EXAMPLE",
-        "destinationReference": "refs/heads/master",
+        "destinationReference": "refs/heads/main",
         "event": "pullRequestApprovalRuleUpdated",
         "isMerged": "False",
         "lastModifiedDate": "Wed Nov 06 19:10:58 UTC 2019",

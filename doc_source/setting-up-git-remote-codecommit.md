@@ -1,6 +1,6 @@
 # Setup steps for HTTPS connections to AWS CodeCommit with git\-remote\-codecommit<a name="setting-up-git-remote-codecommit"></a>
 
-If you want to connect to CodeCommit using a root account, federated access, or temporary credentials, you should set up access using git\-remote\-codecommit\. This utility provides a simple method for pushing and pulling code from CodeCommit repositories by extending Git\. It is the recommended method for supporting connections made with federated access, identity providers, and temporary credentials\.  Instead of creating an IAM user, you can use existing identities from AWS Directory Service, your enterprise user directory, or a web identity provider\. These are known as *federated users*\. AWS assigns a role to a federated user when access is requested through an [identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html)\. For more information about federated users, see [Federated Users and Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html#intro-access-roles) in the *IAM User Guide*\. 
+If you want to connect to CodeCommit using a root account, federated access, or temporary credentials, you should set up access using git\-remote\-codecommit\. This utility provides a simple method for pushing and pulling code from CodeCommit repositories by extending Git\. It is the recommended method for supporting connections made with federated access, identity providers, and temporary credentials\.  Instead of creating an IAM user, you can use existing identities from AWS Directory Service, your enterprise user directory, or a web identity provider\. These are known as *federated users*\. AWS assigns a role to a federated user when access is requested through an [identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html)\. For more information about federated users, see [Federated users and roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html#intro-access-roles) in the *IAM User Guide*\. 
 
 You can also use git\-remote\-codecommit with an IAM user\. Unlike other HTTPS connection methods, git\-remote\-codecommit does not require setting up Git credentials for the user\.
 
@@ -38,7 +38,7 @@ curl -O https://bootstrap.pypa.io/get-pip.py
 python3 get-pip.py --user
 ```
 
-To work with files, commits, and other information in CodeCommit repositories, you must install Git on your local machine\. CodeCommit supports Git versions 1\.7\.9 and later\. We recommend using a recent version of Git\.
+To work with files, commits, and other information in CodeCommit repositories, you must install Git on your local machine\. CodeCommit supports Git versions 1\.7\.9 and later\. Git version 2\.28 supports configuring the branch name for initial commits\. We recommend using a recent version of Git\.
 
 To install Git, we recommend websites such as [Git Downloads](http://git-scm.com/downloads)\.
 
@@ -73,20 +73,22 @@ CodeCommit requires AWS Key Management Service\. If you are using an existing IA
 
 **To install and configure the AWS CLI**
 
-1. On your local machine, download and install the AWS CLI\. This is a prerequisite for interacting with CodeCommit from the command line\. For more information, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html)\.
+1. On your local machine, download and install the AWS CLI\. This is a prerequisite for interacting with CodeCommit from the command line\. We recommend that you install AWS CLI version 2\. It is the most recent major version of the AWS CLI and supports all of the latest features\. It is the only version of the AWS CLI that supports using a root account, federated access, or temporary credentials with git\-remote\-codecommit\.
+
+   For more information, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html)\.
 **Note**  
 CodeCommit works only with AWS CLI versions 1\.7\.38 and later\. As a best practice, install or upgrade the AWS CLI to the latest version available\. To determine which version of the AWS CLI you have installed, run the aws \-\-version command\.  
 To upgrade an older version of the AWS CLI to the latest version, see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)\.
 
-1.  Run this command to verify the CodeCommit commands for the AWS CLI are installed:
+1. Run this command to verify that the CodeCommit commands for the AWS CLI are installed\.
 
    ```
    aws codecommit help
    ```
 
-   This command should return a list of CodeCommit commands\.
+   This command returns a list of CodeCommit commands\.
 
-1. Configure the AWS CLI with a profile by using the configure command, as follows:
+1. Configure the AWS CLI with a profile by using the configure command, as follows:\.
 
    ```
    aws configure

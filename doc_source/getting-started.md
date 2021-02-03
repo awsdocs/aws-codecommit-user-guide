@@ -14,7 +14,7 @@ After you complete this tutorial, you should have enough practice with the core 
 
 Complete the [prerequisites and setup](setting-up.md), including:
 + Assign permissions to the IAM user\.
-+ Set up for connecting using [HTTPS](setting-up-gc.md), SSH, or [git\-remote\-codecommit](setting-up-git-remote-codecommit.md)\. For more information about these choices, see [Setting up for AWS CodeCommit ](setting-up.md)\.
++ Set up CodeCommit to connect to a repository using [HTTPS](setting-up-gc.md), SSH, or [git\-remote\-codecommit](setting-up-git-remote-codecommit.md)\. For more information about these choices, see [Setting up for AWS CodeCommit ](setting-up.md)\.
 + Configure the AWS CLI if you want to use the command line or terminal for all operations, including creating the repository\.
 
 **Topics**
@@ -53,7 +53,7 @@ Repository names are case sensitive and can be no longer than 100 characters\. F
 
 1. \(Optional\) Choose **Add tag** to add one or more repository tags \(a custom attribute label that helps you organize and manage your AWS resources\) to your repository\. For more information, see [Tagging repositories in AWS CodeCommit](how-to-tag-repository.md)\.
 
-1. \(Optional\) Select **Enable Amazon CodeGuru Reviewer for Java** if this repository will contain Java code, and you want to have CodeGuru Reviewer analyze that Java code\. CodeGuru Reviewer uses multiple machine learning models to find Java code defects and to automatically suggest improvements and fixes in pull requests\. For more information, see the Amazon CodeGuru Reviewer User Guide\.
+1. \(Optional\) Select **Enable Amazon CodeGuru Reviewer for Java and Python** if this repository will contain Java or Python code, and you want to have CodeGuru Reviewer analyze that code\. CodeGuru Reviewer uses multiple machine learning models to find code defects and to automatically suggest improvements and fixes in pull requests\. For more information, see the Amazon CodeGuru Reviewer User Guide\.
 
 1. Choose **Create**\. 
 
@@ -77,7 +77,17 @@ In this step, you set up a local repo on your local machine to connect to your r
 **Note**  
  If you see a **Welcome** page instead of a list of repositories, there are no repositories associated with your AWS account in the AWS Region where you are signed in\. To create a repository, see [Create an AWS CodeCommit repository](how-to-create-repository.md) or follow the steps in the [Getting started with Git and CodeCommit](#getting-started) tutorial\.
 
-1. At the terminal or command prompt, clone the repository with the git clone command, and providing the clone URL you copied in the previous step\. Your clone URL will differ depending on which protocol and configuration you use\. For example, if you are using HTTPS with Git credentials to clone a repository named *MyDemoRepo* in the US East \(Ohio\) Region:
+1. \(Optional\) We recommend that you configure your local Git client to use **main** as the name for the default branch for your repository\. This is the name used for the default branch in all examples in this guide\. It is also the same default branch name CodeCommit uses if you make your first commit in the console\. Run the following command to configure the default branch name globally for your system:
+
+   ```
+   git config --global init.defaultBranch main
+   ```
+
+   If you prefer to use a different default branch name for all your repositories, replace **main** with your preferred name\. This tutorial assumes that your default branch is named *main*\.
+
+   If you want to use different default branch names for different repositories, you can set this attribute locally \(\-\-local\) instead of globally \(\-\-global\)\.
+
+1. At the terminal or command prompt, clone the repository with the git clone command and provide the clone URL you copied in step 3\. Your clone URL depends on which protocol and configuration you use\. For example, if you are using HTTPS with Git credentials to clone a repository named *MyDemoRepo* in the US East \(Ohio\) Region:
 
    ```
    git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo
@@ -109,6 +119,8 @@ In this step, you create your first commit in your local repo\. To do this, you 
    The domestic cat (Felis catus or Felis silvestris catus) is a small, usually furry, domesticated, and carnivorous mammal.
    ```
 
+   
+
    ```
    dog.txt
    -------
@@ -120,6 +132,12 @@ In this step, you create your first commit in your local repo\. To do this, you 
    ```
    git config --local user.name "your-user-name"
    git config --local user.email your-email-address
+   ```
+
+1. If you did not set your default branch name globally when you created the local repo, run the following command to set the default branch name to **main**:
+
+   ```
+   git config --local init.defaultBranch main
    ```
 
 1. Run git add to stage the change:
@@ -140,10 +158,10 @@ To see details about the commit you just made, run git log\.
 
 In this step, you push the commit from your local repo to your CodeCommit repository\. 
 
-Run git push to push your commit through the default remote name Git uses for your CodeCommit repository \(`origin`\), from the default branch in your local repo \(`master`\):
+Run git push to push your commit through the default remote name Git uses for your CodeCommit repository \(`origin`\), from the default branch in your local repo \(`main`\):
 
 ```
-git push -u origin master
+git push -u origin main
 ```
 
 **Tip**  
@@ -226,10 +244,10 @@ For more information, see [For SSH connections on Windows](setting-up-ssh-window
    git commit -m "Added horse.txt"
    ```
 
-1. Run git push to push your initial commit through the default remote name Git uses for your CodeCommit repository \(`origin`\), from the default branch in your local repo \(`master`\):
+1. Run git push to push your initial commit through the default remote name Git uses for your CodeCommit repository \(`origin`\), from the default branch in your local repo \(`main`\):
 
    ```
-   git push -u origin master
+   git push -u origin main
    ```
 
 1. Switch to your local repo and run git pull to pull into your local repo the commit the shared repo made to the CodeCommit repository\. Then run git log to see the commit that was initiated from the shared repo\.
@@ -244,7 +262,9 @@ You use Git to create the branch and then point it to the first commit you made\
 
 1. From your local repo, run git checkout, specifying the name of the branch \(for example, `MyNewBranch`\) and the ID of the first commit you made in the local repo\. 
 
-   If you don't know the commit ID, run git log to get it\. Make sure the commit has your user name and email address, not the user name and email address of the other user\. This is to simulate that `master` is a stable version of the CodeCommit repository and the `MyNewBranch` branch is for some new, relatively unstable feature:
+   If you don't know the commit ID, run git log to get it\. Make sure the commit has your user name and email address, not the user name and email address of the other user\. This is to simulate that `main` is a stable version of the CodeCommit repository and the `MyNewBranch` branch is for some new, relatively unstable feature:
+
+    
 
    ```
    git checkout -b MyNewBranch commit-ID
@@ -280,17 +300,21 @@ You use Git to create the branch and then point it to the first commit you made\
    git log
    ```
 
-1. Switch back to the `master` branch and view its list of commits\. The Git commands should look like this:
+1. Switch back to the `main` branch and view its list of commits\. The Git commands should look like this:
+
+    
 
    ```
-   git checkout master
+   git checkout main
    git log
    ```
 
-1. Switch to the `master` branch in your local repo\. You can run git status or git branch\. The output shows which branch you are on\. In this case, it should be `master`\. The Git commands should look like this:
+1. Switch to the `main` branch in your local repo\. You can run git status or git branch\. The output shows which branch you are on\. In this case, it should be `main`\. The Git commands should look like this:
+
+    
 
    ```
-   git checkout master
+   git checkout main
    git branch or git status
    ```
 
@@ -311,6 +335,8 @@ You use Git to create the tags, pointing the `release` tag to the first commit y
    ```
 
    Run git tag again to tag the commit from the other user with the `beta` tag\. This is to simulate that the commit is for some new, relatively unstable feature:
+
+    
 
    ```
    git tag beta commit-ID
@@ -386,6 +412,8 @@ This step is written with the assumption you have permissions to create IAM user
 
 1. In the **Policy Document** box, enter the following, which allows an IAM user to pull from any repository associated with the IAM user:
 
+    
+
    ```
    {
      "Version": "2012-10-17",
@@ -400,6 +428,8 @@ This step is written with the assumption you have permissions to create IAM user
      ]
    }
    ```
+
+    
 **Tip**  
 If you want the IAM user to be able to push commits to any repository associated with the IAM user, enter this instead:  
 

@@ -19,6 +19,8 @@ arn:aws:codecommit:us-west-2:111111111111:MyDemo*
 
 You can use wildcards only with the *repository\-name* resources listed in the following table\. You can't use wildcards with *region* or *account\-id* resources\. For more information about wildcards, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in *IAM User Guide*\. 
 
+
+
 **Topics**
 + [Required permissions for Git client commands](#aa-git)
 + [Permissions for actions on branches](#aa-branches)

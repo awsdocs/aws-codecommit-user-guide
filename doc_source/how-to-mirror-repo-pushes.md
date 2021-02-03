@@ -16,6 +16,8 @@ If you do not have a Git repository, you can create an empty one on a service ot
 
    For SSH:
 
+    
+
    ```
    origin  ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo (fetch)
    origin  ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo (push)
@@ -63,6 +65,8 @@ If you are pushing to a Git repository that requires credentials, make sure you 
 
    For SSH:
 
+    
+
    ```
    git remote set-url --add --push origin ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo
    ```
@@ -80,6 +84,8 @@ If you are pushing to a Git repository that requires credentials, make sure you 
    ```
 
    For SSH:
+
+    
 
    ```
    origin  ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo (fetch)
@@ -116,7 +122,7 @@ For more options, see your Git documentation\.
 **Tip**  
 You only have to use the `-u` option the first time you push\. Then the upstream tracking information is set\.
 
-   For example, running git push \-u origin master would show the push went to both remote repositories in the expected branches, with output similar to the following:
+   For example, running git push \-u origin main would show the push went to both remote repositories in the expected branches, with output similar to the following:
 
    For HTTPS:
 
@@ -127,7 +133,7 @@ You only have to use the `-u` option the first time you push\. Then the upstream
    Writing objects: 100% (3/3), 5.61 KiB | 0 bytes/s, done.
    Total 3 (delta 1), reused 0 (delta 0)
    To some-URL/MyDestinationRepo
-      a5ba4ed..250f6c3  master -> master
+      a5ba4ed..250f6c3  main -> main
    Counting objects: 5, done.
    Delta compression using up to 4 threads.
    Compressing objects: 100% (3/3), done.
@@ -135,7 +141,7 @@ You only have to use the `-u` option the first time you push\. Then the upstream
    Total 3 (delta 1), reused 0 (delta 0)
    remote:
    To https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo
-      a5ba4ed..250f6c3  master -> master
+      a5ba4ed..250f6c3  main -> main
    ```
 
    For SSH:
@@ -147,7 +153,7 @@ You only have to use the `-u` option the first time you push\. Then the upstream
    Writing objects: 100% (3/3), 5.61 KiB | 0 bytes/s, done.
    Total 3 (delta 1), reused 0 (delta 0)
    To some-URL/MyDestinationRepo
-      a5ba4ed..250f6c3  master -> master
+      a5ba4ed..250f6c3  main -> main
    Counting objects: 5, done.
    Delta compression using up to 4 threads.
    Compressing objects: 100% (3/3), done.
@@ -155,7 +161,7 @@ You only have to use the `-u` option the first time you push\. Then the upstream
    Total 3 (delta 1), reused 0 (delta 0)
    remote:
    To ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo
-      a5ba4ed..250f6c3  master -> master
+      a5ba4ed..250f6c3  main -> main
    ```
 
 For more options, see your Git documentation\.

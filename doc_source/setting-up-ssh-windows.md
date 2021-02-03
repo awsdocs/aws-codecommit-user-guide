@@ -40,7 +40,7 @@ If you want to use AWS CLI commands with CodeCommit, install the AWS CLI\. For m
 
 ## Step 2: Install Git<a name="setting-up-ssh-windows-install-git"></a>
 
-To work with files, commits, and other information in CodeCommit repositories, you must install Git on your local machine\. CodeCommit supports Git versions 1\.7\.9 and later\. We recommend using a recent version of Git\.
+To work with files, commits, and other information in CodeCommit repositories, you must install Git on your local machine\. CodeCommit supports Git versions 1\.7\.9 and later\. Git version 2\.28 supports configuring the branch name for initial commits\. We recommend using a recent version of Git\.
 
 To install Git, we recommend websites such as [Git Downloads](http://git-scm.com/downloads)\.
 

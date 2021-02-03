@@ -54,6 +54,8 @@ The following figure shows how you use your development machine, the AWS CLI or 
 
 ![\[Typical CodeCommit workflow\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/arc-workflow.png)![\[Typical CodeCommit workflow\]](http://docs.aws.amazon.com/codecommit/latest/userguide/)
 
+
+
 1. Use the AWS CLI or the CodeCommit console to create a CodeCommit repository\.
 
 1. From your development machine, use Git to run git clone, specifying the name of the CodeCommit repository\. This creates a local repo that connects to the CodeCommit repository\.

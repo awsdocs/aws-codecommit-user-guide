@@ -49,6 +49,8 @@ Approval rules do not support cross\-account approvals\.
 
 1. When you have finished configuring the approval rule, choose **Submit**\.
 
+ 
+
 ## Create an approval rule for a pull request \(AWS CLI\)<a name="how-to-create-pull-request-approval-rule-cli"></a>
 
 To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more information, see [Command line reference](cmd-ref.md)\. 

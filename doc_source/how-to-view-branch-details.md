@@ -36,9 +36,9 @@ The following steps are written with the assumption that you have already connec
 
    ```
      MyNewBranch
-   * master
+   * main
      remotes/origin/MyNewBranch
-     remotes/origin/master
+     remotes/origin/main
    ```
 
    The asterisk \(`*`\) appears next to the currently open branch\. The entries after that are remote tracking references\.
@@ -78,7 +78,7 @@ To get the name of the CodeCommit repository, run the [list\-repositories](how-t
    {
        "branches": [
            "MyNewBranch",
-           "master"
+           "main"
        ]
    }
    ```

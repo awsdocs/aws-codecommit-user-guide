@@ -30,7 +30,7 @@ You can edit the triggers that have been created for a CodeCommit repository\. Y
 
 1. Edit the JSON file in a plain\-text editor and make changes to the trigger block of the trigger you want to edit\. Replace the `configurationId` pair with a `repositoryName` pair\. Save the file\.
 
-   For example, if you want to edit a trigger named *MyFirstTrigger* in the repository named *MyDemoRepo* so that it applies to all branches, replace `configurationId` with `repositoryName`, and remove the specified `master` and `preprod` branches in *red italic text*\. By default, if no branches are specified, the trigger applies to all branches in the repository:
+   For example, if you want to edit a trigger named *MyFirstTrigger* in the repository named *MyDemoRepo* so that it applies to all branches, replace `configurationId` with `repositoryName`, and remove the specified `main` and `preprod` branches in *red italic text*\. By default, if no branches are specified, the trigger applies to all branches in the repository:
 
    ```
    {
@@ -39,7 +39,7 @@ You can edit the triggers that have been created for a CodeCommit repository\. Y
            {
                "destinationArn": "arn:aws:sns:us-east-2:80398EXAMPLE:MyCodeCommitTopic", 
                "branches": [
-                   "master", 
+                   "main", 
                    "preprod"
                ], 
                "name": "MyFirstTrigger", 

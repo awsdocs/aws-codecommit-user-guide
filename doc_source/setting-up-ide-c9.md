@@ -39,7 +39,7 @@ AWS Cloud9 hosts your development environment on an Amazon EC2 instance\. This i
 1. After you are connected to your environment, check to see if Git is already installed and is a supported version by running the git \-\-version command in the terminal window\.  
 ![\[Verifying that Git is installed and that it is a supported version in the AWS Cloud9 development environment.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-c9-git.png)
 
-   If Git is not installed, or if it is not a supported version, install a supported version\. CodeCommit supports Git versions 1\.7\.9 and later\. We recommend using a recent version of Git\. To install Git, we recommend websites such as [Git Downloads](http://git-scm.com/downloads)\. 
+   If Git is not installed, or if it is not a supported version, install a supported version\. CodeCommit supports Git versions 1\.7\.9 and later\. Git version 2\.28 supports configuring the branch name for initial commits\. We recommend using a recent version of Git\. To install Git, we recommend websites such as [Git Downloads](http://git-scm.com/downloads)\. 
 **Tip**  
 Depending on the operating system of your environment, you might be able to use the yum command with the sudo option to install updates, including Git\. For example, an administrative command sequence might resemble the following three commands:  
 
@@ -48,6 +48,8 @@ Depending on the operating system of your environment, you might be able to use 
    sudo yum -y install git
    git --version
    ```
+
+    
 
 1. Configure a user name and email to be associated with your Git commits by running the** git config** command\. For example:
 

@@ -43,8 +43,8 @@ Reaction counts displayed in the console are accurate as of the time the page wa
 
 1. \(Optional\) To reply to a recommendation created by Amazon CodeGuru Reviewer, including providing feedback on the recommendation's quality, choose **Reply**\. Use the reaction buttons to provide general information about whether you approve or disapprove the recommendation\. Use the comment field to provide more details about your reaction\.
 **Note**  
-Amazon CodeGuru Reviewer is an automated code review service that uses program analysis and machine learning to detect common issues and recommend fixes in your Java code\.  
-You will only see Amazon CodeGuru Reviewer comments if you have associated the repository with Amazon CodeGuru Reviewer, if the analysis is complete, and if the code in the pull request is Java code\. For more information, see [Associate or disassociate an AWS CodeCommit repository with Amazon CodeGuru Reviewer](how-to-amazon-codeguru-reviewer.md)\.
+Amazon CodeGuru Reviewer is an automated code review service that uses program analysis and machine learning to detect common issues and recommend fixes in your Java or Python code\.  
+You only see Amazon CodeGuru Reviewer comments if you have associated the repository with Amazon CodeGuru Reviewer, if the analysis is complete, and if the code in the pull request is Java or Python code\. For more information, see [Associate or disassociate an AWS CodeCommit repository with Amazon CodeGuru Reviewer](how-to-amazon-codeguru-reviewer.md)\.
 Amazon CodeGuru Reviewer comments only appear in the **Changes** tab if the comments were made on the most recent revision of the pull request\. They always appear in the **Activity** tab\.
 While you can respond with any of the available emoji reactions to Amazon CodeGuru Reviewer recommendations, only thumbs up and thumbs down emoji reactions are used to evaluate the usefulness of the recommendation\.   
 ![\[A recommendation created by Amazon CodeGuru Reviewer with a review job in progress.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-reply-bot.png)

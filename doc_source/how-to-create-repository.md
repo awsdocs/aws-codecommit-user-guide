@@ -31,7 +31,7 @@ The description field displays Markdown in the console and accepts all HTML char
 
 1. \(Optional\) Choose **Add tag** to add one or more repository tags \(a custom attribute label that helps you organize and manage your AWS resources\) to your repository\. For more information, see [Tagging repositories in AWS CodeCommit](how-to-tag-repository.md)\.
 
-1. \(Optional\) Select **Enable Amazon CodeGuru Reviewer for Java** if this repository contains Java code, and you want CodeGuru Reviewer to analyze it\. CodeGuru Reviewer uses multiple machine learning models to find Java code defects and to suggest improvements and fixes in pull requests\. For more information, see the [https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/Welcome.html](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/Welcome.html)\.
+1. \(Optional\) Select **Enable Amazon CodeGuru Reviewer for Java and Python** if this repository contains Java or Python code, and you want CodeGuru Reviewer to analyze it\. CodeGuru Reviewer uses multiple machine learning models to find code defects and to suggest improvements and fixes in pull requests\. For more information, see the [https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/Welcome.html](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/Welcome.html)\.
 
 1. Choose **Create**\. 
 

@@ -65,7 +65,7 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
           "pullRequestTargets": [
               {
                   "destinationCommit": "9f31c968EXAMPLE",
-                  "destinationReference": "refs/heads/master",
+                  "destinationReference": "refs/heads/main",
                   "mergeMetadata": {
                       "isMerged": false,
                   },

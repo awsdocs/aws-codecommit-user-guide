@@ -14,19 +14,19 @@ To get the nickname the local repo uses for the CodeCommit repository, run git r
 **Note**  
 If you cloned the repository, from the perspective of the local repo, *remote\-name* is not the name of the CodeCommit repository\. When you clone a repository, *remote\-name* is set automatically to `origin`\. 
 
-For example, to push changes from the local repo to the `master` branch in the CodeCommit repository with the nickname `origin`:
+For example, to push changes from the local repo to the `main` branch in the CodeCommit repository with the nickname `origin`:
 
 ```
-git push origin master
+git push origin main
 ```
 
-Similarly, to pull changes to the local repo from the `master` branch in the CodeCommit repository with the nickname `origin`:
+Similarly, to pull changes to the local repo from the `main` branch in the CodeCommit repository with the nickname `origin`:
 
 ```
-git pull origin master
+git pull origin main
 ```
 
 **Tip**  
-If you add the `-u` option to git push, you set upstream tracking information\. For example, if you run git push \-u origin master\), in the future you can run git push and git pull without *remote\-name* *branch\-name*\. To get upstream tracking information, run git remote show *remote\-name* \(for example, git remote show origin\)\.
+If you add the `-u` option to git push, you set upstream tracking information\. For example, if you run git push \-u origin main\), in the future you can run git push and git pull without *remote\-name* *branch\-name*\. To get upstream tracking information, run git remote show *remote\-name* \(for example, git remote show origin\)\.
 
 For more options, see your Git documentation\.

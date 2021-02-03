@@ -49,12 +49,12 @@ To get a list of CodeCommit repository names and their URLs, run the git remote 
      HEAD branch: (unknown)
      Remote branches:
        MyNewBranch tracked
-       master tracked
+       main tracked
      Local ref configured for 'git pull':
        MyNewBranch merges with remote MyNewBranch (up to date)
      Local refs configured for 'git push':
        MyNewBranch pushes to MyNewBranch (up to date)
-       master pushes to master (up to date)
+       main pushes to main (up to date)
    ```
 
    For SSH:
@@ -66,12 +66,12 @@ To get a list of CodeCommit repository names and their URLs, run the git remote 
      HEAD branch: (unknown)
      Remote branches:
        MyNewBranch tracked
-       master tracked
+       main tracked
      Local ref configured for 'git pull':
        MyNewBranch merges with remote MyNewBranch (up to date)
      Local refs configured for 'git push':
        MyNewBranch pushes to MyNewBranch (up to date)
-       master pushes to master (up to date)
+       main pushes to main (up to date)
    ```
 **Tip**  
 To look up the SSH key ID for your IAM user, open the IAM console and expand **Security Credentials** on the IAM user details page\. The SSH key ID can be found in **SSH Keys for AWS CodeCommit**\. 
@@ -140,7 +140,7 @@ To get the name of the CodeCommit repository, run the [list\-repositories](#how-
    {
            "repositoryMetadata": {
                "creationDate": 1429203623.625,
-               "defaultBranch": "master",
+               "defaultBranch": "main",
                "repositoryName": "MyDemoRepo",
                "cloneUrlSsh": "ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo",
                "lastModifiedDate": 1430783812.0869999,
@@ -180,7 +180,7 @@ To get the names of the repositories in CodeCommit, run the [list\-repositories]
            "repositories": [
                 {
                    "creationDate": 1429203623.625,
-                   "defaultBranch": "master",
+                   "defaultBranch": "main",
                    "repositoryName": "MyDemoRepo",
                    "cloneUrlSsh": "ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo",
                    "lastModifiedDate": 1430783812.0869999,
@@ -192,7 +192,7 @@ To get the names of the repositories in CodeCommit, run the [list\-repositories]
                },
                {
                    "creationDate": 1429203623.627,
-                   "defaultBranch": "master",
+                   "defaultBranch": "main",
                    "repositoryName": "MyOtherDemoRepo",
                    "cloneUrlSsh": "ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyOtherDemoRepo",
                    "lastModifiedDate": 1430783812.0889999,

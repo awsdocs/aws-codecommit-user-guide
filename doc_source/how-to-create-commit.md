@@ -1,9 +1,9 @@
 # Create a commit in AWS CodeCommit<a name="how-to-create-commit"></a>
 
-You can use Git or the AWS CLI to create a commit in a CodeCommit repository\. If the local repo is connected to a CodeCommit repository, you use Git to push the commit from the local repo to the CodeCommit repository\. To create a commit directly in the CodeCommit console, see [Create or add a file to an AWS CodeCommit repository](how-to-create-file.md) and [Edit the contents of a file in an AWS CodeCommit repository](how-to-edit-file.md)\. 
+When you create the first commit for a new repository, you use the AWS CLI and the put\-file command\. This creates the first commit and it allows you to create and specify the default branch for your new repository\. You can use Git or the AWS CLI to create a commit in a CodeCommit repository\. If the local repo is connected to a CodeCommit repository, you use Git to push the commit from the local repo to the CodeCommit repository\. To create a commit directly in the CodeCommit console, see [Create or add a file to an AWS CodeCommit repository](how-to-create-file.md) and [Edit the contents of a file in an AWS CodeCommit repository](how-to-edit-file.md)\. 
 
 **Note**  
-If you use the AWS CLI, make sure that you have a recent version installed to ensure that you are using a version that contains the `create-commit` command\.
+As a best practice, we recommend that you use the latest supported versions of the AWS CLI, Git, and other software\. If you use the AWS CLI, make sure that you have a recent version installed to ensure that you are using a version that contains the `create-commit` command\.
 
 **Topics**
 + [Create the first commit for a repository using the AWS CLI](#how-to-create-first-commit)
@@ -19,7 +19,7 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
 
 ## To create the first commit for a repository using the AWS CLI
 
-1. On your local computer, create the file you want to add as the first file to the CodeCommit repository\. A common practice is to create a `README.md` markdown file that explains the purpose of this repository to other repository users\. If you include a `README.md` file, the content of the file will be displayed automatically at the bottom of the **Code** page for your repository in the CodeCommit console\.
+1. On your local computer, create the file you want to add as the first file to the CodeCommit repository\. A common practice is to create a `README.md` markdown file that explains the purpose of this repository to other repository users\. If you include a `README.md` file, the content of the file is displayed automatically at the bottom of the **Code** page for your repository in the CodeCommit console\.
 
 1. At the terminal or command line, run the put\-file command, specifying:
    + The name of the repository where you want to add the first file\.
@@ -55,7 +55,18 @@ You can create commits using a Git client installed on your local computer, and 
 **Important**  
 If you have not completed setup, you cannot connect or commit to the repository using Git\.
 
-1. Make sure you are creating a commit in the correct branch\. To see a list of available branches and find out which branch you are currently set to use, run git branch\. All branches are displayed\. An asterisk \(`*`\) appears next to your current branch\. To switch to a different branch, run git checkout *branch\-name*\.
+1. Make sure you are creating a commit in the correct branch\. To see a list of available branches and find out which branch you are currently set to use, run git branch\. All branches are displayed\. An asterisk \(`*`\) appears next to your current branch\. To switch to a different branch, run git checkout *branch\-name*\. If this is your first commit, run the git config  command to configure your Git client to create an initial branch with the name you want to use for that branch\. For example, if you want your default branch to have the name *development*:
+
+   ```
+   git config --local init.defaultBranch development
+   ```
+**Tip**  
+This command is only available in Git v\.2\.28 and later\.  
+You can also run this command to set your default branch name to **development** for all newly\-created repositories:  
+
+   ```
+   git config --global init.defaultBranch development
+   ```
 
 1. Make a change to the branch \(such as adding, modifying, or deleting a file\)\.
 
@@ -104,7 +115,7 @@ To get the nickname, run git remote\. To get a list of branch names, run git bra
 **Note**  
 If you cloned the repository, from the perspective of the local repo, *remote\-name* is not the name of the CodeCommit repository\. When you clone a repository, *remote\-name* is set automatically to `origin`\. 
 
-   For example, git diff \-\-stat origin/master would show output similar to the following:
+   For example, git diff \-\-stat origin/main would show output similar to the following:
 
    ```
    bird.txt | 1 +
@@ -115,7 +126,7 @@ If you cloned the repository, from the perspective of the local repo, *remote\-n
 
 1. When you're ready to push the commit from the local repo to the CodeCommit repository, run git push *remote\-name* *branch\-name*, where *remote\-name* is the nickname the local repo uses for the CodeCommit repository and *branch\-name* is the name of the branch to push to the CodeCommit repository\.
 
-   For example, running git push origin master would show output similar to the following:
+   For example, running git push origin main would show output similar to the following:
 
    For HTTPS:
 
@@ -127,7 +138,7 @@ If you cloned the repository, from the perspective of the local repo, *remote\-n
    Total 5 (delta 2), reused 0 (delta 0)
    remote:
    To https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo
-       b9e7aa6..3dbf4dd master -> master
+       b9e7aa6..3dbf4dd main -> main
    ```
 
    For SSH:
@@ -140,10 +151,10 @@ If you cloned the repository, from the perspective of the local repo, *remote\-n
    Total 5 (delta 2), reused 0 (delta 0)
    remote:
    To ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo
-       b9e7aa6..3dbf4dd master -> master
+       b9e7aa6..3dbf4dd main -> main
    ```
 **Tip**  
-If you add the `-u` option to git push \(for example, git push \-u origin master\), then you only need to run git push in the future because upstream tracking information has been set\. To get upstream tracking information, run git remote show *remote\-name* \(for example, git remote show origin\)\.
+If you add the `-u` option to git push \(for example, git push \-u origin main\), then you only need to run git push in the future because upstream tracking information has been set\. To get upstream tracking information, run git remote show *remote\-name* \(for example, git remote show origin\)\.
 
 For more options, see your Git documentation\.
 
@@ -169,10 +180,10 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
 
    The user name, email address, and commit message are optional, but help other users know who made the changes and why\. If you do not supply a user name, CodeCommit defaults to using your IAM user name or a derivation of your console login as the author name\.
 
-   For example, to create a commit for a repository that adds a `meeting.md` file to a repository named *MyDemoRepo* in the *master* branch:
+   For example, to create a commit for a repository that adds a `README.md` file to a repository named *MyDemoRepo* in the *main* branch:
 
    ```
-   aws codecommit create-commit --repository-name MyDemoRepo --branch-name master --parent-commit-id a4d4d5da-EXAMPLE --put-files "filePath=meeting.md,fileContent='We will use this file for meeting notes.'"
+   aws codecommit create-commit --repository-name MyDemoRepo --branch-name main --put-files "filePath=README.md,fileContent='Welcome to our team repository.'"
    ```
 
    If successful, this command returns output similar to the following:
@@ -193,7 +204,7 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
    }
    ```
 
-   To create a commit that makes changes to files named *file1\.py* and *file2\.py*, renames a file from *picture\.png* to *image1\.png* and moves it from a directory named *pictures* to a directory named, *images*, and deletes a file named *ExampleSolution\.py* in a repository named *MyDemoRepo* on a branch named *MyFeatureBranch* whose most recent commit has an ID of *4c925148EXAMPLE*:
+   To create a commit that makes changes to files named *file1\.py* and *file2\.txt*, renames a file from *picture\.png* to *image1\.png* and moves it from a directory named *pictures* to a directory named, *images*, and deletes a file named *ExampleSolution\.py* in a repository named *MyDemoRepo* on a branch named *MyFeatureBranch* whose most recent commit has an ID of *4c925148EXAMPLE*:
 
    ```
    aws codecommit create-commit --repository-name MyDemoRepo --branch-name MyFeatureBranch --parent-commit-id 4c925148EXAMPLE --name "Saanvi Sarkar"
@@ -203,7 +214,7 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
    "fileMode": "NORMAL", "sourceFile": {"filePath": "pictures/picture.png", "isMove": true}}' --delete-files filePath="ExampleSolution.py"
    ```
 **Note**  
-The syntax for the \-\-put\-files segment will vary slightly depending on your operating system\. The above example is optimized for Linux, macOS, or Unix users and Windows users with a Bash emulator\. Windows users at the command line or in Powershell should use syntax appropriate for those systems\.
+The syntax for the \-\-put\-files segment varies depending on your operating system\. The above example is optimized for Linux, macOS, or Unix users and Windows users with a Bash emulator\. Windows users at the command line or in Powershell should use syntax appropriate for those systems\.
 
    If successful, this command returns output similar to the following:
 

@@ -23,7 +23,8 @@ For more options, see your Git documentation\.
 |  Lists only system configuration variables\.  |  `git config --system -l`  | 
 |  Lists only global configuration variables\.  |  `git config --global -l`  | 
 |  Sets a configuration variable in the specified configuration file\.  |  `git config [--local \| --global \| --system] variable-name variable-value`  | 
-| Edits a configuration file directly\. Can also be used to discover the location of a specific configuration file\. To exit edit mode, typically you type `:q` \(to exit without saving changes\) or `:wq` \(to save changes and then exit\), and then press Enter\. | `git config [--local \| --global \| --system] --edit` | 
+| Sets the default branch name to main for all local repositories when an initial commit is made to a repository that does not yet have a default branch | git config \-\-global init\.defaultBranch main | 
+|  Edits a configuration file directly\. Can also be used to discover the location of a specific configuration file\. To exit edit mode, typically you type `:q` \(to exit without saving changes\) or `:wq` \(to save changes and then exit\), and then press Enter\.  |  `git config [--local \| --global \| --system] --edit`  | 
 
 ## Remote repositories<a name="how-to-basic-git-remotes"></a>
 

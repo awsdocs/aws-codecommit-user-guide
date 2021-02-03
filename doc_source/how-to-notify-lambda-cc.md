@@ -102,6 +102,8 @@ Before you can successfully test or run the trigger for the example, you must co
 1. Choose **Create trigger**\.
 
 1. In **Create trigger**, do the following:
+
+    
    + In **Trigger name**, enter a name for the trigger \(for example, *MyLambdaFunctionTrigger*\)\.
    + In **Events**, choose the repository events that trigger the Lambda function\. 
 
@@ -130,7 +132,7 @@ You can also use the command line to create a trigger for a Lambda function in r
 
     Save the file\. 
 
-   For example, if you want to create a trigger for a repository named *MyDemoRepo* that publishes all repository events to a Lambda function named *MyCodeCommitFunction* for two branches, *master* and *preprod*:
+   For example, if you want to create a trigger for a repository named *MyDemoRepo* that publishes all repository events to a Lambda function named *MyCodeCommitFunction* for two branches, *main* and *preprod*:
 
    ```
    {
@@ -141,7 +143,7 @@ You can also use the command line to create a trigger for a Lambda function in r
                "destinationArn": "arn:aws:lambda:us-east-1:80398EXAMPLE:function:MyCodeCommitFunction",
                "customData": "",
                "branches": [
-                   "master", "preprod"
+                   "main", "preprod"
                ],
                "events": [
                    "all"
@@ -153,6 +155,8 @@ You can also use the command line to create a trigger for a Lambda function in r
 
    There must be a trigger block in the JSON for each trigger for a repository\. To create more than one trigger for a repository, include additional blocks in the JSON\. Remember that all triggers created in this file are for the specified repository\. You cannot create triggers for multiple repositories in a single JSON file\. For example, if you wanted to create two triggers for a repository, you can create a JSON file with two trigger blocks\. In the following example, no branches are specified in the second trigger block, so that trigger applies to all branches:
 
+    
+
    ```
    {
        "repositoryName": "MyDemoRepo",
@@ -162,7 +166,7 @@ You can also use the command line to create a trigger for a Lambda function in r
                "destinationArn": "arn:aws:lambda:us-east-1:80398EXAMPLE:function:MyCodeCommitFunction",
                "customData": "",
                "branches": [
-                   "master", "preprod"
+                   "main", "preprod"
                ],
                "events": [
                    "all"
@@ -238,7 +242,7 @@ You can use more than one event type in a trigger\. However, if you specify `all
                ],
                "destinationArn": "arn:aws:lambda:us-east-1:80398EXAMPLE:MyCodeCommitFunction",
                "branches": [
-                   "master",
+                   "main",
                    "preprod"
                ],
                "name": "MyLambdaFunctionTrigger",

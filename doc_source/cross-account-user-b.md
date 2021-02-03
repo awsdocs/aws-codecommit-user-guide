@@ -17,8 +17,10 @@ Follow these steps to configure access using git\-remote\-codecommit\. If you ha
 1. Install the AWS CLI on the local computer\. See instructions for your operating system in [Installing the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)\.
 
 1. Install Git on the local computer\. To install Git, we recommend websites such as [Git Downloads](http://git-scm.com/downloads) or [Git for Windows](http://msysgit.github.io/)\. 
+
+   
 **Note**  
-CodeCommit supports Git versions 1\.7\.9 and later\. We recommend using a recent version of Git\. Git is an evolving, regularly updated platform\. Occasionally, a feature change might affect the way it works with CodeCommit\. If you encounter issues with a specific version of Git and CodeCommit, review the information in [Troubleshooting](troubleshooting.md)\.
+CodeCommit supports Git versions 1\.7\.9 and later\. Git version 2\.28 supports configuring the branch name for initial commits\. We recommend using a recent version of Git\. Git is an evolving, regularly updated platform\. Occasionally, a feature change might affect the way it works with CodeCommit\. If you encounter issues with a specific version of Git and CodeCommit, review the information in [Troubleshooting](troubleshooting.md)\.
 
 1. From the terminal or command line, at the directory location where you want to clone the repository, run the git config \-\-local user\.name and git config \-\-local user\.email commands to set the user name and email for the commits you will make to the repository\. For example:
 

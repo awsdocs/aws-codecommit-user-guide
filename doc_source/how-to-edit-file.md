@@ -74,10 +74,10 @@ If you want to add a changed binary file, make sure to use `--file-content` with
    }
    ```
 
-To delete a file, use the delete\-file command\. For example, to delete a file named *README\.md* in a branch named *master* with a most recent commit ID of *c5709475EXAMPLE* in a repository named *MyDemoRepo*:
+To delete a file, use the delete\-file command\. For example, to delete a file named *README\.md* in a branch named *main* with a most recent commit ID of *c5709475EXAMPLE* in a repository named *MyDemoRepo*:
 
 ```
-aws codecommit delete-file --repository-name MyDemoRepo --branch-name master --file-path README.md --parent-commit-id c5709475EXAMPLE
+aws codecommit delete-file --repository-name MyDemoRepo --branch-name main --file-path README.md --parent-commit-id c5709475EXAMPLE
 ```
 
 If successful, this command returns output similar to the following:

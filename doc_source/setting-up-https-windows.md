@@ -42,20 +42,22 @@ CodeCommit requires AWS Key Management Service\. If you are using an existing IA
 
 **To install and configure the AWS CLI**
 
-1. On your local machine, download and install the AWS CLI\. This is a prerequisite for interacting with CodeCommit from the command line\. For more information, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html)\.
+1. On your local machine, download and install the AWS CLI\. This is a prerequisite for interacting with CodeCommit from the command line\. We recommend that you install AWS CLI version 2\. It is the most recent major version of the AWS CLI and supports all of the latest features\. It is the only version of the AWS CLI that supports using a root account, federated access, or temporary credentials with git\-remote\-codecommit\.
+
+   For more information, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html)\.
 **Note**  
 CodeCommit works only with AWS CLI versions 1\.7\.38 and later\. As a best practice, install or upgrade the AWS CLI to the latest version available\. To determine which version of the AWS CLI you have installed, run the aws \-\-version command\.  
 To upgrade an older version of the AWS CLI to the latest version, see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)\.
 
-1.  Run this command to verify the CodeCommit commands for the AWS CLI are installed:
+1. Run this command to verify that the CodeCommit commands for the AWS CLI are installed\.
 
    ```
    aws codecommit help
    ```
 
-   This command should return a list of CodeCommit commands\.
+   This command returns a list of CodeCommit commands\.
 
-1. Configure the AWS CLI with a profile by using the configure command, as follows:
+1. Configure the AWS CLI with a profile by using the configure command, as follows:\.
 
    ```
    aws configure
@@ -104,7 +106,7 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
 
 ## Step 2: Install Git<a name="setting-up-https-windows-install-git"></a>
 
-To work with files, commits, and other information in CodeCommit repositories, you must install Git on your local machine\. CodeCommit supports Git versions 1\.7\.9 and later\. We recommend using a recent version of Git\.
+To work with files, commits, and other information in CodeCommit repositories, you must install Git on your local machine\. CodeCommit supports Git versions 1\.7\.9 and later\. Git version 2\.28 supports configuring the branch name for initial commits\. We recommend using a recent version of Git\.
 
 To install Git, we recommend websites such as [Git for Windows](https://gitforwindows.org/)\. If you use this link to install Git, you can accept all of the installation default settings except for the following: 
 + When prompted during the **Adjusting your PATH environment** step, choose the option to use Git from the command line\.
@@ -134,11 +136,13 @@ The AWS CLI includes a Git credential helper you can use with CodeCommit\. The G
 **Important**  
 If you are using a Bash emulator instead of the Windows command line, you must use single quotes instead of double quotes\.
 The credential helper uses the default AWS profile or the Amazon EC2 instance role\. If you have created an AWS credential profile to use, such as *CodeCommitProfile*, you can modify the command as follows to use it instead:  
+   
 
      ```
      git config --global credential.helper "!aws codecommit credential-helper --profile CodeCommitProfile $@"
      ```
 This writes the following to the \.gitconfig file:  
+   
 
      ```
      [credential]    
@@ -179,13 +183,15 @@ If an administrator has already sent you the name and connection details for the
 **Note**  
  If you see a **Welcome** page instead of a list of repositories, there are no repositories associated with your AWS account in the AWS Region where you are signed in\. To create a repository, see [Create an AWS CodeCommit repository](how-to-create-repository.md) or follow the steps in the [Getting started with Git and CodeCommit](getting-started.md) tutorial\.
 
-1. Open a command prompt run the git clone command with the HTTPS URL you copied\. The local repo is created in a subdirectory of the directory where you run the command\. For example, to clone a repository named *MyDemoRepo* to a local repo named *my\-demo\-repo* in the US East \(Ohio\) Region:
+1. Open a command prompt and run the git clone command with the HTTPS URL you copied\. The local repo is created in a subdirectory of the directory where you run the command\. For example, to clone a repository named *MyDemoRepo* to a local repo named *my\-demo\-repo* in the US East \(Ohio\) Region:
 
    ```
    git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo
    ```
 
    On some versions of Windows, you might see a pop\-up message asking for your user name and password\. This is the built\-in credential management system for Windows, but it is not compatible with the credential helper for AWS CodeCommit\. Choose **Cancel**\. 
+
+   
 
 ## Next steps<a name="setting-up-https-windows-next-step"></a>
 

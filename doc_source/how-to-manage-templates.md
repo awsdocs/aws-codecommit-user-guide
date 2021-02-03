@@ -42,7 +42,7 @@ You can manage your approval rule templates with the following AWS CLI commands:
    ```
    {
        "approvalRuleTemplateNames": [
-           "2-approver-rule-for-master",
+           "2-approver-rule-for-main",
            "1-approver-rule-for-all-pull-requests"
        ]
    }
@@ -78,7 +78,7 @@ You can manage your approval rule templates with the following AWS CLI commands:
 1. At the terminal or command prompt, run the update\-approval\-rule\-template\-content command, specifying the name of the template and the changed content\. For example, to change the content of an approval rule template named **1\-approver\-rule** to redefine the approval pool to users who assume the role of **CodeCommitReview**:
 
    ```
-   aws codecommit update-approval-rule-template-content --approval-rule-template-name 1-approver-rule --new-rule-content "{\"Version\": \"2018-11-08\",\"DestinationReferences\": [\"refs/heads/master\"],\"Statements\": [{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\": 2,\"ApprovalPoolMembers\": [\"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]}]}"
+   aws codecommit update-approval-rule-template-content --approval-rule-template-name 1-approver-rule --new-rule-content "{\"Version\": \"2018-11-08\",\"DestinationReferences\": [\"refs/heads/main\"],\"Statements\": [{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\": 2,\"ApprovalPoolMembers\": [\"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]}]}"
    ```
 
 1. If successful, this command returns output similar to the following:
@@ -153,7 +153,7 @@ You can manage your approval rule templates with the following AWS CLI commands:
 1. At the command line or terminal, run the list\-repositories\-for\-approval\-rule\-template command, specifying the name of the template:
 
    ```
-   aws codecommit list-repositories-for-approval-rule-template --approval-rule-template-name 2-approver-rule-for-master
+   aws codecommit list-repositories-for-approval-rule-template --approval-rule-template-name 2-approver-rule-for-main
    ```
 
 1. If successful, this command returns output similar to the following:
@@ -180,7 +180,7 @@ You can manage your approval rule templates with the following AWS CLI commands:
    ```
    {
        "approvalRuleTemplateNames": [
-           "2-approver-rule-for-master",
+           "2-approver-rule-for-main",
            "1-approver-rule-for-all-pull-requests"
        ]
    }

@@ -86,6 +86,8 @@ Complete the following steps if you already have a local repo and want to add a 
 
    For SSH:
 
+    
+
    ```
    git remote add origin ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo
    ```
@@ -102,6 +104,8 @@ Complete the following steps if you already have a local repo and want to add a 
    ```
 
    For SSH:
+
+    
 
    ```
    origin  ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo (fetch)       

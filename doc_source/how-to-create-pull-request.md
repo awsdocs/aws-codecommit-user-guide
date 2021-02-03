@@ -55,7 +55,7 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
      + \(Optional\) The name of the branch where you intend to merge your code changes, also known as the destination branch, if you do not want to merge to the default branch \(with the destinationReference attribute\)\.
    + A unique, client\-generated idempotency token \(with the \-\-client\-request\-token option\)\. 
 
-   This example creates a pull request named *Pronunciation difficulty analyzer* with a description of *Please review these changes by Tuesday* that targets the *jane\-branch* source branch\. The pull request is to be merged into the default branch *master* in a CodeCommit repository named `MyDemoRepo`:
+   This example creates a pull request named *Pronunciation difficulty analyzer* with a description of *Please review these changes by Tuesday* that targets the *jane\-branch* source branch\. The pull request is to be merged into the default branch *main* in a CodeCommit repository named `MyDemoRepo`:
 
    ```
    aws codecommit create-pull-request --title "Pronunciation difficulty analyzer" --description "Please review these changes by Tuesday" --client-request-token 123Example --targets repositoryName=MyDemoRepo,sourceReference=jane-branch 
@@ -68,15 +68,15 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
        "pullRequest": {
            "approvalRules": [
                {
-                   "approvalRuleContent": "{\"Version\": \"2018-11-08\",\"DestinationReferences\": [\"refs/heads/master\"],\"Statements\": [{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\": 2,\"ApprovalPoolMembers\": [\"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]}]}",
+                   "approvalRuleContent": "{\"Version\": \"2018-11-08\",\"DestinationReferences\": [\"refs/heads/main\"],\"Statements\": [{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\": 2,\"ApprovalPoolMembers\": [\"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]}]}",
                    "approvalRuleId": "dd8b17fe-EXAMPLE",
-                   "approvalRuleName": "2-approver-rule-for-master",
+                   "approvalRuleName": "2-approver-rule-for-main",
                    "creationDate": 1571356106.936,
                    "lastModifiedDate": 571356106.936,
                    "lastModifiedUser": "arn:aws:iam::123456789012:user/Mary_Major",
                    "originApprovalRuleTemplate": {
                        "approvalRuleTemplateId": "dd3d22fe-EXAMPLE",
-                       "approvalRuleTemplateName": "2-approver-rule-for-master"
+                       "approvalRuleTemplateName": "2-approver-rule-for-main"
                    },
                    "ruleContentSha256": "4711b576EXAMPLE"
                }
@@ -87,7 +87,7 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
            "pullRequestTargets": [
                {
                    "destinationCommit": "5d036259EXAMPLE",
-                   "destinationReference": "refs/heads/master",
+                   "destinationReference": "refs/heads/main",
                    "repositoryName": "MyDemoRepo",
                    "sourceCommit": "317f8570EXAMPLE",
                    "sourceReference": "refs/heads/jane-branch",

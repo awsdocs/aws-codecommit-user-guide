@@ -22,6 +22,8 @@ When you use the Lambda console to create the function, you can also create a Co
 
 1.  In **Trigger configuration**, choose **CodeCommit** from the services drop\-down list\.   
 ![\[Creating a repository from the console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-lambda-trigger.png)![\[Creating a repository from the console\]](http://docs.aws.amazon.com/codecommit/latest/userguide/)
+
+    
    + In **Repository name**, choose the name of the repository where you want to configure a trigger that uses the Lambda function in response to repository events\.
    + In **Trigger name**, enter a name for the trigger \(for example, *MyLambdaFunctionTrigger*\)\.
    + In **Events**, choose the repository events that trigger the Lambda function\. If you choose **All repository events**, you cannot choose any other events\. If you want to choose a subset of events, clear **All repository events**, and then choose the events you want from the list\. For example, if you want the trigger to run only when a user creates a tag or a branch in the AWS CodeCommit repository, remove **All repository events**, and then choose **Create branch or tag**\.
@@ -110,7 +112,7 @@ After you have created the Lambda function, you can view and test the trigger in
 
    ```
    START RequestId: 70afdc9a-EXAMPLE Version: $LATEST
-   2015-11-10T18:18:28.689Z	70afdc9a-EXAMPLE	References: [ 'refs/heads/master' ]
+   2015-11-10T18:18:28.689Z	70afdc9a-EXAMPLE	References: [ 'refs/heads/main' ]
    2015-11-10T18:18:29.814Z	70afdc9a-EXAMPLE	Clone URL: https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo
    END RequestId: 70afdc9a-EXAMPLE
    REPORT RequestId: 70afdc9a-EXAMPLE Duration: 1126.87 ms Billed Duration: 1200 ms Memory Size: 128 MB Max Memory Used: 14 MB

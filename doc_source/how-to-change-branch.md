@@ -1,6 +1,6 @@
 # Change branch settings in AWS CodeCommit<a name="how-to-change-branch"></a>
 
-\-You can change the default branch to use in the AWS CodeCommit console\. You can use the AWS CLI to change the default branch for a repository\. To change other branch settings, you can use Git from a local repo connected to the CodeCommit repository\. 
+You can change which branch to use as the default branch in the AWS CodeCommit console or with the AWS CLI\. For example, if you created your first commit using a Git client that set the default branch to *master*, you could create a branch named *main*, and then change the branch settings so that the new branch is set as the default branch for the repository\. To change other branch settings, you can use Git from a local repo connected to the CodeCommit repository\. 
 
 **Topics**
 + [Change the default branch \(console\)](#how-to-change-branch-console)
@@ -17,6 +17,8 @@ You can specify which branch is the default branch in a CodeCommit repository in
 1. In the navigation pane, choose **Settings**\.
 
 1. In **Default branch**, choose the branch drop\-down list and choose a different branch\. Choose **Save**\.
+**Tip**  
+If you do not see another branch in the drop\-down list, you have not created any additional branches\. You cannot change the default branch of a repository if the repository has only one branch\. For more information, see [Create a branch in AWS CodeCommit](how-to-create-branch.md)\.
 
 ## Change the default branch \(AWS CLI\)<a name="how-to-change-branch-cli"></a>
 

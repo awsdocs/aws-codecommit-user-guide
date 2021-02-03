@@ -123,10 +123,10 @@ Git lets you view details about commits\. You can also use the AWS CLI to view d
    + The merge option you want to use \(with the \-\-merge\-option option\)\.
    + The name of the repository \(with the \-\-repository\-name option\)\.
 
-   For example, to view information about a merge commit for the source branch named *bugfix\-bug1234* with a destination branch named *master* using the *THREE\_WAY\_MERGE* strategy in a repository named *MyDemoRepo*:
+   For example, to view information about a merge commit for the source branch named *bugfix\-bug1234* with a destination branch named *main* using the *THREE\_WAY\_MERGE* strategy in a repository named *MyDemoRepo*:
 
    ```
-   aws codecommit get-merge-commit --source-commit-specifier bugfix-bug1234 --destination-commit-specifier master --merge-option THREE_WAY_MERGE --repository-name MyDemoRepo
+   aws codecommit get-merge-commit --source-commit-specifier bugfix-bug1234 --destination-commit-specifier main --merge-option THREE_WAY_MERGE --repository-name MyDemoRepo
    ```
 
 1. If successful, the output of this command returns information similar to the following:

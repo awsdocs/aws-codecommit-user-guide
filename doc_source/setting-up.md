@@ -61,7 +61,8 @@ When you work with CodeCommit, you use Git\. You might use other programs, too\.
 
 | Component | Version | 
 | --- | --- | 
-| Git | CodeCommit supports Git versions 1\.7\.9 and later\. We recommend using a recent version of Git\.  | 
+| Git | CodeCommit supports Git versions 1\.7\.9 and later\. Git version 2\.28 supports configuring the branch name for initial commits\. We recommend using a recent version of Git\.  | 
 | Curl | CodeCommit requires curl 7\.33 and later\. However, there is a known issue with HTTPS and curl update 7\.41\.0\. For more information, see [Troubleshooting](troubleshooting.md)\. | 
 | Python \(git\-remote\-codecommit only\) | git\-remote\-codecommit requires version 3 and later\. | 
 | Pip \(git\-remote\-codecommit only\) | git\-remote\-codecommit requires version 9\.0\.3 and later\. | 
+| AWS CLI \(git\-remote\-codecommit only\) | We recommend a recent version of AWS CLI version 2 for all CodeCommit users\. git\-remote\-codecommit requires AWS CLI version 2 to support AWS SSO and connections that require temporary credentials, such as federated users\.  | 

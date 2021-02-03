@@ -42,7 +42,7 @@ If you configured one or more triggers for your repository, deleting the reposit
            {
                "destinationArn": "arn:aws:sns:us-east-2:80398EXAMPLE:MyCodeCommitTopic", 
                "branches": [
-                   "master", 
+                   "main", 
                    "preprod"
                ], 
                "name": "MyFirstTrigger", 

@@ -98,6 +98,8 @@ You can create CodeCommit repositories from Visual Studio with the Toolkit for V
 
 1. In **Manage Connections**, choose **Create**\. 
 
+   
+
 1. In **Region**, choose the AWS Region where you want to create the repository\. CodeCommit repositories are organized by AWS Region\. 
 
 1. In **Name**, enter a name for this repository\. Repository names must be unique within an AWS account\. There are character and length limits\. For more information, see [Quotas](limits.md)\. In **Description**, enter an optional description for this repository\. This helps others understand what the repository is for, and helps distinguish it from other repositories in the region\.

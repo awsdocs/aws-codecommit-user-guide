@@ -4,6 +4,7 @@ You can create a trigger for a CodeCommit repository so that events in that repo
 
 **Note**  
 You must point the trigger to an existing Amazon SNS topic that is the action taken in response to repository events\. For more information about creating and subscribing to Amazon SNS topics, see [Getting Started with Amazon Simple Notification Service](https://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html)\. 
+Amazon SNS FIFO \(first in, first out\) topics are not supported for CodeCommit triggers\. 
 
 **Topics**
 + [Create a trigger to an Amazon SNS topic for a CodeCommit repository \(console\)](#how-to-notify-sns-console)
@@ -25,7 +26,11 @@ You must point the trigger to an existing Amazon SNS topic that is the action ta
    + If you want the trigger to apply to all branches of the repository, in **Branches**, leave the selection blank, as this default option applies the trigger to all branches automatically\. If you want this trigger to apply to specific branches only, choose up to 10 branch names from the list of repository branches\.
    + In **Choose the service to use**, choose **Amazon SNS**\.
    + In **Amazon SNS**, choose a topic name from the list or enter the ARN for the topic\.
+**Note**  
+Amazon SNS FIFO \(first in, first out\) topics are not supported for CodeCommit triggers\. You must choose an Amazon SNS topic that has its type set to Standard\. If you want to use an Amazon SNS FIFO topic, you must configure an Amazon Eventbridge rule for CodeCommit events that has the SNS FIFO topic configured as its target\.
    + In **Custom data**, provide any optional information you want included in the notification sent by the Amazon SNS topic \(for example, an IRC channel name developers use when discussing development in this repository\)\. This field is a string\. It cannot be used to pass any dynamic parameters\. 
+
+    
 
 1. \(Optional\) Choose **Test trigger**\. This step helps you confirm have correctly configured access between CodeCommit and the Amazon SNS topic\. It uses the Amazon SNS topic to send a test notification using data from your repository, if available\. If no real data is available, the test notification contains sample data\. 
 
@@ -39,12 +44,14 @@ You can also use the command line to create a trigger for an Amazon SNS topic in
 
 1. Open a plain\-text editor and create a JSON file that specifies:
    + The Amazon SNS topic name\.
+**Note**  
+Amazon SNS FIFO \(first in, first out\) topics are not supported for CodeCommit triggers\. You must choose an Amazon SNS topic that has its type set to Standard\. If you want to use an Amazon SNS FIFO topic, you must configure an Amazon Eventbridge rule for CodeCommit events that has the SNS FIFO topic configured as its target\.
    + The repository and branches you want to monitor with this trigger\. \(If you do not specify any branches, the trigger applies to all branches in the repository\.\)
    + The events that activate this trigger\.
 
     Save the file\. 
 
-   For example, to create a trigger for a repository named *MyDemoRepo* that publishes all repository events to an Amazon SNS topic named *MySNSTopic* for two branches, *master* and *preprod*:
+   For example, to create a trigger for a repository named *MyDemoRepo* that publishes all repository events to an Amazon SNS topic named *MySNSTopic* for two branches, *main* and *preprod*:
 
    ```
    {
@@ -55,7 +62,7 @@ You can also use the command line to create a trigger for an Amazon SNS topic in
                "destinationArn": "arn:aws:sns:us-east-2:80398EXAMPLE:MySNSTopic",
                "customData": "",
                "branches": [
-                   "master", "preprod"
+                   "main", "preprod"
                ],
                "events": [
                    "all"
@@ -67,6 +74,8 @@ You can also use the command line to create a trigger for an Amazon SNS topic in
 
    There must be a trigger block in the JSON for each trigger for a repository\. To create more than one trigger for the repository, include more than one trigger block in the JSON\. Remember that all triggers created in this file are for the specified repository\. You cannot create triggers for multiple repositories in a single JSON file\. For example, if you wanted to create two triggers for a repository, you can create a JSON file with two trigger blocks\. In the following example, no branches are specified for the second trigger, so that trigger applies to all branches:
 
+    
+
    ```
    {
        "repositoryName": "MyDemoRepo",
@@ -76,7 +85,7 @@ You can also use the command line to create a trigger for an Amazon SNS topic in
                "destinationArn": "arn:aws:sns:us-east-2:80398EXAMPLE:MySNSTopic",
                "customData": "",
                "branches": [
-                   "master", "preprod"
+                   "main", "preprod"
                ],
                "events": [
                    "all"
@@ -152,7 +161,7 @@ You can use more than one event type in a trigger\. However, if you specify `all
                ],
                "destinationArn": "arn:aws:sns:us-east-2:80398EXAMPLE:MySNSTopic",
                "branches": [
-                   "master",
+                   "main",
                    "preprod"
                ],
                "name": "MyFirstTrigger",

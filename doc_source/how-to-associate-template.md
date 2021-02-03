@@ -32,10 +32,10 @@ You can use the AWS CLI to associate an approval rule template with one or more 
    + The name of the approval rule template you want to associate with a repository\.
    + The name of the repository to be associated with the approval rule template\.
 
-   For example, to associate an approval rule template named *2\-approver\-rule\-for\-master* with a repository named *MyDemoRepo*:
+   For example, to associate an approval rule template named *2\-approver\-rule\-for\-main* with a repository named *MyDemoRepo*:
 
    ```
-   aws codecommit associate-approval-rule-template-with-repository --repository-name MyDemoRepo --approval-rule-template-name 2-approver-rule-for-master
+   aws codecommit associate-approval-rule-template-with-repository --repository-name MyDemoRepo --approval-rule-template-name 2-approver-rule-for-main
    ```
 
 1. If successful, this command returns nothing\.<a name="batch-associate-template-repositories"></a>
@@ -46,10 +46,10 @@ You can use the AWS CLI to associate an approval rule template with one or more 
    + The name of the approval rule template you want to associate with a repository\.
    + The names of the repositories to be associated with the approval rule template\.
 
-   For example, to associate an approval rule template named **2\-approver\-rule\-for\-master** with a repository named **MyDemoRepo** and **MyOtherDemoRepo**:
+   For example, to associate an approval rule template named **2\-approver\-rule\-for\-main** with a repository named **MyDemoRepo** and **MyOtherDemoRepo**:
 
    ```
-   aws codecommit batch-associate-approval-rule-template-with-repositories --repository-names "MyDemoRepo", "MyOtherDemoRepo" --approval-rule-template-name 2-approver-rule-for-master
+   aws codecommit batch-associate-approval-rule-template-with-repositories --repository-names "MyDemoRepo", "MyOtherDemoRepo" --approval-rule-template-name 2-approver-rule-for-main
    ```
 
 1. If successful, this command returns output similar to the following:

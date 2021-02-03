@@ -99,10 +99,10 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
    + The name to use for the commit \(with the \-\-name option\)\.
    + The email address to use for the commit \(with the \-\-email option\)\.
 
-   For example, to merge a source branch named *master* with a destination branch named *bugfix\-1234* in a repository named *MyDemoRepo*:
+   For example, to merge a source branch named *main* with a destination branch named *bugfix\-1234* in a repository named *MyDemoRepo*:
 
    ```
-   aws codecommit merge-branches-by-three-way --source-commit-specifier master --destination-commit-specifier bugfix-bug1234 --author-name "Jorge Souza" --email "jorge_souza@example.com" --commit-message "Merging changes from master to bugfix branch before additional testing."  --repository-name MyDemoRepo
+   aws codecommit merge-branches-by-three-way --source-commit-specifier main --destination-commit-specifier bugfix-bug1234 --author-name "Jorge Souza" --email "jorge_souza@example.com" --commit-message "Merging changes from main to bugfix branch before additional testing."  --repository-name MyDemoRepo
    ```
 
    If successful, this command produces output similar to the following:

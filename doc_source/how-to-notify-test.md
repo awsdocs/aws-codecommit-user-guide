@@ -37,7 +37,7 @@ You can test the triggers that have been created for a CodeCommit repository\. T
            {
                "destinationArn": "arn:aws:sns:us-east-2:80398EXAMPLE:MyCodeCommitTopic", 
                "branches": [
-                   "master", 
+                   "main", 
                    "preprod"
                ], 
                "name": "MyFirstTrigger", 

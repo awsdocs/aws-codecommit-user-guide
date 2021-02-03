@@ -45,7 +45,7 @@ These steps are written with the assumption that you have already connected the 
    ```
 
 **Note**  
-If you add the `-u` option to git push \(for example, git push \-u origin master\), then in the future you can run git push without *remote\-name* *branch\-name*\. Upstream tracking information is set\. To get upstream tracking information, run git remote show *remote\-name* \(for example, git remote show origin\)\.  
+If you add the `-u` option to git push \(for example, git push \-u origin main\), then in the future you can run git push without *remote\-name* *branch\-name*\. Upstream tracking information is set\. To get upstream tracking information, run git remote show *remote\-name* \(for example, git remote show origin\)\.  
 To see a list of all of your local and remote tracking branches, run git branch \-\-all\.  
 To set up a branch in the local repo that is connected to a branch in the CodeCommit repository, run git checkout *remote\-branch\-name*\.
 

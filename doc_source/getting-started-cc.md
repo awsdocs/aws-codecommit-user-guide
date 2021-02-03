@@ -49,7 +49,7 @@ Repository names are case sensitive and can be no longer than 100 characters\. F
 
 1. \(Optional\) Choose **Add tag** to add one or more repository tags \(a custom attribute label that helps you organize and manage your AWS resources\) to your repository\. For more information, see [Tagging repositories in AWS CodeCommit](how-to-tag-repository.md)\.
 
-1. \(Optional\) Select **Enable Amazon CodeGuru Reviewer for Java** if this repository will contain Java code, and you want to have CodeGuru Reviewer analyze that Java code\. CodeGuru Reviewer uses multiple machine learning models to find Java code defects and to automatically suggest improvements and fixes in pull requests\. For more information, see the Amazon CodeGuru Reviewer User Guide\.
+1. \(Optional\) Select **Enable Amazon CodeGuru Reviewer for Java and Python** if this repository will contain Java or Python code, and you want to have CodeGuru Reviewer analyze that code\. CodeGuru Reviewer uses multiple machine learning models to find code defects and to automatically suggest improvements and fixes in pull requests\. For more information, see the Amazon CodeGuru Reviewer User Guide\.
 
 1. Choose **Create**\. 
 
@@ -63,11 +63,14 @@ When the repository opens, you see information about how to add files directly f
 ## Step 2: Add files to your repository<a name="getting-started-cc-add"></a>
 
 You can add files to your repository by:
-+ Creating a file in the CodeCommit console\.
-+ Uploading a file from your local computer using the CodeCommit console\.
-+ Using a Git client to clone the repository to your local computer, and then adding, committing, and pushing files to the CodeCommit repository\.
++ Creating a file in the CodeCommit console\. If you create the first file for a repository in the console, a branch is created for you named *main*\. This branch is the default branch for your repository\.
++ Uploading a file from your local computer using the CodeCommit console\. If you upload the first file for a repository from the console, a branch is created for you named *main*\. This branch is the default branch for your repository\.
++ Using a Git client to clone the repository to your local computer, and then adding, committing, and pushing files to the CodeCommit repository\. A branch is created for you as part of that first commit from Git, and it is set as the default branch for your repository\. The name of the branch is the default choice of your Git client\. Consider configuring your Git client to use *main* as the name for the initial branch\.
 
-The simplest way to get started is to open the CodeCommit console and add a file\.
+**Note**  
+You can create branches and change the default branch for a repository at any time\. For more information, see [Working with branches in AWS CodeCommit repositories](branches.md)\.
+
+The simplest way to get started is to open the CodeCommit console and add a file\. By doing so, you also create a default branch for your repository named *main*\. For instructions about how to add a file and create a first commit to a repository using the AWS CLI, see [Create the first commit for a repository using the AWS CLI](how-to-create-commit.md#create-first-commit)\.
 
 **To add a file to the repository**
 
@@ -77,7 +80,7 @@ The simplest way to get started is to open the CodeCommit console and add a file
 
 1. To add a file, do the following:
 
-   1. In the drop\-down list of branches, choose the branch where you want to add the file\. The default branch is selected automatically for you\. In the example shown here, the default branch is named *master*\. If you want to add the file to a different branch, choose a different branch\. 
+   1. In the drop\-down list of branches, choose the branch where you want to add the file\. The default branch is selected automatically for you\. In the example shown here, the default branch is named *main*\. If you want to add the file to a different branch, choose a different branch\. 
 
    1.  In **File name**, enter a name for the file\. In the code editor, enter the code for the file\. 
 
@@ -111,7 +114,7 @@ You can use the CodeCommit console to review the files in a repository or quickl
 
 1. From **Repositories**, choose MyDemoRepo\.
 
-1. The page displays the contents in the default branch of your repository\. To view another branch or to view the code at a specific tag, choose the branch or tag you want to view from the list\. In the following screenshot, the view is set to the **master** branch\.  
+1. The page displays the contents in the default branch of your repository\. To view another branch or to view the code at a specific tag, choose the branch or tag you want to view from the list\. In the following screenshot, the view is set to the **main** branch\.  
 ![\[Browse the contents of a repository\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-code-browse.png)
 
 1. To view the contents of a file in your repository, choose the file from the list\. To change the color of the displayed code, choose the settings icon\.  

@@ -721,7 +721,7 @@ For more information about IAM and notifications, see [Identity and Access Manag
 
 ### AWS CodeCommit managed policies and Amazon CodeGuru Reviewer<a name="codeguru-permissions"></a>
 
-CodeCommit supports Amazon CodeGuru Reviewer, an automated code review service that uses program analysis and machine learning to detect common issues and recommend fixes in your Java code\. Managed policies for CodeCommit include policy statements for CodeGuru Reviewer functionality\. For more information, see [What Is Amazon CodeGuru Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html)\.
+CodeCommit supports Amazon CodeGuru Reviewer, an automated code review service that uses program analysis and machine learning to detect common issues and recommend fixes in your Java or Python code\. Managed policies for CodeCommit include policy statements for CodeGuru Reviewer functionality\. For more information, see [What Is Amazon CodeGuru Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html)\.
 
 #### Permissions related to CodeGuru Reviewer in AWSCodeCommitFullAccess<a name="codeguru-fullaccess"></a>
 
@@ -837,7 +837,7 @@ The `AWSCodeCommitReadOnlyAccess` managed policy includes the following statemen
 
 #### Amazon CodeGuru Reviewer service\-linked role<a name="codeguru-slr"></a>
 
-When you associate a repository with CodeGuru Reviewer, a service\-linked role is created so that CodeGuru Reviewer can detect issues and recommend fixes for Java code in pull requests\. The service\-linked role is named AWSServiceRoleForAmazonCodeGuruReviewer\. For more information, see [Using Service\-Linked Roles for Amazon CodeGuru Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/using-service-linked-roles.html)\.
+When you associate a repository with CodeGuru Reviewer, a service\-linked role is created so that CodeGuru Reviewer can detect issues and recommend fixes for Java or Python code in pull requests\. The service\-linked role is named AWSServiceRoleForAmazonCodeGuruReviewer\. For more information, see [Using Service\-Linked Roles for Amazon CodeGuru Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/using-service-linked-roles.html)\.
 
 For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
 
@@ -852,6 +852,8 @@ You can create your own custom IAM policies to allow permissions for CodeCommit 
 ### Customer managed identity policy examples<a name="customer-managed-policies-identity"></a>
 
 The following example IAM policies grant permissions for various CodeCommit actions\. Use them to limit CodeCommit access for your IAM users and roles\. These policies control the ability to perform actions with the CodeCommit console, API, AWS SDKs, or the AWS CLI\.
+
+
 
 **Note**  
 All examples use the US West \(Oregon\) Region \(us\-west\-2\) and contain fictitious account IDs\.
@@ -982,14 +984,16 @@ The following example policy allows the specified user to access a CodeCommit re
 }
 ```
 
+
+
 #### Example 4: Deny or allow actions on branches<a name="identity-based-policies-example-4"></a>
 
 You can create a policy that denies users permissions to actions you specify on one or more branches\. Alternatively, you can create a policy that allows actions on one or more branches that they might not otherwise have in other branches of a repository\. You can use these policies with the appropriate managed \(predefined\) policies\. For more information, see [Limit pushes and merges to branches in AWS CodeCommit](how-to-conditional-branch.md)\.
 
-For example, you can create a `Deny` policy that denies users the ability to make changes to a branch named master, including deleting that branch, in a repository named *MyDemoRepo*\. You can use this policy with the **AWSCodeCommitPowerUser** managed policy\. Users with these two policies applied would be able to create and delete branches, create pull requests, and all other actions as allowed by **AWSCodeCommitPowerUser**, but they would not be able to push changes to the branch named *master*, add or edit a file in the *master* branch in the CodeCommit console, or merge branches or a pull request into the *master* branch\. Because `Deny` is applied to `GitPush`, you must include a `Null` statement in the policy, to allow initial `GitPush` calls to be analyzed for validity when users make pushes from their local repos\.
+For example, you can create a `Deny` policy that denies users the ability to make changes to a branch named main, including deleting that branch, in a repository named *MyDemoRepo*\. You can use this policy with the **AWSCodeCommitPowerUser** managed policy\. Users with these two policies applied would be able to create and delete branches, create pull requests, and all other actions as allowed by **AWSCodeCommitPowerUser**, but they would not be able to push changes to the branch named *main*, add or edit a file in the *main* branch in the CodeCommit console, or merge branches or a pull request into the *main* branch\. Because `Deny` is applied to `GitPush`, you must include a `Null` statement in the policy, to allow initial `GitPush` calls to be analyzed for validity when users make pushes from their local repos\.
 
 **Tip**  
-If you want to create a policy that applies to all branches named *master* in all repositories in your AWS account, for `Resource`, specify an asterisk \( `*` \) instead of a repository ARN\.
+If you want to create a policy that applies to all branches named *main* in all repositories in your AWS account, for `Resource`, specify an asterisk \( `*` \) instead of a repository ARN\.
 
 ```
 {
@@ -1007,11 +1011,11 @@ If you want to create a policy that applies to all branches named *master* in al
             "Condition": {
                 "StringEqualsIfExists": {
                     "codecommit:References": [
-                        "refs/heads/master"   
+                        "refs/heads/main"   
                     ]
                 },
                 "Null": {
-                    "codecommit:References": false
+                    "codecommit:References": "false"
                 }
             }
         }
@@ -1019,7 +1023,7 @@ If you want to create a policy that applies to all branches named *master* in al
 }
 ```
 
-The following example policy allows a user to make changes to a branch named master in all repositories in an AWS account\. It will not allow changes to any other branches\. You might use this policy with the AWSCodeCommitReadOnly managed policy to allow automated pushes to the repository in the master branch\. Because the Effect is `Allow`, this example policy would not work with managed policies such as AWSCodeCommitPowerUser\.
+The following example policy allows a user to make changes to a branch named main in all repositories in an AWS account\. It does not allow changes to any other branches\. You might use this policy with the AWSCodeCommitReadOnly managed policy to allow automated pushes to the repository in the main branch\. Because the Effect is `Allow`, this example policy would not work with managed policies such as AWSCodeCommitPowerUser\.
 
 ```
 {
@@ -1035,7 +1039,7 @@ The following example policy allows a user to make changes to a branch named mas
             "Condition": {
                 "StringEqualsIfExists": {
                     "codecommit:References": [
-                        "refs/heads/master"
+                        "refs/heads/main"
                     ]
                 }
             }
@@ -1043,6 +1047,8 @@ The following example policy allows a user to make changes to a branch named mas
     ]
 }
 ```
+
+
 
 #### Example 5: Deny or allow actions on repositories with tags<a name="identity-based-policies-example-5"></a>
 

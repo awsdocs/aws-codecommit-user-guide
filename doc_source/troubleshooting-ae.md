@@ -44,3 +44,4 @@ The following information might help you troubleshoot access errors when connect
 + **Request a CodeCommit service quota increase in the AWS Support Center**
 
   To receive a service limit increase, you must confirm that you have already followed the suggestions offered here, including implementation of error retries or exponential backoff methods\. In your request, you must also provide the AWS Region, AWS account, and timeframe affected by the throttling issues\. 
+

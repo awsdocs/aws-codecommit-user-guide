@@ -58,7 +58,7 @@ aws-cli/1.16.62 Python/3.6.2 Darwin/16.7.0 botocore/1.12.52
 1. In Terminal, run the git config command to find the Git configuration file \(`gitconfig`\) where the Keychain Access utility is defined\. Depending on your local system and preferences, you might have more than one `gitconfig` file\. 
 
    ```
-   $ git config -l --show-origin | grep credential
+   git config -l --show-origin | grep credential
    ```
 
    In the output from this command, search for results similar to:
@@ -72,7 +72,7 @@ aws-cli/1.16.62 Python/3.6.2 Darwin/16.7.0 botocore/1.12.52
 1. To edit the Git configuration file, use a plain\-text editor or run the following command:
 
    ```
-   $ nano /usr/local/git/etc/gitconfig
+   nano /usr/local/git/etc/gitconfig
    ```
 
 1. Modify the configuration using one of the following strategies:

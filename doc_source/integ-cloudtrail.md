@@ -283,7 +283,7 @@ The following example shows a CloudTrail log entry that demonstrates a successfu
     "references": [
       {
         "commit": "100644EXAMPLE",
-        "ref": "refs/heads/master"
+        "ref": "refs/heads/main"
         }
       ]
     },

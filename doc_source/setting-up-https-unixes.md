@@ -40,20 +40,22 @@ CodeCommit requires AWS Key Management Service\. If you are using an existing IA
 
 **To install and configure the AWS CLI**
 
-1. On your local machine, download and install the AWS CLI\. This is a prerequisite for interacting with CodeCommit from the command line\. For more information, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html)\.
+1. On your local machine, download and install the AWS CLI\. This is a prerequisite for interacting with CodeCommit from the command line\. We recommend that you install AWS CLI version 2\. It is the most recent major version of the AWS CLI and supports all of the latest features\. It is the only version of the AWS CLI that supports using a root account, federated access, or temporary credentials with git\-remote\-codecommit\.
+
+   For more information, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html)\.
 **Note**  
 CodeCommit works only with AWS CLI versions 1\.7\.38 and later\. As a best practice, install or upgrade the AWS CLI to the latest version available\. To determine which version of the AWS CLI you have installed, run the aws \-\-version command\.  
 To upgrade an older version of the AWS CLI to the latest version, see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)\.
 
-1.  Run this command to verify the CodeCommit commands for the AWS CLI are installed:
+1. Run this command to verify that the CodeCommit commands for the AWS CLI are installed\.
 
    ```
    aws codecommit help
    ```
 
-   This command should return a list of CodeCommit commands\.
+   This command returns a list of CodeCommit commands\.
 
-1. Configure the AWS CLI with a profile by using the configure command, as follows:
+1. Configure the AWS CLI with a profile by using the configure command, as follows:\.
 
    ```
    aws configure
@@ -102,7 +104,7 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
 
 ## Step 2: Install Git<a name="setting-up-https-unixes-install-git"></a>
 
-To work with files, commits, and other information in CodeCommit repositories, you must install Git on your local machine\. CodeCommit supports Git versions 1\.7\.9 and later\. We recommend using a recent version of Git\.
+To work with files, commits, and other information in CodeCommit repositories, you must install Git on your local machine\. CodeCommit supports Git versions 1\.7\.9 and later\. Git version 2\.28 supports configuring the branch name for initial commits\. We recommend using a recent version of Git\.
 
 To install Git, we recommend websites such as [Git Downloads](http://git-scm.com/downloads)\.
 
@@ -181,6 +183,8 @@ If an administrator has already sent you the name and connection details for the
    ```
    git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo
    ```
+
+   
 
 ## Next steps<a name="setting-up-https-unixes-next-step"></a>
 

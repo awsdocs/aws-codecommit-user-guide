@@ -1,6 +1,6 @@
 # Connecting to AWS CodeCommit repositories with rotating credentials<a name="temporary-access"></a>
 
-You can give users access to your AWS CodeCommit repositories without configuring IAM users for them or using an access key and secret key\.  Instead of creating an IAM user, you can use existing identities from AWS Directory Service, your enterprise user directory, or a web identity provider\. These are known as *federated users*\. AWS assigns a role to a federated user when access is requested through an [identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html)\. For more information about federated users, see [Federated Users and Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html#intro-access-roles) in the *IAM User Guide*\. You can also configure role\-based access for IAM users to access CodeCommit repositories in separate AWS accounts \(a technique known as *cross\-account access*\)\. For a walkthrough of configuring cross\-account access to a repository, see [Configure cross\-account access to an AWS CodeCommit repository using roles](cross-account.md)\. 
+You can give users access to your AWS CodeCommit repositories without configuring IAM users for them or using an access key and secret key\.  Instead of creating an IAM user, you can use existing identities from AWS Directory Service, your enterprise user directory, or a web identity provider\. These are known as *federated users*\. AWS assigns a role to a federated user when access is requested through an [identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html)\. For more information about federated users, see [Federated users and roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html#intro-access-roles) in the *IAM User Guide*\. You can also configure role\-based access for IAM users to access CodeCommit repositories in separate AWS accounts \(a technique known as *cross\-account access*\)\. For a walkthrough of configuring cross\-account access to a repository, see [Configure cross\-account access to an AWS CodeCommit repository using roles](cross-account.md)\. 
 
 You can configure access for users who want or must authenticate through methods such as:
 + Security Assertion Markup Language \(SAML\)
@@ -29,6 +29,8 @@ You can configure and use git\-remote\-codecommit on Amazon EC2 instances\.
 
 To give users temporary access to your CodeCommit repositories, complete the following steps\.
 
+
+
 ## Step 1: Complete the prerequisites<a name="temporary-access-prerequisites"></a>
 
 Complete the setup steps to provide a user with access to your CodeCommit repositories using rotating credentials: 
@@ -47,6 +49,8 @@ If you want your users to access repositories by assuming a role, provide your u
 + For federation, call the AWS CLI [assume\-role](https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html) or [get\-federation\-token](https://docs.aws.amazon.com/cli/latest/reference/sts/get-federation-token.html) commands or the AWS STS [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) or [GetFederationToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html) APIs\.
 + For MFA, call the AWS CLI [get\-session\-token](https://docs.aws.amazon.com/cli/latest/reference/sts/get-session-token.html) command or the AWS STS [GetSessionToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html) API\.
 + For Login with Amazon, Amazon Cognito, Facebook, Google, or any OIDC\-compatible identity provider, call the AWS CLI [assume\-role\-with\-web\-identity](https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role-with-web-identity.html) command or the AWS STS [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html) API\.
+
+
 
 ## Step 3: Install git\-remote\-codecommit and configure the AWS CLI<a name="temporary-access-configure-credentials"></a>
 
@@ -103,3 +107,4 @@ git clone codecommit://CodeAccess@MyDemoRepo
 Git commit, push, and pull commands use regular Git syntax\. 
 
 When the user uses the AWS CLI and specifies the AWS CLI named profile associated with the rotating access credentials, results scoped to that profile are returned\.
+

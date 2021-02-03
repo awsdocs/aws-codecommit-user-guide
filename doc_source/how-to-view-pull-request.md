@@ -74,7 +74,7 @@ Follow these steps to use the AWS CLI to view pull requests in an CodeCommit rep
                {
                    "approvalRuleContent": "{\"Version\": \"2018-11-08\",\"Statements\": [{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\": 2,\"ApprovalPoolMembers\": [\"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]}]}",
                    "approvalRuleId": "dd8b17fe-EXAMPLE",
-                   "approvalRuleName": "2-approver-rule-for-master",
+                   "approvalRuleName": "2-approver-rule-for-main",
                    "creationDate": 1571356106.936,
                    "lastModifiedDate": 571356106.936,
                    "lastModifiedUser": "arn:aws:iam::123456789012:user/Mary_Major",
@@ -87,7 +87,7 @@ Follow these steps to use the AWS CLI to view pull requests in an CodeCommit rep
                    "sourceCommit": "ca45e279EXAMPLE",
                    "sourceReference": "refs/heads/bugfix-1234",
                    "mergeBase": "a99f5ddbEXAMPLE",
-                   "destinationReference": "refs/heads/master",
+                   "destinationReference": "refs/heads/main",
                    "mergeMetadata": {
                        "isMerged": false
                    },
@@ -165,10 +165,10 @@ Follow these steps to use the AWS CLI to view pull requests in an CodeCommit rep
    + The branch, tag, HEAD, or other fully qualified reference for the destination of the changes to use in the merge evaluation \(with the \-\-destination\-commit\-specifier option\)\.
    + The merge option to use \(with the \-\-merge\-option option\) 
 
-   For example, to view whether there are any merge conflicts between the tip of a source branch named *my\-feature\-branch* and a destination branch named *master* in a repository named `MyDemoRepo`:
+   For example, to view whether there are any merge conflicts between the tip of a source branch named *my\-feature\-branch* and a destination branch named *main* in a repository named `MyDemoRepo`:
 
    ```
-   aws codecommit get-merge-conflicts --repository-name MyDemoRepo --source-commit-specifier my-feature-branch --destination-commit-specifier master --merge-option FAST_FORWARD_MERGE
+   aws codecommit get-merge-conflicts --repository-name MyDemoRepo --source-commit-specifier my-feature-branch --destination-commit-specifier main --merge-option FAST_FORWARD_MERGE
    ```
 
    If successful, this command returns output similar to the following:
