@@ -1,6 +1,6 @@
-## AWS CodeCommit User Guide
+## AWS CodeCommit User Guide master branch is deprecated
 
-The open source version of the AWS CodeCommit User Guide. You can submit feedback & requests for changes by submitting issues in this repo or by making proposed changes & submitting a pull request.
+Use the main branch to view files and create pull requests.
 
 ## License Summary
 
