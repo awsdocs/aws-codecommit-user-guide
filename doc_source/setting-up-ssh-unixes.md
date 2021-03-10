@@ -156,10 +156,12 @@ You can set up SSH access to repositories in multiple AWS accounts, For more inf
    You are asked to confirm the connection because `git-codecommit.us-east-2.amazonaws.com` is not yet included in your known hosts file\. The CodeCommit server fingerprint is displayed as part of the verification \(`a9:6d:03:ed:08:42:21:be:06:e1:e0:2a:d1:75:31:5e` for MD5 or `3lBlW2g5xn/NA2Ck6dyeJIrQOWvn7n8UEs56fG6ZIzQ` for SHA256\)\.
 **Note**  
 CodeCommit server fingerprints are unique for every AWS Region\. To view the server fingerprints for an AWS Region, see [Server fingerprints for CodeCommit](regions.md#regions-fingerprints)\.
+**Note**  
+CodeCommit server fingerprints are unique for every AWS Region\. To view the server fingerprints for an AWS Region, see [Server fingerprints for CodeCommit](regions.md#regions-fingerprints)\.
 
    After you have confirmed the connection, you should see confirmation that you have added the server to your known hosts file and a successful connection message\. If you do not see a success message, check that you saved the `config` file in the \~/\.ssh directory of the IAM user you configured for access to CodeCommit, and that you specified the correct private key file\. 
 
-   For information to help you troubleshoot problems, run the `ssh` command with the `-v` parameter:
+   For information to help you troubleshoot problems, run the `ssh` command with the `-v` parameter\. For example:
 
    ```
    ssh -v git-codecommit.us-east-2.amazonaws.com
@@ -169,7 +171,7 @@ CodeCommit server fingerprints are unique for every AWS Region\. To view the ser
 
 ## Step 4: Connect to the CodeCommit console and clone the repository<a name="setting-up-ssh-unixes-connect-console"></a>
 
-If an administrator has already sent you the name and connection details for the CodeCommit repository, you can skip this step and clone the repositorydirectly\.
+If an administrator has already sent you the name and connection details for the CodeCommit repository, you can skip this step and clone the repository directly\.
 
 **To connect to a CodeCommit repository**
 

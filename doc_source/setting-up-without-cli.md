@@ -61,7 +61,6 @@ If you have more than one SSH configuration, make sure you include the blank lin
 
    ```
    You have successfully authenticated over SSH. You can use Git to interact with CodeCommit. 
-   Interactive shells are not supported. Connection to git-codecommit.us-east-2.amazonaws.com closed by remote host.
    ```
 
 ## Next steps<a name="setting-up-without-cli-next-step"></a>

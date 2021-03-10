@@ -2,10 +2,11 @@
 
 The following table describes important changes to the documentation for CodeCommit\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
 + **API version:** 2015\-04\-13
-+ **Latest documentation update:** January 19, 2021
++ **Latest documentation update:** March 4, 2021
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [AWS CloudFormation and AWS Cloud Development Kit \(AWS CDK\) changes naming behavior for default branches in CodeCommit](#history) | Repositories created using AWS CloudFormation or the AWS CDK with an initial commit of code now use the default branch name of *main*\. This change does not affect existing repositories or branches\. Customers who use local Git clients to create their initial commits have a default branch name that follows the configuration of those Git clients\. For more information, see [Creating CodeCommit resources with AWS CloudFormation](https://docs.aws.amazon.com/codecommit/latest/userguide/cloudformation-codecommit.html)\. | March 4, 2021 | 
 | [CodeCommit changes naming behavior for default branches](#history) | As of January 19, 2021, the default branch name created by an initial commit to a CodeCommit repository is *main*\. This change does not affect existing repositories or branches\. Customers who use local Git clients to create their initial commits have a default branch name that follows the configuration of those Git clients\. For more information, see [Working with branches](https://docs.aws.amazon.com/codecommit/latest/userguide/branches.html), [Create a commit](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-create-commit.html), and [Change branch settings](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-change-branch.html)\. | January 19, 2021 | 
 | [CodeCommit is now available in Europe \(Milan\)](#history) | CodeCommit is now available in an additional AWS Region: Europe \(Milan\)\. For more information, see [Regions and Git Connection Endpoints](https://docs.aws.amazon.com/codecommit/latest/userguide/regions.html)\. | September 16, 2020 | 
 | [CodeCommit adds support for emoji reactions to comments](#history) | CodeCommit now supports reacting to comments from other users with emojis\. For more information, see [Comment on a Commit](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-commit-comment.html) and [Review a Pull Request](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-review-pull-request.html)\. | June 24, 2020 | 

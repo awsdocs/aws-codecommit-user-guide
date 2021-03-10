@@ -44,7 +44,7 @@ Git is an evolving, regularly updated platform\. Occasionally, a feature change 
 
 ## Step 3: Create Git credentials for HTTPS connections to CodeCommit<a name="setting-up-gc-iam"></a>
 
-After you have installed Git, create Git credentials for your IAM user in IAM\. For more information, see [Use Git Credentials and HTTPS with AWS CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#git-credentials-code-commit) in the *IAM User Guide*\.
+After you have installed Git, create Git credentials for your IAM user in IAM\.
 
 **To set up HTTPS Git credentials for CodeCommit**
 
