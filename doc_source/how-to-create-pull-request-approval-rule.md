@@ -34,7 +34,7 @@ You cannot change the name of an approval rule after you create it\.
 ![\[Creating an approval rule for a pull request\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-create-approval-rule.png)
 
 1. \(Optional\) If you want to require that the approvals for a pull request come from a specific group of users, in **Approval rule members**, choose **Add**\. In **Approver type**, choose one of the following: 
-   + **IAM user name or assumed role**: This option prepopulates the AWS account ID with the account you used to sign in, and only requires a name\. It can be used for both IAM users and federated access users whose name matches the provided name\. This is a very powerful option that offers a great deal of flexibility\. For example, if you are signed in with the AWS account 123456789012 and choose this option, and you specify **Mary\_Major**, all of the following are counted as approvals coming from that user:
+   + **IAM user name or assumed role**: This option prepopulates the AWS account ID with the account you used to sign in, and only requires a name\. It can be used for both IAM users and federated access users whose name matches the provided name\. This is a very powerful option that offers a great deal of flexibility\. For example, if you are signed in with the Amazon Web Services account 123456789012 and choose this option, and you specify **Mary\_Major**, all of the following are counted as approvals coming from that user:
      + An IAM user in the account \(`arn:aws:iam::123456789012:user/Mary_Major`\)
      + A federated user identified in IAM as Mary\_Major \(`arn:aws:sts::123456789012:federated-user/Mary_Major`\)
 
@@ -63,7 +63,7 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
    + The content of the approval rule \(with the \-\-approval\-rule\-content option\)\.
 
    When you create the approval rule, you can specify approvers in an approval pool in one of two ways:
-   + **CodeCommitApprovers**: This option only requires an AWS account and a resource\. It can be used for both IAM users and federated access users whose name matches the provided resource name\. This is a very powerful option that offers a great deal of flexibility\. For example, if you specify the AWS account 123456789012 and **Mary\_Major**, all of the following are counted as approvals coming from that user:
+   + **CodeCommitApprovers**: This option only requires an Amazon Web Services account and a resource\. It can be used for both IAM users and federated access users whose name matches the provided resource name\. This is a very powerful option that offers a great deal of flexibility\. For example, if you specify the Amazon Web Services account 123456789012 and **Mary\_Major**, all of the following are counted as approvals coming from that user:
      + An IAM user in the account \(`arn:aws:iam::123456789012:user/Mary_Major`\)
      + A federated user identified in IAM as Mary\_Major \(`arn:aws:sts::123456789012:federated-user/Mary_Major`\)
 
@@ -72,7 +72,7 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
 
    For more information about IAM ARNs, wildcards, and formats, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns)\.
 
-   The following example creates an approval rule named `Require two approved approvers` for a pull request with the ID of `27`\. The rule specifies two approvals are required from an approval pool\. The pool includes all users who access CodeCommit and assume the role of **CodeCommitReview** in the `123456789012` AWS account\. It also includes either an IAM user or federated user named `Nikhil_Jayashankar` in the same AWS account:
+   The following example creates an approval rule named `Require two approved approvers` for a pull request with the ID of `27`\. The rule specifies two approvals are required from an approval pool\. The pool includes all users who access CodeCommit and assume the role of **CodeCommitReview** in the `123456789012` Amazon Web Services account\. It also includes either an IAM user or federated user named `Nikhil_Jayashankar` in the same Amazon Web Services account:
 
    ```
    aws codecommit create-pull-request-approval-rule --pull-request-id 27 --approval-rule-name "Require two approved approvers" --approval-rule-content "{\"Version\": \"2018-11-08\",\"Statements\": [{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\": 2,\"ApprovalPoolMembers\": [\"CodeCommitApprovers:123456789012:Nikhil_Jayashankar\", \"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]}]}"

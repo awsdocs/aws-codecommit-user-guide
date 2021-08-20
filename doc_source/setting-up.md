@@ -49,8 +49,8 @@ The credential helper included in the AWS CLI allows Git to use HTTPS and a cryp
 + [For HTTPS connections on Linux, macOS, or Unix with the AWS CLI credential helper](setting-up-https-unixes.md): Follow these instructions for a step\-by\-step walkthrough of installing and setting up the credential helper on Linux, macOS, or Unix systems\.
 + [For HTTPS connections on Windows with the AWS CLI credential helper](setting-up-https-windows.md): Follow these instructions for a step\-by\-step walkthrough of installing and setting up the credential helper on Windows systems\.
 
-If you are connecting to a CodeCommit repository that is hosted in another AWS account, you can configure access and set up connections using roles, policies, and the credential helper included in the AWS CLI\.
-+ [Configure cross\-account access to an AWS CodeCommit repository using roles](cross-account.md): Follow these instructions for a step\-by\-step walkthrough of configuring cross\-account access in one AWS account to users in an IAM group in another AWS account\.
+If you are connecting to a CodeCommit repository that is hosted in another Amazon Web Services account, you can configure access and set up connections using roles, policies, and the credential helper included in the AWS CLI\.
++ [Configure cross\-account access to an AWS CodeCommit repository using roles](cross-account.md): Follow these instructions for a step\-by\-step walkthrough of configuring cross\-account access in one Amazon Web Services account to users in an IAM group in another Amazon Web Services account\.
 
 ## Compatibility for CodeCommit, Git, and other components<a name="setting-up-compat"></a>
 

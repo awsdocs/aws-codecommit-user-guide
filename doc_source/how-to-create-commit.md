@@ -183,8 +183,10 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
    For example, to create a commit for a repository that adds a `README.md` file to a repository named *MyDemoRepo* in the *main* branch:
 
    ```
-   aws codecommit create-commit --repository-name MyDemoRepo --branch-name main --put-files "filePath=README.md,fileContent='Welcome to our team repository.'"
+   aws codecommit create-commit --repository-name MyDemoRepo --branch-name main --parent-commit-id 4c925148EXAMPLE --put-files "filePath=README.md,fileContent='Welcome to our team repository.'"
    ```
+**Tip**  
+To get the parent commit ID, run the [get\-branch](how-to-view-branch-details.md#how-to-view-branch-details-cli-details) command\.
 
    If successful, this command returns output similar to the following:
 
@@ -194,7 +196,7 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
        "treeId": "55b57003-EXAMPLE",
        "filesAdded": [
            {
-               "blobId": "5e1c309d-EXAMPLE",
+               "blobId": "5e1c309dEXAMPLE",
                "absolutePath": "meeting.md",
                "fileMode": "NORMAL"
            }

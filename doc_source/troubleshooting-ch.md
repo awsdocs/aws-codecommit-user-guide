@@ -6,10 +6,19 @@ The following information might help you troubleshoot common issues when you use
 Although the credential helper is a supported method for connecting to CodeCommit using federated access, an identity provider, or temporary credentials, the recommended method is to install and use the git\-remote\-codecommit utility\. For more information, see [Setup steps for HTTPS connections to AWS CodeCommit with git\-remote\-codecommit](setting-up-git-remote-codecommit.md)\.
 
 **Topics**
++ [I receive an error when running the `git config` command to configure the credential helper](#troubleshooting-os-syn1)
 + [I get a command not found error in Windows when using the credential helper](#troubleshooting-py3)
 + [I am prompted for a user name when I connect to a CodeCommit repository](#troubleshooting-ae1)
 + [Git for macOS: I configured the credential helper successfully, but now I am denied access to my repository \(403\)](#troubleshooting-macoshttps)
 + [Git for Windows: I installed Git for Windows, but I am denied access to my repository \(403\)](#troubleshooting-windowshttps)
+
+## I receive an error when running the `git config` command to configure the credential helper<a name="troubleshooting-os-syn1"></a>
+
+**Problem:** When you try to run the git config command to configure the credential helper to communicate with a CodeCommit repository, you see an error that there are too few arguments, or a usage prompt suggesting Git config commands and syntax\.
+
+**Possible fixes:** The most common reason for this error is that either single quotes are used for the command on a Windows operating system, or double quotes are used for the command in a Linux, macOS, or Unix operating system\. The correct syntax is as follows:
++ Windows: `git config --global credential.helper "!aws codecommit credential-helper $@"`
++ Linux, macOS, or Unix: `git config --global credential.helper '!aws codecommit credential-helper $@'`
 
 ## I get a command not found error in Windows when using the credential helper<a name="troubleshooting-py3"></a>
 

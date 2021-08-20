@@ -7,8 +7,9 @@ The following information might help you troubleshoot common issues when using S
 + [Access error: Public key is uploaded successfully to IAM and SSH tested successfully but connection fails on Windows systems](#troubleshooting-ae5)
 + [Authentication challenge: Authenticity of host can't be established when connecting to a CodeCommit repository](#troubleshooting-ac1)
 + [IAM error: 'Invalid format' when attempting to add a public key to IAM](#troubleshooting-iam1)
-+ [I need to access CodeCommit repositories in multiple AWS accounts with SSH credentials](#troubleshooting-ssh-multi)
++ [I need to access CodeCommit repositories in multiple Amazon Web Services accounts with SSH credentials](#troubleshooting-ssh-multi)
 + [Git on Windows: Bash emulator or command line freezes when attempting to connect using SSH](#troubleshooting-gw2)
++ [Public key format requires specification in some distributions of Linux](#troubleshooting-os-syn2)
 
 ## Access error: Public key is uploaded successfully to IAM but connection fails on Linux, macOS, or Unix systems<a name="troubleshooting-ae4"></a>
 
@@ -120,6 +121,8 @@ Make sure the fingerprint and public key for CodeCommit connections match those 
 | git\-codecommit\.cn\-northwest\-1\.amazonaws\.com\.cn | SHA256 | wqjd6eHd0\+mOBx\+dCNuL0omUoCNjaDtZiEpWj5TmCfQ | 
 | git\-codecommit\.eu\-south\-1\.amazonaws\.com | MD5 | b9:f6:5d:e2:48:92:3f:a9:37:1e:c4:d0:32:0e:fb:11 | 
 | git\-codecommit\.eu\-south\-1\.amazonaws\.com | SHA256 | lyXrWbCg3uQmJrl1XxB/ASR7ugW1Ysf5yzYOJbudHsI | 
+| git\-codecommit\.ap\-northeast\-3\.amazonaws\.com | MD5 | 25:17:40:da:b9:d4:18:c3:b6:b3:fb:ed:1c:20:fe:29 | 
+| git\-codecommit\.ap\-northeast\-3\.amazonaws\.com | SHA256 | 2B815B9F0AvwLnRxSVxUz4kDYmtEQUGGdQYP8OQLXhA | 
 
 ## IAM error: 'Invalid format' when attempting to add a public key to IAM<a name="troubleshooting-iam1"></a>
 
@@ -131,25 +134,25 @@ Make sure the fingerprint and public key for CodeCommit connections match those 
 
 For more information about the requirements for SSH keys in IAM, see [Use SSH Keys with CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#ssh-keys-code-commit) in the *IAM User Guide*\.
 
-## I need to access CodeCommit repositories in multiple AWS accounts with SSH credentials<a name="troubleshooting-ssh-multi"></a>
+## I need to access CodeCommit repositories in multiple Amazon Web Services accounts with SSH credentials<a name="troubleshooting-ssh-multi"></a>
 
-**Problem:** I want to set up SSH access to CodeCommit repositories in more than one AWS account\.
+**Problem:** I want to set up SSH access to CodeCommit repositories in more than one Amazon Web Services account\.
 
-**Possible fixes:** You can create unique SSH public/private key pairs for each AWS account and configure IAM with each key\. You can then configure your \~/\.ssh/config file with information about each IAM User ID associated with the public key\. For example:
+**Possible fixes:** You can create unique SSH public/private key pairs for each Amazon Web Services account and configure IAM with each key\. You can then configure your \~/\.ssh/config file with information about each IAM User ID associated with the public key\. For example:
 
 ```
 Host codecommit-1
     Hostname git-codecommit.us-east-1.amazonaws.com
-    User SSH-KEY-ID-1 # This is the SSH Key ID you copied from IAM in AWS account 1 (for example, APKAEIBAERJR2EXAMPLE1).
+    User SSH-KEY-ID-1 # This is the SSH Key ID you copied from IAM in Amazon Web Services account 1 (for example, APKAEIBAERJR2EXAMPLE1).
     IdentityFile ~/.ssh/codecommit_rsa # This is the path to the associated public key file, such as id_rsa.  We advise creating CodeCommit specific _rsa files.
  
 Host codecommit-2
     Hostname git-codecommit.us-east-1.amazonaws.com
-    User SSH-KEY-ID-2 # This is the SSH Key ID you copied from IAM in AWS account 2 (for example, APKAEIBAERJR2EXAMPLE2).
+    User SSH-KEY-ID-2 # This is the SSH Key ID you copied from IAM in Amazon Web Services account 2 (for example, APKAEIBAERJR2EXAMPLE2).
     IdentityFile ~/.ssh/codecommit_2_rsa # This is the path to the other associated public key file.  We advise creating CodeCommit specific _rsa files.
 ```
 
-In this configuration, you will be able to replace 'git\-codecommit\.us\-east\-1\.amazonaws\.com' with 'codecommit\-2'\. For example, to clone a repository in your second AWS account:
+In this configuration, you will be able to replace 'git\-codecommit\.us\-east\-1\.amazonaws\.com' with 'codecommit\-2'\. For example, to clone a repository in your second Amazon Web Services account:
 
 ```
 git clone ssh://codecommit-2/v1/repos/YourRepositoryName
@@ -177,3 +180,9 @@ For more examples, see [this forum post](https://forums.aws.amazon.com/thread.js
 + Rename or delete the `GIT_SSH` environment variable if you are no longer using it\. Then open a new command prompt or Bash emulator session, and try your command again\.
 
 For other solutions, see [Git clone/pull continually freezing at Store key in cache](http://stackoverflow.com/questions/33240137/git-clone-pull-continually-freezing-at-store-key-in-cache) on Stack Overflow\. 
+
+## Public key format requires specification in some distributions of Linux<a name="troubleshooting-os-syn2"></a>
+
+**Problem:** When you try to configure a public\-private key pair, you receive an error\.
+
+**Possible fixes:** Some distributions of Linux require an additional line of configuration in the `~/.ssh/config` file that specifies the accepted types of public keys\. For more information, see the documentation for your distribution about `PubkeyAcceptedKeyTypes`\.

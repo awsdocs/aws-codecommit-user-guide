@@ -376,7 +376,7 @@ In this step, you give a user permission to synchronize the shared repo with the
 
 To do this, you use the IAM console to create an IAM user, who, by default, does not have permissions to synchronize the shared repo with the CodeCommit repository\. You can run git pull to verify this\. If the new user doesn't have permission to synchronize, the command doesn't work\. Then you go back to the IAM console and apply a policy that allows the user to use git pull\. Again, you can run git pull to verify this\. 
 
-This step is written with the assumption you have permissions to create IAM users in your AWS account\. If you don't have these permissions, you can't perform the procedures in this step\. Skip ahead to [Step 9: Clean up](#getting-started-clean-up) to clean up the resources you used for your tutorial\.
+This step is written with the assumption you have permissions to create IAM users in your Amazon Web Services account\. If you don't have these permissions, you can't perform the procedures in this step\. Skip ahead to [Step 9: Clean up](#getting-started-clean-up) to clean up the resources you used for your tutorial\.
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 

@@ -40,7 +40,7 @@ Although Git supports a variety of connection protocols, CodeCommit does not sup
 
 ## Create IAM policies for your repository<a name="how-to-share-repo-create-policy"></a>
 
-AWS provides three managed policies in IAM for CodeCommit\. These policies cannot be edited and apply to all repositories associated with your AWS account\. However, you can use these policies as templates to create your own custom managed policies that apply only to the repository you want to share\. Your customer managed policy can apply specifically to the repository you want to share\. For more information, see [Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_managed-vs-inline.html#aws-managed-policies) and [IAM Users and Groups](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html)\. 
+AWS provides three managed policies in IAM for CodeCommit\. These policies cannot be edited and apply to all repositories associated with your Amazon Web Services account\. However, you can use these policies as templates to create your own custom managed policies that apply only to the repository you want to share\. Your customer managed policy can apply specifically to the repository you want to share\. For more information, see [Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_managed-vs-inline.html#aws-managed-policies) and [IAM Users and Groups](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html)\. 
 
 **Tip**  
 For more fine\-grained control over access to your repository, you can create more than one customer managed policy and apply the policies to different IAM users and groups\.
@@ -94,15 +94,15 @@ If you use SSH, you must attach another managed policy to the IAMUserSSHKeys gro
 
 1. On the **Set Group Name** page, in **Group Name**, enter a name for the group \(for example, *MyDemoRepoGroup*\), and then choose **Next Step**\. Consider including the repository name as part of the group name\.
 **Note**  
-This name must be unique across an AWS account\.
+This name must be unique across an Amazon Web Services account\.
 
 1. Select the box next to the customer managed policy you created in the previous section \(for example, **AWSCodeCommitPowerUser\-MyDemoRepo**\)\. 
 
-1. On the **Review** page, choose **Create Group**\. IAM creates this group with the specified policies already attached\. The group appears in the list of groups associated with your AWS account\.
+1. On the **Review** page, choose **Create Group**\. IAM creates this group with the specified policies already attached\. The group appears in the list of groups associated with your Amazon Web Services account\.
 
 1. Choose your group from the list\. 
 
-1. On the group summary page, choose the **Users** tab, and then choose **Add Users to Group**\. On the list that shows all users associated with your AWS account, select the boxes next to the users to whom you want to allow access to the CodeCommit repository, and then choose **Add Users**\.
+1. On the group summary page, choose the **Users** tab, and then choose **Add Users to Group**\. On the list that shows all users associated with your Amazon Web Services account, select the boxes next to the users to whom you want to allow access to the CodeCommit repository, and then choose **Add Users**\.
 **Tip**  
 You can use the Search box to quickly find users by name\.
 

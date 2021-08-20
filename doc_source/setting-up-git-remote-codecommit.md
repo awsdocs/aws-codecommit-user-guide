@@ -7,7 +7,7 @@ You can also use git\-remote\-codecommit with an IAM user\. Unlike other HTTPS c
 **Note**  
 Some IDEs do not support the clone URL format used by `git-remote-codecommit`\. You might have to manually clone repositories to your local computer before you can work with them in your preferred IDE\. For more information, see [Troubleshooting git\-remote\-codecommit and AWS CodeCommit](troubleshooting-grc.md)\.
 
-These procedures are written with the assumption that you have an AWS account, have created at least one repository in CodeCommit, and use an IAM user with a managed policy when connecting to CodeCommit repositories\. For information about how to configure access for federated users and other rotating credential types, see [Connecting to AWS CodeCommit repositories with rotating credentials](temporary-access.md)\.
+These procedures are written with the assumption that you have an Amazon Web Services account, have created at least one repository in CodeCommit, and use an IAM user with a managed policy when connecting to CodeCommit repositories\. For information about how to configure access for federated users and other rotating credential types, see [Connecting to AWS CodeCommit repositories with rotating credentials](temporary-access.md)\.
 
 **Topics**
 + [Step 0: Install prerequisites for git\-remote\-codecommit](#setting-up-git-remote-codecommit-prereq)
@@ -51,9 +51,9 @@ Follow these steps to create an IAM user, configure it with the appropriate poli
 
 **To create and configure an IAM user for accessing CodeCommit**
 
-1. Create an AWS account by going to [http://aws\.amazon\.com](http://aws.amazon.com) and choosing **Sign Up**\.
+1. Create an Amazon Web Services account by going to [http://aws\.amazon\.com](http://aws.amazon.com) and choosing **Sign Up**\.
 
-1. Create an IAM user, or use an existing one, in your AWS account\. Make sure you have an access key ID and a secret access key associated with that IAM user\. For more information, see [Creating an IAM User in Your AWS Account](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SettingUpUser.html)\.
+1. Create an IAM user, or use an existing one, in your Amazon Web Services account\. Make sure you have an access key ID and a secret access key associated with that IAM user\. For more information, see [Creating an IAM User in Your Amazon Web Services account](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SettingUpUser.html)\.
 **Note**  
 CodeCommit requires AWS Key Management Service\. If you are using an existing IAM user, make sure there are no policies attached to the user that expressly deny the AWS KMS actions required by CodeCommit\. For more information, see [AWS KMS and encryption](encryption.md)\.
 
@@ -65,7 +65,7 @@ CodeCommit requires AWS Key Management Service\. If you are using an existing IA
 
 1. In **Grant permissions**, choose **Attach existing policies directly**\.
 
-1. From the list of policies, select **AWSCodeCommitPowerUser** or another managed policy for CodeCommit access\. For more information, see [AWS managed \(predefined\) policies for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md#managed-policies)\.
+1. From the list of policies, select **AWSCodeCommitPowerUser** or another managed policy for CodeCommit access\. For more information, see [AWS managed policies for CodeCommit](security-iam-awsmanpol.md)\.
 
    After you have selected the policy you want to attach, choose **Next: Review** to review the list of policies to attach to the IAM user\. If the list is correct, choose **Add permissions**\.
 
@@ -132,8 +132,9 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
    + cn\-north\-1
    + cn\-northwest\-1
    + eu\-south\-1
+   + ap\-northeast\-3
 
-   For more information about CodeCommit and AWS Regions, see [Regions and Git connection endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\. For more information about the AWS CLI and profiles, see [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)\.
+   For more information about CodeCommit and AWS Region, see [Regions and Git connection endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\. For more information about the AWS CLI and profiles, see [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)\.
 
 ## Step 2: Install git\-remote\-codecommit<a name="setting-up-git-remote-codecommit-install"></a>
 

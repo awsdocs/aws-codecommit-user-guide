@@ -8,7 +8,7 @@ To access the repository in AccountA, users in the AccountB group must configure
 
 ## Step 1: Configure the AWS CLI and Git for an AccountB user to access the repository in AccountA<a name="cross-account-configure-credentials"></a>
 
-You cannot use SSH keys or Git credentials to access repositories in another AWS account\. AccountB users must configure their computers to use either git\-remote\-codecommit \(recommended\) or the credential helper to access the shared CodeCommit repository in AccountA\. However, you can continue to use SSH keys or Git credentials when accessing repositories in AccountB\.
+You cannot use SSH keys or Git credentials to access repositories in another Amazon Web Services account\. AccountB users must configure their computers to use either git\-remote\-codecommit \(recommended\) or the credential helper to access the shared CodeCommit repository in AccountA\. However, you can continue to use SSH keys or Git credentials when accessing repositories in AccountB\.
 
 Follow these steps to configure access using git\-remote\-codecommit\. If you have not already installed git\-remote\-codecommit, download it from [git\-remote\-codecommit ](https://pypi.org/project/git-remote-codecommit/)on the Python Package Index website\.<a name="cross-account-configure-cli-git"></a>
 
@@ -92,7 +92,7 @@ If you have already installed the AWS CLI and configured a profile, you can skip
    output = json
    ```
 
-   Add `account`, `role_arn` and `source_profile` to the profile configuration\. Provide the AWS account ID of AccountA, the ARN of the role in AccountA that you assume to access the repository in the other account, and the name of your default AWS CLI profile in AccountB\. For example:
+   Add `account`, `role_arn` and `source_profile` to the profile configuration\. Provide the Amazon Web Services account ID of AccountA, the ARN of the role in AccountA that you assume to access the repository in the other account, and the name of your default AWS CLI profile in AccountB\. For example:
 
    ```
    [profile MyCrossAccountAccessProfile]

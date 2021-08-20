@@ -29,7 +29,7 @@ The following information might help you troubleshoot access errors when connect
 
 **Problem:** When you try to communicate with a CodeCommit repository, a message appears that says “Rate Exceeded” or with an error code of “429”\. Communication either slows significantly or fails\. 
 
-**Cause:** All calls to CodeCommit, whether from an application, the AWS CLI, a Git client, or the AWS Management Console, are subject to a maximum number of requests per second and overall active requests\. You cannot exceed the maximum allowed request rate for an AWS account in any AWS Region\. If requests exceed the maximum rate, you receive an error and further calls are temporarily throttled for your AWS account\. During the throttling period, your connections to CodeCommit are slowed and might fail\.
+**Cause:** All calls to CodeCommit, whether from an application, the AWS CLI, a Git client, or the AWS Management Console, are subject to a maximum number of requests per second and overall active requests\. You cannot exceed the maximum allowed request rate for an Amazon Web Services account in any AWS Region\. If requests exceed the maximum rate, you receive an error and further calls are temporarily throttled for your Amazon Web Services account\. During the throttling period, your connections to CodeCommit are slowed and might fail\.
 
 **Possible fixes:** Take steps to reduce the number of connections or calls to CodeCommit or to spread out requests\. Some approaches to consider:
 + **Implement jitter in requests, particularly in periodic polling requests**
@@ -43,5 +43,5 @@ The following information might help you troubleshoot access errors when connect
   Error retries and exponential backoffs can help limit the rate of calls\. Each AWS SDK implements automatic retry logic and exponential backoff algorithms\. For automated Git push and Git pull, you might need to implement your own retry logic\. For more information, see [Error Retries and Exponential Backoff in AWS](https://docs.aws.amazon.com/general/latest/gr/api-retries.html)\.
 + **Request a CodeCommit service quota increase in the AWS Support Center**
 
-  To receive a service limit increase, you must confirm that you have already followed the suggestions offered here, including implementation of error retries or exponential backoff methods\. In your request, you must also provide the AWS Region, AWS account, and timeframe affected by the throttling issues\. 
+  To receive a service limit increase, you must confirm that you have already followed the suggestions offered here, including implementation of error retries or exponential backoff methods\. In your request, you must also provide the AWS Region, Amazon Web Services account, and timeframe affected by the throttling issues\. 
 

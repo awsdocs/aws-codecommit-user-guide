@@ -12,7 +12,7 @@ To complete some of the procedures in this topic, you must sign in with an admin
 
 ## Configure an IAM policy to limit pushes and merges to a branch<a name="how-to-conditional-branch-create-policy"></a>
 
-You can create a policy in IAM that prevents users from updating a branch, including pushing commits to a branch and merging pull requests to a branch\. To do this, your policy uses a conditional statement, so that the effect of the `Deny` statement applies only if the condition is met\. The APIs you include in the `Deny` statement determine which actions are not allowed\. You can configure this policy to apply to only one branch in a repository, a number of branches in a repository, or to all branches that match the criteria across all repositories in an AWS account\. <a name="how-to-conditional-branch-create-policy-procedure"></a>
+You can create a policy in IAM that prevents users from updating a branch, including pushing commits to a branch and merging pull requests to a branch\. To do this, your policy uses a conditional statement, so that the effect of the `Deny` statement applies only if the condition is met\. The APIs you include in the `Deny` statement determine which actions are not allowed\. You can configure this policy to apply to only one branch in a repository, a number of branches in a repository, or to all branches that match the criteria across all repositories in an Amazon Web Services account\. <a name="how-to-conditional-branch-create-policy-procedure"></a>
 
 **To create a conditional policy for branches**
 
@@ -60,7 +60,7 @@ You can create a policy in IAM that prevents users from updating a branch, inclu
 
    Branches in Git are simply pointers \(references\) to the SHA\-1 value of the head commit, which is why the condition uses `References`\. The `Null` statement is required in any policy whose effect is `Deny` and where `GitPush` is one of the actions\. This is required because of the way Git and `git-receive-pack` work when pushing changes from a local repo to CodeCommit\.
 **Tip**  
-To create a policy that applies to all branches named main in all repositories in an AWS account, change the value of `Resource` from a repository ARN to an asterisk \(`*`\)\. 
+To create a policy that applies to all branches named main in all repositories in an Amazon Web Services account, change the value of `Resource` from a repository ARN to an asterisk \(`*`\)\. 
 
 1. Choose **Review policy**\. Correct any errors in your policy statement, and then continue to **Create policy**\.
 

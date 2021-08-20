@@ -30,6 +30,7 @@ CodeCommit currently supports VPC endpoints in the following AWS Regions:
 + Asia Pacific \(Singapore\)
 + Asia Pacific \(Sydney\)
 + Asia Pacific \(Seoul\)
++ Asia Pacific \(Osaka\)
 + Asia Pacific \(Mumbai\)
 + Asia Pacific \(Hong Kong\)
 + South America \(São Paulo\)
@@ -55,7 +56,7 @@ You can create a policy for Amazon VPC endpoints for CodeCommit in which you can
 + The actions that can be performed\.
 + The resources that can have actions performed on them\.
 
-For example, a company might want to restrict access to repositories to the network address range for a VPC\. You can view an example of this kind of policy here: [Example 3: Allow a user connecting from a specified IP address range access to a repository ](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-3)\. The company configured two Git VPC endpoints for the US East \(Ohio\) region: `com.amazonaws.us-east-2.codecommit` and `com-amazonaws.us-east-2.git-codecommit-fips`\. They want to allow code pushes to a CodeCommit repository named *MyDemoRepo* only on the FIPS\-compliant endpoint only\. To enforce this, they would configure a policy similar to the following on the `com.amazonaws.us-east-2.codecommit` endpoint that specifically denies Git push actions:
+For example, a company might want to restrict access to repositories to the network address range for a VPC\. You can view an example of this kind of policy here: [Example 3: Allow a user connecting from a specified IP address range access to a repository ](customer-managed-policies.md#identity-based-policies-example-3)\. The company configured two Git VPC endpoints for the US East \(Ohio\) region: `com.amazonaws.us-east-2.codecommit` and `com-amazonaws.us-east-2.git-codecommit-fips`\. They want to allow code pushes to a CodeCommit repository named *MyDemoRepo* only on the FIPS\-compliant endpoint only\. To enforce this, they would configure a policy similar to the following on the `com.amazonaws.us-east-2.codecommit` endpoint that specifically denies Git push actions:
 
 ```
 {

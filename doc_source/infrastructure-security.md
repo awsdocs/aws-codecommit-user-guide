@@ -9,6 +9,6 @@ Requests must be signed by using an access key ID and a secret access key that i
 You can call these API operations from any network location, but CodeCommit does support restrictions based on the source IP address\. You can also use CodeCommit policies to control access from specific Amazon Virtual Private Cloud \(Amazon VPC\) endpoints or specific VPCs\. Effectively, this isolates network access to a given CodeCommit resource from only the specific VPC in the AWS network\.
 
 For more information, see the following:
-+ [Example 1: Allow a user to perform CodeCommit operations in a single AWS Region](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-1)
-+ [Example 3: Allow a user connecting from a specified IP address range access to a repository ](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-3)
++ [Example 1: Allow a user to perform CodeCommit operations in a single AWS Region](customer-managed-policies.md#identity-based-policies-example-1)
++ [Example 3: Allow a user connecting from a specified IP address range access to a repository ](customer-managed-policies.md#identity-based-policies-example-3)
 + [Using AWS CodeCommit with interface VPC endpoints](codecommit-and-interface-VPC.md)

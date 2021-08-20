@@ -23,8 +23,8 @@ If you create a trigger in CodeCommit that invokes a Lambda function, you must m
        "StatementId": "1", 
        "Action": "lambda:InvokeFunction", 
        "Principal": "codecommit.amazonaws.com", 
-       "SourceArn": "arn:aws:codecommit:us-east-1:80398EXAMPLE:MyDemoRepo", 
-       "SourceAccount": "80398EXAMPLE"
+       "SourceArn": "arn:aws:codecommit:us-east-1:111122223333:MyDemoRepo", 
+       "SourceAccount": "111122223333"
    }
    ```
 
@@ -40,7 +40,7 @@ If you create a trigger in CodeCommit that invokes a Lambda function, you must m
 
    ```
    {
-       "Statement": "{\"Condition\":{\"StringEquals\":{\"AWS:SourceAccount\":\"80398EXAMPLE\"},\"ArnLike\":{\"AWS:SourceArn\":\"arn:aws:codecommit:us-east-1:80398EXAMPLE:MyDemoRepo\"}},\"Action\":[\"lambda:InvokeFunction\"],\"Resource\":\"arn:aws:lambda:us-east-1:80398EXAMPLE:function:MyCodeCommitFunction\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"codecommit.amazonaws.com\"},\"Sid\":\"1\"}"
+       "Statement": "{\"Condition\":{\"StringEquals\":{\"AWS:SourceAccount\":\"111122223333\"},\"ArnLike\":{\"AWS:SourceArn\":\"arn:aws:codecommit:us-east-1:111122223333:MyDemoRepo\"}},\"Action\":[\"lambda:InvokeFunction\"],\"Resource\":\"arn:aws:lambda:us-east-1:111122223333:function:MyCodeCommitFunction\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"codecommit.amazonaws.com\"},\"Sid\":\"1\"}"
    }
    ```
 
@@ -58,7 +58,7 @@ If you create a trigger in CodeCommit that invokes a Lambda function, you must m
    + In **Effect**, choose **Allow**\.
    + In **AWS Service**, choose **AWS CodeCommit**\.
    + In **Actions**, select **GetRepository**\.
-   + In **Amazon Resource Name \(ARN\)**, enter the ARN for the repository \(for example, `arn:aws:codecommit:us-east-1:80398EXAMPLE:MyDemoRepo`\)\.
+   + In **Amazon Resource Name \(ARN\)**, enter the ARN for the repository \(for example, `arn:aws:codecommit:us-east-1:111122223333:MyDemoRepo`\)\.
 
    Choose **Add Statement**, and then choose **Next Step**\.
 
@@ -77,7 +77,7 @@ If you create a trigger in CodeCommit that invokes a Lambda function, you must m
                    "codecommit:GetRepository"
                ],
                "Resource": [
-                   "arn:aws:codecommit:us-east-1:80398EXAMPLE:MyDemoRepo"
+                   "arn:aws:codecommit:us-east-1:111122223333:MyDemoRepo"
                ]
            }
        ]
@@ -140,7 +140,7 @@ You can also use the command line to create a trigger for a Lambda function in r
        "triggers": [
            {
                "name": "MyLambdaFunctionTrigger",
-               "destinationArn": "arn:aws:lambda:us-east-1:80398EXAMPLE:function:MyCodeCommitFunction",
+               "destinationArn": "arn:aws:lambda:us-east-1:111122223333:function:MyCodeCommitFunction",
                "customData": "",
                "branches": [
                    "main", "preprod"
@@ -163,7 +163,7 @@ You can also use the command line to create a trigger for a Lambda function in r
        "triggers": [
            {
                "name": "MyLambdaFunctionTrigger",
-               "destinationArn": "arn:aws:lambda:us-east-1:80398EXAMPLE:function:MyCodeCommitFunction",
+               "destinationArn": "arn:aws:lambda:us-east-1:111122223333:function:MyCodeCommitFunction",
                "customData": "",
                "branches": [
                    "main", "preprod"
@@ -174,7 +174,7 @@ You can also use the command line to create a trigger for a Lambda function in r
            },
            {
                "name": "MyOtherLambdaFunctionTrigger",
-               "destinationArn": "arn:aws:lambda:us-east-1:80398EXAMPLE:function:MyOtherCodeCommitFunction",
+               "destinationArn": "arn:aws:lambda:us-east-1:111122223333:function:MyOtherCodeCommitFunction",
                "customData": "",
                "branches": [],
                "events": [
@@ -216,7 +216,7 @@ You can use more than one event type in a trigger\. However, if you specify `all
 
 1. At a terminal or command prompt, run the put\-repository\-triggers command to create the trigger in CodeCommit\. For example, to use a JSON file named *trigger\.json* to create the trigger:
 
-   **aws codecommit put\-repository\-triggers \-\-cli\-input\-json file://*trigger\.json***
+   `aws codecommit put-repository-triggers --cli-input-json file://trigger.json`
 
    This command returns a configuration ID, similar to the following:
 
@@ -228,7 +228,7 @@ You can use more than one event type in a trigger\. However, if you specify `all
 
 1. To view the configuration of the trigger, run the get\-repository\-triggers command, specifying the name of the repository:
 
-   **aws codecommit get\-repository\-triggers \-\-repository\-name *MyDemoRepo***
+   `aws codecommit get-repository-triggers --repository-name MyDemoRepo`
 
    This command returns the structure of all triggers configured for the repository, similar to the following:
 
@@ -240,7 +240,7 @@ You can use more than one event type in a trigger\. However, if you specify `all
                "events": [
                    "all"
                ],
-               "destinationArn": "arn:aws:lambda:us-east-1:80398EXAMPLE:MyCodeCommitFunction",
+               "destinationArn": "arn:aws:lambda:us-east-1:111122223333:MyCodeCommitFunction",
                "branches": [
                    "main",
                    "preprod"

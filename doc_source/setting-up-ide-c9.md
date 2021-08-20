@@ -7,7 +7,7 @@ To use AWS Cloud9 with CodeCommit, you need the following:
 + The AWS Cloud9 IDE open in a web browser\.
 + An IAM user with one of the CodeCommit managed policies and one of the AWS Cloud9 managed policies applied to it\.
 
-  For more information, see [AWS managed \(predefined\) policies for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md#managed-policies) and [Understanding and Getting Your Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)\.
+  For more information, see [AWS managed policies for CodeCommit](security-iam-awsmanpol.md) and [Understanding and Getting Your Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)\.
 
 **Topics**
 + [Step 1: Create an AWS Cloud9 development environment](#setting-up-ide-c9-connect)
@@ -30,7 +30,7 @@ AWS Cloud9 hosts your development environment on an Amazon EC2 instance\. This i
 1. In **Step 2: Configure Settings**, configure your environment as follows:
    + In **Environment type**, choose **Create a new instance for environment \(EC2\)**\.
    + In **Instance type**, choose the appropriate instance type for your development environment\. For example, if you're just exploring the service, you might choose the default of t2\.micro\. If you intend to use this environment for development work, choose a larger instance type\.
-   + Accept the other default settings unless you have reasons to choose otherwise \(for example, your organization uses a specific VPC, or your AWS account does not have any VPCs configured\), and then choose **Next step**\.
+   + Accept the other default settings unless you have reasons to choose otherwise \(for example, your organization uses a specific VPC, or your Amazon Web Services account does not have any VPCs configured\), and then choose **Next step**\.
 
 1. In **Step 3: Review**, review your settings\. Choose **Previous step** if you want to make any changes\. If not, choose **Create environment**\.
 

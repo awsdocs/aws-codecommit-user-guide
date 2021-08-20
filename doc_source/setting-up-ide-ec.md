@@ -12,7 +12,7 @@ To use Toolkit for Eclipse with CodeCommit, you need the following:
 
   If the IAM user already has Git credentials configured, one of the CodeCommit managed policies or equivalent permissions\.
 
-  For more information, see [AWS managed \(predefined\) policies for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md#managed-policies) and [Understanding and Getting Your Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)\.
+  For more information, see [AWS managed policies for CodeCommit](security-iam-awsmanpol.md) and [Understanding and Getting Your Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)\.
 + An active set of Git credentials configured for the user in IAM\. For more information, see [Step 3: Create Git credentials for HTTPS connections to CodeCommit](setting-up-gc.md#setting-up-gc-iam)\.
 
 **Topics**
@@ -28,7 +28,7 @@ If you do not already have a credential profile set up on the computer where Ecl
 
 Access keys consist of an access key ID and secret access key, which are used to sign programmatic requests that you make to AWS\. If you don't have access keys, you can create them from the AWS Management Console\. As a best practice, do not use the AWS account root user access keys for any task where it's not required\. Instead, [create a new administrator IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) with access keys for yourself\.
 
-The only time that you can view or download the secret access key is when you create the keys\. You cannot recover them later\. However, you can create new access keys at any time\. You must also have permissions to perform the required IAM actions\. For more information, see [Permissions Required to Access IAM Resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_permissions-required.html) in the *IAM User Guide*\.
+The only time that you can view or download the secret access key is when you create the keys\. You cannot recover them later\. However, you can create new access keys at any time\. You must also have permissions to perform the required IAM actions\. For more information, see [Permissions required to access IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_permissions-required.html) in the *IAM User Guide*\.
 
 **To create access keys for an IAM user**
 
@@ -51,8 +51,8 @@ The only time that you can view or download the secret access key is when you cr
 1. After you download the `.csv` file, choose **Close**\. When you create an access key, the key pair is active by default, and you can use the pair right away\.
 
 **Related topics**
-+ [What Is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*
-+ [AWS Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) in *AWS General Reference* 
++ [What is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*
++ [AWS security credentials](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) in *AWS General Reference* 
 
 ## Step 2: Install AWS Toolkit for Eclipse and connect to CodeCommit<a name="setting-up-ide-ec-connect"></a>
 
@@ -98,7 +98,7 @@ You can create CodeCommit repositories from Eclipse with the Toolkit for Eclipse
 **Note**  
 Repositories are region\-specific\. Before you create the repository, make sure you have selected the correct AWS Region\. You cannot choose the AWS Region after you have started the repository creation process\.
 
-1. In **Repository Name**, enter a name for this repository\. Repository names must be unique within an AWS account\. There are character and length limits\. For more information, see [Quotas](limits.md)\. In **Repository Description**, enter an optional description for this repository\. This helps others understand what this repository is for, and helps distinguish it from other repositories in the region\. Choose **OK**\.
+1. In **Repository Name**, enter a name for this repository\. Repository names must be unique within an Amazon Web Services account\. There are character and length limits\. For more information, see [Quotas](limits.md)\. In **Repository Description**, enter an optional description for this repository\. This helps others understand what this repository is for, and helps distinguish it from other repositories in the region\. Choose **OK**\.
 
 1. In AWS Explorer, expand **AWS CodeCommit**, and then choose the CodeCommit repository you just created\. You see that this repository has no commit history\. Choose **Check out**, and follow the instructions to clone the repository to your local computer\.
 

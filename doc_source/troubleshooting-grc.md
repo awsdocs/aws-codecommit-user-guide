@@ -20,7 +20,11 @@ For more information about setting up and using git\-remote\-codecommit, see [Se
 
 **Problem:** When you try to use git\-remote\-codecommit, you see an error stating "fatal: Unable to find remote helper for 'codecommit'"\.
 
-**Possible fixes:** The most common reason for this error is that the setup is not complete for git\-remote\-codecommit, Python is not in your path, or you are using a terminal or command line window that has not been restarted since the installation of git\-remote\-codecommit completed\.
+**Possible fixes:** The most common reasons for this error are:
++ The setup is not complete for git\-remote\-codecommit
++ You have installed git\-remote\-codecommit in a location that is not in your path or not configured as part of the `Path` environment variable
++ Python is not in your path or not configured as part of the `Path` environment variable
++ You are using a terminal or command line window that has not been restarted since the installation of git\-remote\-codecommit completed
 
 For more information about setting up and using git\-remote\-codecommit, see [Setup steps for HTTPS connections to AWS CodeCommit with git\-remote\-codecommit](setting-up-git-remote-codecommit.md)\.
 

@@ -59,7 +59,7 @@ Amazon SNS FIFO \(first in, first out\) topics are not supported for CodeCommit 
        "triggers": [
            {
                "name": "MyFirstTrigger",
-               "destinationArn": "arn:aws:sns:us-east-2:80398EXAMPLE:MySNSTopic",
+               "destinationArn": "arn:aws:sns:us-east-2:111122223333:MySNSTopic",
                "customData": "",
                "branches": [
                    "main", "preprod"
@@ -82,7 +82,7 @@ Amazon SNS FIFO \(first in, first out\) topics are not supported for CodeCommit 
        "triggers": [
            {
                "name": "MyFirstTrigger",
-               "destinationArn": "arn:aws:sns:us-east-2:80398EXAMPLE:MySNSTopic",
+               "destinationArn": "arn:aws:sns:us-east-2:111122223333:MySNSTopic",
                "customData": "",
                "branches": [
                    "main", "preprod"
@@ -93,7 +93,7 @@ Amazon SNS FIFO \(first in, first out\) topics are not supported for CodeCommit 
            },
            {
                "name": "MySecondTrigger",
-               "destinationArn": "arn:aws:sns:us-east-2:80398EXAMPLE:MySNSTopic2",
+               "destinationArn": "arn:aws:sns:us-east-2:111122223333:MySNSTopic2",
                "customData": "",
                "branches": [],
                "events": [
@@ -135,7 +135,7 @@ You can use more than one event type in a trigger\. However, if you specify `all
 
 1. At a terminal or command prompt, run the put\-repository\-triggers command to create the trigger in CodeCommit\. For example, to use a JSON file named *trigger\.json* to create the trigger:
 
-   **aws codecommit put\-repository\-triggers \-\-cli\-input\-json file://*trigger\.json***
+   `aws codecommit put-repository-triggers --cli-input-json file://trigger.json`
 
    This command returns a [configuration ID](https://docs.aws.amazon.com/codecommit/latest/APIReference/API_PutRepositoryTriggers.html#-PutRepositoryTriggers-response-configurationId), similar to the following:
 
@@ -147,7 +147,7 @@ You can use more than one event type in a trigger\. However, if you specify `all
 
 1. To view the configuration of the trigger, run the get\-repository\-triggers command, specifying the name of the repository:
 
-   **aws codecommit get\-repository\-triggers \-\-repository\-name *MyDemoRepo***
+   `aws codecommit get-repository-triggers --repository-name MyDemoRepo`
 
    This command returns the structure of all triggers configured for the repository, similar to the following:
 
@@ -159,7 +159,7 @@ You can use more than one event type in a trigger\. However, if you specify `all
                "events": [
                    "all"
                ],
-               "destinationArn": "arn:aws:sns:us-east-2:80398EXAMPLE:MySNSTopic",
+               "destinationArn": "arn:aws:sns:us-east-2:111122223333:MySNSTopic",
                "branches": [
                    "main",
                    "preprod"
@@ -197,14 +197,14 @@ You can use more than one event type in a trigger\. However, if you specify `all
            "eventName":"ReferenceChange",
            "eventPartNumber":1,
            "eventSource":"aws:codecommit",
-           "eventSourceARN":"arn:aws:codecommit:us-east-2:80398EXAMPLE:MyDemoRepo",
+           "eventSourceARN":"arn:aws:codecommit:us-east-2:111122223333:MyDemoRepo",
            "eventTime":"2016-02-09T00:08:11.743+0000",
            "eventTotalParts":1,
            "eventTriggerConfigId":"0123456-I-AM-AN-EXAMPLE",
            "eventTriggerName":"MyFirstTrigger",
            "eventVersion":"1.0",
            "customData":"Project ID 12345", 
-           "userIdentityARN":"arn:aws:iam::80398EXAMPLE:user/JaneDoe-CodeCommit",
+           "userIdentityARN":"arn:aws:iam::111122223333:user/JaneDoe-CodeCommit",
         }
      ]
    }

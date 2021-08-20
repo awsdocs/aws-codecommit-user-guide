@@ -40,7 +40,7 @@ If you configured one or more triggers for your repository, deleting the reposit
        "repositoryName": "MyDemoRepo", 
        "triggers": [
            {
-               "destinationArn": "arn:aws:sns:us-east-2:80398EXAMPLE:MyCodeCommitTopic", 
+               "destinationArn": "arn:aws:sns:us-east-2:111122223333:MyCodeCommitTopic", 
                "branches": [
                    "main", 
                    "preprod"
@@ -52,7 +52,7 @@ If you configured one or more triggers for your repository, deleting the reposit
                ]
            }, 
            {
-               "destinationArn": "arn:aws:lambda:us-east-2:80398EXAMPLE:function:MyCodeCommitJSFunction", 
+               "destinationArn": "arn:aws:lambda:us-east-2:111122223333:function:MyCodeCommitJSFunction", 
                "branches": [], 
                "name": "MyLambdaTrigger", 
                "events": [

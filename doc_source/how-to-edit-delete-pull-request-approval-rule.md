@@ -54,7 +54,7 @@ You might also be interested in the following commands:
    + The name of the approval rule \(with the \-\-approval\-rule\-name option\)\.
    + The content of the approval rule \(with the \-\-approval\-rule\-content option\)\.
 
-   This example updates an approval rule named *Require two approved approvers* for a pull request with the ID of *27*\. The rule requires one user approval from an approval pool that includes any IAM user in the *123456789012* AWS account:
+   This example updates an approval rule named *Require two approved approvers* for a pull request with the ID of *27*\. The rule requires one user approval from an approval pool that includes any IAM user in the *123456789012* Amazon Web Services account:
 
    ```
    aws codecommit update-pull-request-approval-rule-content --pull-request-id 27 --approval-rule-name "Require two approved approvers" --approval-rule-content "{Version: 2018-11-08, Statements: [{Type: \"Approvers\", NumberOfApprovalsNeeded: 1, ApprovalPoolMembers:[\"CodeCommitApprovers:123456789012:user/*\"]}]}}"

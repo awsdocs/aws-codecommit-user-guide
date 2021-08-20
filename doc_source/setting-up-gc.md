@@ -7,13 +7,13 @@ If you have previously configured your local computer to use the credential help
 
 ## Step 1: Initial configuration for CodeCommit<a name="setting-up-gc-account"></a>
 
-Follow these steps to set up an AWS account, create an IAM user, and configure access to CodeCommit\. 
+Follow these steps to set up an Amazon Web Services account, create an IAM user, and configure access to CodeCommit\. 
 
 **To create and configure an IAM user for accessing CodeCommit**
 
-1. Create an AWS account by going to [http://aws\.amazon\.com](http://aws.amazon.com) and choosing **Sign Up**\.
+1. Create an Amazon Web Services account by going to [http://aws\.amazon\.com](http://aws.amazon.com) and choosing **Sign Up**\.
 
-1. Create an IAM user, or use an existing one, in your AWS account\. Make sure you have an access key ID and a secret access key associated with that IAM user\. For more information, see [Creating an IAM User in Your AWS Account](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SettingUpUser.html)\.
+1. Create an IAM user, or use an existing one, in your Amazon Web Services account\. Make sure you have an access key ID and a secret access key associated with that IAM user\. For more information, see [Creating an IAM User in Your Amazon Web Services account](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SettingUpUser.html)\.
 **Note**  
 CodeCommit requires AWS Key Management Service\. If you are using an existing IAM user, make sure there are no policies attached to the user that expressly deny the AWS KMS actions required by CodeCommit\. For more information, see [AWS KMS and encryption](encryption.md)\.
 
@@ -25,7 +25,7 @@ CodeCommit requires AWS Key Management Service\. If you are using an existing IA
 
 1. In **Grant permissions**, choose **Attach existing policies directly**\.
 
-1. From the list of policies, select **AWSCodeCommitPowerUser** or another managed policy for CodeCommit access\. For more information, see [AWS managed \(predefined\) policies for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md#managed-policies)\.
+1. From the list of policies, select **AWSCodeCommitPowerUser** or another managed policy for CodeCommit access\. For more information, see [AWS managed policies for CodeCommit](security-iam-awsmanpol.md)\.
 
    After you have selected the policy you want to attach, choose **Next: Review** to review the list of policies to attach to the IAM user\. If the list is correct, choose **Add permissions**\.
 

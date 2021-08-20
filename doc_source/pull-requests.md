@@ -24,7 +24,7 @@ Before you create a pull request:
 + Set up notifications for your repository, so other users can be notified about the pull request and changes to it\. \(This step is optional, but recommended\.\)
 + Create and associate approval rule templates with your repository, so that approval rules are automatically created for pull requests to help ensure code quality\. For more information, see [Working with approval rule templates](approval-rule-templates.md)\.
 
-Pull requests are more effective when you've set up IAM users for your repository users in your AWS account\. It's easier to identify which user made which comment\. The other advantage is that IAM users can use Git credentials for repository access\. For more information, see [Step 1: Initial configuration for CodeCommit](setting-up-gc.md#setting-up-gc-account)\. You can use pull requests with other kinds of users, including federated access users\.
+Pull requests are more effective when you've set up IAM users for your repository users in your Amazon Web Services account\. It's easier to identify which user made which comment\. The other advantage is that IAM users can use Git credentials for repository access\. For more information, see [Step 1: Initial configuration for CodeCommit](setting-up-gc.md#setting-up-gc-account)\. You can use pull requests with other kinds of users, including federated access users\.
 
 For information about working with other aspects of your repository in CodeCommit, see [Working with repositories](repositories.md), [Working with approval rule templates](approval-rule-templates.md), [Working with files](files.md), [Working with commits](commits.md), [Working with branches](branches.md), and [Working with user preferences](user-preferences.md)\. 
 

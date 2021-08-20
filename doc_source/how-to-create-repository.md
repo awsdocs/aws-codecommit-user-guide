@@ -23,7 +23,7 @@ Depending on your usage, you might be charged for creating or accessing a reposi
 
 1. On the **Create repository** page, in **Repository name**, enter a name for the repository\.
 **Note**  
-Repository names are case sensitive\. The name must be unique in the AWS Region for your AWS account\.
+Repository names are case sensitive\. The name must be unique in the AWS Region for your Amazon Web Services account\.
 
 1. \(Optional\) In **Description**, enter a description for the repository\. This can help you and other users identify the purpose of the repository\. 
 **Note**  
@@ -56,7 +56,7 @@ You can use the AWS CLI to create a CodeCommit repository\. Unlike the console, 
 1. Run the create\-repository command, specifying:
    + A name that uniquely identifies the CodeCommit repository \(with the `--repository-name` option\)\.
 **Note**  
-This name must be unique across an AWS account\.
+This name must be unique across an Amazon Web Services account\.
    + An optional comment about the CodeCommit repository \(with the `--repository-description` option\)\.
    + An optional key\-value pair or pairs to use as tags for the CodeCommit repository \(with the `--tags` option\)\.
 
@@ -72,7 +72,7 @@ The description field displays Markdown in the console and accepts all HTML char
    + The description \(`repositoryDescription`\)\.
    + The unique, system\-generated ID \(`repositoryId`\)\.
    + The name \(`repositoryName`\)\.
-   + The ID of the AWS account associated with the CodeCommit repository \(`accountId`\)\.
+   + The ID of the Amazon Web Services account associated with the CodeCommit repository \(`accountId`\)\.
 
    The following is example output, based on the preceding example command\.
 
@@ -80,7 +80,7 @@ The description field displays Markdown in the console and accepts all HTML char
    {
        "repositoryMetadata": {
            "repositoryName": "MyDemoRepo",
-           "cloneUrlSsh": "ssh://ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo",
+           "cloneUrlSsh": "ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo",
            "lastModifiedDate": 1446071622.494,
            "repositoryDescription": "My demonstration repository",
            "cloneUrlHttp": "https://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo",

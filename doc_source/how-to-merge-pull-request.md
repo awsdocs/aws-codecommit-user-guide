@@ -203,7 +203,7 @@ This output indicates that a pull request is not mergable because the requiremen
    The following example merges and closes a pull request with the ID of *47* and a source commit ID of *99132ab0EXAMPLE* in a repository named *MyDemoRepo*\. It uses the default options for conflict detail and conflict resolution strategy:
 
    ```
-   aws codecommit merge-pull-request-by-fast-forward --pull-request-id 47 --source-commit-id 99132ab0EXAMPLE --repository-name MyDemoRepo --name "Maria Garcia" --email "maria_garcia@example.com" --commit-message "Merging pull request 47 by three-way with default options"
+   aws codecommit merge-pull-request-by-three-way --pull-request-id 47 --source-commit-id 99132ab0EXAMPLE --repository-name MyDemoRepo --name "Maria Garcia" --email "maria_garcia@example.com" --commit-message "Merging pull request 47 by three-way with default options"
    ```
 
    If successful, this command produces the same kind of output as merging by fast\-forward, similar to the following:

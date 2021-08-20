@@ -219,7 +219,7 @@ If you configured triggers for your repository, deleting the repository does not
 
 Now that you have familiarized yourself with CodeCommit and some of its features, consider doing the following:
 + If you are new to Git and CodeCommit or want to review examples of using Git with CodeCommit, continue to the [Getting started with Git and CodeCommit](getting-started.md) tutorial\.
-+ If you want to work with others in a CodeCommit repository, see [Share a repository](how-to-share-repository.md)\. \(If you want to share your repository with users in another AWS account, see [Configure cross\-account access to an AWS CodeCommit repository using roles](cross-account.md)\.\)
++ If you want to work with others in a CodeCommit repository, see [Share a repository](how-to-share-repository.md)\. \(If you want to share your repository with users in another Amazon Web Services account, see [Configure cross\-account access to an AWS CodeCommit repository using roles](cross-account.md)\.\)
 + If you want to migrate a repository to CodeCommit, follow the steps in [Migrate to CodeCommit](how-to-migrate-repository.md)\.
 + If you want to add your repository to a continuous delivery pipeline, follow the steps in [Simple Pipeline Walkthrough](https://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-cc.html)\.
 + If you want to learn more about products and services that integrate with CodeCommit, including examples from the community, see [Product and service integrations](integrations.md)\.

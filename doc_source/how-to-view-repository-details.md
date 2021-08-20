@@ -11,7 +11,7 @@ Before you follow these instructions, complete the steps in [Setting up ](settin
 
 ## View repository details \(console\)<a name="how-to-view-repository-details-console"></a>
 
-Use the AWS CodeCommit console to quickly view all repositories created with your AWS account\.
+Use the AWS CodeCommit console to quickly view all repositories created with your Amazon Web Services account\.
 
 1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
@@ -97,7 +97,7 @@ To use the AWS CLI to view repository details, run the following commands:
 
    You can use the optional `--sort-by` or `--order` options to change the order of returned information\.
 
-1. If successful, this command outputs a `repositories` object that contains the names and IDs of all repositories in CodeCommit associated with the AWS account\.
+1. If successful, this command outputs a `repositories` object that contains the names and IDs of all repositories in CodeCommit associated with the Amazon Web Services account\.
 
    Here is some example output based on the preceding command:
 
@@ -132,7 +132,7 @@ To get the name of the CodeCommit repository, run the [list\-repositories](#how-
    + The repository's name \(`repositoryName`\)\.
    + The repository's description \(`repositoryDescription`\)\.
    + The repository's unique, system\-generated ID \(`repositoryId`\)\.
-   + The ID of the AWS account associated with the repository \(`accountId`\)\.
+   + The ID of the Amazon Web Services account associated with the repository \(`accountId`\)\.
 
    Here is some example output, based on the preceding example command:
 
@@ -170,7 +170,7 @@ To get the names of the repositories in CodeCommit, run the [list\-repositories]
    + A list of CodeCommit repositories \(`repositories`\)\. Each CodeCommit repository name is followed by:
      + The repository's description \(`repositoryDescription`\)\.
      + The repository's unique, system\-generated ID \(`repositoryId`\)\.
-     + The ID of the AWS account associated with the repository \(`accountId`\)\.
+     + The ID of the Amazon Web Services account associated with the repository \(`accountId`\)\.
 
    Here is some example output, based on the preceding example command:
 

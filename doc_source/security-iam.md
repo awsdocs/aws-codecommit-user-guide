@@ -107,7 +107,7 @@ CodeCommit does not support resource\-based policies\.
 
 ## Authorization based on CodeCommit tags<a name="security_iam_service-with-iam-tags"></a>
 
-You can attach tags to CodeCommit resources or pass tags in a request to CodeCommit\. To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `codecommit:ResourceTag/key-name`, `aws:RequestTag/key-name`, or `aws:TagKeys` condition keys\. For more information about tagging CodeCommit resources, see [Example 5: Deny or allow actions on repositories with tags](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-5)\. For more information about tagging strategies, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html)\.
+You can attach tags to CodeCommit resources or pass tags in a request to CodeCommit\. To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `codecommit:ResourceTag/key-name`, `aws:RequestTag/key-name`, or `aws:TagKeys` condition keys\. For more information about tagging CodeCommit resources, see [Example 5: Deny or allow actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5)\. For more information about tagging strategies, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html)\.
 
 CodeCommit also supports policies based on session tags\. For more information, see [Session Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html)\. 
 
@@ -198,7 +198,7 @@ For more information, see [Passing Session Tags using GetFederationToken](https:
 
 ## CodeCommit IAM roles<a name="security_iam_service-with-iam-roles"></a>
 
-An [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) is an entity within your AWS account that has specific permissions\.
+An [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) is an entity within your Amazon Web Services account that has specific permissions\.
 
 ### Using temporary credentials with CodeCommit<a name="security_iam_service-with-iam-roles-tempcreds"></a>
 
@@ -223,11 +223,11 @@ CodeCommit does not use service roles\.
 By default, IAM users and roles don't have permission to create or modify CodeCommit resources\. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API\. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need\. The administrator must then attach those policies to the IAM users or groups that require those permissions\.
 
 For examples of policies, see the following:
-+  [Example 1: Allow a user to perform CodeCommit operations in a single AWS Region](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-1)
-+ [Example 2: Allow a user to use Git for a single repository](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-2)
-+ [Example 3: Allow a user connecting from a specified IP address range access to a repository ](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-3)
-+ [Example 4: Deny or allow actions on branches](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-4)
-+ [Example 5: Deny or allow actions on repositories with tags](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-5)
++  [Example 1: Allow a user to perform CodeCommit operations in a single AWS Region](customer-managed-policies.md#identity-based-policies-example-1)
++ [Example 2: Allow a user to use Git for a single repository](customer-managed-policies.md#identity-based-policies-example-2)
++ [Example 3: Allow a user connecting from a specified IP address range access to a repository ](customer-managed-policies.md#identity-based-policies-example-3)
++ [Example 4: Deny or allow actions on branches](customer-managed-policies.md#identity-based-policies-example-4)
++ [Example 5: Deny or allow actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5)
 + [Configure cross\-account access to an AWS CodeCommit repository using roles](cross-account.md)
 
 To learn how to create an IAM identity\-based policy using these example JSON policy documents, see [Creating Policies on the JSON Tab](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-json-editor) in the *IAM User Guide*\.
@@ -248,7 +248,7 @@ Identity\-based policies are very powerful\. They determine whether someone can 
 
 ### Using the CodeCommit console<a name="security_iam_id-based-policy-examples-console"></a>
 
-To access the AWS CodeCommit console, you must have a minimum set of permissions\. These permissions must allow you to list and view details about the CodeCommit resources in your AWS account\. If you create an identity\-based policy that is more restrictive than the minimum required permissions, the console won't function as intended for entities \(IAM users or roles\) with that policy\.
+To access the AWS CodeCommit console, you must have a minimum set of permissions\. These permissions must allow you to list and view details about the CodeCommit resources in your Amazon Web Services account\. If you create an identity\-based policy that is more restrictive than the minimum required permissions, the console won't function as intended for entities \(IAM users or roles\) with that policy\.
 
 To ensure that those entities can still use the CodeCommit console, also attach the following AWS managed policy to the entities\. For more information, see [Adding Permissions to a User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*:
 
@@ -297,7 +297,7 @@ This example shows how you might create a policy that allows IAM users to view t
 
 ### Viewing CodeCommit *repositories* based on tags<a name="security_iam_id-based-policy-examples-view-repositories-tags"></a>
 
-You can use conditions in your identity\-based policy to control access to CodeCommit resources based on tags\. For an example policy that demonstrates how to do this, see [Example 5: Deny or allow actions on repositories with tags](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-5)\.
+You can use conditions in your identity\-based policy to control access to CodeCommit resources based on tags\. For an example policy that demonstrates how to do this, see [Example 5: Deny or allow actions on repositories with tags](customer-managed-policies.md#identity-based-policies-example-5)\.
 
 For more information, see [IAM JSON Policy Elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.
 
@@ -310,7 +310,7 @@ Use the following information to help you diagnose and fix common issues that yo
 + [I Am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole)
 + [I want to view my access keys](#security_iam_troubleshoot-access-keys)
 + [I'm an administrator and want to allow others to access CodeCommit](#security_iam_troubleshoot-admin-delegate)
-+ [I want to allow people outside of my AWS account to access my CodeCommit resources](#security_iam_troubleshoot-cross-account-access)
++ [I want to allow people outside of my Amazon Web Services account to access my CodeCommit resources](#security_iam_troubleshoot-cross-account-access)
 
 ### I Am not authorized to perform an action in CodeCommit<a name="security_iam_troubleshoot-no-permissions"></a>
 
@@ -349,6 +349,6 @@ To allow others to access CodeCommit, you must create an IAM entity \(user or ro
 
 To get started right away, see [Creating your first IAM delegated user and group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-delegated-user.html) in the *IAM User Guide*\.
 
-### I want to allow people outside of my AWS account to access my CodeCommit resources<a name="security_iam_troubleshoot-cross-account-access"></a>
+### I want to allow people outside of my Amazon Web Services account to access my CodeCommit resources<a name="security_iam_troubleshoot-cross-account-access"></a>
 
 For more information, see [Configure cross\-account access to an AWS CodeCommit repository using roles](cross-account.md)\.

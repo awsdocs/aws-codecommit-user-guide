@@ -98,7 +98,7 @@ You can create a policy in AccountA that grants access to the repository in Acco
 
    If you do not want to allow users who assume the role to be able to view a list of all repositories in AccountA, use the first policy example, but make sure that you send those users a direct link to the home page of the shared repository in the CodeCommit console\.
 
-1. Choose **Review policy**\. The policy validator reports syntax errors \(for example, if you forget to replace the example AWS account ID and repository name with your AWS account ID and repository name\)\.
+1. Choose **Review policy**\. The policy validator reports syntax errors \(for example, if you forget to replace the example Amazon Web Services account ID and repository name with your Amazon Web Services account ID and repository name\)\.
 
 1. On the **Review policy** page, enter a name for the policy \(for example, *CrossAccountAccessForMySharedDemoRepo*\)\. You can also provide an optional description for this policy\. Choose **Create policy**\. 
 
@@ -112,9 +112,9 @@ After you have configured a policy, create a role that IAM users and groups in A
 
 1. Choose **Create role**\.
 
-1. Choose **Another AWS account**\.
+1. Choose **Another Amazon Web Services account**\.
 
-1. In **Account ID**, enter the AWS account ID for AccountB \(for example, *888888888888*\)\. Choose **Next: Permissions**\.
+1. In **Account ID**, enter the Amazon Web Services account ID for AccountB \(for example, *888888888888*\)\. Choose **Next: Permissions**\.
 
 1. In **Attach permissions policies**, select the policy you created in the previous procedure \(*CrossAccountAccessForMySharedDemoRepo*\)\. Choose **Next: Review**\.
 

@@ -24,9 +24,9 @@ If you are already set up for CodeCommit, you can skip ahead to [Step 1: Create 
 
 **To create and configure an IAM user for accessing CodeCommit**
 
-1. Create an AWS account by going to [http://aws\.amazon\.com](http://aws.amazon.com) and choosing **Sign Up**\.
+1. Create an Amazon Web Services account by going to [http://aws\.amazon\.com](http://aws.amazon.com) and choosing **Sign Up**\.
 
-1. Create an IAM user, or use an existing one, in your AWS account\. Make sure you have an access key ID and a secret access key associated with that IAM user\. For more information, see [Creating an IAM User in Your AWS Account](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SettingUpUser.html)\.
+1. Create an IAM user, or use an existing one, in your Amazon Web Services account\. Make sure you have an access key ID and a secret access key associated with that IAM user\. For more information, see [Creating an IAM User in Your Amazon Web Services account](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SettingUpUser.html)\.
 **Note**  
 CodeCommit requires AWS Key Management Service\. If you are using an existing IAM user, make sure there are no policies attached to the user that expressly deny the AWS KMS actions required by CodeCommit\. For more information, see [AWS KMS and encryption](encryption.md)\.
 
@@ -38,7 +38,7 @@ CodeCommit requires AWS Key Management Service\. If you are using an existing IA
 
 1. In **Grant permissions**, choose **Attach existing policies directly**\.
 
-1. From the list of policies, select **AWSCodeCommitPowerUser** or another managed policy for CodeCommit access\. For more information, see [AWS managed \(predefined\) policies for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md#managed-policies)\.
+1. From the list of policies, select **AWSCodeCommitPowerUser** or another managed policy for CodeCommit access\. For more information, see [AWS managed policies for CodeCommit](security-iam-awsmanpol.md)\.
 
    After you have selected the policy you want to attach, choose **Next: Review** to review the list of policies to attach to the IAM user\. If the list is correct, choose **Add permissions**\.
 
@@ -105,8 +105,9 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
    + cn\-north\-1
    + cn\-northwest\-1
    + eu\-south\-1
+   + ap\-northeast\-3
 
-   For more information about CodeCommit and AWS Regions, see [Regions and Git connection endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\. For more information about the AWS CLI and profiles, see [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)\.
+   For more information about CodeCommit and AWS Region, see [Regions and Git connection endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\. For more information about the AWS CLI and profiles, see [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)\.
 
 Next, you must install Git\. 
 + **For Linux, macOS, or Unix**:
@@ -146,7 +147,7 @@ In this section, you use the CodeCommit console to create the CodeCommit reposit
 
 1. On the **Create repository** page, in **Repository name**, enter a name for the repository\.
 **Note**  
-Repository names are case sensitive\. The name must be unique in the AWS Region for your AWS account\.
+Repository names are case sensitive\. The name must be unique in the AWS Region for your Amazon Web Services account\.
 
 1. \(Optional\) In **Description**, enter a description for the repository\. This can help you and other users identify the purpose of the repository\. 
 **Note**  
@@ -267,15 +268,15 @@ To manage access to your repository, create an IAM group for its users, add IAM 
 
 1. On the **Set Group Name** page, in **Group Name**, enter a name for the group \(for example, *MyDemoRepoGroup*\), and then choose **Next Step**\. Consider including the repository name as part of the group name\.
 **Note**  
-This name must be unique across an AWS account\.
+This name must be unique across an Amazon Web Services account\.
 
 1. Select the box next to the customer managed policy you created in the previous section \(for example, **AWSCodeCommitPowerUser\-MyDemoRepo**\)\. 
 
-1. On the **Review** page, choose **Create Group**\. IAM creates this group with the specified policies already attached\. The group appears in the list of groups associated with your AWS account\.
+1. On the **Review** page, choose **Create Group**\. IAM creates this group with the specified policies already attached\. The group appears in the list of groups associated with your Amazon Web Services account\.
 
 1. Choose your group from the list\. 
 
-1. On the group summary page, choose the **Users** tab, and then choose **Add Users to Group**\. On the list that shows all users associated with your AWS account, select the boxes next to the users to whom you want to allow access to the CodeCommit repository, and then choose **Add Users**\.
+1. On the group summary page, choose the **Users** tab, and then choose **Add Users to Group**\. On the list that shows all users associated with your Amazon Web Services account, select the boxes next to the users to whom you want to allow access to the CodeCommit repository, and then choose **Add Users**\.
 **Tip**  
 You can use the Search box to quickly find users by name\.
 

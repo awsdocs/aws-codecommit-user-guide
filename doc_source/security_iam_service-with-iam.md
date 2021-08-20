@@ -20,7 +20,7 @@ AWS supports global condition keys and service\-specific condition keys\. To see
 
 CodeCommit defines its own set of condition keys and also supports using some global condition keys\. To see all AWS global condition keys, see [AWS Global Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*\.
 
- Some CodeCommit actions support the `codecommit:References` condition key\. For an example policy that uses this key, see [Example 4: Deny or allow actions on branches](auth-and-access-control-iam-identity-based-access-control.md#identity-based-policies-example-4)\. 
+ Some CodeCommit actions support the `codecommit:References` condition key\. For an example policy that uses this key, see [Example 4: Deny or allow actions on branches](customer-managed-policies.md#identity-based-policies-example-4)\. 
 
 To see a list of CodeCommit condition keys, see [Condition Keys for AWS CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscodecommit.html#awscodecommit-policy-keys) in the *IAM User Guide*\. To learn with which actions and resources you can use a condition key, see [Actions Defined by AWS CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscodecommit.html#awscodecommit-actions-as-permissions)\.
 

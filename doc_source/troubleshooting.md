@@ -70,4 +70,4 @@ Setting `GIT_CURL_VERBOSE` is useful for HTTPS connections only\. SSH does not u
    echo "Longest delta chain: $longest_delta_chain"
    ```
 
-1. If these steps do not provide enough information for you to resolve the issue on your own, ask for help on [the AWS CodeCommit forum](https://forums.aws.amazon.com/forumID=189)\. Be sure to include relevant output from these steps in your post\.
+1. If these steps do not provide enough information for you to resolve the issue on your own, ask for help on [the AWS CodeCommit forum](https://forums.aws.amazon.com/forum.jspa?forumID=189)\. Be sure to include relevant output from these steps in your post\.

@@ -407,7 +407,7 @@ In this example event, a user who assumed a role named `Admin` with a session na
 {
   "version": "0",
   "id": "01234567-0123-0123-0123-012345678901",
-  "detail-type": "CodeCommit PullRequest State Change",
+  "detail-type": "CodeCommit Pull Request State Change",
   "source": "aws.codecommit",
   "account": "123456789012",
   "time": "2019-06-12T10:23:43Z",

@@ -1,7 +1,7 @@
 # AWS CodeCommit User Guide
 
 -----
-*****Copyright &copy; 2021 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -109,6 +109,8 @@ Amazon's trademarks and trade dress may not be used in
    + [Identity and Access Management for AWS CodeCommit](security-iam.md)
       + [Authentication and access control for AWS CodeCommit](auth-and-access-control.md)
          + [Using identity-based policies (IAM Policies) for CodeCommit](auth-and-access-control-iam-identity-based-access-control.md)
+            + [AWS managed policies for CodeCommit](security-iam-awsmanpol.md)
+            + [Customer managed policy examples](customer-managed-policies.md)
          + [CodeCommit permissions reference](auth-and-access-control-permissions-reference.md)
       + [How AWS CodeCommit works with IAM](security_iam_service-with-iam.md)
    + [Resilience in AWS CodeCommit](disaster-recovery-resiliency.md)

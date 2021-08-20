@@ -25,7 +25,7 @@ Approval rule templates are not associated with any repository by default\. You 
 1. In **Number of approvals needed**, enter the number you want\. The default is 1\. 
 
 1. \(Optional\) If you want to require that the approvals for a pull request come from a specific group of users, in **Approval rule members**, choose **Add**\. In **Approver type**, choose one of the following: 
-   + **IAM user name or assumed role**: This option prepopulates the AWS account ID for the account you used to sign in, and only requires a name\. It can be used for both IAM users and federated access users whose name matches the provided name\. This is a very powerful option that offers a great deal of flexibility\. For example, if you choose this option and are signed in with the AWS account 123456789012, and you specify **Mary\_Major**, all of the following are counted as approvals coming from that user:
+   + **IAM user name or assumed role**: This option prepopulates the Amazon Web Services account ID for the account you used to sign in, and only requires a name\. It can be used for both IAM users and federated access users whose name matches the provided name\. This is a very powerful option that offers a great deal of flexibility\. For example, if you choose this option and are signed in with the Amazon Web Services account 123456789012, and you specify **Mary\_Major**, all of the following are counted as approvals coming from that user:
      + An IAM user in the account \(`arn:aws:iam::123456789012:user/Mary_Major`\)
      + A federated user identified in IAM as Mary\_Major \(`arn:aws:sts::123456789012:federated-user/Mary_Major`\)
 
@@ -60,7 +60,7 @@ You can use the AWS CLI to create approval rule templates\. When you use the AWS
    + The JSON structure of the approval rule template\. This structure can include requirements for destination references, which are the destination branches for pull requests for which the approval rule is applied, and approval pool members, who are users whose approvals count toward the number of required approvals\.
 
    When creating the content of the approval rule, you can specify approvers in an approval pool in one of two ways:
-   + **CodeCommitApprovers**: This option only requires an AWS account and a resource\. It can be used for both IAM users and federated access users whose name matches the provided resource name\. This is a very powerful option that offers a great deal of flexibility\. For example, if you specify the AWS account 123456789012 and **Mary\_Major**, all of the following are counted as approvals coming from that user:
+   + **CodeCommitApprovers**: This option only requires an Amazon Web Services account and a resource\. It can be used for both IAM users and federated access users whose name matches the provided resource name\. This is a very powerful option that offers a great deal of flexibility\. For example, if you specify the AWS account 123456789012 and **Mary\_Major**, all of the following are counted as approvals coming from that user:
      + An IAM user in the account \(`arn:aws:iam::123456789012:user/Mary_Major`\)
      + A federated user identified in IAM as Mary\_Major \(`arn:aws:sts::123456789012:federated-user/Mary_Major`\)
 
