@@ -153,6 +153,10 @@ You can set up SSH access to repositories in multiple Amazon Web Services accoun
    ssh git-codecommit.us-east-2.amazonaws.com
    ```
 
+**Note**
+In case this command shows the following error "Unable to negotiate with XX.XX.XXX.XX port 22: no matching host key type found. Their offer: ssh-rsa",
+try adding the following line in the config file "HostkeyAlgorithms +ssh-rsa" and execute the above command again.
+
    You are asked to confirm the connection because `git-codecommit.us-east-2.amazonaws.com` is not yet included in your known hosts file\. The CodeCommit server fingerprint is displayed as part of the verification \(`a9:6d:03:ed:08:42:21:be:06:e1:e0:2a:d1:75:31:5e` for MD5 or `3lBlW2g5xn/NA2Ck6dyeJIrQOWvn7n8UEs56fG6ZIzQ` for SHA256\)\.
 **Note**  
 CodeCommit server fingerprints are unique for every AWS Region\. To view the server fingerprints for an AWS Region, see [Server fingerprints for CodeCommit](regions.md#regions-fingerprints)\.
