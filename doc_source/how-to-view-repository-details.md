@@ -105,11 +105,11 @@ To use the AWS CLI to view repository details, run the following commands:
    {
        "repositories": [
            {
-              "repositoryName": "MyDemoRepo"
-              "repositoryId": "f7579e13-b83e-4027-aaef-650c0EXAMPLE",
+              "repositoryName": "MyDemoRepo",
+              "repositoryId": "f7579e13-b83e-4027-aaef-650c0EXAMPLE"
            },
            {
-              "repositoryName": "MyOtherDemoRepo"
+              "repositoryName": "MyOtherDemoRepo",
               "repositoryId": "cfc29ac4-b0cb-44dc-9990-f6f51EXAMPLE"
            }
        ]
@@ -147,7 +147,7 @@ To get the name of the CodeCommit repository, run the [list\-repositories](#how-
                "repositoryDescription": "My demonstration repository",
                "cloneUrlHttp": "https://codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo",
                "repositoryId": "f7579e13-b83e-4027-aaef-650c0EXAMPLE",
-               "Arn": "arn:aws:codecommit:us-east-2:111111111111:MyDemoRepo"
+               "Arn": "arn:aws:codecommit:us-east-2:111111111111:MyDemoRepo",
                "accountId": "111111111111"
            }
    }
@@ -187,7 +187,7 @@ To get the names of the repositories in CodeCommit, run the [list\-repositories]
                    "repositoryDescription": "My demonstration repository",
                    "cloneUrlHttp": "https://codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo",
                    "repositoryId": "f7579e13-b83e-4027-aaef-650c0EXAMPLE",
-                   "Arn": "arn:aws:codecommit:us-east-2:111111111111:MyDemoRepo"
+                   "Arn": "arn:aws:codecommit:us-east-2:111111111111:MyDemoRepo",
                    "accountId": "111111111111"
                },
                {
@@ -199,7 +199,7 @@ To get the names of the repositories in CodeCommit, run the [list\-repositories]
                    "repositoryDescription": "My other demonstration repository",
                    "cloneUrlHttp": "https://codecommit.us-east-2.amazonaws.com/v1/repos/MyOtherDemoRepo",
                    "repositoryId": "cfc29ac4-b0cb-44dc-9990-f6f51EXAMPLE",
-                   "Arn": "arn:aws:codecommit:us-east-2:111111111111:MyOtherDemoRepo"
+                   "Arn": "arn:aws:codecommit:us-east-2:111111111111:MyOtherDemoRepo",
                    "accountId": "111111111111"
                }
            ],
