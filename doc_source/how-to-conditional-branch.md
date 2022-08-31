@@ -22,7 +22,7 @@ You can create a policy in IAM that prevents users from updating a branch, inclu
 
 1. Choose **Create policy**\.
 
-1. Choose **JSON**, and then paste the following example policy\. Replace the value of `Resource` with the ARN of the repository that contains the branch for which you want to restrict access\. Replace the value of `codecommit:References` with a reference to the branch or branches to which you want to restrict access\. For example, this policy denies pushing commits, merging branches, merging pull requests, and adding files to a branch named *`main`* and a branch named `prod` in a repository named `MyDemoRepo`:
+1. Choose **JSON**, and then paste the following example policy\. Replace the value of `Resource` with the ARN of the repository that contains the branch for which you want to restrict access\. Replace the value of `codecommit:References` with a reference to the branch or branches to which you want to restrict access\. For example, this policy denies pushing commits, merging branches, deleting branches, merging pull requests, and adding files to a branch named *`main`* and a branch named `prod` in a repository named `MyDemoRepo`:
 
    ```
    {

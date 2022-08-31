@@ -7,7 +7,7 @@ Amazon VPC is an AWS service that you can use to launch AWS resources in a virtu
 To connect your VPC to CodeCommit, you define an *interface VPC endpoint* for CodeCommit\. An interface endpoint is an elastic network interface with a private IP address that serves as an entry point for traffic destined to a supported AWS service\. The endpoint provides reliable, scalable connectivity to CodeCommit without requiring an internet gateway, network address translation \(NAT\) instance, or VPN connection\. For more information, see [What Is Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/) in the *Amazon VPC User Guide*\.
 
 **Note**  
-Other AWS services that provide VPC support and integrate with CodeCommit, such as AWS CodePipeline, might not support using Amazon VPC endpoints for that integration\. For example, traffic between CodePipeline and CodeCommit cannot be restricted to the VPC subnet range\. 
+Other AWS services that provide VPC support and integrate with CodeCommit, such as AWS CodePipeline, might not support using Amazon VPC endpoints for that integration\. For example, traffic between CodePipeline and CodeCommit cannot be restricted to the VPC subnet range\. Services that do support integration, such as [AWS Cloud9](setting-up-ide-c9.md), might require additional services such as AWS Systems Manager\.
 
  Interface VPC endpoints are powered by AWS PrivateLink, an AWS technology that enables private communication between AWS services using an elastic network interface with private IP addresses\. For more information, see [AWS PrivateLink](https://aws.amazon.com/privatelink/)\.
 
@@ -26,6 +26,7 @@ CodeCommit currently supports VPC endpoints in the following AWS Regions:
 + Europe \(Frankfurt\)
 + Europe \(Stockholm\)
 + Europe \(Milan\)
++ Africa \(Cape Town\)
 + Asia Pacific \(Tokyo\)
 + Asia Pacific \(Singapore\)
 + Asia Pacific \(Sydney\)
@@ -46,8 +47,12 @@ CodeCommit currently supports VPC endpoints in the following AWS Regions:
 To start using CodeCommit with your VPC, create an interface VPC endpoint for CodeCommit\. CodeCommit requires separate endpoints for Git operations and for CodeCommit API operations\. Depending on your business needs, you might need to create more than one VPC endpoint\. When you create a VPC endpoint for CodeCommit, choose **AWS Services**, and in **Service Name**, choose from the following options:
 + **com\.amazonaws\.*region*\.git\-codecommit**: Choose this option if you want to create a VPC endpoint for Git operations with CodeCommit repositories\. For example, choose this option if your users use a Git client and commands such as `git pull`, `git commit`, and `git push` when they interact with CodeCommit repositories\.
 + **com\.amazonaws\.*region*\.git\-codecommit\-fips**: Choose this option if you want to create a VPC endpoint for Git operations with CodeCommit repositories that complies with the Federal Information Processing Standard \(FIPS\) Publication 140\-2 US government standard\.
+**Note**  
+FIPS endpoints for Git are not available in all AWS Regions\. For more information, see [Git connection endpoints](regions.md#regions-git)\.
 + **com\.amazonaws\.*region*\.codecommit**: Choose this option if you want to create a VPC endpoint for CodeCommit API operations\. For example, choose this option if your users use the AWS CLI, the CodeCommit API, or the AWS SDKs to interact with CodeCommit for operations such as `CreateRepository`, `ListRepositories`, and `PutFile`\.
 + **com\.amazonaws\.*region*\.codecommit\-fips**: Choose this option if you want to create a VPC endpoint for CodeCommit API operations that complies with the Federal Information Processing Standard \(FIPS\) Publication 140\-2 US government standard\.
+**Note**  
+FIPS endpoints are not available in all AWS Regions\. For more information, see the entry for AWS CodeCommit in [Federal Information Processing Standard \(FIPS\) 140\-2 Overview](https://aws.amazon.com/compliance/fips/)\.
 
 ## Create a VPC endpoint policy for CodeCommit<a name="create-vpc-endpoint-policy-for-codecommit"></a>
 

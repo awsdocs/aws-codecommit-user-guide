@@ -10,6 +10,7 @@ The following information might help you troubleshoot common issues when using S
 + [I need to access CodeCommit repositories in multiple Amazon Web Services accounts with SSH credentials](#troubleshooting-ssh-multi)
 + [Git on Windows: Bash emulator or command line freezes when attempting to connect using SSH](#troubleshooting-gw2)
 + [Public key format requires specification in some distributions of Linux](#troubleshooting-os-syn2)
++ [Access error: SSH public key denied when connecting to a CodeCommit repository](#troubleshooting-permission-denied-ssh-key)
 
 ## Access error: Public key is uploaded successfully to IAM but connection fails on Linux, macOS, or Unix systems<a name="troubleshooting-ae4"></a>
 
@@ -123,14 +124,16 @@ Make sure the fingerprint and public key for CodeCommit connections match those 
 | git\-codecommit\.eu\-south\-1\.amazonaws\.com | SHA256 | lyXrWbCg3uQmJrl1XxB/ASR7ugW1Ysf5yzYOJbudHsI | 
 | git\-codecommit\.ap\-northeast\-3\.amazonaws\.com | MD5 | 25:17:40:da:b9:d4:18:c3:b6:b3:fb:ed:1c:20:fe:29 | 
 | git\-codecommit\.ap\-northeast\-3\.amazonaws\.com | SHA256 | 2B815B9F0AvwLnRxSVxUz4kDYmtEQUGGdQYP8OQLXhA | 
+| git\-codecommit\.af\-south\-1\.amazonaws\.com | MD5 | 21:a0:ba:d7:c1:d1:b5:39:98:8d:4d:7c:96:f5:ca:29 | 
+| git\-codecommit\.af\-south\-1\.amazonaws\.com | SHA256 | C34ji3x/cnsDZjUpyNGXdE5pjHYimqJrQZ3leTgqJHM | 
 
 ## IAM error: 'Invalid format' when attempting to add a public key to IAM<a name="troubleshooting-iam1"></a>
 
 **Problem:** In IAM, when attempting to set up to use SSH with CodeCommit, an error message appears containing the phrase `Invalid format` when you attempt to add your public key\.
 
-**Possible fixes:** IAM accepts public keys in the OpenSSH format only and  has additional requirements as specified in [Use SSH Keys with CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#ssh-keys-code-commit) in the *IAM User Guide*\. If you provide your public key in another format, or if the key does not contain the required number of bits, you see this error\. 
+**Possible fixes:** IAM requires that the public key must be encoded in ssh\-rsa format or PEM format\.  It accepts public keys in the OpenSSH format only and  has additional requirements as specified in [Use SSH Keys with CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#ssh-keys-code-commit) in the *IAM User Guide*\. If you provide your public key in another format, or if the key does not contain the required number of bits, you see this error\. 
 + When you copied the SSH public key, your operating system might have introduced line breaks\. Make sure that there are no line breaks in the public key that you add to IAM\.
-+ Some Windows operating systems do not use the OpenSSH format\. To generate a key pair and copy the OpenSSH format required by IAM, see [Step 3:  Set up the public and private keys for Git and CodeCommit ](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
++ Some Windows operating systems do not use the OpenSSH format\. To generate a key pair and copy the OpenSSH format required by IAM, see [Step 3:  Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
 
 For more information about the requirements for SSH keys in IAM, see [Use SSH Keys with CodeCommit](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html#ssh-keys-code-commit) in the *IAM User Guide*\.
 
@@ -186,3 +189,9 @@ For other solutions, see [Git clone/pull continually freezing at Store key in ca
 **Problem:** When you try to configure a public\-private key pair, you receive an error\.
 
 **Possible fixes:** Some distributions of Linux require an additional line of configuration in the `~/.ssh/config` file that specifies the accepted types of public keys\. For more information, see the documentation for your distribution about `PubkeyAcceptedKeyTypes`\.
+
+## Access error: SSH public key denied when connecting to a CodeCommit repository<a name="troubleshooting-permission-denied-ssh-key"></a>
+
+**Problem:** When you try to use an SSH endpoint to communicate with a CodeCommit repository, an error message appears containing the phrase `Error: public key denied`\.
+
+**Possible fixes:** The most common reason for this error is that you have not completed setup for SSH connections\. Configure a public and private SSH key pair, and then associate the public key with your IAM user\. For more information about configuring SSH, see [For SSH connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md) and [For SSH connections on Windows](setting-up-ssh-windows.md)\. 

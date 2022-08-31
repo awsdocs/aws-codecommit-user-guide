@@ -15,7 +15,7 @@ The pull request displays the differences between the tip of the source branch a
 ![\[Adding a comment on a line in a pull request.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-comment.png)
 
 When your code has been reviewed, and the approval rule requirements \(if any\) have been satisfied, you can close the pull request in one of several ways: 
-+ Merge the branches locally and push your changes\. This closes the request automatically\.
++ Merge the branches locally and push your changes\. This closes the request automatically if the fast\-forward merge strategy is used and there are no merge conflicts\.
 + Use the AWS CodeCommit console to close the pull request without merging, resolve conflicts in a merge, or, if there are no conflicts, close and merge the branches using one of the available merge strategies\.
 + Use the AWS CLI\.
 

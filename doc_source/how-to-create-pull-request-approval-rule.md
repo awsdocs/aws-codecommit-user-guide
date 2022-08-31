@@ -3,7 +3,7 @@
 Creating approval rules for your pull requests helps ensure the quality of your code by requiring users to approve the pull request before the code can be merged into the destination branch\. You can specify the number of users who must approve a pull request\. You can also specify an approval pool of users for the rule\. If you do so, only approvals from those users count toward the number of required approvals for the rule\. 
 
 **Note**  
-You can also create approval rule templates, which can help you automate the creation of approval rules across repositories\. For more information, see [Working with approval rule templates](approval-rule-templates.md)\.
+You can also create approval rule templates, which can help you automate the creation of approval rules across repositories that will apply to every pull request\. For more information, see [Working with approval rule templates](approval-rule-templates.md)\.
 
 You can use the AWS CodeCommit console or the AWS CLI to create approval rules for your repository\. 
 

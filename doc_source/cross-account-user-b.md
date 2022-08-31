@@ -10,7 +10,7 @@ To access the repository in AccountA, users in the AccountB group must configure
 
 You cannot use SSH keys or Git credentials to access repositories in another Amazon Web Services account\. AccountB users must configure their computers to use either git\-remote\-codecommit \(recommended\) or the credential helper to access the shared CodeCommit repository in AccountA\. However, you can continue to use SSH keys or Git credentials when accessing repositories in AccountB\.
 
-Follow these steps to configure access using git\-remote\-codecommit\. If you have not already installed git\-remote\-codecommit, download it from [git\-remote\-codecommit ](https://pypi.org/project/git-remote-codecommit/)on the Python Package Index website\.<a name="cross-account-configure-cli-git"></a>
+Follow these steps to configure access using git\-remote\-codecommit\. If you have not already installed git\-remote\-codecommit, download it from [https://pypi.org/project/git-remote-codecommit/](https://pypi.org/project/git-remote-codecommit/)on the Python Package Index website\.<a name="cross-account-configure-cli-git"></a>
 
 **To configure the AWS CLI and Git for cross\-account access**
 
@@ -165,4 +165,4 @@ If this is the first time you have selected this option, review the information 
 
 1. In **Code**, find the name of the file you added from your local computer\. Choose it to browse the code in the file, and then browse the rest of the repository and start using its features\. 
 
-   For more information, see [Getting started with AWS CodeCommit ](getting-started-cc.md)\.
+   For more information, see [Getting started with AWS CodeCommit](getting-started-cc.md)\.

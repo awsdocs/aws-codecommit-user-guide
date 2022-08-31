@@ -35,7 +35,7 @@ The description field displays Markdown in the console and accepts all HTML char
 
 1. Choose **Create**\. 
 
-After you create a repository, you can connect to it and start adding code either through the CodeCommit console or a local Git client, or by integrating your CodeCommit repository with your favorite IDE\. For more information, see [Setting up for AWS CodeCommit ](setting-up.md)\. You can also add your repository to a continuous delivery pipeline\. For more information, see [Simple Pipeline Walkthrough](https://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-cc.html)\.
+After you create a repository, you can connect to it and start adding code either through the CodeCommit console or a local Git client, or by integrating your CodeCommit repository with your favorite IDE\. For more information, see [Setting up for AWS CodeCommit](setting-up.md)\. You can also add your repository to a continuous delivery pipeline\. For more information, see [Simple Pipeline Walkthrough](https://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-cc.html)\.
 
 To get information about the new CodeCommit repository, such as the URLs to use when cloning the repository, choose the repository's name from the list, or just choose the connection protocol you want to use next to the repository's name\.
 

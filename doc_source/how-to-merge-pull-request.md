@@ -134,14 +134,14 @@ This output indicates that a pull request is not mergable because the requiremen
    + The level of conflict detail you want to use \(with the \-\-conflict\-detail\-level option\)\. If unspecified, the default `FILE_LEVEL` is used\.
    + The conflict resolution strategy you want to use \(with the \-\-conflict\-resolution\-strategy option\)\. If unspecified, this defaults to `NONE`, and conflicts must be resolved manually\.
    + The commit message to include \(with the \-\-commit\-message option\)\.
-   + The name to use for the commit \(with the \-\-name option\)\.
+   + The name to use for the commit \(with the \-\-author\-name option\)\.
    + The email address to use for the commit \(with the \-\-email option\)\.
    + Whether to keep any empty folders \(with the \-\-keep\-empty\-folders option\)\.
 
    The following example merges and closes a pull request with the ID of *47* and a source commit ID of *99132ab0EXAMPLE* in a repository named *MyDemoRepo*\. It uses the conflict detail of `LINE_LEVEL` and the conflict resolution strategy of `ACCEPT_SOURCE`:
 
    ```
-   aws codecommit merge-pull-request-by-squash --pull-request-id 47 --source-commit-id 99132ab0EXAMPLE --repository-name MyDemoRepo --conflict-detail-level LINE_LEVEL --conflict-resolution-strategy ACCEPT_SOURCE --name "Jorge Souza" --email "jorge_souza@example.com" --commit-message "Merging pull request 47 by squash and accepting source in merge conflicts"
+   aws codecommit merge-pull-request-by-squash --pull-request-id 47 --source-commit-id 99132ab0EXAMPLE --repository-name MyDemoRepo --conflict-detail-level LINE_LEVEL --conflict-resolution-strategy ACCEPT_SOURCE --author-name "Jorge Souza" --email "jorge_souza@example.com" --commit-message "Merging pull request 47 by squash and accepting source in merge conflicts"
    ```
 
    If successful, this command produces the same kind of output as merging by fast\-forward, output similar to the following:
@@ -196,14 +196,14 @@ This output indicates that a pull request is not mergable because the requiremen
    + The level of conflict detail you want to use \(with the \-\-conflict\-detail\-level option\)\. If unspecified, the default `FILE_LEVEL` is used\.
    + The conflict resolution strategy you want to use \(with the \-\-conflict\-resolution\-strategy option\)\. If unspecified, this defaults to `NONE`, and conflicts must be resolved manually\.
    + The commit message to include \(with the \-\-commit\-message option\)\.
-   + The name to use for the commit \(with the \-\-name option\)\.
+   + The name to use for the commit \(with the \-\-author\-name option\)\.
    + The email address to use for the commit \(with the \-\-email option\)\.
    + Whether to keep any empty folders \(with the \-\-keep\-empty\-folders option\)\.
 
    The following example merges and closes a pull request with the ID of *47* and a source commit ID of *99132ab0EXAMPLE* in a repository named *MyDemoRepo*\. It uses the default options for conflict detail and conflict resolution strategy:
 
    ```
-   aws codecommit merge-pull-request-by-three-way --pull-request-id 47 --source-commit-id 99132ab0EXAMPLE --repository-name MyDemoRepo --name "Maria Garcia" --email "maria_garcia@example.com" --commit-message "Merging pull request 47 by three-way with default options"
+   aws codecommit merge-pull-request-by-three-way --pull-request-id 47 --source-commit-id 99132ab0EXAMPLE --repository-name MyDemoRepo --author-name "Maria Garcia" --email "maria_garcia@example.com" --commit-message "Merging pull request 47 by three-way with default options"
    ```
 
    If successful, this command produces the same kind of output as merging by fast\-forward, similar to the following:

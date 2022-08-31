@@ -12,7 +12,7 @@ For data protection purposes, we recommend that you protect AWS account credenti
 
 We strongly recommend that you never put confidential or sensitive information, such as your customers' email addresses, into tags or free\-form fields such as a **Name** field\. This includes when you work with CodeCommit or other AWS services using the console, API, AWS CLI, or AWS SDKs\. Any data that you enter into tags or free\-form fields used for names may be used for billing or diagnostic logs\. If you provide a URL to an external server, we strongly recommend that you do not include credentials information in the URL to validate your request to that server\.
 
-CodeCommit repositories are automatically encrypted at rest\. No customer action is required\. CodeCommit also encrypts repository data in transit\. You can use either the HTTPS protocol, the SSH protocol, or both with CodeCommit repositories\. For more information, see [Setting up for AWS CodeCommit ](setting-up.md)\. You can also configure [cross\-account access](cross-account.md) to CodeCommit repositories\.
+CodeCommit repositories are automatically encrypted at rest\. No customer action is required\. CodeCommit also encrypts repository data in transit\. You can use either the HTTPS protocol, the SSH protocol, or both with CodeCommit repositories\. For more information, see [Setting up for AWS CodeCommit](setting-up.md)\. You can also configure [cross\-account access](cross-account.md) to CodeCommit repositories\.
 
 **Topics**
 + [AWS Key Management Service and encryption for AWS CodeCommit repositories](encryption.md)

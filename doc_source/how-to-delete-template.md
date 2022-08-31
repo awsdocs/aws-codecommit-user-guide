@@ -2,6 +2,8 @@
 
 You can delete an approval rule template if you are not using it in any repositories\. Deleting unused approval rule templates helps keep your templates organized and makes it easier to find templates that make sense for your workflows\.
 
+For more information about managed policies and permissions for approval rule templates, see [Permissions for actions on approval rule templates](auth-and-access-control-permissions-reference.md#aa-art) and [AWS managed policies for CodeCommit](security-iam-awsmanpol.md)\.
+
 **Topics**
 + [Delete an approval rule template \(console\)](#how-to-delete-template-console)
 + [Delete an approval rule template \(AWS CLI\)](#how-to-delete-template-cli)

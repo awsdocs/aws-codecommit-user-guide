@@ -8,6 +8,13 @@ To use AWS Cloud9 with CodeCommit, you need the following:
 + An IAM user with one of the CodeCommit managed policies and one of the AWS Cloud9 managed policies applied to it\.
 
   For more information, see [AWS managed policies for CodeCommit](security-iam-awsmanpol.md) and [Understanding and Getting Your Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)\.
+**Note**  
+This topic describes setting up integration with CodeCommit and AWS Cloud9 with general access from the Internet\. You can set up access to CodeCommit and AWS Cloud9 in an isolated environment, but that requires additional steps\. For more information, see:  
+[Using AWS CodeCommit with interface VPC endpoints](codecommit-and-interface-VPC.md)
+[Accessing no\-ingress Amazon EC2 instances with AWS Systems Manager](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html)
+[Working with Shared Environments](https://docs.aws.amazon.com/cloud9/latest/user-guide/share-environment.html)
+[Share your VPC with other accounts](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html)
+[Blog post: Isolating network access to your AWS Cloud9 environments](https://aws.amazon.com/blogs/security/isolating-network-access-to-your-aws-cloud9-environments/)
 
 **Topics**
 + [Step 1: Create an AWS Cloud9 development environment](#setting-up-ide-c9-connect)
@@ -36,8 +43,7 @@ AWS Cloud9 hosts your development environment on an Amazon EC2 instance\. This i
 
    Creating an environment and connecting to it for the first time takes several minutes\. If it seems to take an unusally long time, see [Troubleshooting](https://docs.aws.amazon.com/cloud9/latest/user-guide/troubleshooting.html) in the *AWS Cloud9 User Guide*\.
 
-1. After you are connected to your environment, check to see if Git is already installed and is a supported version by running the git \-\-version command in the terminal window\.  
-![\[Verifying that Git is installed and that it is a supported version in the AWS Cloud9 development environment.\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-c9-git.png)
+1. After you are connected to your environment, check to see if Git is already installed and is a supported version by running the git \-\-version command in the terminal window\.
 
    If Git is not installed, or if it is not a supported version, install a supported version\. CodeCommit supports Git versions 1\.7\.9 and later\. Git version 2\.28 supports configuring the branch name for initial commits\. We recommend using a recent version of Git\. To install Git, we recommend websites such as [Git Downloads](http://git-scm.com/downloads)\. 
 **Tip**  
@@ -104,4 +110,4 @@ You can find the Clone URL for your repository in the CodeCommit console by choo
 
 ## Next steps<a name="setting-up-ide-c9-next"></a>
 
-For more information, see the [AWS Cloud9 User Guide](https://docs.aws.amazon.com/cloud9/latest/user-guide/welcome.html)\. For more information about using Git with CodeCommit, see [Getting started with Git and AWS CodeCommit](getting-started.md)\.
+For more information, see the [AWS Cloud9 User Guide](https://docs.aws.amazon.com/cloud9/latest/user-guide/welcome.html) and [CodeCommit sample for AWS Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/sample-codecommit.html)\. For more information about using Git with CodeCommit, see [Getting started with Git and AWS CodeCommit](getting-started.md)\.

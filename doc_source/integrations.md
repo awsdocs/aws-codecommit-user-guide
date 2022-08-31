@@ -109,11 +109,6 @@ These links are provided for informational purposes only, and should not be cons
   Learn how to create CloudWatch Events rules that process changes in a repository using CodeCommit repository events and target actions in other AWS services\. Examples include AWS Lambda functions that enforce Git commit message policies on commits, replicate a CodeCommit repository, and backing up a CodeCommit repository to Amazon S3\.
 
   Published August 3, 2017
-+ **[Replicating and Automating Sync\-Ups for a Repository with AWS CodeCommit](https://aws.amazon.com/blogs/devops/replicating-and-automating-sync-ups-for-a-repository-with-aws-codecommit/)**
-
-  Learn how to back up or replicate a CodeCommit repository to another AWS region, and how to back up repositories hosted on other services to CodeCommit\.
-
-  Published March 17, 2017
 + **[Migrating to AWS CodeCommit](https://romikoderbynew.com/2016/09/06/migrating-to-aws-codecommit/)**
 
   Learn how to push code to two repositories as part of migrating from using another Git repository to CodeCommit when using SourceTree\.

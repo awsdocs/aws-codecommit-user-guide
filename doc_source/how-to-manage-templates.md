@@ -2,6 +2,8 @@
 
 You can manage the approval rule templates in an AWS Region to help understand how they are being used and what they are for\. For example, you can edit the names and descriptions of approval rule templates to help others understand their purpose\. You can list all the approval rule templates in an AWS Region, and get information about the content and structure of a template\. You can review which templates are associated with a repository, and which repositories are associated with a template\.
 
+For more information about managed policies and permissions for approval rule templates, see [Permissions for actions on approval rule templates](auth-and-access-control-permissions-reference.md#aa-art) and [AWS managed policies for CodeCommit](security-iam-awsmanpol.md)\.
+
 ## Manage approval rule templates \(console\)<a name="how-to-manage-template-console"></a>
 
 You can view and manage your approval rule templates in the CodeCommit console\.<a name="manage-template-console"></a>

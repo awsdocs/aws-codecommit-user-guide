@@ -1,6 +1,6 @@
 # Connecting to AWS CodeCommit repositories with rotating credentials<a name="temporary-access"></a>
 
-You can give users access to your AWS CodeCommit repositories without configuring IAM users for them or using an access key and secret key\.  Instead of creating an IAM user, you can use existing identities from AWS Directory Service, your enterprise user directory, or a web identity provider\. These are known as *federated users*\. AWS assigns a role to a federated user when access is requested through an [identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html)\. For more information about federated users, see [Federated users and roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html#intro-access-roles) in the *IAM User Guide*\. You can also configure role\-based access for IAM users to access CodeCommit repositories in separate Amazon Web Services accounts \(a technique known as *cross\-account access*\)\. For a walkthrough of configuring cross\-account access to a repository, see [Configure cross\-account access to an AWS CodeCommit repository using roles](cross-account.md)\. 
+You can give users access to your AWS CodeCommit repositories without configuring IAM users for them or using an access key and secret key\.  Instead of creating an IAM user, you can use existing identities from AWS Directory Service, your enterprise user directory, a web identity provider, or the IAM Identity Center identity store\. These identities are known as *federated identities*\. To assign permissions to federated identities, you can create a role and define permissions for the role\. When an external identity authenticates, the identity is associated with the role and is granted the permissions that are defined by it\. If you use IAM Identity Center, you configure a permission set\. IAM Identity Center correlates the permission set to a role in IAM to control what your identities can access after they authenticate\. For more information about identity federation, see [ Creating a role for a third\-party Identity Provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html) in the *IAM User Guide*\. For more information about IAM Identity Center, see [ What is IAM Identity Center?](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) in the *AWS IAM Identity Center \(successor to AWS Single Sign\-On\) User Guide*\. You can also configure role\-based access for IAM users to access CodeCommit repositories in separate Amazon Web Services accounts \(a technique known as *cross\-account access*\)\. For a walkthrough of configuring cross\-account access to a repository, see [Configure cross\-account access to an AWS CodeCommit repository using roles](cross-account.md)\. 
 
 You can configure access for users who want or must authenticate through methods such as:
 + Security Assertion Markup Language \(SAML\)
@@ -59,12 +59,12 @@ You must configure your local computer to use the access credentials by installi
 1. Follow the instructions in [Setting up ](setting-up.md) to set up the AWS CLI\. Use the aws configure command to configure one or more profiles\. Consider creating a named profile to use when you connect to CodeCommit repositories using rotating credentials\.
 
 1. You can associate the credentials with the user's AWS CLI named profile in one of the following ways\. 
-   + If you are assuming a role to access CodeCommit, configure a named profile with the information required to assume that role\. For example, if you want to assume a role named *CodeCommitAccess* in the Amazon Web Services account 111111111111, you can configure a default profile to use when working with other AWS resources and a named profile to use when assuming that role\. The following commands create a named profile named *CodeAccess* that assumes a role named *CodeCommitAccess*\. The user name *Maria Garcia* is associated with the session and the default profile is set as the source of its AWS credentials:
+   + If you are assuming a role to access CodeCommit, configure a named profile with the information required to assume that role\. For example, if you want to assume a role named *CodeCommitAccess* in the Amazon Web Services account 111111111111, you can configure a default profile to use when working with other AWS resources and a named profile to use when assuming that role\. The following commands create a named profile named *CodeAccess* that assumes a role named *CodeCommitAccess*\. The user name *Maria\_Garcia* is associated with the session and the default profile is set as the source of its AWS credentials:
 
      ```
-     aws configure set role_arn arn:aws:iam:::111111111111:role/CodeCommitAccess --profile CodeAccess
+     aws configure set role_arn arn:aws:iam::111111111111:role/CodeCommitAccess --profile CodeAccess
      aws configure set source_profile default --profile CodeAccess
-     aws configure set role_session_name "Maria Garcia" --profile CodeAccess
+     aws configure set role_session_name "Maria_Garcia" --profile CodeAccess
      ```
 
      If you want to verify the changes, manually view or edit the `~/.aws/config` file \(for Linux\) or the `%UserProfile%.aws\config` file \(for Windows\) and review the information under the named profile\. For example, your file might look similar to the following:
@@ -76,8 +76,8 @@ You must configure your local computer to use the access credentials by installi
      
      [profile CodeAccess]
      source_profile = default
-     role_session_name = Maria Garcia
-     role_arn = arn:aws:iam:::111111111111:role/CodeCommitAccess
+     role_session_name = Maria_Garcia
+     role_arn = arn:aws:iam::111111111111:role/CodeCommitAccess
      ```
 
       After you have configured your named profile, you can then clone CodeCommit repositories with the git\-remote\-codecommit utility using the named profile\. For example, to clone a repository named *MyDemoRepo*: 
@@ -89,9 +89,9 @@ You must configure your local computer to use the access credentials by installi
 
      ```
      [CodeCommitWebIdentity]
-     role_arn = arn:aws:iam:::111111111111:role/CodeCommitAccess
+     role_arn = arn:aws:iam::111111111111:role/CodeCommitAccess
      web_identity_token_file=~/my-credentials/my-token-file
-     role_session_name = Maria Garcia
+     role_session_name = Maria_Garcia
      ```
 
    For more information, see [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) and [Using an IAM Role in the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html) in the *AWS Command Line Interface User Guide*\.

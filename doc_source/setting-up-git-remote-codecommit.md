@@ -1,6 +1,6 @@
 # Setup steps for HTTPS connections to AWS CodeCommit with git\-remote\-codecommit<a name="setting-up-git-remote-codecommit"></a>
 
-If you want to connect to CodeCommit using a root account, federated access, or temporary credentials, you should set up access using git\-remote\-codecommit\. This utility provides a simple method for pushing and pulling code from CodeCommit repositories by extending Git\. It is the recommended method for supporting connections made with federated access, identity providers, and temporary credentials\.  Instead of creating an IAM user, you can use existing identities from AWS Directory Service, your enterprise user directory, or a web identity provider\. These are known as *federated users*\. AWS assigns a role to a federated user when access is requested through an [identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html)\. For more information about federated users, see [Federated users and roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html#intro-access-roles) in the *IAM User Guide*\. 
+If you want to connect to CodeCommit using a root account, federated access, or temporary credentials, you should set up access using git\-remote\-codecommit\. This utility provides a simple method for pushing and pulling code from CodeCommit repositories by extending Git\. It is the recommended method for supporting connections made with federated access, identity providers, and temporary credentials\.  Instead of creating an IAM user, you can use existing identities from AWS Directory Service, your enterprise user directory, a web identity provider, or the IAM Identity Center identity store\. These identities are known as *federated identities*\. To assign permissions to federated identities, you can create a role and define permissions for the role\. When an external identity authenticates, the identity is associated with the role and is granted the permissions that are defined by it\. If you use IAM Identity Center, you configure a permission set\. IAM Identity Center correlates the permission set to a role in IAM to control what your identities can access after they authenticate\. For more information about identity federation, see [ Creating a role for a third\-party Identity Provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html) in the *IAM User Guide*\. For more information about IAM Identity Center, see [ What is IAM Identity Center?](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) in the *AWS IAM Identity Center \(successor to AWS Single Sign\-On\) User Guide*\. 
 
 You can also use git\-remote\-codecommit with an IAM user\. Unlike other HTTPS connection methods, git\-remote\-codecommit does not require setting up Git credentials for the user\.
 
@@ -94,11 +94,11 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
    aws configure
    ```
 
-   When prompted, specify the AWS access key and AWS secret access key of the IAM user to use with CodeCommit\. Also, be sure to specify the AWS Region where the repository exists, such as `us-east-2`\. When prompted for the default output format, specify `json`\. For example:
+   When prompted, specify the AWS access key and AWS secret access key of the IAM user to use with CodeCommit\. Also, be sure to specify the AWS Region where the repository exists, such as `us-east-2`\. When prompted for the default output format, specify `json`\. For example, if you are configuring a profile for an IAM user:
 
    ```
-   AWS Access Key ID [None]: Type your target AWS access key ID here, and then press Enter
-   AWS Secret Access Key [None]: Type your target AWS secret access key here, and then press Enter
+   AWS Access Key ID [None]: Type your IAM user AWS access key ID here, and then press Enter
+   AWS Secret Access Key [None]: Type your IAM user AWS secret access key here, and then press Enter
    Default region name [None]: Type a supported region for CodeCommit here, and then press Enter
    Default output format [None]: Type json here, and then press Enter
    ```
@@ -133,6 +133,7 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
    + cn\-northwest\-1
    + eu\-south\-1
    + ap\-northeast\-3
+   + af\-south\-1
 
    For more information about CodeCommit and AWS Region, see [Regions and Git connection endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\. For more information about the AWS CLI and profiles, see [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)\.
 

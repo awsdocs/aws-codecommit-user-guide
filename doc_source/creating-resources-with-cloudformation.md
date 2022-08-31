@@ -64,9 +64,9 @@ MyRepo:
 
 For more examples, see [AWS::CodeCommit::Repository](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html)\.
 
-## AWS CloudFormation, CodeCommit, and the AWS Cloud Development Kit \(CDK\)<a name="cloudformation-codecommit-cdk"></a>
+## AWS CloudFormation, CodeCommit, and the AWS Cloud Development Kit \(AWS CDK\)<a name="cloudformation-codecommit-cdk"></a>
 
-Repositories created using the AWS CDK use AWS CloudFormation functionality in their creation\. Understanding how AWS CloudFormation templates work with CodeCommit resources can help you create and manage your AWS CDK code\. For more information about the AWS CDK, see the [AWS Cloud Development Kit \(CDK\) Developer Guide](https://docs.aws.amazon.com/cdk/latest/guide/home.html) and the [AWS CDK API Reference\.](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-codecommit-readme.html)
+Repositories created using the AWS CDK use AWS CloudFormation functionality in their creation\. Understanding how AWS CloudFormation templates work with CodeCommit resources can help you create and manage your AWS CDK code\. For more information about the AWS CDK, see the [AWS Cloud Development Kit \(AWS CDK\) Developer Guide](https://docs.aws.amazon.com/cdk/latest/guide/home.html) and the [AWS CDK API Reference\.](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-codecommit-readme.html)
 
 The following AWS CDK Typescript example creates a CodeCommit repository named *MyDemoRepo*\. The newly created repository is populated with code stored in an Amazon S3 bucket named *MySourceCodeBucket* and placed in a branch named *development*, which is the default branch for the repository\. 
 

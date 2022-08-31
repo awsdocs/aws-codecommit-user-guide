@@ -16,6 +16,9 @@ For information about using CodeCommit and Amazon Virtual Private Cloud, see [Us
 
 You can view and manage your CodeCommit credentials from the AWS console through **My Security Credentials**\.
 
+**Note**  
+This option is not available for users using federated access, temporary credentials, or a web identity provider\.
+
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
 1. In the navigation bar on the upper right, choose your user name, and then choose **My Security Credentials**\.   

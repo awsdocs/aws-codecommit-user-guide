@@ -219,7 +219,55 @@ The following example denies all CodeCommit actions on repositories tagged with 
   "Statement": [
     {
       "Effect": "Deny",
-      "Action": "codecommit:*",
+      "Action": [
+        "codecommit:Associate*",
+        "codecommit:Batch*",
+        "codecommit:CancelUploadArchive",
+        "codecommit:CreateBranch",
+        "codecommit:CreateCommit",
+        "codecommit:CreatePullRequest*",
+        "codecommit:CreateRepository",
+        "codecommit:CreateUnreferencedMergeCommit",
+        "codecommit:DeleteBranch",
+        "codecommit:DeleteCommentContent",
+        "codecommit:DeleteFile",
+        "codecommit:DeletePullRequest*",
+        "codecommit:DeleteRepository",
+        "codecommit:Describe*",
+        "codecommit:DisassociateApprovalRuleTemplateFromRepository",
+        "codecommit:EvaluatePullRequestApprovalRules",
+        "codecommit:GetBlob",
+        "codecommit:GetBranch",
+        "codecommit:GetComment*",
+        "codecommit:GetCommit",
+        "codecommit:GetDifferences*",
+        "codecommit:GetFile",
+        "codecommit:GetFolder",
+        "codecommit:GetMerge*",
+        "codecommit:GetObjectIdentifier",
+        "codecommit:GetPullRequest*",
+        "codecommit:GetReferences",
+        "codecommit:GetRepository*",
+        "codecommit:GetTree",
+        "codecommit:GetUploadArchiveStatus",
+        "codecommit:Git*",
+        "codecommit:ListAssociatedApprovalRuleTemplatesForRepository",
+        "codecommit:ListBranches",
+        "codecommit:ListPullRequests",
+        "codecommit:ListTagsForResource",
+        "codecommit:Merge*",
+        "codecommit:OverridePullRequestApprovalRules",
+        "codecommit:Post*",
+        "codecommit:Put*",
+        "codecommit:TagResource",
+        "codecommit:TestRepositoryTriggers",
+        "codecommit:UntagResource",
+        "codecommit:UpdateComment",
+        "codecommit:UpdateDefaultBranch",
+        "codecommit:UpdatePullRequest*",
+        "codecommit:UpdateRepository*",
+        "codecommit:UploadArchive"
+      ],
       "Resource": "*",
       "Condition": {
         "StringEquals": {
@@ -231,37 +279,88 @@ The following example denies all CodeCommit actions on repositories tagged with 
 }
 ```
 
-You can further refine this strategy by specifying specific repositories, rather than all repositories, as resources\. You can also create policies that allow CodeCommit actions on all repositories that are not tagged with specific tags\. For example, the following policy allows the equivalent of AWSCodeCommitPowerUser permissions for all repositories except those tagged with the specified tags:
+You can further refine this strategy by specifying specific repositories, rather than all repositories, as resources\. You can also create policies that allow CodeCommit actions on all repositories that are not tagged with specific tags\. For example, the following policy allows the equivalent of **AWSCodeCommitPowerUser** permissions for CodeCommit actions, except that it only allows CodeCommit actions on repositories not tagged with the specified tags:
+
+**Note**  
+This policy example only includes actions for CodeCommit\. It does not include actions for other AWS services that are included in the **AWSCodeCommitPowerUser** managed policy\. For more information, see \.[AWS managed policy: AWSCodeCommitPowerUser](security-iam-awsmanpol.md#managed-policies-poweruser)\.
 
 ```
 {
-   "Version": "2012-10-17",
-   "Statement": [
-      {
-         "Effect": "Allow",
-         "Action": [
-            "codecommit:BatchGetRepositories",
-            "codecommit:CreateBranch",
-            "codecommit:CreateRepository",
-            "codecommit:Get*",
-            "codecommit:GitPull",
-            "codecommit:GitPush",
-            "codecommit:List*",
-            "codecommit:Put*",
-            "codecommit:TagResource",
-            "codecommit:Test*",
-            "codecommit:UntagResource",
-            "codecommit:Update*"
-         ],
-         "Resource": "*",
-         "Condition": {
-            "StringNotEquals": {
-               "aws:ResourceTag/Status": "Secret",
-               "aws:ResourceTag/Team": "Saanvi"
-            }
-         }
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "codecommit:Associate*",
+        "codecommit:Batch*",
+        "codecommit:CancelUploadArchive",
+        "codecommit:CreateBranch",
+        "codecommit:CreateCommit",
+        "codecommit:CreatePullRequest*",
+        "codecommit:CreateRepository",
+        "codecommit:CreateUnreferencedMergeCommit",
+        "codecommit:DeleteBranch",
+        "codecommit:DeleteCommentContent",
+        "codecommit:DeleteFile",
+        "codecommit:DeletePullRequest*",
+        "codecommit:Describe*",
+        "codecommit:DisassociateApprovalRuleTemplateFromRepository",
+        "codecommit:EvaluatePullRequestApprovalRules",
+        "codecommit:GetBlob",
+        "codecommit:GetBranch",
+        "codecommit:GetComment*",
+        "codecommit:GetCommit",
+        "codecommit:GetDifferences*",
+        "codecommit:GetFile",
+        "codecommit:GetFolder",
+        "codecommit:GetMerge*",
+        "codecommit:GetObjectIdentifier",
+        "codecommit:GetPullRequest*",
+        "codecommit:GetReferences",
+        "codecommit:GetRepository*",
+        "codecommit:GetTree",
+        "codecommit:GetUploadArchiveStatus",
+        "codecommit:Git*",
+        "codecommit:ListAssociatedApprovalRuleTemplatesForRepository",
+        "codecommit:ListBranches",
+        "codecommit:ListPullRequests",
+        "codecommit:ListTagsForResource",
+        "codecommit:Merge*",
+        "codecommit:OverridePullRequestApprovalRules",
+        "codecommit:Post*",
+        "codecommit:Put*",
+        "codecommit:TagResource",
+        "codecommit:TestRepositoryTriggers",
+        "codecommit:UntagResource",
+        "codecommit:UpdateComment",
+        "codecommit:UpdateDefaultBranch",
+        "codecommit:UpdatePullRequest*",
+        "codecommit:UpdateRepository*",
+        "codecommit:UploadArchive"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:ResourceTag/Status": "Secret",
+          "aws:ResourceTag/Team": "Saanvi"
+        }
       }
-   ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "codecommit:CreateApprovalRuleTemplate",
+        "codecommit:GetApprovalRuleTemplate",
+        "codecommit:ListApprovalRuleTemplates",
+        "codecommit:ListRepositories",
+        "codecommit:ListRepositoriesForApprovalRuleTemplate",
+        "codecommit:UpdateApprovalRuleTemplateContent",
+        "codecommit:UpdateApprovalRuleTemplateDescription",
+        "codecommit:UpdateApprovalRuleTemplateName"
+      ],
+      "Resource": "*"
+    }
+  ]
 }
 ```
 
@@ -301,9 +400,7 @@ However, if you want to configure your trigger to use an Amazon SNS topic in ano
         "sns:GetTopicAttributes",
         "sns:Publish",
         "sns:RemovePermission",
-        "sns:AddPermission",
-        "sns:Receive",
-        "sns:SetTopicAttributes"
+        "sns:AddPermission",        "sns:SetTopicAttributes"
       ],
       "Resource": "arn:aws:sns:us-east-2:111111111111:NotMySNSTopic",
       "Condition": {
@@ -337,27 +434,31 @@ You can configure CloudWatch Events to publish to an Amazon SNS topic when event
 
 ```
 {
-  Version":"2012-10-17",
-  "Id":"__default_policy_ID",
-  "Statement":[
+  "Version": "2008-10-17",
+  "Id": "__default_policy_ID",
+  "Statement": [
     {
-      "Sid":"__default_statement_ID",
-      "Effect":"Allow",
-      "Principal":"{"AWS":"*"},
-      "Action":
-        "sns:Publish"
-      ]
-      "Resource":"arn:aws:sns:us-east-2:123456789012:MyTopic",
-      "Condition":{
-        "StringEquals":{"AWS:SourceOwner":123456789012"}
+      "Sid": "__default_statement_ID",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": "sns:Publish",
+      "Resource": "arn:aws:sns:us-east-2:123456789012:MyTopic",
+      "Condition": {
+        "StringEquals": {
+          "AWS:SourceOwner": "123456789012"
+        }
       }
-    },                    
+    },
     {
-      "Sid":"Allow_Publish_Events",
-      "Effect":"Allow",
-      "Principal":{"Service":"events.amazonaws.com"},
-      "Action":"sns:Publish",
-      "Resource":"arn:aws:sns:us-east-2:123456789012:MyTopic"
+      "Sid": "Allow_Publish_Events",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "events.amazonaws.com"
+      },
+      "Action": "sns:Publish",
+      "Resource": "arn:aws:sns:us-east-2:123456789012:MyTopic"
     }
   ]
 }
@@ -369,7 +470,7 @@ For more information about CodeCommit and CloudWatch Events, see [CloudWatch Eve
 
 You can configure a CodeCommit repository so that code pushes or other events trigger actions, such as invoking a function in AWS Lambda\. For more information, see [Create a trigger for a Lambda function](how-to-notify-lambda.md)\. This information is specific to triggers, and not CloudWatch Events\.
 
-If you want your trigger to run a Lambda function directly \(instead of using an Amazon SNS topic to invoke the Lambda function\), and you do not configure the trigger in the Lambda console, you must include a policy similar to the following in the function's resource policy:
+If you want your trigger to run a Lambda function directly \(instead of using an Amazon SNS topic to invoke the Lambda function\), and you do not configure the trigger in the Lambda console, you must include a statement similar to the following in the function's resource\-based policy:
 
 ```
 {

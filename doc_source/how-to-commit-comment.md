@@ -5,7 +5,7 @@ You can use the CodeCommit console to comment on commits in a repository, and vi
 + Whether more changes are required\.
 + Whether changes should be merged into another branch\.
 
-You can comment on an overall commit, a file in a commit, or a specific line or change in a file\. You can also link to a line or lines of code by selecting the line or lines, and then copying the resulting URL in your browser\.
+You can comment on an overall commit, a file in a commit, or a specific line or change in a file\. You can also link to a line of code by selecting the line and then copying the resulting URL in your browser\.
 
 **Note**  
 For best results, use commenting when you are signed in as an IAM user\. The commenting functionality is not optimized for users who sign in with root account credentials, federated access, or temporary credentials\.

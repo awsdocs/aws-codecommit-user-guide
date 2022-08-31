@@ -34,7 +34,7 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
    For example, to add a file named *README\.md* with the content of "Welcome to our team repository\!" to a repository named *MyDemoRepo* to a branch named *development*:
 
    ```
-   aws codecommit put-file --repository-name MyDemoRepo --branch-name development --file-path README.md --file-content "Welcome to our team repository!" --name "Mary Major" --email "mary_major@example.com" --commit-message "I added a quick readme for our new team repository."
+   aws codecommit put-file --repository-name MyDemoRepo --branch-name development --file-path README.md --file-content "Welcome to our team repository!" --author-name "Mary Major" --email "mary_major@example.com" --commit-message "I added a quick readme for our new team repository."
    ```
 
    If successful, this command returns output similar to the following:
@@ -180,10 +180,10 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI\. For more informat
 
    The user name, email address, and commit message are optional, but help other users know who made the changes and why\. If you do not supply a user name, CodeCommit defaults to using your IAM user name or a derivation of your console login as the author name\.
 
-   For example, to create a commit for a repository that adds a `README.md` file to a repository named *MyDemoRepo* in the *main* branch:
+   For example, to create a commit for a repository that adds a `README.md` file to a repository named *MyDemoRepo* in the *main* branch\. The content of the file is in Base64 and reads "Welcome to our team repository\!":
 
    ```
-   aws codecommit create-commit --repository-name MyDemoRepo --branch-name main --parent-commit-id 4c925148EXAMPLE --put-files "filePath=README.md,fileContent='Welcome to our team repository.'"
+   aws codecommit create-commit --repository-name MyDemoRepo --branch-name main --parent-commit-id 4c925148EXAMPLE --put-files "filePath=README.md,fileContent=V2VsY29tZSB0byBvdXIgdGVhbSByZXBvc2l0b3J5IQo="
    ```
 **Tip**  
 To get the parent commit ID, run the [get\-branch](how-to-view-branch-details.md#how-to-view-branch-details-cli-details) command\.

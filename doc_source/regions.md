@@ -22,6 +22,7 @@ You can create and use CodeCommit repositories in the following AWS Regions:
 + Europe \(Frankfurt\)
 + Europe \(Stockholm\)
 + Europe \(Milan\)
++ Africa \(Cape Town\)
 + Asia Pacific \(Tokyo\)
 + Asia Pacific \(Singapore\)
 + Asia Pacific \(Sydney\)
@@ -102,9 +103,11 @@ Use the following URLs when you configure Git connections to CodeCommit reposito
 | China \(Ningxia\) | cn\-northwest\-1 | https://git\-codecommit\.cn\-northwest\-1\.amazonaws\.com\.cn | HTTPS | 
 | China \(Ningxia\) | cn\-northwest\-1 | ssh://git\-codecommit\.cn\-northwest\-1\.amazonaws\.com\.cn | SSH | 
 | Europe \(Milan\) | eu\-south\-1 | https://git\-codecommit\.eu\-south\-1\.amazonaws\.com | HTTPS | 
-| Europe \(Milan\) | eu\-south\-1 | ssh://git\-codecommit\-eu\-south\-1\.amazonaws\.com | SSH | 
+| Europe \(Milan\) | eu\-south\-1 | ssh://git\-codecommit\.eu\-south\-1\.amazonaws\.com | SSH | 
 | Asia Pacific \(Osaka\) | ap\-northeast\-3 | https://git\-codecommit\.ap\-northeast\-3\.amazonaws\.com | HTTPS | 
-| Asia Pacific \(Osaka\) | ap\-northeast\-3 | git\-codecommit\.ap\-northeast\-3\.amazonaws\.com | SSH | 
+| Asia Pacific \(Osaka\) | ap\-northeast\-3 | ssh://git\-codecommit\.ap\-northeast\-3\.amazonaws\.com | SSH | 
+| Africa \(Cape Town\) | af\-south\-1 | https://git\-codecommit\.af\-south\-1\.amazonaws\.com | HTTPS | 
+| Africa \(Cape Town\) | af\-south\-1 | ssh://git\-codecommit\.af\-south\-1\.amazonaws\.com | SSH | 
 
 ## Server fingerprints for CodeCommit<a name="regions-fingerprints"></a>
 
@@ -163,3 +166,5 @@ The following table lists the public fingerprints for Git connection endpoints i
 | git\-codecommit\.eu\-south\-1\.amazonaws\.com | SHA256 | lyXrWbCg3uQmJrl1XxB/ASR7ugW1Ysf5yzYOJbudHsI | 
 | git\-codecommit\.ap\-northeast\-3\.amazonaws\.com | MD5 | 25:17:40:da:b9:d4:18:c3:b6:b3:fb:ed:1c:20:fe:29 | 
 | git\-codecommit\.ap\-northeast\-3\.amazonaws\.com | SHA256 | 2B815B9F0AvwLnRxSVxUz4kDYmtEQUGGdQYP8OQLXhA | 
+| git\-codecommit\.af\-south\-1\.amazonaws\.com | MD5 | 21:a0:ba:d7:c1:d1:b5:39:98:8d:4d:7c:96:f5:ca:29 | 
+| git\-codecommit\.af\-south\-1\.amazonaws\.com | SHA256 | C34ji3x/cnsDZjUpyNGXdE5pjHYimqJrQZ3leTgqJHM | 

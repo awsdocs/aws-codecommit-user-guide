@@ -14,7 +14,7 @@ After you complete this tutorial, you should have enough practice with the core 
 
 Complete the [prerequisites and setup](setting-up.md), including:
 + Assign permissions to the IAM user\.
-+ Set up CodeCommit to connect to a repository using [HTTPS](setting-up-gc.md), SSH, or [git\-remote\-codecommit](setting-up-git-remote-codecommit.md)\. For more information about these choices, see [Setting up for AWS CodeCommit ](setting-up.md)\.
++ Set up CodeCommit to connect to a repository using [HTTPS](setting-up-gc.md), SSH, or [git\-remote\-codecommit](setting-up-git-remote-codecommit.md)\. For more information about these choices, see [Setting up for AWS CodeCommit](setting-up.md)\.
 + Configure the AWS CLI if you want to use the command line or terminal for all operations, including creating the repository\.
 
 **Topics**
@@ -105,7 +105,7 @@ In this step, you set up a local repo on your local machine to connect to your r
    git clone ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo
    ```
 **Note**  
-If you see an error when attempting to clone a repository, you might not have completed the setup necessary for your local computer\. For more information, see [Setting up for AWS CodeCommit ](setting-up.md)\.
+If you see an error when attempting to clone a repository, you might not have completed the setup necessary for your local computer\. For more information, see [Setting up for AWS CodeCommit](setting-up.md)\.
 
 ## Step 3: Create your first commit<a name="getting-started-create-commit"></a>
 
@@ -390,7 +390,7 @@ This step is written with the assumption you have permissions to create IAM user
 
 1. Follow the instructions in [For HTTPS users using Git credentials](setting-up-gc.md)  to generate and supply the credentials of the IAM user\.
 
-   If you want to use SSH, follow the instructions in [SSH and Linux, macOS, or Unix: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes) or [Step 3:  Set up the public and private keys for Git and CodeCommit ](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows) to set up the user with public and private keys\.
+   If you want to use SSH, follow the instructions in [SSH and Linux, macOS, or Unix: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes) or [Step 3:  Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows) to set up the user with public and private keys\.
 
 1. Run git pull\. The following error should appear:
 
@@ -464,7 +464,7 @@ For information about other CodeCommit action and resource permissions you can g
 
 1. If you are using HTTPS, switch to your original Git credentials or, if using git\-remote\-codecommit, your usual profile\. For more information, see the instructions in [Setup for HTTPS users using Git credentials](setting-up-gc.md) or [Setup steps for HTTPS connections to AWS CodeCommit with git\-remote\-codecommit](setting-up-git-remote-codecommit.md)\.
 
-   If you are using SSH, switch to your original keys\. For more information, see [SSH and Linux, macOS, or Unix: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes) or [Step 3:  Set up the public and private keys for Git and CodeCommit ](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
+   If you are using SSH, switch to your original keys\. For more information, see [SSH and Linux, macOS, or Unix: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes) or [Step 3:  Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
 
 You've reached the end of this tutorial\. 
 

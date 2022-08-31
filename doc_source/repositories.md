@@ -4,7 +4,7 @@ A repository is the fundamental version control object in CodeCommit\. It's wher
 
 ![\[A view of the contents of a repository\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-code-browse.png)
 
-Before you can push changes to a CodeCommit repository, you must configure your IAM user in your Amazon Web Services account\. For more information, see [Step 1: Initial configuration for CodeCommit](setting-up-gc.md#setting-up-gc-account)\. 
+Before you can push changes to a CodeCommit repository, you must configure an IAM user in your Amazon Web Services account, or set up access for federated access or temporary credentials\. For more information, see [Step 1: Initial configuration for CodeCommit](setting-up-gc.md#setting-up-gc-account) and [Setup steps for HTTPS connections to AWS CodeCommit with git\-remote\-codecommit](setting-up-git-remote-codecommit.md)\. 
 
 For information about working with other aspects of your repository in CodeCommit, see [Working with files](files.md), [Working with pull requests](pull-requests.md) , [Working with commits](commits.md), [Working with branches](branches.md), and [Working with user preferences](user-preferences.md)\. For information about migrating to CodeCommit, see [Migrate to CodeCommit](how-to-migrate-repository.md)\.
 

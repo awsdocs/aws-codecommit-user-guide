@@ -2,7 +2,7 @@
 
 You can create one or more approval rule templates to help you customize your development workflows across repositories\. By creating multiple templates, you can configure the automatic creation of approval rules so that different branches have appropriate levels of approvals and control\. For example, you can create different templates for production and development branches and apply these templates to one or more repositories\. When users create pull requests in those repositories, the request is evaluated against those templates\. If the request matches the conditions in the applied templates, approval rules are created for the pull request\.
 
-You can use the console or AWS CLI to create approval rule templates\.
+You can use the console or AWS CLI to create approval rule templates\. For more information about managed policies and permissions for approval rule templates, see [Permissions for actions on approval rule templates](auth-and-access-control-permissions-reference.md#aa-art) and [AWS managed policies for CodeCommit](security-iam-awsmanpol.md)\.
 
 **Topics**
 + [Create an approval rule template \(console\)](#how-to-create-template-console)

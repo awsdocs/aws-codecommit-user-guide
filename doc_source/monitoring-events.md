@@ -531,7 +531,7 @@ In this example event, a user with an IAM user name of `Mary_Major` associated a
 ```
 {
     "version": "0",
-    "id": "bef3a385-EXAMPLE",
+    "id": "ea1c6d73-EXAMPLE",
     "detail-type": "CodeCommit Approval Rule Template Change",
     "source": "aws.codecommit",
     "account": "123456789012",
@@ -548,9 +548,9 @@ In this example event, a user with an IAM user name of `Mary_Major` associated a
         "creationDate": "Wed Nov 06 19:02:14 UTC 2019",
         "event": "approvalRuleTemplateAssociatedWithRepository",
         "lastModifiedDate": "Wed Nov 06 19:02:14 UTC 2019",
-        "notificationBody": "A approval rule template event occurred in the following AWS CodeCommit account: 123456789012. User: arn:aws:iam::123456789012:user\Mary_Major. Additional information: An approval rule template has been associated with the following repository: [MyDemoRepo]. For more information, go to the AWS CodeCommit console.",
+        "notificationBody": "A approval rule template event occurred in the following AWS CodeCommit account: 123456789012. User: arn:aws:iam::123456789012:user/Mary_Major. Additional information: An approval rule template has been associated with the following repository: [MyDemoRepo]. For more information, go to the AWS CodeCommit console.",
         "repositories": {
-            "MyDemoRepo": "12345678-1234-5678-abcd-12345678abcd"
+            "MyDemoRepo": "92ca7bf2-d878-49ed-a994-336a6cc7c574"
         }
     }
 }
@@ -614,8 +614,7 @@ In this example event, a user with an IAM user name of `Mary_Major` batch associ
         "lastModifiedDate": "Tue Nov 12 23:38:57 UTC 2019",
         "notificationBody": "A approval rule template event occurred in the following AWS CodeCommit account: 123456789012. User: arn:aws:iam::123456789012:user\Mary_Major. Additional information: An approval rule template has been batch associated with the following repository names: [MyDemoRepo, MyTestRepo]. For more information, go to the AWS CodeCommit console.",
         "repositories": {
-            "MyDemoRepo", 
-            "MyTestRepo"
+            "MyDemoRepo": "MyTestRepo"
         }
     }
 }

@@ -67,11 +67,11 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
    aws configure
    ```
 
-   When prompted, specify the AWS access key and AWS secret access key of the IAM user to use with CodeCommit\. Also, be sure to specify the AWS Region where the repository exists, such as `us-east-2`\. When prompted for the default output format, specify `json`\. For example:
+   When prompted, specify the AWS access key and AWS secret access key of the IAM user to use with CodeCommit\. Also, be sure to specify the AWS Region where the repository exists, such as `us-east-2`\. When prompted for the default output format, specify `json`\. For example, if you are configuring a profile for an IAM user:
 
    ```
-   AWS Access Key ID [None]: Type your target AWS access key ID here, and then press Enter
-   AWS Secret Access Key [None]: Type your target AWS secret access key here, and then press Enter
+   AWS Access Key ID [None]: Type your IAM user AWS access key ID here, and then press Enter
+   AWS Secret Access Key [None]: Type your IAM user AWS secret access key here, and then press Enter
    Default region name [None]: Type a supported region for CodeCommit here, and then press Enter
    Default output format [None]: Type json here, and then press Enter
    ```
@@ -106,6 +106,7 @@ To upgrade an older version of the AWS CLI to the latest version, see [Installin
    + cn\-northwest\-1
    + eu\-south\-1
    + ap\-northeast\-3
+   + af\-south\-1
 
    For more information about CodeCommit and AWS Region, see [Regions and Git connection endpoints](regions.md)\. For more information about IAM, access keys, and secret keys, see [How Do I Get Credentials?](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html#IAM_SecurityCredentials) and [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)\. For more information about the AWS CLI and profiles, see [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)\.
 
@@ -130,7 +131,7 @@ Git is an evolving, regularly updated platform\. Occasionally, a feature change 
 CodeCommit supports both HTTPS and SSH authentication\. To complete setup, you must configure Git credentials for CodeCommit \(HTTPS, recommended for most users\), an SSH key pair \(SSH\) to use when accessing CodeCommit, git\-remote\-codecommit \(recommended for users who use federated access\), or the credential helper included in the AWS CLI\. 
 + For Git credentials on all supported operating systems, see [Step 3: Create Git credentials for HTTPS connections to CodeCommit](setting-up-gc.md#setting-up-gc-iam)\.
 + For SSH on Linux, macOS, or Unix, see [SSH and Linux, macOS, or Unix: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-unixes.md#setting-up-ssh-unixes-keys-unixes)\.
-+  For SSH on Windows, see [Step 3:  Set up the public and private keys for Git and CodeCommit ](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
++  For SSH on Windows, see [Step 3:  Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows)\.
 + For git\-remote\-codecommit, see [Setup steps for HTTPS connections to AWS CodeCommit with git\-remote\-codecommit](setting-up-git-remote-codecommit.md)\.
 + For the credential helper on Linux, macOS, or Unix, see [Set Up the Credential Helper \(Linux, macOS, or Unix\)](setting-up-https-unixes.md#setting-up-https-unixes-ch-config)\.
 + For the credential helper on Windows, see [Set Up the Credential Helper \(Windows\)](setting-up-https-windows.md#setting-up-https-windows-ch-config)\.
@@ -158,8 +159,6 @@ The description field displays Markdown in the console and accepts all HTML char
 1. \(Optional\) Select **Enable Amazon CodeGuru Reviewer for Java and Python** if this repository contains Java or Python code, and you want CodeGuru Reviewer to analyze it\. CodeGuru Reviewer uses multiple machine learning models to find code defects and to suggest improvements and fixes in pull requests\. For more information, see the [https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/Welcome.html](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/Welcome.html)\.
 
 1. Choose **Create**\. 
-
-![\[Creating a repository for migrating local content to CodeCommit\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-create-repo-migrate-local.png)![\[Creating a repository for migrating local content to CodeCommit\]](http://docs.aws.amazon.com/codecommit/latest/userguide/)
 
 After it is created, the repository appears in the **Repositories** list\. In the URL column, choose the copy icon, and then choose the protocol \(HTTPS or SSH\) to be used to connect to CodeCommit\. Copy the URL\.
 

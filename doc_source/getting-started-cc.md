@@ -2,6 +2,8 @@
 
 This tutorial shows you how to use some key CodeCommit features\. First, you create a repository and commit some changes to it\. Then, you browse the files and view the changes\. You can also create a pull request so other users can review and comment on changes to your code\. 
 
+If you want to migrate existing code to CodeCommit, see [Migrate to AWS CodeCommit](how-to-migrate-repository.md)\.
+
 If you are unfamiliar with Git, consider completing [Getting started with Git and CodeCommit](getting-started.md) too\. After you complete these tutorials, you should have enough practice to start using CodeCommit for your own projects and in team environments\.
 
 The CodeCommit console includes helpful information in a collapsible panel that you can open from the information icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-info-icon.png)\) or any **Info** link on the page\. You can close this panel at any time\.

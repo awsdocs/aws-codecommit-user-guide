@@ -4,7 +4,7 @@ The following tables list each CodeCommit API operation, the corresponding actio
 
 When you create a permissions policy, you specify the actions in the policy's `Action` field\. You specify the resource value in the policy's `Resource` field as an ARN, with or without a wildcard character \(\*\)\. 
 
-To express conditions in your CodeCommit policies, use AWS\-wide condition keys\. For a complete list of AWS\-wide keys, see [Available Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*\.
+To express conditions in your CodeCommit policies, use AWS\-wide condition keys\. For a complete list of AWS\-wide keys, see [Available Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*\. For complete information about actions, resources, and condition keys for CodeCommit in IAM policies, see [Actions, resources, and condition keys for AWS CodeCommit](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscodecommit.html)\. 
 
 **Note**  
 To specify an action, use the `codecommit:` prefix followed by the API operation name \(for example, `codecommit:GetRepository` or `codecommit:CreateRepository`\. 
@@ -54,6 +54,8 @@ Use the scroll bars to see the rest of the table\.
 ## Permissions for actions on branches<a name="aa-branches"></a>
 
 The following permissions allow or deny actions on branches in CodeCommit repositories\. These permissions pertain only to actions performed in the CodeCommit console and with the CodeCommit API, and to commands performed using the AWS CLI\. They do not pertain to similar actions that can be performed using the Git protocol\. For example, the **git show\-branch \-r** command displays a list of remote branches for a repository and its commits using the Git protocol\. It's not affected by any permissions for the CodeCommit `ListBranches` operation\. 
+
+For more information about policies for branches, see [Limit pushes and merges to branches in AWS CodeCommit](how-to-conditional-branch.md) and [Customer managed policy examples](customer-managed-policies.md)\.
 
 Use the scroll bars to see the rest of the table\.
 

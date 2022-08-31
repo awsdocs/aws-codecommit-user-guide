@@ -6,7 +6,7 @@ You can use the CodeCommit console, AWS CLI, or a Git client to edit the content
 
 **Topics**
 + [Edit a file \(console\)](#how-to-edit-file-console)
-+ [Edit or delete a file \(AWS CLI\)](#how-to-edit-file-cli)
++ [Editor delete a file \(AWS CLI\)](#how-to-edit-file-cli)
 + [Edit a file \(Git\)](#how-to-edit-file-git)
 
 ## Edit a file \(console\)<a name="how-to-edit-file-console"></a>
@@ -34,7 +34,7 @@ If you choose a binary file, a warning message appears asking you to confirm tha
 
 1. Choose **Commit changes** to save your changes to the file and commit the changes to the repository\.
 
-## Edit or delete a file \(AWS CLI\)<a name="how-to-edit-file-cli"></a>
+## Editor delete a file \(AWS CLI\)<a name="how-to-edit-file-cli"></a>
 
 You can use the AWS CLI and the put\-file command to make changes to a file in a CodeCommit repository\. You can also use the put\-file command to add a directory or path structure for the changed file, if you want to store the changed file in a location different from the original\. If you want to delete a file entirely, you can use the delete\-file command\.
 

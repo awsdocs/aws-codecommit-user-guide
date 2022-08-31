@@ -12,7 +12,7 @@ The following information might help you troubleshoot issues with git\-remote\-c
 
 **Problem:** When you try to use git\-remote\-codecommit, you see an error that git\-remote\-codecommit is not a git command\. See 'git \-\-help'"\.
 
-**Possible fixes:** The most common reason for this error is a syntax error\. This can happen where a hyphen is missing between git and remote\-codecommit, or when an extra git is placed before git\-remote\-codecommit\.
+**Possible fixes:** The most common reason for this error is that either you have not added the git\-remote\-codecommit executable to your PATH, or that the string contains a syntax error\. This can happen where a hyphen is missing between git and remote\-codecommit, or when an extra git is placed before git\-remote\-codecommit\.
 
 For more information about setting up and using git\-remote\-codecommit, see [Setup steps for HTTPS connections to AWS CodeCommit with git\-remote\-codecommit](setting-up-git-remote-codecommit.md)\.
 
