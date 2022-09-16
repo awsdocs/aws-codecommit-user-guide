@@ -64,7 +64,7 @@ These links are provided for informational purposes only, and should not be cons
   Learn how to manage your Git configuration across multiple Amazon Web Services accounts\.
 
   Published February 12, 2019
-+ **[Validating AWS CodeCommit Pull Requests with AWS CodeBuildand AWS Lambda](https://aws.amazon.com/blogs/devops/validating-aws-codecommit-pull-requests-with-aws-codebuild-and-aws-lambda/)**
++ **[Validating AWS CodeCommit Pull Requests with AWS CodeBuild and AWS Lambda](https://aws.amazon.com/blogs/devops/validating-aws-codecommit-pull-requests-with-aws-codebuild-and-aws-lambda/)**
 
   Learn how to validate pull requests with AWS CodeCommit, AWS CodeBuild, and AWS Lambda\. By running tests against the proposed changes prior to merging them into the default branch, you can help ensure a high level of quality in pull requests, catch any potential issues, and boost the confidence of the developer in relation to their changes\.
 
