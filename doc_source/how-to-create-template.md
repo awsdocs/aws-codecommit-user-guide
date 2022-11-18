@@ -14,6 +14,9 @@ Approval rule templates are not associated with any repository by default\. You 
 
 ## To create an approval rule template \(Console\)<a name="create-template-console"></a>
 
+**Note**  
+The pull request cannot be approved by the same individual who has created it\.
+
 1. Open the CodeCommit console at [https://console\.aws\.amazon\.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home)\.
 
 1. Choose **Approval rule templates**, and then choose **Create template**\.
