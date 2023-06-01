@@ -19,7 +19,7 @@ If you need more guidance, follow the instructions in [For SSH connections on Li
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. In the IAM console, in the navigation pane, choose **Users**, and from the list of users, choose your IAM user\. 
+1. In the IAM console, in the navigation panel, choose **Users**, and from the list of users, choose your IAM user\. 
 
 1. On the **Security Credentials** tab, choose **Upload SSH public key**\.
 
